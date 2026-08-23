@@ -1,1 +1,25 @@
 @import "tailwindcss";
+@theme{
+  /* surfaces */
+  --color-paper:#E8E2D0;     
+  --color-surface:#F2EEE1;  
+  --color-sage:#E5E7D6;       
+
+  /* text */
+  --color-ink:#211B12;        
+  --color-ink-soft:#5D5342;   
+
+  /* identity colors */
+  --color-green:#C6D3BB;     
+  --color-green-deep:#3F6B4E;
+  --color-gold:#D9B87A;       
+  --color-gold-deep:#8A6B33;
+  --color-brick:#C4907C;    
+  --color-brick-deep:#8F5644;
+}
+
+@theme inline {
+  /* fonts*/
+  --font-cairo: var(--cairo-font), sans-serif;
+  --font-alex: var(--alex-font), sans-serif;
+}
