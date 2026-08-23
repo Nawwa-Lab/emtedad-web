@@ -21,9 +21,7 @@ export const metadata: Metadata = {
 	description: "Emtedad UI",
 };
 
-export async function generateStaticParams() {
-	return [{ lang: "ar" }, { lang: "en" }];
-}
+
 
 export default async function RootLayout({
 	children,
@@ -34,7 +32,7 @@ export default async function RootLayout({
 	return (
 		<html lang={lang} dir={dir}>
 			<body
-				className={`min-h-full flex flex-col ${cairoFont.variable} ${alexandriaFont.variable}`}
+				className={`min-h-full flex flex-col ${cairoFont.variable} ${alexandriaFont.variable} bg-paper`}
 			>
 				{children}
 			</body>
