@@ -17,3 +17,9 @@
   --color-brick:#C4907C;    
   --color-brick-deep:#8F5644;
 }
+
+@theme inline {
+  /* fonts*/
+  --font-cairo: var(--cairo-font), sans-serif;
+  --font-alex: var(--alex-font), sans-serif;
+}
