@@ -1,1 +1,13 @@
-{}
+{
+	"login": {
+		"title": "Welcome to Emtedad",
+		"description": "Log in to your account and continue your charity course from where you left off.",
+		"emailLabel": "Email",
+		"passwordLabel": "Password",
+		"submit": "Log in",
+		"forgotPassword": "Forgot password?",
+		"invitation": "Join Emtedad by invitation — from your organization or from the Emtedad team.",
+		"metaTitle": "Emtedad - Login",
+		"metaDescription": "Emtedad Login page"
+	}
+}

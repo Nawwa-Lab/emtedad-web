@@ -1,11 +1,12 @@
 import type { Locale } from "@/types";
 
-const dictionaries = {
-	en: () => import("@/dictionary/en.json").then((module) => module.default),
-	ar: () => import("@/dictionary/ar.json").then((module) => module.default),
-};
+import ar from "@/dictionary/ar.json";
+import en from "@/dictionary/en.json";
 
-export const getDictionary = async (locale: Locale) => {
-	const loadDictionary = dictionaries[locale] ?? dictionaries.en;
-	return await loadDictionary();
+const dictionaries = { ar, en } as const;
+
+export type Dictionary = (typeof dictionaries)[Locale];
+
+export const getDictionary = async (locale: Locale): Promise<Dictionary> => {
+	return dictionaries[locale] ?? dictionaries.en;
 };

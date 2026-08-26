@@ -1,0 +1,31 @@
+<svg
+	xmlns='http://www.w3.org/2000/svg'
+	class='block mx-auto mt-0 mb-2.5'
+	width='64'
+	height='64'
+	viewBox='0 0 100 100'
+	fill='none'
+	aria-hidden='true'
+>
+	<path
+		d='M50 10 A40 40 0 0 1 84.6 70'
+		stroke='#3F6B4E'
+		stroke-width='7'
+		stroke-linecap='round'
+	></path>
+	<path
+		d='M84.6 70 A40 40 0 0 1 15.4 70'
+		stroke='#D9B87A'
+		stroke-width='7'
+		stroke-linecap='round'
+	></path>
+	<path
+		d='M15.4 70 A40 40 0 0 1 50 10'
+		stroke='#C4907C'
+		stroke-width='7'
+		strokeLinecap='round'
+	></path>
+	<circle cx='50' cy='10' r='6.5' fill='#3F6B4E'></circle>
+	<circle cx='84.6' cy='70' r='6.5' fill='#D9B87A'></circle>
+	<circle cx='15.4' cy='70' r='6.5' fill='#C4907C'></circle>
+</svg>
