@@ -1,25 +1,45 @@
 @import "tailwindcss";
-@theme{
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
   /* surfaces */
-  --color-paper:#E8E2D0;     
-  --color-surface:#F2EEE1;  
-  --color-sage:#E5E7D6;       
+  --color-paper: #E8E2D0;
+  --color-surface: #F2EEE1;
+  --color-sage: #E5E7D6;
 
   /* text */
-  --color-ink:#211B12;        
-  --color-ink-soft:#5D5342;   
+  --color-ink: #211B12;
+  --color-ink-soft: #5D5342;
 
   /* identity colors */
-  --color-green:#C6D3BB;     
-  --color-green-deep:#3F6B4E;
-  --color-gold:#D9B87A;       
-  --color-gold-deep:#8A6B33;
-  --color-brick:#C4907C;    
-  --color-brick-deep:#8F5644;
+  --color-green: #C6D3BB;
+  --color-green-deep: #3F6B4E;
+  --color-gold: #D9B87A;
+  --color-gold-deep: #8A6B33;
+  --color-brick: #C4907C;
+  --color-brick-deep: #8F5644;
+
+  /* hairlines */
+  --color-line: rgba(33, 27, 18, 0.16);
+  --color-line-soft: rgba(33, 27, 18, 0.09);
 }
 
 @theme inline {
   /* fonts*/
   --font-cairo: var(--cairo-font), sans-serif;
   --font-alex: var(--alex-font), sans-serif;
+  --font-display: var(--alex-font), var(--cairo-font), sans-serif;
+}
+
+.dot-grid-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='1.7' fill='%233F6B4E' fill-opacity='0.16'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-position: 0 0;
+
+  /* radial fade mask, replicating the original <mask> + radialGradient */
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, white 60%, transparent 100%);
+  mask-image: radial-gradient(circle at 50% 50%, white 60%, transparent 100%);
 }

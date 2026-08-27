@@ -32,7 +32,7 @@ export default async function RootLayout({
 	return (
 		<html lang={lang} dir={dir}>
 			<body
-				className={`min-h-full flex flex-col ${cairoFont.variable} ${alexandriaFont.variable} bg-paper`}
+				className={`h-screen overflow-hidden flex flex-col relative ${cairoFont.variable} ${alexandriaFont.variable} bg-paper`}
 			>
 				{children}
 			</body>
