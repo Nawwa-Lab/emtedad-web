@@ -1,0 +1,13 @@
+<svg
+	xmlns='http://www.w3.org/2000/svg'
+	width='44'
+	height='44'
+	viewBox='0 0 100 100'
+	fill='none'
+	aria-hidden='true'
+>
+	<circle cx='50' cy='50' r='40' stroke='#3F6B4E' stroke-width='7'></circle>
+	<circle cx='50' cy='36' r='9' fill='#3F6B4E'></circle>
+	<circle cx='34' cy='62' r='9' fill='#D9B87A'></circle>
+	<circle cx='66' cy='62' r='9' fill='#C4907C'></circle>
+</svg>

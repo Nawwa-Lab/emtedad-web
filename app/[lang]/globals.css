@@ -3,6 +3,8 @@
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant ltr (&:where(html[dir="ltr"] *));
+@custom-variant rtl (&:where(html[dir="rtl"] *));
 
 @theme {
   /* surfaces */
