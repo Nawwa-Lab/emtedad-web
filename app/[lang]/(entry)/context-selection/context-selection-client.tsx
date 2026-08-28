@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/field";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -25,13 +26,9 @@ function CheckIndicator({ checked }: { checked: boolean }) {
 	);
 }
 
-export default function ContextSelectionClient({
-	dict,
-}: {
-	dict: Record<string, string>;
-	name: string;
-}) {
+export default function ContextSelectionClient() {
 	const [value, setValue] = useState("org");
+	const t = useTranslations("contextSelection");
 
 	return (
 		<>
@@ -48,10 +45,10 @@ export default function ContextSelectionClient({
 						<FieldContent>
 							<Image src={OrgLogo} alt='' width={44} height={44} />
 							<FieldTitle className='font-display font-bold text-ink text-[22px] mt-3.5'>
-								{dict.orgTitle}
+								{t("orgTitle")}
 							</FieldTitle>
 							<FieldDescription className='text-start font-cairo font-semibold text-[13px] text-ink-soft leading-[1.9] mt-1.5'>
-								{dict.orgDesc}
+								{t("orgDesc")}
 							</FieldDescription>
 						</FieldContent>
 						<RadioGroupItem
@@ -74,10 +71,10 @@ export default function ContextSelectionClient({
 						<FieldContent>
 							<Image src={PubLogo} alt='' width={44} height={44} />
 							<FieldTitle className='font-display font-bold text-ink text-[22px] mt-3.5'>
-								{dict.pubTitle}
+								{t("pubTitle")}
 							</FieldTitle>
 							<FieldDescription className='text-start font-cairo font-semibold text-[13px] text-ink-soft leading-[1.9] mt-1.5'>
-								{dict.pubDesc}
+								{t("pubDesc")}
 							</FieldDescription>
 						</FieldContent>
 						<RadioGroupItem
@@ -93,7 +90,7 @@ export default function ContextSelectionClient({
 				type='button'
 				className='font-cairo inline-block mt-6 min-w-55 text-center bg-green text-ink border-0 rounded-full cursor-pointer font-body font-extrabold text-[15px] py-3.25 px-8.5 transition-colors duration-150 hover:bg-[#B9C9AC] focus-visible:outline-2 focus-visible:outline-green-deep focus-visible:outline-offset-2'
 			>
-				{dict.submit}
+				{t("submit")}
 			</button>
 		</>
 	);

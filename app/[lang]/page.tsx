@@ -1,4 +1,4 @@
-import { getDictionary } from "@/dictionary/get-dictionary";
+import { getDictionary } from "@/i18n/dictionary/get-dictionary";
 import type { Locale } from "@/types";
 
 

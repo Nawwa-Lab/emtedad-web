@@ -1,25 +1,51 @@
-import { NextResponse } from "next/server";
-import { DEFAULT_LOCALE, LANGUAGES } from "./types/constants";
-import { NextRequest } from "next/server";
+import createMiddleware from "next-intl/middleware";
+import { NextResponse, type NextRequest } from "next/server";
+import { routing } from "./i18n/routing";
+import { flagKeys } from "./lib/flags";
+import { getOpenFeatureClient } from "./lib/openfeature";
+import type { Locale } from "./types";
 
-const locales = LANGUAGES.map((lang) => lang.code);
+const locales = routing.locales as readonly string[];
+const defaultLocale = routing.defaultLocale;
 
-export function proxy(request: NextRequest) {
-	// Check if there is any supported locale in the pathname
+function hasLocalePrefix(pathname: string): Locale | undefined {
+	const first = pathname.split("/")[1];
+	if (locales.includes(first)) return first as Locale;
+	return undefined;
+}
+
+export async function proxy(request: NextRequest) {
 	const { pathname } = request.nextUrl;
-	const pathnameHasLocale = locales.some(
-		(locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
-	);
+	const locale = hasLocalePrefix(pathname);
 
-	if (pathnameHasLocale) return;
+	let multiLanguage = true;
+	try {
+		const client = await getOpenFeatureClient();
+		multiLanguage = await client.getBooleanValue("multi-language", false, {
+			targetingKey: "session",
+		});
+	} catch {
+		// flagd unreachable → default to multi-language on
+	}
 
-	// Redirect if there is no locale
-	//   const locale = getLocale(request)
+	if (!multiLanguage && locale && locale !== defaultLocale) {
+		const rest = pathname.slice(`/${locale}`.length);
+		const url = request.nextUrl.clone();
+		url.pathname = `/${defaultLocale}${rest}`;
+		return NextResponse.redirect(url);
+	}
 
-	request.nextUrl.pathname = `/${DEFAULT_LOCALE}/${pathname.split("/").slice(1).join("/")}`;
-	return NextResponse.redirect(request.nextUrl);
+	const intlMiddleware = createMiddleware(routing);
+	const response = await intlMiddleware(request);
+
+	for (const key of flagKeys) {
+		if (key === "multi-language") {
+			response.headers.set(`x-flag-${key}`, String(multiLanguage));
+		}
+	}
+	return response;
 }
 
 export const config = {
-	matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+	matcher: "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
 };

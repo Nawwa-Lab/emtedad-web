@@ -1,6 +1,6 @@
-import { getDictionary } from "@/dictionary/get-dictionary";
 import type { Locale } from "@/types";
 import ContextSelectionClient from "./context-selection-client";
+import { getDictionary } from "@/i18n/dictionary/get-dictionary";
 
 export default async function ContextSelectionPage({
 	params,
@@ -19,7 +19,7 @@ export default async function ContextSelectionPage({
 			<p className='font-cairo font-semibold text-[15px] text-ink-soft mt-1.5 mb-7'>
 				{dict.contextSelection.subtitle}
 			</p>
-			<ContextSelectionClient dict={dict.contextSelection} name={name} />
+			<ContextSelectionClient />
 
 			<p className='font-cairo font-semibold text-[12.5px]/[1.9] text-ink-soft mt-4'>
 				{dict.contextSelection.note}
