@@ -1,4 +1,4 @@
-import { getDictionary } from "@/dictionary/get-dictionary";
+import { getDictionary } from "@/i18n/dictionary/get-dictionary";
 import { Locale } from "@/types";
 import type { Metadata } from "next";
 
@@ -16,6 +16,6 @@ export const generateMetadata = async ({
 	};
 };
 
-export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
 	return children;
 }

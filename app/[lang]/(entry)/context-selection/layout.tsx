@@ -1,6 +1,9 @@
-import { getDictionary } from "@/dictionary/get-dictionary";
+import { getDictionary } from "@/i18n/dictionary/get-dictionary";
 import { Locale } from "@/types";
+import { pick } from "lodash";
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 
 export const generateMetadata = async ({
 	params,
@@ -17,5 +20,11 @@ export const generateMetadata = async ({
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
-	return children;
+	const messages = await getMessages();
+	
+	return (
+		<NextIntlClientProvider messages={pick(messages, ["contextSelection"])}>
+			{children}
+		</NextIntlClientProvider>
+	);
 }

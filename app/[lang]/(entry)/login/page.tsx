@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { getDictionary } from "@/dictionary/get-dictionary";
+import { getDictionary } from "@/i18n/dictionary/get-dictionary";
 import type { Locale } from "@/types";
 
 export default async function Home({

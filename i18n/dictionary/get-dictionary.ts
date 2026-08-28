@@ -1,7 +1,7 @@
 import type { Locale } from "@/types";
 
-import ar from "@/dictionary/ar.json";
-import en from "@/dictionary/en.json";
+import ar from "@/i18n/dictionary/ar.json";
+import en from "@/i18n/dictionary/en.json";
 
 const dictionaries = { ar, en } as const;
 
