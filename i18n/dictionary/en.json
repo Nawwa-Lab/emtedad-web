@@ -1,0 +1,25 @@
+{
+	"login": {
+		"title": "Welcome to Emtedad",
+		"description": "Log in to your account and continue your charity course from where you left off.",
+		"emailLabel": "Email",
+		"passwordLabel": "Password",
+		"submit": "Log in",
+		"forgotPassword": "Forgot password?",
+		"invitation": "Join Emtedad by invitation — from your organization or from the Emtedad team.",
+		"metaTitle": "Emtedad - Login",
+		"metaDescription": "Emtedad Login page"
+	},
+	"contextSelection": {
+		"title": "Welcome {name} — how will you use the network today?",
+		"subtitle": "Your choice tailors content, search, and shortcuts to fit you.",
+		"orgTitle": "I'm an organization",
+		"orgDesc": "I act under my organization's name in Omnia, keep it clean, and follow up on the office and Hikima.",
+		"pubTitle": "I'm a audience",
+		"pubDesc": "I participate as myself: I oversee services and benefit from organization activities.",
+		"submit": "Continue",
+		"note": "Your choice doesn't change your permissions — you can switch between roles anytime.",
+		"metaTitle": "Emtedad - Context Selection",
+		"metaDescription": "Emtedad Context Selection page"
+	}
+}
