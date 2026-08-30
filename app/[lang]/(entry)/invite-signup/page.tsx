@@ -36,7 +36,9 @@ export default async function Home({
 						{firstLetter}
 					</span>
 					<span className="font-cairo font-bold text-[13.5px] leading-[1.8] ">
-						{before}<b className="text-green-deep">{companyName}</b> {after}
+						{before}
+						<b className="text-green-deep">{companyName}</b>
+						{after}
 					</span>
 				</div>
 				<CardHeader>
@@ -48,16 +50,16 @@ export default async function Home({
 				<CardContent>
 					<Field>
 						<FieldLabel htmlFor='name'> {dict.inviteSignup.name}</FieldLabel>
-						<Input id='name' type='text' placeholder='Your name here' />
+						<Input id='name' type='text' placeholder={dict.inviteSignup.namePlaceholder} />
 					</Field>
 					<Field>
 						<FieldLabel htmlFor='email'> {dict.inviteSignup.emailLabel}</FieldLabel>
-						<Input id='email' type='email' placeholder='name@example.org' />
+						<Input id='email' type='email' placeholder={dict.inviteSignup.emailPlaceholder} />
 						<FieldLabel htmlFor='email' className="font-semibold text-[11.5px] mb-1.5 "> {dict.inviteSignup.emailNote}</FieldLabel>
 					</Field>
 					<Field>
 						<FieldLabel htmlFor='pass'> {dict.inviteSignup.passwordLabel}</FieldLabel>
-						<Input id='pass' type='password' placeholder='At least 8 characters' />
+						<Input id='pass' type='password' placeholder={dict.inviteSignup.passwordPlaceholder} />
 					</Field>
 					<Field>
 						<FieldLabel htmlFor='pass'> {dict.inviteSignup.passwordRepeatLabel}</FieldLabel>

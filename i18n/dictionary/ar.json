@@ -32,8 +32,9 @@
 		"metaDescription": "صفحة إعادة تعيين كلمة السر في امتداد"
 	},
 	"inviteSignup": {
-		"message": "مؤسسة {company} بتدعوك تنضم لفريقها على امتداد.",
 		"title": "كمِّل حسابك",
+		"company": "مشكاة",
+		"message": "مؤسسة {company} بتدعوك تنضم لفريقها على امتداد.",
 		"description": "خطوة واحدة وتبقى جوّه.",
 		"name": "الاسم",
 		"emailLabel": "البريد الإلكتروني",
@@ -46,6 +47,9 @@
 		"submit": "كمِّل حسابك",
 		"alreadyAMember": "عندك حساب؟ ادخل من هنا",
 		"metaTitle": "امتداد - إنشاء حساب عبر دعوة",
-		"metaDescription": "صفحة إنشاء حساب جديد في امتداد عبر دعوة"
+		"metaDescription": "صفحة إنشاء حساب جديد في امتداد عبر دعوة",
+		"namePlaceholder":"اسمك هنا",
+		"passwordPlaceholder":"٨ حروف علي الأقل",
+		"emailPlaceholder":"name@example.org"
 	}
 }
