@@ -21,5 +21,31 @@
 		"note": "Your choice doesn't change your permissions — you can switch between roles anytime.",
 		"metaTitle": "Emtedad - Context Selection",
 		"metaDescription": "Emtedad Context Selection page"
+	},
+	"passwordReset": {
+		"title": "Forgot password?",
+		"description": "Enter your email and we'll send you a reset link.",
+		"emailLabel": "Email",
+		"submit": "Send reset link",
+		"remembered": "Remembered? Log in here",
+		"metaTitle": "Emtedad - Reset Password",
+		"metaDescription": "Emtedad Reset Password page"
+	},
+	"inviteSignup": {
+		"message": "{company} invites you to join their team on Emtidad.",
+		"title": "Complete your account",
+		"description": "One step and you’re in.",
+		"name": "Name",
+		"emailLabel": "Email",
+		"emailNote": "The email is linked to the invitation and cannot be changed.",
+		"passwordLabel": "Password",
+		"passwordRepeatLabel": "Confirm Password",
+		"firstPart": "I have read ",
+		"secondPart": " and I accept its terms.",
+		"link": "Network Charter",
+		"submit": "Complete your account",
+		"alreadyAMember": "Already a member? Log in here",
+		"metaTitle": "Emtedad - Create Account via Invitation",
+		"metaDescription": "Create a new account in Emtedad via invitation"
 	}
 }
