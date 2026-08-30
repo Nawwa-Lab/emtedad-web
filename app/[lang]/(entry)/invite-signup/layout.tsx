@@ -16,6 +16,6 @@ export const generateMetadata = async ({
 	};
 };
 
-export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
 	return children;
 }

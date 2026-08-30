@@ -33,6 +33,8 @@
 	},
 	"inviteSignup": {
 		"title": "Complete your account",
+		"company": "Mishkat",
+		"message": "{company} invites you to join its team on Emtedad.",
 		"description": "One step and you’re in.",
 		"name": "Name",
 		"emailLabel": "Email",
@@ -45,6 +47,9 @@
 		"submit": "Complete your account",
 		"alreadyAMember": "Already a member? Log in here",
 		"metaTitle": "Emtedad - Create Account via Invitation",
-		"metaDescription": "Create a new account in Emtedad via invitation"
+		"metaDescription": "Create a new account in Emtedad via invitation",
+		"namePlaceholder": "Your name here",
+		"passwordPlaceholder": "At least 8 characters",
+		"emailPlaceholder": "name@example.org"
 	}
 }

@@ -22,16 +22,21 @@ export default async function Home({
 }) {
 	const { lang } = await params;
 	const dict = await getDictionary(lang);
+	const companyName = dict.inviteSignup.company;
+	const firstLetter = companyName.charAt(0);
+	const [before, after] = dict.inviteSignup.message.split("{company}");
 
 	return (
 		<div className='relative w-[min(430px,94vw)]  '>
 			<Card>
 				<div className='flex items-center gap-3 bg-sage border-line-soft rounded-2xl px-3.5 py-4 mb-5.5'>
 					<span className='w-9.5 h-9.5 shrink-0 rounded-[50%] bg-green grid place-items-center font-display font-bold text-[16px] text-ink ' aria-hidden='true'>
-						م
+						{firstLetter}
 					</span>
 					<span className="font-cairo font-bold text-[13.5px] leading-[1.8] ">
-						مؤسسة <b className="text-green-deep">مشكاة</b> بتدعوك تنضم لفريقها على امتداد.
+						{before}
+						<b className="text-green-deep">{companyName}</b>
+						{after}
 					</span>
 				</div>
 				<CardHeader>
@@ -43,16 +48,16 @@ export default async function Home({
 				<CardContent>
 					<Field>
 						<FieldLabel htmlFor='name'> {dict.inviteSignup.name}</FieldLabel>
-						<Input id='name' type='text' placeholder='اسمك هنا' />
+						<Input id='name' type='text' placeholder={dict.inviteSignup.namePlaceholder} />
 					</Field>
 					<Field>
 						<FieldLabel htmlFor='email'> {dict.inviteSignup.emailLabel}</FieldLabel>
-						<Input id='email' type='email' placeholder='name@example.org' />
+						<Input id='email' type='email' placeholder={dict.inviteSignup.emailPlaceholder} />
 						<FieldLabel htmlFor='email' className="font-semibold text-[11.5px] mb-1.5 "> {dict.inviteSignup.emailNote}</FieldLabel>
 					</Field>
 					<Field>
 						<FieldLabel htmlFor='pass'> {dict.inviteSignup.passwordLabel}</FieldLabel>
-						<Input id='pass' type='password' placeholder='٨ حروف علي الأقل' />
+						<Input id='pass' type='password' placeholder={dict.inviteSignup.passwordPlaceholder} />
 					</Field>
 					<Field>
 						<FieldLabel htmlFor='pass'> {dict.inviteSignup.passwordRepeatLabel}</FieldLabel>
