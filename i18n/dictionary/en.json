@@ -10,6 +10,16 @@
 		"metaTitle": "Emtedad - Login",
 		"metaDescription": "Emtedad Login page"
 	},
+	"navigation": {
+		"maktab": "Maktab",
+		"namliya": "Namliya",
+		"khalis": "Khalis",
+		"have_qalish": "Do you have Qalish?",
+		"hakima": "Hakima",
+		"jni": "Jni",
+		"taabat": "Reproaches",
+		"check_mihs": "Exam"
+	},
 	"contextSelection": {
 		"title": "Welcome {name} — how will you use the network today?",
 		"subtitle": "Your choice tailors content, search, and shortcuts to fit you.",
@@ -51,5 +61,48 @@
 		"namePlaceholder": "Your name here",
 		"passwordPlaceholder": "At least 8 characters",
 		"emailPlaceholder": "name@example.org"
+	},
+	"header": {
+		"searchPlaceholder": "Search the network…",
+		"searchAriaLabel": "Search",
+		"quickAction": "Do a good deed +",
+		"logo": "Emtedad",
+		"contextLabel": "I'm an organization",
+		"switchContext": "Switch",
+		"notificationsAriaLabel": "Notifications — 3 unread"
+	},
+	"dashboard": {
+		"title": "Welcome to Mishkaa in Emtedad",
+		"description": "Good deeds start here — your first published offer opens the cycle, and every kindness comes back.",
+		"quickAction": "Do a good deed +",
+		"watchNamliya": "Watch Namliya"
+	},
+	"quickAction": {
+		"title": "Do a good deed",
+		"description": "Where will you do it? Choose the place and type of good deed.",
+		"namliyaTitle": "Namliya",
+		"namliyaDesc": "Organizations market — from organization to organization",
+		"humanService": "Human service",
+		"materialResource": "Material resource",
+		"khalisTitle": "Khalis",
+		"khalisDesc": "Community market — from your organization to the public",
+		"workshop": "Workshop",
+		"course": "Course",
+		"culturalProgram": "Cultural program",
+		"event": "Event",
+		"qalishTitle": "Got Qalish?",
+		"qalishDesc": "Request board — when what you need isn't available",
+		"newRequest": "New request",
+		"footer": "Every good deed is published under your organization's name — Mishkaa."
+	},
+	"sidebar": {
+		"mainNavAriaLabel": "Main navigation",
+		"quickAction": "Do a good deed +",
+		"notifications": "Notifications",
+		"orgName": "Mishkaa Organization",
+		"publicProfile": "Public profile"
+	},
+	"dialog": {
+		"close": "Close"
 	}
 }

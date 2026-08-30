@@ -10,6 +10,16 @@
 		"metaTitle": "امتداد - تسجيل الدخول",
 		"metaDescription": "صفحة تسجيل الدخول في امتداد"
 	},
+	"navigation": {
+		"maktab": "المكتب",
+		"namliya": "نملية",
+		"khalis": "خلي خالص",
+		"have_qalish": "ألقيش عندك؟",
+		"hakima": "حكيمة",
+		"jni": "جني",
+		"taabat": "عتابات",
+		"check_mihs": "فحص محص"
+	},
 	"contextSelection": {
 		"title": "أهلًا يا {name} — هتستخدم الشبكة النهارده بأي صفة؟",
 		"subtitle": "الاختيار بيرتّب المحتوى والبحث والاختصارات على مقاسك.",
@@ -48,8 +58,51 @@
 		"alreadyAMember": "عندك حساب؟ ادخل من هنا",
 		"metaTitle": "امتداد - إنشاء حساب عبر دعوة",
 		"metaDescription": "صفحة إنشاء حساب جديد في امتداد عبر دعوة",
-		"namePlaceholder":"اسمك هنا",
-		"passwordPlaceholder":"٨ حروف علي الأقل",
-		"emailPlaceholder":"name@example.org"
+		"namePlaceholder": "اسمك هنا",
+		"passwordPlaceholder": "٨ حروف علي الأقل",
+		"emailPlaceholder": "name@example.org"
+	},
+	"header": {
+		"searchPlaceholder": "ابحث في الشبكة…",
+		"searchAriaLabel": "بحث",
+		"quickAction": "اعمل معروف +",
+		"logo": "امتداد",
+		"contextLabel": "أنا مؤسسة",
+		"switchContext": "بدِّل",
+		"notificationsAriaLabel": "الإشعارات — ٣ غير مقروءة"
+	},
+	"dashboard": {
+		"title": "أهلًا بمشكاة في امتداد",
+		"description": "من هنا يبدأ المعروف — أول عرض تنشره بيفتح الدورة، وكل خير بيلفّ يرجع.",
+		"quickAction": "اعمل معروف +",
+		"watchNamliya": "اتفرّج على النملية"
+	},
+	"quickAction": {
+		"title": "اعمل معروف",
+		"description": "هتعمله فين؟ اختار المكان ونوع المعروف.",
+		"namliyaTitle": "نملية",
+		"namliyaDesc": "سوق المؤسسات — من مؤسسة لمؤسسة",
+		"humanService": "خدمة بشرية",
+		"materialResource": "مورد مادي",
+		"khalisTitle": "خلي خالص",
+		"khalisDesc": "سوق المجتمع — من مؤسستك للجمهور",
+		"workshop": "ورشة",
+		"course": "كورس",
+		"culturalProgram": "برنامج ثقافي",
+		"event": "فعالية",
+		"qalishTitle": "ألقيش عندك؟",
+		"qalishDesc": "لوح الطلبات — لما اللي محتاجه مش موجود",
+		"newRequest": "طلب جديد",
+		"footer": "كل معروف بينشر باسم مؤسستك — مشكاة."
+	},
+	"sidebar": {
+		"mainNavAriaLabel": "التنقل الرئيسي",
+		"quickAction": "اعمل معروف +",
+		"notifications": "الإشعارات",
+		"orgName": "مؤسسة مشكاة",
+		"publicProfile": "الملف العام"
+	},
+	"dialog": {
+		"close": "إغلاق"
 	}
 }
