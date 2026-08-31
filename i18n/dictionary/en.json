@@ -104,5 +104,77 @@
 	},
 	"dialog": {
 		"close": "Close"
+	},
+	"member-profile": {
+		"firstCard": {
+			"avatarInitials": "K",
+			"name": "karim Fawzy",
+			"role": "Photographer & Production Manager",
+			"organization": "Sout wa Soura",
+			"completedServices": "20 completed services via the network"
+		},
+		"secondCard": {
+			"bioTitle": "Bio",
+			"bioText": "A storyteller with a camera — I document cultural events from the inside, not from afar. I've worked with theater troupes and art centers for eight years, and I love to deliver the image while it's still hot.",
+			"skillsTitle": "Skills and areas of expertise",
+			"skills": [
+				"Videography",
+				"Lighting",
+				"Production Management",
+				"Photography",
+				"Rough Cut Editing"
+			]
+		},
+		"thirdCard": {
+			"reviewsTitle": "Written reviews",
+			"review": [
+				{
+					"reviewerInitials": "M",
+					"reviewerName": "Mishkah",
+					"exchangeText": "After exchanging \"Photography & Event Documentation\" ·",
+					"badge": "Amer",
+					"reviewText": "Karim arrived ahead of time and set up the lighting on his own — the material was delivered in two days instead of a week, and with quality exceeding what was agreed upon."
+				},
+				{
+					"reviewerInitials": "H",
+					"reviewerName": "Halaqa",
+					"exchangeText": "After exchanging \"Seminar Coverage\" ·",
+					"badge": "Kareem",
+					"reviewText": "Clean work and complete commitment to the agreement. Communication could have been a bit faster at the beginning, but the delivery made up for everything."
+				},
+				{
+					"reviewerInitials": "S",
+					"reviewerName": "Sarah Hassan",
+					"exchangeText": "After sponsoring the service \"Personal Photoshoot Session\" ·",
+					"badge": "Amer",
+					"reviewText": "He made the session easy and light, and the photos came out natural — first time I feel the camera isn't frowning at me."
+				}
+			]
+		},
+		"fourthCard": {
+			"title": "Satisfaction Index",
+			"overall": [
+				{
+					"rate": "Amer",
+					"about": "As a service provider",
+					"totalReviews": "Rated by 20 members"
+				},
+				{
+					"rate": "Kareem",
+					"about": "As a service recipient",
+					"totalReviews": "Rated by 7 members"
+				}
+			]
+		},
+		"fifthCard": {
+			"title": "Organization",
+			"viewProfile": "Organization's public profile"
+		}
+	},
+	"statusBadge": {
+		"veryGood": "Excellent",
+		"good": "Good",
+		"acceptable": "Fair",
+		"empty": "-"
 	}
 }
