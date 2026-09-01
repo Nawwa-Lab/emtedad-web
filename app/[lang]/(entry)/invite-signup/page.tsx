@@ -22,9 +22,11 @@ export default async function Home({
 }) {
 	const { lang } = await params;
 	const dict = await getDictionary(lang);
-	const companyName = dict.inviteSignup.company;
+	const companyName = "مشكاة";
 	const firstLetter = companyName.charAt(0);
-	const [before, after] = dict.inviteSignup.message.split("{company}");
+	const template = dict.inviteSignup.message;
+	const [before, after] = template.split("{company}");
+
 
 	return (
 		<div className='relative w-[min(430px,94vw)]  '>
