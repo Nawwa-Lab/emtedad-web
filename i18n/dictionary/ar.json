@@ -173,5 +173,26 @@
 		"good": "كريم",
 		"acceptable": "أحسن عندك",
 		"empty": "-"
+	},
+	"search": {
+		"heading": "نتائج البحث عن «{term}»",
+		"resultCount": "{count} نتائج في الشبكة",
+		"filterAll": "الكل {count}",
+		"namliyaOffers": "عروض على النملية",
+		"viewAllNamliya": "شوف الكل في النملية",
+		"khalisOffers": "عروض على خلي خالص",
+		"viewAllKhalis": "شوف الكل في خلي خالص",
+		"qalishRequests": "طلبات على ألقيش عندك؟",
+		"viewAllRequests": "شوف كل الطلبات",
+		"members": "أعضاء",
+		"catDesign": "تصميم",
+		"catPublicToOrgs": "من الجمهور للمؤسسات",
+		"catRequest": "طلب",
+		"shahama": "شهامة",
+		"order": "اطلب",
+		"iHave": "عندي",
+		"visualDesigner": "مصمم بصري · مؤسسة مشكاة",
+		"kareem": "كريم",
+		"profile": "الملف"
 	}
 }

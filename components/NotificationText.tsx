@@ -1,5 +1,6 @@
 "use client";
 import { Link } from "@/i18n/navigation";
+import { formatNumber } from "@/utils";
 import { useLocale, useTranslations } from "next-intl";
 
 export function NotificationText({
@@ -20,10 +21,9 @@ export function NotificationText({
 				{tSidebar("notifications")}
 			</span>
 			<span className='relative font-cairo w-4.5 h-4.5 rounded-full bg-gold text-ink text-xs grid place-items-center'>
-				{notificationsCount.toLocaleString(
-					locale === "ar" ? "ar-SA" : "en-US",
-					{ minimumIntegerDigits: notificationsCount < 10 ? 1 : 2 },
-				)}
+				{formatNumber(notificationsCount, {
+					locale,
+				})}
 			</span>
 		</Link>
 	);
