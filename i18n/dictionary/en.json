@@ -176,5 +176,26 @@
 		"good": "Good",
 		"acceptable": "Fair",
 		"empty": "-"
+	},
+	"search": {
+		"heading": "Search results for \u00AB{term}\u00BB",
+		"resultCount": "{count} results in the network",
+		"filterAll": "All {count}",
+		"namliyaOffers": "Offers on Namliya",
+		"viewAllNamliya": "See all on Namliya",
+		"khalisOffers": "Offers on Khalis",
+		"viewAllKhalis": "See all on Khalis",
+		"qalishRequests": "Requests on Got Qalish?",
+		"viewAllRequests": "See all requests",
+		"members": "Members",
+		"catDesign": "Design",
+		"catPublicToOrgs": "From public to organizations",
+		"catRequest": "Request",
+		"shahama": "Shahama",
+		"order": "Order",
+		"iHave": "I have",
+		"visualDesigner": "Visual designer · Mishkaa Organization",
+		"kareem": "Kareem",
+		"profile": "Profile"
 	}
 }
