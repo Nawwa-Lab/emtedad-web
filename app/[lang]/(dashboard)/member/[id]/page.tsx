@@ -25,12 +25,12 @@ export default async function MemberProfileClient({
 
 
     return (
-        <div className="relative w-full max-w-7xl mx-auto flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto m-0">
+        <div className="relative w-full max-w-7xl mx-auto flex-1 overflow-y-auto m-0">
             <div className="w-full mx-auto box-border m-0 p-0 ">
                 {/* first card */}
-                <Card className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-5 px-6.5 sm:px-6.5 py-7 sm:py-7">
+                <Card className="flex flex-col sm:flex-row items-start sm:items-center  justify-between gap-4 sm:gap-5 px-6.5 sm:px-6.5 py-7 sm:py-7">
                     <div className="flex items-center gap-4 sm:gap-5 min-w-0 w-full sm:w-auto">
-                        <Avatar className="text-green-deep  bg-sage w-16 h-16 sm:w-23 sm:h-23  shrink-0">
+                        <Avatar className="text-green-deep  bg-sage w-16 h-16 sm:w-23 sm:h-23   shrink-0">
                             <AvatarImage src='https://github.com/shadcn.pngg' />
                             <AvatarFallback className="font-bold text-[24px] sm:text-[34px]">{firstLetter}</AvatarFallback>
                         </Avatar>
@@ -65,7 +65,7 @@ export default async function MemberProfileClient({
                                 </Label>
                                 <div className="flex-wrap flex gap-2 box-border">
                                     {profile.secondCard.skills.map((skill, index) => (
-                                        <Badge key={index} variant="default">{skill}</Badge>
+                                        <Badge key={index} variant="outline">{skill}</Badge>
                                     ))}
                                 </div>
                             </CardContent>

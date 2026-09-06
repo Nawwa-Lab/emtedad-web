@@ -171,8 +171,64 @@
 			"viewProfile": "Organization's public profile"
 		}
 	},
+	"org-profile": {
+		"firstCard": {
+			"avatarInitials": "S",
+			"name": "Sout wa Soura",
+			"role": "Community Studio for Visual and Audio Documentation",
+			"rate": "Satisfaction Index",
+			"rateDes": "Rated by 48 members through completed exchanges"
+		},
+		"secondCard": {
+			"bioTitle": "Mission",
+			"bioText": "Documenting Egyptian cultural practices and providing visual and audio production tools for small organizations and their communities, and training a new generation of storytellers in image and sound.",
+			"skillsTitle": "Areas of Expertise",
+			"skills": [
+				"Photography",
+				"Editing",
+				"Podcast",
+				"Archiving",
+				"Training"
+			]
+		},
+		"thirdCard": {
+			"title": "Published Offers",
+			"link1": "Namliya",
+			"link2": "Khalis",
+			"firstHeader": "Human Services",
+			"secondHeader": "Material Resources"
+		},
+		"fourthCard": {
+			"title": "Information"
+		},
+		"fifthCard": {
+			"title": "Organization",
+			"overall": [
+				{
+					"name": "karim Fawzy",
+					"rate": "Epic",
+					"about": "Videographer & Production Manager"
+				},
+				{
+					"name": "Nour Ali",
+					"rate": "Good",
+					"about": "Editor"
+				},
+				{
+					"name": "Hoda Samir",
+					"rate": "Good",
+					"about": "Podcast Producer"
+				},
+				{
+					"name": "Youssef Adel",
+					"rate": "Acceptable",
+					"about": "Training Coordinator"
+				}
+			]
+		}
+	},
 	"statusBadge": {
-		"veryGood": "Excellent",
+		"veryGood": "Epic",
 		"good": "Good",
 		"acceptable": "Fair",
 		"empty": "-"
@@ -197,5 +253,111 @@
 		"visualDesigner": "Visual designer · Mishkaa Organization",
 		"kareem": "Kareem",
 		"profile": "Profile"
+	},
+	"infoCard": {
+		"countryCity": {
+			"label": "Country · City",
+			"value": "Egypt · Cairo"
+		},
+		"foundingYear": {
+			"label": "Founding Year",
+			"value": "2017"
+		},
+		"website": {
+			"label": "Website",
+			"value": "sawtwsoora.org"
+		},
+		"socialMedia": {
+			"label": "Social Media",
+			"value": "Instagram · Facebook"
+		}
+	},
+	"serviceCard": {
+		"humanServiceCard": [
+			{
+				"category": "Production",
+				"title": "Video shooting and documentation of events",
+				"providerName": "Karim Fawzy · ",
+				"providerRate": "Amer ·",
+				"availability": "Available any duration",
+				"price": "35",
+				"currency": "Shahama",
+				"request": "Request",
+				"spotsLeft": "5 spots left"
+			},
+			{
+				"category": "Editing",
+				"title": "Short film editing and promotional videos",
+				"providerName": "Nour Ali · ",
+				"providerRate": "Karim · ",
+				"availability": "Limited until October 15",
+				"price": "45",
+				"currency": "Shahama",
+				"request": "Request"
+			}
+		],
+		"materialResourceCard": [
+			{
+				"category": "Equipment",
+				"title": "Cinema camera with two lenses",
+				"providerName": "Supervised by operator",
+				"providerRate": "Cash deposit required · ",
+				"availability": "Available for a limited period · ",
+				"price": "30",
+				"currency": "Shahama",
+				"request": "Request"
+			},
+			{
+				"category": "Spaces",
+				"title": "Isolated sound studio for recording",
+				"providerName": "Unsupervised",
+				"providerRate": "No deposit · ",
+				"availability": "Available any duration · ",
+				"price": "25",
+				"currency": "Shahama",
+				"request": "Request"
+			}
+		]
+	},
+	"satisfactionIndex": {
+		"title": "Satisfaction Index — Voice & Vision",
+		"rate": "Rated by 48 members through completed exchanges",
+		"dialog": [
+			{
+				"header": "Human Services",
+				"provider": "As a service provider",
+				"client": "As a service recipient"
+			},
+			{
+				"header": "Material Resources",
+				"provider": "As a resource contributor",
+				"client": "As a resource user"
+			},
+			{
+				"header": "Audience Rating",
+				"activities": "Activities & events"
+			}
+		],
+		"reviewHeader": "Written reviews",
+		"reviewContent": [
+			{
+				"reviewerName": "Mishkaa",
+				"exchangeText": "After exchanging «Event Coverage» ·",
+				"badge": "Amer",
+				"reviewText": "Punctual and delivered higher quality than expected — they documented three nights of performances as if they were part of the team."
+			},
+			{
+				"reviewerName": "Halaqa",
+				"exchangeText": "After using «Sound Studio» ·",
+				"badge": "Kareem",
+				"reviewText": "The studio is well-equipped and the delivery was on time. We recommend booking early because demand is high."
+			},
+			{
+				"reviewerName": "Sarah Hassan",
+				"exchangeText": "After «Podcast Workshop» ·",
+				"badge": "Amer",
+				"reviewText": "A workshop that changed how I speak — the training was hands-on from day one and the follow-up continued after the workshop."
+			}
+		]
 	}
 }
