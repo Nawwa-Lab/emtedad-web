@@ -8,7 +8,7 @@ const statusBadgeVariants = cva(
       variant: {
         veryGood: "bg-green border-transparent",
         good: "bg-gold border-transparent",
-        acceptable: "bg-transparent border-line",
+        acceptable: "bg-transparent border-dashed border-line",
         empty: "bg-transparent border-dashed border-line",
       },
       size: {
@@ -17,8 +17,7 @@ const statusBadgeVariants = cva(
       },
     },
     compoundVariants: [
-      { size: "circle", variant: ["veryGood", "good", "acceptable"], class: "text-ink" },
-      { size: "circle", variant: "empty", class: "text-line" },
+      { size: "circle", variant: ["veryGood", "good", "acceptable", "empty"], class: "text-ink" },
       { size: "pill", class: "text-ink-soft" },
     ],
     defaultVariants: {
@@ -43,17 +42,23 @@ const variantFromLabel: Record<string, StatusVariant> = {
   "كريم": "good",
   "عامر": "veryGood",
   "أحسن عندك": "acceptable",
-  // English values
+  // English values (from i18n dictionary)
+  "Epic": "veryGood",
+  "Good": "good",
+  "Fair": "acceptable",
+  // English values (transliterated)
   "Kareem": "good",
   "Amer": "veryGood",
-  "Fair": "acceptable",
-  "Good": "good",
-  "Excellent": "veryGood",
+  // Direct variant keys
+  "veryGood": "veryGood",
+  "good": "good",
+  "acceptable": "acceptable",
+  "empty": "empty",
 };
 
 export function getVariantFromLabel(label?: string | null): StatusVariant {
   if (!label) return "empty";
-  return variantFromLabel[label] ?? "empty";
+  return variantFromLabel[label] ?? variantFromLabel[label.trim()] ?? "empty";
 }
 
 interface StatusBadgeProps
@@ -85,4 +90,3 @@ export function StatusBadge({
     </div>
   );
 }
-
