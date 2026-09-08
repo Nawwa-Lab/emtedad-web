@@ -1,5 +1,5 @@
 import { DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { StatusBadge, getVariantFromLabel } from "@/components/rates";
+import { StatusBadge, getVariantFromLabel } from "@/components/StatusBadge";
 import { getDictionary } from "@/i18n/dictionary/get-dictionary";
 import type { Locale } from "@/types";
 import { Card, CardContent, CardTitle, CardHeader, CardDescription } from "@/components/ui/card";
@@ -45,13 +45,13 @@ export async function SatisfactionIndex({ params }: { params: Promise<{ lang: Lo
                             </span>
                             <div className="flex-wrap flex gap-2">
                                 {rateEntries.map(([variant, label]) => (
-                                <StatusBadge
-                                    key={variant}
-                                    variant={getVariantFromLabel(label)}
-                                    label={label}
-                                    labels={dict.statusBadge}
-                                    size="pill"
-                                />
+                                    <StatusBadge
+                                        key={variant}
+                                        variant={getVariantFromLabel(label)}
+                                        label={label}
+                                        labels={dict.statusBadge}
+                                        shape="pill"
+                                    />
                                 ))}
                             </div>
                         </CardContent>
@@ -68,7 +68,7 @@ export async function SatisfactionIndex({ params }: { params: Promise<{ lang: Lo
                                         variant={getVariantFromLabel(label)}
                                         label={label}
                                         labels={dict.statusBadge}
-                                        size="pill"
+                                        shape="pill"
                                     />
                                 ))}
                             </div>
@@ -86,7 +86,7 @@ export async function SatisfactionIndex({ params }: { params: Promise<{ lang: Lo
                                         variant={getVariantFromLabel(label)}
                                         label={label}
                                         labels={dict.statusBadge}
-                                        size="pill"
+                                        shape="pill"
                                     />
                                 ))}
                             </div>
@@ -117,7 +117,7 @@ export async function SatisfactionIndex({ params }: { params: Promise<{ lang: Lo
                                 variant={getVariantFromLabel(r.badge)}
                                 label={r.badge}
                                 labels={dict.statusBadge}
-                                size="pill"
+                                shape="pill"
                             />
                         </CardTitle>
                         <CardDescription className="font-medium text-[13px] leading[1.95] text-ink-soft" >

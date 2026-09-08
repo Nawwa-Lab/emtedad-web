@@ -53,15 +53,9 @@ export function Header() {
 				aria-label={t("searchAriaLabel")}
 			/>
 			<div className='flex-1'></div>
+			
+			<QuickAction />
 
-			<Dialog>
-				<DialogTrigger className='hidden sm:block bg-green text-ink border-0 rounded-full cursor-pointer no-underline font-cairo font-extrabold text-sm py-2.5 px-5 whitespace-nowrap'>
-					{t("quickAction")}
-				</DialogTrigger>
-				<DialogContent>
-					<QuickAction />
-				</DialogContent>
-			</Dialog>
 			<NotificationBell />
 			<div className='flex items-center gap-2.5'>
 				<span className='hidden sm:flex items-center gap-2 text-sm font-cairo font-bold text-line-soft bg-sage rounded-full py-2 ps-2 pe-3.5'>

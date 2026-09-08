@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from "react";
 import { Card, CardHeader, CardAction } from "@/components/ui/card";
-import { ServiceCard } from "@/components/servicesCard";
+import { ServiceCard } from "@/components/ServicesCard";
 
 interface ServiceCardData {
     category: string;

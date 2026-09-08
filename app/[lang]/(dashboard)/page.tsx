@@ -22,17 +22,12 @@ export default function Page() {
 					{t("description")}
 				</p>
 				<div className='mt-6 flex flex-col sm:flex-row items-center justify-center gap-2'>
-					<Dialog>
-						<DialogTrigger className=' bg-green text-ink border-0 rounded-full cursor-pointer no-underline font-cairo font-extrabold text-sm py-3.25 px-6.5 whitespace-nowrap'>
-							{t("quickAction")}
-						</DialogTrigger>
-						<DialogContent>
-							<QuickAction />
-						</DialogContent>
-					</Dialog>
+					
+					<QuickAction />
+
 					<Link
 						href='/namliya'
-						className='inline-block text-green-deep border-green-deep border rounded-full font-cairo font-bold text-sm py-3 px-6.5'
+						className='inline-block text-green-deep border-green-deep border rounded-full font-cairo font-bold text-sm py-2.5 px-5'
 					>
 						{t("watchNamliya")}
 					</Link>

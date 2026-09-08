@@ -11,23 +11,33 @@ const statusBadgeVariants = cva(
         acceptable: "bg-transparent border-dashed border-line",
         empty: "bg-transparent border-dashed border-line",
       },
+      shape: {
+        circle: "",
+        pill: "",
+      },
       size: {
-        circle: "w-13 h-13 font-bold text-[14px]",
-        pill: "gap-1.5 py-1 px-3 font-semibold text-[11px]",
+        default: "",
+        small: "",
       },
     },
     compoundVariants: [
-      { size: "circle", variant: ["veryGood", "good", "acceptable", "empty"], class: "text-ink" },
-      { size: "pill", class: "text-ink-soft" },
+      { shape: "circle", variant: ["veryGood", "good", "acceptable", "empty"], class: "text-ink" },
+      { shape: "pill", class: "text-ink-soft" },
+      { shape: "circle", size: "default", class: "w-13 h-13 font-bold text-[14px]" },
+      { shape: "pill", size: "default", class: "gap-1.5 py-1 px-3 font-semibold text-[11px]" },
+      { shape: "circle", size: "small", class: "w-5 h-5 font-bold text-[9px]" },
+      { shape: "pill", size: "small", class: "gap-1 py-0.5 px-2 font-semibold text-[9px]" },
     ],
     defaultVariants: {
       variant: "empty",
-      size: "circle",
+      shape: "circle",
+      size: "default",
     },
   }
 );
 
 type StatusVariant = NonNullable<VariantProps<typeof statusBadgeVariants>["variant"]>;
+type StatusShape = NonNullable<VariantProps<typeof statusBadgeVariants>["shape"]>;
 type StatusSize = NonNullable<VariantProps<typeof statusBadgeVariants>["size"]>;
 
 const labels: Record<StatusVariant, string> = {
@@ -38,18 +48,14 @@ const labels: Record<StatusVariant, string> = {
 };
 
 const variantFromLabel: Record<string, StatusVariant> = {
-  // Arabic values
   "كريم": "good",
   "عامر": "veryGood",
   "أحسن عندك": "acceptable",
-  // English values (from i18n dictionary)
   "Epic": "veryGood",
   "Good": "good",
   "Fair": "acceptable",
-  // English values (transliterated)
   "Kareem": "good",
   "Amer": "veryGood",
-  // Direct variant keys
   "veryGood": "veryGood",
   "good": "good",
   "acceptable": "acceptable",
@@ -65,6 +71,7 @@ interface StatusBadgeProps
   extends Omit<HTMLAttributes<HTMLDivElement>, "children">,
     VariantProps<typeof statusBadgeVariants> {
   variant?: StatusVariant;
+  shape?: StatusShape;
   size?: StatusSize;
   /** Override the default label for this variant */
   label?: string;
@@ -74,19 +81,27 @@ interface StatusBadgeProps
 
 export function StatusBadge({
   variant = "empty",
-  size = "circle",
+  shape = "circle",
+  size = "default",
   label,
   labels: labelsProp,
   className,
   ...props
 }: StatusBadgeProps) {
   const badgeLabels = labelsProp ?? labels;
+  const fullLabel = label ?? badgeLabels[variant];
+
+  // "small" is too tight for the full label — show just the first
+  // character (Array.from so Arabic/multi-byte chars aren't cut mid-glyph).
+  const displayLabel =
+    size === "small" ? Array.from(fullLabel ?? "").slice(0, 1).join("") : fullLabel;
+
   return (
     <div
-      className={statusBadgeVariants({ variant, size, className })}
+      className={statusBadgeVariants({ variant, shape, size, className })}
       {...props}
     >
-      {label ?? badgeLabels[variant]}
+      {displayLabel}
     </div>
   );
 }

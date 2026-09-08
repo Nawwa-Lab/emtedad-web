@@ -359,5 +359,11 @@
 				"reviewText": "A workshop that changed how I speak — the training was hands-on from day one and the follow-up continued after the workshop."
 			}
 		]
+	},
+	"namliyaBrowse": {
+		"title": "Namliya — Market for organizations",
+		"description": "What overflows at one organization fills the need of another — browse and request, and the agreement is completed in the conversation.",
+		"serviceLink": "Human services",
+		"resourceLink": "Material resources"
 	}
 }
