@@ -6,9 +6,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardTitle, CardHeader, CardAction } from "@/components/ui/card";
 import { CardDescription } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { InfoCardList } from "@/components/infoCard";
+import { InfoCardList } from "@/components/InfoCard";
 import { Badge } from "@/components/ui/badge";
-import { StatusBadge, getVariantFromLabel } from "@/components/rates";
+import { StatusBadge, getVariantFromLabel } from "@/components/StatusBadge";
 import { ServiceListingsCard } from "@/app/[lang]/(dashboard)/organization/[id]/data";
 import { SatisfactionIndex } from "@/components/Satisfaction Index";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
@@ -136,7 +136,7 @@ export default async function MemberProfileClient({
                                         variant={getVariantFromLabel(t.rate)}
                                         label={t.rate}
                                         labels={dict.statusBadge}
-                                        size="pill"
+                                        shape="pill"
                                     />
                                 </CardContent>
                             ))}

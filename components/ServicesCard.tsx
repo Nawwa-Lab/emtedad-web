@@ -2,6 +2,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { useState } from "react";
 import { Heart } from "lucide-react";
+import { StatusBadge, getVariantFromLabel } from "./StatusBadge";
 
 const cardStyles = cva("card", {
     variants: {
@@ -31,6 +32,7 @@ type ServiceCardProps = VariantProps<typeof cardStyles> & {
     saved?: boolean;
     defaultSaved?: boolean;
     onSaveChange?: (saved: boolean) => void;
+    showStatusBadge?: boolean;
 };
 
 export function ServiceCard({
@@ -50,6 +52,7 @@ export function ServiceCard({
     saved,
     defaultSaved = false,
     onSaveChange,
+    showStatusBadge = false,
 }: ServiceCardProps) {
     const [internalSaved, setInternalSaved] = useState(defaultSaved);
     const isControlled = saved !== undefined;
@@ -69,7 +72,7 @@ export function ServiceCard({
                     onClick={handleSaveClick}
                     aria-pressed={isSaved}
                     aria-label={isSaved ? "Remove from saved" : "Save"}
-                    className="absolute top-3.5 left-3.5 w-8 h-8 rounded-[50%] border border-line bg-paper grid items-center justify-center cursor-pointer"
+                    className="absolute top-3.5 inset-e-3.5  w-8 h-8 rounded-[50%] border border-line bg-paper grid items-center justify-center cursor-pointer"
                 >
                     <Heart
                         size={15}
@@ -86,10 +89,20 @@ export function ServiceCard({
             <h3 className="font-extrabold text-[14px] leading-[1.65] font-cairo text-ink">
                 {title}
             </h3>
-            <div className="font-semibold text-[11.5px] text-ink-soft leading-[1.8] font-cairo">
-                {providerName}
-                {providerRate && ` · ${providerRate}`}
-                {availability && ` · ${availability}`}
+            <div className="flex items-center gap-1.75 font-semibold text-[11.5px] text-ink-soft leading-[1.8] font-cairo">
+                {showStatusBadge && (
+                    <StatusBadge
+                        variant={getVariantFromLabel(providerRate)}
+                        shape="circle"
+                        label={providerRate}
+                        size="small"
+                    />
+                )}
+                <span>
+                    {providerName}
+                    {providerRate && ` · ${providerRate}`}
+                    {availability && ` · ${availability}`}
+                </span>
             </div>
             <div className="flex items-center justify-between mt-auto pt-2.5 border-t border-t-line-soft text-ink font-cairo">
                 <span className="font-extrabold text-[15px] font-features-['tnum'] font-cairo text-ink">

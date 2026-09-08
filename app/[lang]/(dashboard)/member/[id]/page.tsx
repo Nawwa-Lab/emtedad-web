@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { getDictionary } from "@/i18n/dictionary/get-dictionary";
 import type { Locale } from "@/types";
 import Link from "next/link";
-import { StatusBadge, getVariantFromLabel } from "@/components/rates";
+import { StatusBadge, getVariantFromLabel } from "@/components/StatusBadge";
 
 
 export default async function MemberProfileClient({
@@ -90,7 +90,7 @@ export default async function MemberProfileClient({
                                             <span className="font-semibold text-[11px] text-ink-soft font-cairo">
                                                 {t.exchangeText}
                                             </span>
-                                            <StatusBadge variant={getVariantFromLabel(t.badge)} label={t.badge} size="pill" labels={dict.statusBadge} />
+                                            <StatusBadge variant={getVariantFromLabel(t.badge)} label={t.badge} shape="pill" labels={dict.statusBadge} />
                                         </div>
                                         <CardDescription className="font-medium text-[13px] text-ink-soft leading-relaxed font-cairo">
                                             {t.reviewText}
