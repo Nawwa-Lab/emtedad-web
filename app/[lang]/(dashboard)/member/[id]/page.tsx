@@ -6,6 +6,7 @@ import { getDictionary } from "@/i18n/dictionary/get-dictionary";
 import type { Locale } from "@/types";
 import Link from "next/link";
 import { StatusBadge, getVariantFromLabel } from "@/components/StatusBadge";
+import { EntityCard } from "@/components/EntityCard";
 
 
 export default async function MemberProfileClient({
@@ -18,7 +19,6 @@ export default async function MemberProfileClient({
     const profile = dict["member-profile"];
     const profileOwner = profile.firstCard.name;
     const firstLetter = profileOwner.charAt(0);
-    const orgFirstLetter = profile.firstCard.organization.charAt(0);
     const reviewerFirstLetters = profile.thirdCard.review.map(
         (item) => item.reviewerName.charAt(0)
     );
@@ -124,25 +124,14 @@ export default async function MemberProfileClient({
                         </Card>
 
                         {/* Fifth Card */}
-                        <Card className="p-4 sm:p-6 bg-surface border border-line rounded-[22px]">
-                            <CardHeader className="font-display font-bold text-lg text-green-deep mb-0 p-0">
-                                {profile.fifthCard.title}
-                            </CardHeader>
-                            <CardContent className="flex items-center gap-3.5 py-3.25 px-0 pb-0">
-                                <Avatar className="bg-green text-ink w-11 h-11 shrink-0">
-                                    <AvatarImage src='https://github.com/shadcn.pngg' />
-                                    <AvatarFallback className="font-bold text-[17px]">{orgFirstLetter}</AvatarFallback>
-                                </Avatar>
-                                <div>
-                                    <span className="block font-extrabold text-[13.5px] font-cairo">
-                                        {profile.firstCard.organization}
-                                    </span>
-                                    <Link href="" className="font-bold text-[11.5px] font-cairo hover:underline text-green-deep">
-                                        {profile.fifthCard.viewProfile}
-                                    </Link>
-                                </div>
-                            </CardContent>
-                        </Card>
+                      <EntityCard
+                                title={profile.fifthCard.title}
+                                entity={profile.firstCard.organization}
+                                entityFirstLetter={profile.firstCard.organization.charAt(0)}
+                                viewProfileHref="#"
+                                viewProfileLabel={profile.fifthCard.viewProfile}
+                                className="mb-4"
+                            />
                     </aside>
                 </div>
             </div>
