@@ -16,9 +16,11 @@
 		"khalis": "خلي خالص",
 		"have_qalish": "ألقيش عندك؟",
 		"hakima": "حكيمة",
-		"jni": "جني",
-		"taabat": "عتابات",
-		"check_mihs": "فحص محص"
+		"genny": "جني",
+		"shbeik-lbeik": "شبّيك لبيك",
+		"managment": "إدارة",
+		"etabat": "عتابات",
+		"fahs-mahs": "فحص محص"
 	},
 	"contextSelection": {
 		"title": "أهلًا يا {name} — هتستخدم الشبكة النهارده بأي صفة؟",

@@ -10,6 +10,8 @@ import {
 	FieldTitle,
 } from "@/components/ui/field";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { useUser } from "@/components/UserContext";
+import { useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -27,16 +29,18 @@ function CheckIndicator({ checked }: { checked: boolean }) {
 }
 
 export default function ContextSelectionClient() {
-	const [value, setValue] = useState("org");
+	const { user, setUser } = useUser();
+	const [context, setContext] = useState(user?.context || "org");
 	const t = useTranslations("contextSelection");
+	const router = useRouter();
 
 	return (
 		<>
-			<RadioGroup value={value} onValueChange={setValue}>
+			<RadioGroup value={context} onValueChange={setContext}>
 				<FieldLabel
 					htmlFor='c-org'
 					className={`relative block rounded-[22px] bg-surface border cursor-pointer transition-[border-color] duration-150 hover:border-green-deep focus-visible:outline-2 focus-visible:outline-green-deep focus-visible:outline-offset-2 ${
-						value === "org"
+						context === "org"
 							? "border-2 border-green-deep p-[25px_23px]"
 							: "border-line p-[26px_24px]"
 					}`}
@@ -54,15 +58,15 @@ export default function ContextSelectionClient() {
 						<RadioGroupItem
 							value='org'
 							id='c-org'
-							indicator={<CheckIndicator checked={value === "org"} />}
+							indicator={<CheckIndicator checked={context === "org"} />}
 						/>
 					</Field>
 				</FieldLabel>
 
 				<FieldLabel
-					htmlFor='c-pub'
+					htmlFor='community'
 					className={`relative block rounded-[22px] bg-surface border cursor-pointer transition-[border-color] duration-150 hover:border-green-deep focus-visible:outline-2 focus-visible:outline-green-deep focus-visible:outline-offset-2 ${
-						value === "pub"
+						context === "community"
 							? "border-2 border-green-deep p-[25px_23px]"
 							: "border-line p-[26px_24px]"
 					}`}
@@ -78,9 +82,9 @@ export default function ContextSelectionClient() {
 							</FieldDescription>
 						</FieldContent>
 						<RadioGroupItem
-							value='pub'
-							id='c-pub'
-							indicator={<CheckIndicator checked={value === "pub"} />}
+							value='community'
+							id='community'
+							indicator={<CheckIndicator checked={context === "community"} />}
 						/>
 					</Field>
 				</FieldLabel>
@@ -88,6 +92,10 @@ export default function ContextSelectionClient() {
 
 			<button
 				type='button'
+				onClick={() => {
+					if (user) setUser({ ...user, context });
+					router.push("/");
+				}}
 				className='font-cairo inline-block mt-6 min-w-55 text-center bg-green text-ink border-0 rounded-full cursor-pointer font-body font-extrabold text-[15px] py-3.25 px-8.5 transition-colors duration-150 hover:bg-[#B9C9AC] focus-visible:outline-2 focus-visible:outline-green-deep focus-visible:outline-offset-2'
 			>
 				{t("submit")}
