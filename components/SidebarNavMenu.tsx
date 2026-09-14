@@ -77,7 +77,7 @@ export function SidebarNavMenu({
 	const { user } = useUser();
 
 	const links = useMemo(() => {
-		const newNav =  navLinks
+		const newNav = navLinks
 			.filter((link) => {
 				if (link.type === "separator") return true;
 				if (!link.roles && !link.role) return true;
@@ -89,9 +89,7 @@ export function SidebarNavMenu({
 				if (link.type === "separator") return { type: "separator" as const };
 				return { href: link.href, label: tNav(link.label) };
 			});
-			console.log("user ", user);
-			console.log("Nav ", newNav);
-			return newNav
+		return newNav;
 	}, [tNav, user]);
 
 	return (
