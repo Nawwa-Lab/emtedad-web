@@ -40,7 +40,8 @@ export function UserProvider({ children }: { children: ReactNode }) {
 		const timer = setTimeout(() => {
 			setUser({
 				name: "John Doe",
-				role: "community",
+				context: "org",
+				role: "admin",
 				org: "Acme Corp",
 			});
 		}, 500);

@@ -367,5 +367,32 @@
 		"description": "What overflows at one organization fills the need of another — browse and request, and the agreement is completed in the conversation.",
 		"serviceLink": "Human services",
 		"resourceLink": "Material resources"
+	},
+	"genny": {
+		"browse": {
+			"title": "Genny — Network Wishes",
+			"description": "What's missing from the network? Wish for it here — the most endorsed wishes will guide new organizations joining.",
+			"chips": {
+				"browse": "Browse",
+				"addNew": "New wish +",
+				"myWishes": "My wishes"
+			},
+			"filter": {
+				"mostEndorsed": "Most endorsed",
+				"latest": "Latest",
+				"professionalServices": "Professional services",
+				"healthCare": "Health & care",
+				"spaces": "Spaces",
+				"production": "Production & publishing"
+			},
+			"wishCard": {
+				"endorsingOrgs": "Endorsing orgs",
+				"endorse": "Endorse",
+				"endorsed": "Endorsed ✓",
+				"unendorse": "Remove your endorsement"
+			},
+			"note": "Each organization endorses a wish once — and can remove its endorsement at any time. The Emtedad team returns to this list while reviewing new membership applications.",
+			"noteBold": "A membership request for a specific organization belongs in Hakima, not here."
+		}
 	}
 }
