@@ -1,3 +1,4 @@
+import { UserProvider } from "@/components/UserContext";
 import type { Locale } from "@/types";
 import type { Metadata } from "next";
 import { Alexandria, Cairo } from "next/font/google";
@@ -36,7 +37,7 @@ export default async function RootLayout({
 			<body
 				className={`h-screen flex flex-col relative ${cairoFont.variable} ${alexandriaFont.variable} bg-paper`}
 			>
-				{children}
+				<UserProvider>{children}</UserProvider>
 			</body>
 		</html>
 	);

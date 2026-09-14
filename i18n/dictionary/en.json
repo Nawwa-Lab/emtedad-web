@@ -16,9 +16,11 @@
 		"khalis": "Khalis",
 		"have_qalish": "Do you have Qalish?",
 		"hakima": "Hakima",
-		"jni": "Jni",
-		"taabat": "Reproaches",
-		"check_mihs": "Exam"
+		"genny": "Jni",
+		"shbeik-lbeik": "Shbeik Lbeik",
+		"managment": "Management",
+		"etabat": "Reproaches",
+		"fahs-mahs": "Exam"
 	},
 	"contextSelection": {
 		"title": "Welcome {name} — how will you use the network today?",
