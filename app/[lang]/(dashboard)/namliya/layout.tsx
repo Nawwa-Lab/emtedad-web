@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { getDictionary } from "@/i18n/dictionary/get-dictionary";
 import { QuickAction } from "@/components/QuickAction"
-import { SupLinks } from "../../../../components/SupLinks";
+import { SupLinks } from "../../../../components/SubLinks";
 
 
 export default async function NamliyaLayout({

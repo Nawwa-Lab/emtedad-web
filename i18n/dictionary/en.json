@@ -365,5 +365,12 @@
 		"description": "What overflows at one organization fills the need of another — browse and request, and the agreement is completed in the conversation.",
 		"serviceLink": "Human services",
 		"resourceLink": "Material resources"
+	},
+		
+	"namliyaService": {
+		"backToNamliya": "→ Back to Namliya",
+		"requestLink": "Request Service",
+		"saveToFavorites": "Save to Favorites",
+		"serviceRequestNote": "Submitting the request opens a private chat where you can finalize the agreement before the exchange begins."
 	}
 }
