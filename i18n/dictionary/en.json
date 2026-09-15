@@ -403,6 +403,18 @@
 				"withdraw": "Withdraw",
 				"delete": "Delete"
 			},
+		"wishCard": {
+			"endorsingOrgs": "Endorsing orgs",
+			"zeroEndorsements": "No endorsements yet",
+			"endorse": "Endorse",
+			"endorsed": "Endorsed ✓",
+			"unendorse": "Remove your endorsement",
+			"fixedNote": "After the first endorsement the wish is set — any edit becomes a new wish.",
+			"editableNote": "Before the first endorsement you can edit, withdraw, or delete.",
+			"edit": "Edit",
+			"withdraw": "Withdraw",
+			"delete": "Delete"
+		},
 			"note": "Each organization endorses a wish once — and can remove its endorsement at any time. The Emtedad team returns to this list while reviewing new membership applications.",
 			"noteBold": "A membership request for a specific organization belongs in Hakima, not here."
 		},
