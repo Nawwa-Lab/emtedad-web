@@ -6,18 +6,63 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { Separator } from "@base-ui/react";
 import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 import { NotificationText } from "./NotificationText";
+import { useUser } from "./UserContext";
 
-const navLinks = [
-	{ href: "/maktab", label: "maktab" },
-	{ href: "/namliya", label: "namliya" },
-	{ href: "#", label: "khalis" },
-	{ href: "#", label: "have_qalish" },
-	{ href: "/hakima", label: "hakima" },
-	{ href: "#", label: "jni" },
-	{ type: "separator" as const },
-	{ href: "#", label: "taabat" },
-	{ href: "#", label: "check_mihs" },
+type Role = "admin" | "team-worker" | "emtedad-team" | "community";
+type NavLink =
+	| { type: "separator" }
+	| {
+			type: "link";
+			href: string;
+			label: string;
+			roles?: Role[];
+			role?: Role;
+	  };
+
+const navLinks: NavLink[] = [
+	{ type: "link", href: "/maktab", label: "maktab" },
+	{
+		type: "link",
+		href: "/namliya",
+		label: "namliya",
+		roles: ["admin", "team-worker", "emtedad-team"],
+	},
+	{ type: "link", href: "/khalli-khales", label: "khalis" },
+	{ type: "link", href: "/alaesh-andak", label: "have_qalish" },
+	{
+		type: "link",
+		href: "/hakima",
+		label: "hakima",
+		roles: ["admin", "team-worker", "emtedad-team"],
+	},
+	{
+		type: "link",
+		href: "/genny",
+		label: "genny",
+		roles: ["admin", "team-worker", "emtedad-team"],
+	},
+	{
+		type: "link",
+		href: "/shbeik-lbeik",
+		label: "shbeik-lbeik",
+		roles: ["community", "emtedad-team"],
+	},
+	{ type: "separator" },
+	{
+		type: "link",
+		href: "/managment",
+		label: "managment",
+		role: "emtedad-team",
+	},
+	{ type: "link", href: "/etabat", label: "etabat" },
+	{
+		type: "link",
+		href: "/fahs-mahs",
+		label: "fahs-mahs",
+		roles: ["admin", "team-worker", "community"],
+	},
 ];
 
 export function SidebarNavMenu({
@@ -29,11 +74,23 @@ export function SidebarNavMenu({
 	const tNav = useTranslations("navigation");
 	const tSidebar = useTranslations("sidebar");
 	const tHeader = useTranslations("header");
+	const { user } = useUser();
 
-	const links = navLinks.map((link) => {
-		if (link.type === "separator") return { type: "separator" as const };
-		return { href: link.href, label: tNav(link.label) };
-	});
+	const links = useMemo(() => {
+		const newNav = navLinks
+			.filter((link) => {
+				if (link.type === "separator") return true;
+				if (!link.roles && !link.role) return true;
+				if (user && link.roles?.includes(user.role)) return true;
+				if (user && link.role === user.role) return true;
+				return false;
+			})
+			.map((link) => {
+				if (link.type === "separator") return { type: "separator" as const };
+				return { href: link.href, label: tNav(link.label) };
+			});
+		return newNav;
+	}, [tNav, user]);
 
 	return (
 		<nav
@@ -65,12 +122,12 @@ export function SidebarNavMenu({
 						/>
 					);
 				}
-				const isActive = pathname === link.href;
+				const isActive = new RegExp(link.href ?? "").test(pathname);
 
 				return (
 					<Link
 						key={link.href + String(index)}
-						href={link.href}
+						href={link.href ?? "#"}
 						className={cn(
 							"font-cairo flex items-center gap-2.5 font-bold text-sm rounded-xl py-2.5 px-3.5 mb-1 decoration-0",
 							isActive

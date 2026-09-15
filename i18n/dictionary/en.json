@@ -16,9 +16,11 @@
 		"khalis": "Khalis",
 		"have_qalish": "Do you have Qalish?",
 		"hakima": "Hakima",
-		"jni": "Jni",
-		"taabat": "Reproaches",
-		"check_mihs": "Exam"
+		"genny": "Jni",
+		"shbeik-lbeik": "Shbeik Lbeik",
+		"managment": "Management",
+		"etabat": "Reproaches",
+		"fahs-mahs": "Exam"
 	},
 	"contextSelection": {
 		"title": "Welcome {name} — how will you use the network today?",
@@ -366,11 +368,47 @@
 		"serviceLink": "Human services",
 		"resourceLink": "Material resources"
 	},
-		
 	"namliyaService": {
 		"backToNamliya": "→ Back to Namliya",
 		"requestLink": "Request Service",
 		"saveToFavorites": "Save to Favorites",
 		"serviceRequestNote": "Submitting the request opens a private chat where you can finalize the agreement before the exchange begins."
+	},
+	"genny": {
+		"browse": {
+			"title": "Genny — Network Wishes",
+			"description": "What's missing from the network? Wish for it here — the most endorsed wishes will guide new organizations joining.",
+			"chips": {
+				"browse": "Browse",
+				"addNew": "New wish +",
+				"myWishes": "My wishes"
+			},
+			"filter": {
+				"mostEndorsed": "Most endorsed",
+				"latest": "Latest",
+				"professionalServices": "Professional services",
+				"healthCare": "Health & care",
+				"spaces": "Spaces",
+				"production": "Production & publishing"
+			},
+			"wishCard": {
+				"endorsingOrgs": "Endorsing orgs",
+				"zeroEndorsements": "No endorsements yet",
+				"endorse": "Endorse",
+				"endorsed": "Endorsed ✓",
+				"unendorse": "Remove your endorsement",
+				"fixedNote": "After the first endorsement the wish is set — any edit becomes a new wish.",
+				"editableNote": "Before the first endorsement you can edit, withdraw, or delete.",
+				"edit": "Edit",
+				"withdraw": "Withdraw",
+				"delete": "Delete"
+			},
+			"note": "Each organization endorses a wish once — and can remove its endorsement at any time. The Emtedad team returns to this list while reviewing new membership applications.",
+			"noteBold": "A membership request for a specific organization belongs in Hakima, not here."
+		},
+		"myWishes": {
+			"title": "Genny — My Wishes",
+			"description": "Mishkaa's wishes — and who stood by it."
+		}
 	}
 }
