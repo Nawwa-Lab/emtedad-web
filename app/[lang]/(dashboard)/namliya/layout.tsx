@@ -2,7 +2,7 @@ import { QuickAction } from "@/components/QuickAction";
 import { getDictionary } from "@/i18n/dictionary/get-dictionary";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { SupLinks } from "../../../../components/SubLinks";
+import { SubLinks } from "../../../../components/SubLinks";
 
 export default async function NamliyaLayout({
 	children,
@@ -28,7 +28,7 @@ export default async function NamliyaLayout({
 			<p className='font-semibold text-[12.5px] sm:text-[13px] md:text-[13.5px] text-ink-soft mt-1 font-cairo'>
 				{namliya.description}
 			</p>
-			<SupLinks
+			<SubLinks
 				links={[
 					{ href: "/namliya/service-offers", label: namliya.serviceLink },
 					{ href: "/namliya/resource-offers", label: namliya.resourceLink },

@@ -13,7 +13,7 @@ const activeClass =
 const inactiveClass =
     "border border-line font-cairo bg-surface text-ink inline-block rounded-[999px] font-bold text-[11.5px] sm:text-[12px] py-1.5 sm:py-1.75 px-3 sm:px-3.75 hover:border-green-deep";
 
-export function SupLinks({ links }: { links: NavLink[] }) {
+export function SubLinks({ links }: { links: NavLink[] }) {
     const pathname = usePathname();
 
     return (
