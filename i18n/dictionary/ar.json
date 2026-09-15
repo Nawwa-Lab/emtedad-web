@@ -358,6 +358,12 @@
 		"serviceLink": "خدمات بشرية",
 		"resourceLink": "موارد مادية"
 	},
+	"namliyaService": {
+		"backToNamliya": "→ رجوع للنملية",
+		"requestLink": "اطلبي الخدمة",
+		"saveToFavorites": "احفظي في المحفوظات",
+		"serviceRequestNote": "تقديم الطلب بيفتح محادثة خاصة تكمّلوا فيها الاتفاق قبل ما يبدأ التبادل."
+	},
 	"genny": {
 		"browse": {
 			"title": "جني — أمنيات الشبكة",

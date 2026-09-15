@@ -368,6 +368,12 @@
 		"serviceLink": "Human services",
 		"resourceLink": "Material resources"
 	},
+	"namliyaService": {
+		"backToNamliya": "→ Back to Namliya",
+		"requestLink": "Request Service",
+		"saveToFavorites": "Save to Favorites",
+		"serviceRequestNote": "Submitting the request opens a private chat where you can finalize the agreement before the exchange begins."
+	},
 	"genny": {
 		"browse": {
 			"title": "Genny — Network Wishes",
@@ -384,6 +390,18 @@
 				"healthCare": "Health & care",
 				"spaces": "Spaces",
 				"production": "Production & publishing"
+			},
+			"wishCard": {
+				"endorsingOrgs": "Endorsing orgs",
+				"zeroEndorsements": "No endorsements yet",
+				"endorse": "Endorse",
+				"endorsed": "Endorsed ✓",
+				"unendorse": "Remove your endorsement",
+				"fixedNote": "After the first endorsement the wish is set — any edit becomes a new wish.",
+				"editableNote": "Before the first endorsement you can edit, withdraw, or delete.",
+				"edit": "Edit",
+				"withdraw": "Withdraw",
+				"delete": "Delete"
 			},
 		"wishCard": {
 			"endorsingOrgs": "Endorsing orgs",
