@@ -29,20 +29,7 @@ export default function GennyBrowsePage() {
 
 	return (
 		<>
-			<h1 className='font-display font-bold text-[26px]/[1.5]'>
-				{t("title")}
-			</h1>
-			<p className='font-cairo font-semibold text-sm text-ink-soft mt-0.5'>
-				{t("description")}
-			</p>
-			<SubLinks
-				className='mt-4 mb-1.5'
-				links={[
-					{ href: "/genny/browse", label: t("chips.browse") },
-					{ href: "/genny/add-wish", label: t("chips.addNew") },
-					{ href: "/genny/my-wishes", label: t("chips.myWishes") },
-				]}
-			/>
+			
 			<div className='flex flex-wrap gap-2 sm:gap-3.5 mb-4'>
 				<ToggleGroup
 					value={filterBy}

@@ -1,5 +1,6 @@
 export const wishes = [
 	{
+		id: "9a14222",
 		count: 7,
 		category: "إنتاج ونشر",
 		title: "مطبعة ودار نشر تعاونية",
@@ -10,6 +11,7 @@ export const wishes = [
 		isEndorsed: true,
 	},
 	{
+		id: "ebd03ff",
 		count: 6,
 		category: "خدمات مهنية",
 		title: "مؤسسات عون قانوني أكتر",
@@ -20,6 +22,7 @@ export const wishes = [
 		isEndorsed: false,
 	},
 	{
+		id: "5720a14",
 		count: 5,
 		category: "صحة ورعاية",
 		title: "عيادة صحة مجتمعية",
@@ -30,6 +33,7 @@ export const wishes = [
 		isEndorsed: false,
 	},
 	{
+		id: "4c36e27",
 		count: 4,
 		category: "صحة ورعاية",
 		title: "حضانات ورعاية أطفال للعاملين",
@@ -39,6 +43,7 @@ export const wishes = [
 		isEndorsed: false,
 	},
 	{
+		id: "e06fbc2",
 		count: 2,
 		category: "خدمات مهنية",
 		title: "مجموعة ترجمة تعاونية",

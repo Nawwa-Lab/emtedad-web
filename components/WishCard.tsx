@@ -6,18 +6,22 @@ import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
+import { Link } from "@/i18n/navigation";
 
 interface WishCardProps {
+	id: string;
 	count: number;
 	category: string;
 	title: string;
 	description: string;
-	endorsers: string[]; // initials like ["م", "ح", "ص", "م"]
-	endorsersText: string; // full text like "أيّدتها: مشكاة، حلقة، صوت وصورة، ملحة +٣"
+	endorsers: string[];
+	endorsersText: string;
 	isEndorsed: boolean;
+	mode?: "browse" | "mine";
 }
 
 export function WishCard({
+	id,
 	count,
 	category,
 	title,
@@ -25,11 +29,13 @@ export function WishCard({
 	endorsers,
 	endorsersText,
 	isEndorsed,
+	mode = "browse",
 }: WishCardProps) {
 	const locale = useLocale();
 	const t = useTranslations("genny.browse.wishCard");
 	const [isEndorsedState, setIsEndorsedState] = useState(isEndorsed);
 	const [countState, SetCountState] = useState(count);
+
 	return (
 		<div className='font-cairo py-5 px-5.5 mb-3 flex items-start gap-5 flex-wrap bg-surface border border-line rounded-2xl'>
 			<div className='font-cairo shrink-0 w-21.5 text-center bg-paper border border-line-soft rounded-2xl py-3.5 px-2'>
@@ -37,7 +43,7 @@ export function WishCard({
 					{formatNumber(countState, { locale })}
 				</b>
 				<span className='block text-[10px]/[1.6] font-bold text-ink-soft mt-0.5'>
-					{t("endorsingOrgs")}
+					{countState === 0 ? t("zeroEndorsements") : t("endorsingOrgs")}
 				</span>
 			</div>
 			<div className='flex-1 min-w-65'>
@@ -66,34 +72,70 @@ export function WishCard({
 					<p className='font-semibold text-xs text-ink-soft'>{endorsersText}</p>
 				</div>
 			</div>
-			<div className='shrink-0 flex flex-col items-end gap-2 '>
-				<Button
-					className={cn(
-						"bg-green text-ink inline-flex items-center gap-1.5 rounded-full font-extrabold text-xs",
-						isEndorsedState && "cursor-default",
-					)}
-					onClick={() => {
-						if (isEndorsedState) return;
-						setIsEndorsedState(true);
-						SetCountState((prevCount) => prevCount + 1);
-					}}
-				>
-					{isEndorsedState ? t("endorsed") : t("endorse")}
-				</Button>
-				{isEndorsedState && (
+			{mode === "browse" ? (
+				<div className='shrink-0 flex flex-col items-end gap-2 '>
 					<Button
-						variant='destructive'
-						className='text-brick-deep text-xs font-bold border-0 bg-none'
-						type='button'
+						className={cn(
+							"bg-green text-ink inline-flex items-center gap-1.5 rounded-full font-extrabold text-xs",
+							isEndorsedState && "cursor-default",
+						)}
 						onClick={() => {
-							setIsEndorsedState(false);
-							SetCountState((prevCount) => prevCount - 1);
+							if (isEndorsedState) return;
+							setIsEndorsedState(true);
+							SetCountState((prevCount) => prevCount + 1);
 						}}
 					>
-						{t("unendorse")}
+						{isEndorsedState ? t("endorsed") : t("endorse")}
 					</Button>
-				)}
-			</div>
+					{isEndorsedState && (
+						<Button
+							variant='destructive'
+							className='text-brick-deep text-xs font-bold border-0 bg-none'
+							type='button'
+							onClick={() => {
+								setIsEndorsedState(false);
+								SetCountState((prevCount) => prevCount - 1);
+							}}
+						>
+							{t("unendorse")}
+						</Button>
+					)}
+				</div>
+			) : (
+				<div className='w-full flex items-center gap-2.5 flex-wrap mt-3 pt-3 border-t border-line-soft'>
+					<span className='flex-1 min-w-45 font-semibold text-xs text-ink-soft'>
+						{isEndorsedState ? t("fixedNote") : t("editableNote")}
+					</span>
+					{!isEndorsedState && (
+						<>
+							<Link
+								href={`/genny/wish/${id}/edit`}
+								className='inline-block border border-green-deep text-green-deep bg-transparent rounded-full font-cairo font-bold text-xs py-2 px-4.5'
+							>
+								{t("edit")}
+							</Link>
+							<Button
+								variant='destructive'
+								className='text-brick-deep text-xs font-bold border-0 bg-none'
+								type='button'
+								onClick={()=>{ console.log("Withdraw Wish ", id);
+								}}
+							>
+								{t("withdraw")}
+							</Button>
+							<Button
+								variant='destructive'
+								className='text-brick-deep text-xs font-bold border-0 bg-none'
+								type='button'
+								onClick={()=>{ console.log("Remove Wish ", id);
+								}}
+							>
+								{t("delete")}
+							</Button>
+						</>
+					)}
+				</div>
+			)}
 		</div>
 	);
 }
