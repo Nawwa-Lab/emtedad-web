@@ -1,1 +1,1 @@
-export * from "./wish-schema";
+export * from './wish-schema'

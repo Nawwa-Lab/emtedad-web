@@ -1,21 +1,21 @@
-import { getDictionary } from "@/i18n/dictionary/get-dictionary";
-import { Locale } from "@/types";
-import type { Metadata } from "next";
+import { getDictionary } from '@/i18n/dictionary/get-dictionary'
+import { Locale } from '@/types'
+import type { Metadata } from 'next'
 
 export const generateMetadata = async ({
-	params,
+  params,
 }: {
-	params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: Locale }>
 }): Promise<Metadata> => {
-	const { lang } = await params;
-	const dict = await getDictionary(lang);
+  const { lang } = await params
+  const dict = await getDictionary(lang)
 
-	return {
-		title: dict.inviteSignup.metaTitle,
-		description: dict.inviteSignup.metaDescription,
-	};
-};
+  return {
+    title: dict.inviteSignup.metaTitle,
+    description: dict.inviteSignup.metaDescription,
+  }
+}
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-	return children;
+  return children
 }
