@@ -362,6 +362,12 @@
     "serviceLink": "Human services",
     "resourceLink": "Material resources"
   },
+  "namliyaService": {
+    "backToNamliya": "→ Back to Namliya",
+    "requestLink": "Request Service",
+    "saveToFavorites": "Save to Favorites",
+    "serviceRequestNote": "Submitting the request opens a private chat where you can finalize the agreement before the exchange begins."
+  },
   "genny": {
     "browse": {
       "title": "Genny — Network Wishes",
