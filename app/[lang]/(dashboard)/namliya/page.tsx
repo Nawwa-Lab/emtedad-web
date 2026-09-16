@@ -1,13 +1,10 @@
-import { redirect } from "@/i18n/navigation";
+import { redirect } from '@/i18n/navigation'
 
 export default async function NamliyaBrowsePage({ params }: { params: { lang: string } }) {
-    const { lang } = await params;
+  const { lang } = await params
 
-    redirect(
-        {
-            locale: lang,
-            href: "/namliya/service-offers",
-        }
-    )
-
+  redirect({
+    locale: lang,
+    href: '/namliya/service-offers',
+  })
 }
