@@ -1,443 +1,437 @@
 {
-	"login": {
-		"title": "Welcome to Emtedad",
-		"description": "Log in to your account and continue your charity course from where you left off.",
-		"emailLabel": "Email",
-		"passwordLabel": "Password",
-		"submit": "Log in",
-		"forgotPassword": "Forgot password?",
-		"invitation": "Join Emtedad by invitation — from your organization or from the Emtedad team.",
-		"metaTitle": "Emtedad - Login",
-		"metaDescription": "Emtedad Login page"
-	},
-	"navigation": {
-		"maktab": "Maktab",
-		"namliya": "Namliya",
-		"khalis": "Khalis",
-		"have_qalish": "Do you have Qalish?",
-		"hakima": "Hakima",
-		"genny": "Jni",
-		"shbeik-lbeik": "Shbeik Lbeik",
-		"managment": "Management",
-		"etabat": "Reproaches",
-		"fahs-mahs": "Exam"
-	},
-	"contextSelection": {
-		"title": "Welcome {name} — how will you use the network today?",
-		"subtitle": "Your choice tailors content, search, and shortcuts to fit you.",
-		"orgTitle": "I'm an organization",
-		"orgDesc": "I act under my organization's name in Omnia, keep it clean, and follow up on the office and Hikima.",
-		"pubTitle": "I'm a audience",
-		"pubDesc": "I participate as myself: I oversee services and benefit from organization activities.",
-		"submit": "Continue",
-		"note": "Your choice doesn't change your permissions — you can switch between roles anytime.",
-		"metaTitle": "Emtedad - Context Selection",
-		"metaDescription": "Emtedad Context Selection page"
-	},
-	"passwordReset": {
-		"title": "Forgot password?",
-		"description": "Enter your email and we'll send you a reset link.",
-		"emailLabel": "Email",
-		"submit": "Send reset link",
-		"remembered": "Remembered? Log in here",
-		"metaTitle": "Emtedad - Reset Password",
-		"metaDescription": "Emtedad Reset Password page"
-	},
-	"inviteSignup": {
-		"message": "{company} invites you to join their team on Emtidad.",
-		"title": "Complete your account",
-		"company": "Mishkat",
-		"description": "One step and you’re in.",
-		"name": "Name",
-		"emailLabel": "Email",
-		"emailNote": "The email is linked to the invitation and cannot be changed.",
-		"passwordLabel": "Password",
-		"passwordRepeatLabel": "Confirm Password",
-		"firstPart": "I have read ",
-		"secondPart": " and I accept its terms.",
-		"link": "Network Charter",
-		"submit": "Complete your account",
-		"alreadyAMember": "Already a member? Log in here",
-		"metaTitle": "Emtedad - Create Account via Invitation",
-		"metaDescription": "Create a new account in Emtedad via invitation",
-		"namePlaceholder": "Your name here",
-		"passwordPlaceholder": "At least 8 characters",
-		"emailPlaceholder": "name@example.org"
-	},
-	"header": {
-		"searchPlaceholder": "Search the network…",
-		"searchAriaLabel": "Search",
-		"quickAction": "Do a good deed +",
-		"logo": "Emtedad",
-		"contextLabel": "I'm an organization",
-		"switchContext": "Switch",
-		"notificationsAriaLabel": "Notifications — 3 unread"
-	},
-	"dashboard": {
-		"title": "Welcome to Mishkaa in Emtedad",
-		"description": "Good deeds start here — your first published offer opens the cycle, and every kindness comes back.",
-		"quickAction": "Do a good deed +",
-		"watchNamliya": "Watch Namliya"
-	},
-	"quickAction": {
-		"title": "Do a good deed",
-		"description": "Where will you do it? Choose the place and type of good deed.",
-		"namliyaTitle": "Namliya",
-		"namliyaDesc": "Organizations market — from organization to organization",
-		"humanService": "Human service",
-		"materialResource": "Material resource",
-		"khalisTitle": "Khalis",
-		"khalisDesc": "Community market — from your organization to the public",
-		"workshop": "Workshop",
-		"course": "Course",
-		"culturalProgram": "Cultural program",
-		"event": "Event",
-		"qalishTitle": "Got Qalish?",
-		"qalishDesc": "Request board — when what you need isn't available",
-		"newRequest": "New request",
-		"footer": "Every good deed is published under your organization's name — Mishkaa."
-	},
-	"sidebar": {
-		"mainNavAriaLabel": "Main navigation",
-		"quickAction": "Do a good deed +",
-		"notifications": "Notifications",
-		"orgName": "Mishkaa Organization",
-		"publicProfile": "Public profile"
-	},
-	"dialog": {
-		"close": "Close"
-	},
-	"member-profile": {
-		"firstCard": {
-			"avatarInitials": "K",
-			"name": "karim Fawzy",
-			"role": "Photographer & Production Manager",
-			"organization": "Sout wa Soura",
-			"completedServices": "20 completed services via the network"
-		},
-		"secondCard": {
-			"bioTitle": "Bio",
-			"bioText": "A storyteller with a camera — I document cultural events from the inside, not from afar. I've worked with theater troupes and art centers for eight years, and I love to deliver the image while it's still hot.",
-			"skillsTitle": "Skills and areas of expertise",
-			"skills": [
-				"Videography",
-				"Lighting",
-				"Production Management",
-				"Photography",
-				"Rough Cut Editing"
-			]
-		},
-		"thirdCard": {
-			"reviewsTitle": "Written reviews",
-			"review": [
-				{
-					"reviewerInitials": "M",
-					"reviewerName": "Mishkah",
-					"exchangeText": "After exchanging \"Photography & Event Documentation\" ·",
-					"badge": "Amer",
-					"reviewText": "Karim arrived ahead of time and set up the lighting on his own — the material was delivered in two days instead of a week, and with quality exceeding what was agreed upon."
-				},
-				{
-					"reviewerInitials": "H",
-					"reviewerName": "Halaqa",
-					"exchangeText": "After exchanging \"Seminar Coverage\" ·",
-					"badge": "Kareem",
-					"reviewText": "Clean work and complete commitment to the agreement. Communication could have been a bit faster at the beginning, but the delivery made up for everything."
-				},
-				{
-					"reviewerInitials": "S",
-					"reviewerName": "Sarah Hassan",
-					"exchangeText": "After sponsoring the service \"Personal Photoshoot Session\" ·",
-					"badge": "Amer",
-					"reviewText": "He made the session easy and light, and the photos came out natural — first time I feel the camera isn't frowning at me."
-				}
-			]
-		},
-		"fourthCard": {
-			"title": "Satisfaction Index",
-			"overall": [
-				{
-					"rate": "Amer",
-					"about": "As a service provider",
-					"totalReviews": "Rated by 20 members"
-				},
-				{
-					"rate": "Kareem",
-					"about": "As a service recipient",
-					"totalReviews": "Rated by 7 members"
-				}
-			]
-		},
-		"fifthCard": {
-			"title": "Organization",
-			"viewProfile": "Organization's public profile"
-		}
-	},
-	"org-profile": {
-		"firstCard": {
-			"avatarInitials": "S",
-			"name": "Sout wa Soura",
-			"role": "Community Studio for Visual and Audio Documentation",
-			"rate": "Satisfaction Index",
-			"rateDes": "Rated by 48 members through completed exchanges"
-		},
-		"secondCard": {
-			"bioTitle": "Mission",
-			"bioText": "Documenting Egyptian cultural practices and providing visual and audio production tools for small organizations and their communities, and training a new generation of storytellers in image and sound.",
-			"skillsTitle": "Areas of Expertise",
-			"skills": [
-				"Photography",
-				"Editing",
-				"Podcast",
-				"Archiving",
-				"Training"
-			]
-		},
-		"thirdCard": {
-			"title": "Published Offers",
-			"link1": "Namliya",
-			"link2": "Khalis",
-			"firstHeader": "Human Services",
-			"secondHeader": "Material Resources"
-		},
-		"fourthCard": {
-			"title": "Information"
-		},
-		"fifthCard": {
-			"title": "Organization",
-			"overall": [
-				{
-					"name": "karim Fawzy",
-					"rate": "Epic",
-					"about": "Videographer & Production Manager"
-				},
-				{
-					"name": "Nour Ali",
-					"rate": "Good",
-					"about": "Editor"
-				},
-				{
-					"name": "Hoda Samir",
-					"rate": "Good",
-					"about": "Podcast Producer"
-				},
-				{
-					"name": "Youssef Adel",
-					"rate": "Acceptable",
-					"about": "Training Coordinator"
-				}
-			]
-		}
-	},
-	"statusBadge": {
-		"veryGood": "Epic",
-		"good": "Good",
-		"acceptable": "Fair",
-		"empty": "-"
-	},
-	"search": {
-		"heading": "Search results for \u00AB{term}\u00BB",
-		"resultCount": "{count} results in the network",
-		"filterAll": "All {count}",
-		"namliyaOffers": "Offers on Namliya",
-		"viewAllNamliya": "See all on Namliya",
-		"khalisOffers": "Offers on Khalis",
-		"viewAllKhalis": "See all on Khalis",
-		"qalishRequests": "Requests on Got Qalish?",
-		"viewAllRequests": "See all requests",
-		"members": "Members",
-		"catDesign": "Design",
-		"catPublicToOrgs": "From public to organizations",
-		"catRequest": "Request",
-		"shahama": "Shahama",
-		"order": "Order",
-		"iHave": "I have",
-		"visualDesigner": "Visual designer · Mishkaa Organization",
-		"kareem": "Kareem",
-		"profile": "Profile"
-	},
-	"infoCard": {
-		"countryCity": {
-			"label": "Country · City",
-			"value": "Egypt · Cairo"
-		},
-		"foundingYear": {
-			"label": "Founding Year",
-			"value": "2017"
-		},
-		"website": {
-			"label": "Website",
-			"value": "sawtwsoora.org"
-		},
-		"socialMedia": {
-			"label": "Social Media",
-			"value": "Instagram · Facebook"
-		}
-	},
-	"serviceCard": {
-		"humanServiceCard": [
-			{
-				"category": "Production",
-				"title": "Video shooting and documentation of events",
-				"providerName": "Karim Fawzy · ",
-				"providerRate": "Amer ·",
-				"availability": "Available any duration",
-				"price": "35",
-				"currency": "Shahama",
-				"request": "Request",
-				"spotsLeft": "5 spots left"
-			},
-			{
-				"category": "Editing",
-				"title": "Short film editing and promotional videos",
-				"providerName": "Nour Ali · ",
-				"providerRate": "Karim · ",
-				"availability": "Limited until October 15",
-				"price": "45",
-				"currency": "Shahama",
-				"request": "Request"
-			}
-		],
-		"materialResourceCard": [
-			{
-				"category": "Equipment",
-				"title": "Cinema camera with two lenses",
-				"providerName": "Supervised by operator",
-				"providerRate": "Cash deposit required · ",
-				"availability": "Available for a limited period · ",
-				"price": "30",
-				"currency": "Shahama",
-				"request": "Request"
-			},
-			{
-				"category": "Spaces",
-				"title": "Isolated sound studio for recording",
-				"providerName": "Unsupervised",
-				"providerRate": "No deposit · ",
-				"availability": "Available any duration · ",
-				"price": "25",
-				"currency": "Shahama",
-				"request": "Request"
-			}
-		]
-	},
-	"satisfactionIndex": {
-		"title": "Satisfaction Index — Voice & Vision",
-		"rate": "Rated by 48 members through completed exchanges",
-		"dialog": [
-			{
-				"header": "Human Services",
-				"provider": "As a service provider",
-				"client": "As a service recipient"
-			},
-			{
-				"header": "Material Resources",
-				"provider": "As a resource contributor",
-				"client": "As a resource user"
-			},
-			{
-				"header": "Audience Rating",
-				"activities": "Activities & events"
-			}
-		],
-		"reviewHeader": "Written reviews",
-		"reviewContent": [
-			{
-				"reviewerName": "Mishkaa",
-				"exchangeText": "After exchanging «Event Coverage» ·",
-				"badge": "Amer",
-				"reviewText": "Punctual and delivered higher quality than expected — they documented three nights of performances as if they were part of the team."
-			},
-			{
-				"reviewerName": "Halaqa",
-				"exchangeText": "After using «Sound Studio» ·",
-				"badge": "Kareem",
-				"reviewText": "The studio is well-equipped and the delivery was on time. We recommend booking early because demand is high."
-			},
-			{
-				"reviewerName": "Sarah Hassan",
-				"exchangeText": "After «Podcast Workshop» ·",
-				"badge": "Amer",
-				"reviewText": "A workshop that changed how I speak — the training was hands-on from day one and the follow-up continued after the workshop."
-			}
-		]
-	},
-	"namliyaBrowse": {
-		"title": "Namliya — Market for organizations",
-		"description": "What overflows at one organization fills the need of another — browse and request, and the agreement is completed in the conversation.",
-		"serviceLink": "Human services",
-		"resourceLink": "Material resources"
-	},
-	"genny": {
-		"browse": {
-			"title": "Genny — Network Wishes",
-			"description": "What's missing from the network? Wish for it here — the most endorsed wishes will guide new organizations joining.",
-			"chips": {
-				"browse": "Browse",
-				"addNew": "New wish +",
-				"myWishes": "My wishes"
-			},
-			"filter": {
-				"mostEndorsed": "Most endorsed",
-				"latest": "Latest",
-				"professionalServices": "Professional services",
-				"healthCare": "Health & care",
-				"spaces": "Spaces",
-				"production": "Production & publishing"
-			},
-		"wishCard": {
-			"endorsingOrgs": "Endorsing orgs",
-			"zeroEndorsements": "No endorsements yet",
-			"endorse": "Endorse",
-			"endorsed": "Endorsed ✓",
-			"unendorse": "Remove your endorsement",
-			"fixedNote": "After the first endorsement the wish is set — any edit becomes a new wish.",
-			"editableNote": "Before the first endorsement you can edit, withdraw, or delete.",
-			"edit": "Edit",
-			"withdraw": "Withdraw",
-			"delete": "Delete"
-		},
-			"note": "Each organization endorses a wish once — and can remove its endorsement at any time. The Emtedad team returns to this list while reviewing new membership applications.",
-			"noteBold": "A membership request for a specific organization belongs in Hakima, not here."
-		},
-		"myWishes": {
-			"title": "Genny — My Wishes",
-			"description": "Mishkaa's wishes — and who stood by it.",
-			"chips": {
-				"browse": "Browse",
-				"addNew": "New wish +",
-				"myWishes": "My wishes ٢"
-			}
-		},
-		"addWish": {
-			"backToGenny": "← Back to Genny",
-			"title": "New wish",
-			"editTitle": "Edit wish",
-			"subtitle": "Wish for types of organizations, services, or activities you'd love the network to have.",
-			"dupeLabel": "Check first — does the wish already exist?",
-			"dupeSearchAria": "Search wishes",
-			"endorsedCount": "{count} endorsing orgs — close to yours?",
-			"endorseInstead": "Endorse this instead of duplicating",
-			"titleLabel": "Wish title",
-			"titlePlaceholder": "e.g. Shared woodworking workshop for set designs",
-			"descriptionLabel": "Description",
-			"descriptionPlaceholder": "What exactly is the need? Who benefits?",
-			"categoryLabel": "Category",
-			"otherCategory": "Other",
-			"impactLabel": "Why will this strengthen the network?",
-			"impactPlaceholder": "Link it to a recurring need — unfulfilled Got Qalish requests are good evidence.",
-			"submitAdd": "Publish wish",
-			"submitEdit": "Save changes",
-			"tipsTitle": "Before you wish",
-			"tip1": "Genny is for shared needs — a membership request for a specific org belongs in Hakima during the membership cycle.",
-			"tip2": "If you find a similar wish, endorse it instead — collective endorsements speak louder.",
-			"tip3": "Before the first endorsement you can edit, withdraw, or delete — after that the wish is set.",
-			"titleRequired": "Title is required",
-			"titleMin": "Title must be at least 3 characters",
-			"descriptionRequired": "Description is required",
-			"descriptionMin": "Description must be at least 10 characters",
-			"categoryRequired": "Please select a category",
-			"queryRequired": "Search keyword is required"
-		}
-	}
+  "login": {
+    "title": "Welcome to Emtedad",
+    "description": "Log in to your account and continue your charity course from where you left off.",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "submit": "Log in",
+    "forgotPassword": "Forgot password?",
+    "invitation": "Join Emtedad by invitation — from your organization or from the Emtedad team.",
+    "metaTitle": "Emtedad - Login",
+    "metaDescription": "Emtedad Login page"
+  },
+  "navigation": {
+    "maktab": "Maktab",
+    "namliya": "Namliya",
+    "khalis": "Khalis",
+    "have_qalish": "Do you have Qalish?",
+    "hakima": "Hakima",
+    "genny": "Jni",
+    "shbeik-lbeik": "Shbeik Lbeik",
+    "managment": "Management",
+    "etabat": "Reproaches",
+    "fahs-mahs": "Exam"
+  },
+  "contextSelection": {
+    "title": "Welcome {name} — how will you use the network today?",
+    "subtitle": "Your choice tailors content, search, and shortcuts to fit you.",
+    "orgTitle": "I'm an organization",
+    "orgDesc": "I act under my organization's name in Omnia, keep it clean, and follow up on the office and Hikima.",
+    "pubTitle": "I'm a audience",
+    "pubDesc": "I participate as myself: I oversee services and benefit from organization activities.",
+    "submit": "Continue",
+    "note": "Your choice doesn't change your permissions — you can switch between roles anytime.",
+    "metaTitle": "Emtedad - Context Selection",
+    "metaDescription": "Emtedad Context Selection page"
+  },
+  "passwordReset": {
+    "title": "Forgot password?",
+    "description": "Enter your email and we'll send you a reset link.",
+    "emailLabel": "Email",
+    "submit": "Send reset link",
+    "remembered": "Remembered? Log in here",
+    "metaTitle": "Emtedad - Reset Password",
+    "metaDescription": "Emtedad Reset Password page"
+  },
+  "inviteSignup": {
+    "message": "{company} invites you to join their team on Emtidad.",
+    "title": "Complete your account",
+    "company": "Mishkat",
+    "description": "One step and you’re in.",
+    "name": "Name",
+    "emailLabel": "Email",
+    "emailNote": "The email is linked to the invitation and cannot be changed.",
+    "passwordLabel": "Password",
+    "passwordRepeatLabel": "Confirm Password",
+    "firstPart": "I have read ",
+    "secondPart": " and I accept its terms.",
+    "link": "Network Charter",
+    "submit": "Complete your account",
+    "alreadyAMember": "Already a member? Log in here",
+    "metaTitle": "Emtedad - Create Account via Invitation",
+    "metaDescription": "Create a new account in Emtedad via invitation",
+    "namePlaceholder": "Your name here",
+    "passwordPlaceholder": "At least 8 characters",
+    "emailPlaceholder": "name@example.org"
+  },
+  "header": {
+    "searchPlaceholder": "Search the network…",
+    "searchAriaLabel": "Search",
+    "quickAction": "Do a good deed +",
+    "logo": "Emtedad",
+    "contextLabel": "I'm an organization",
+    "switchContext": "Switch",
+    "notificationsAriaLabel": "Notifications — 3 unread"
+  },
+  "dashboard": {
+    "title": "Welcome to Mishkaa in Emtedad",
+    "description": "Good deeds start here — your first published offer opens the cycle, and every kindness comes back.",
+    "quickAction": "Do a good deed +",
+    "watchNamliya": "Watch Namliya"
+  },
+  "quickAction": {
+    "title": "Do a good deed",
+    "description": "Where will you do it? Choose the place and type of good deed.",
+    "namliyaTitle": "Namliya",
+    "namliyaDesc": "Organizations market — from organization to organization",
+    "humanService": "Human service",
+    "materialResource": "Material resource",
+    "khalisTitle": "Khalis",
+    "khalisDesc": "Community market — from your organization to the public",
+    "workshop": "Workshop",
+    "course": "Course",
+    "culturalProgram": "Cultural program",
+    "event": "Event",
+    "qalishTitle": "Got Qalish?",
+    "qalishDesc": "Request board — when what you need isn't available",
+    "newRequest": "New request",
+    "footer": "Every good deed is published under your organization's name — Mishkaa."
+  },
+  "sidebar": {
+    "mainNavAriaLabel": "Main navigation",
+    "quickAction": "Do a good deed +",
+    "notifications": "Notifications",
+    "orgName": "Mishkaa Organization",
+    "publicProfile": "Public profile"
+  },
+  "dialog": {
+    "close": "Close"
+  },
+  "member-profile": {
+    "firstCard": {
+      "avatarInitials": "K",
+      "name": "karim Fawzy",
+      "role": "Photographer & Production Manager",
+      "organization": "Sout wa Soura",
+      "completedServices": "20 completed services via the network"
+    },
+    "secondCard": {
+      "bioTitle": "Bio",
+      "bioText": "A storyteller with a camera — I document cultural events from the inside, not from afar. I've worked with theater troupes and art centers for eight years, and I love to deliver the image while it's still hot.",
+      "skillsTitle": "Skills and areas of expertise",
+      "skills": [
+        "Videography",
+        "Lighting",
+        "Production Management",
+        "Photography",
+        "Rough Cut Editing"
+      ]
+    },
+    "thirdCard": {
+      "reviewsTitle": "Written reviews",
+      "review": [
+        {
+          "reviewerInitials": "M",
+          "reviewerName": "Mishkah",
+          "exchangeText": "After exchanging \"Photography & Event Documentation\" ·",
+          "badge": "Amer",
+          "reviewText": "Karim arrived ahead of time and set up the lighting on his own — the material was delivered in two days instead of a week, and with quality exceeding what was agreed upon."
+        },
+        {
+          "reviewerInitials": "H",
+          "reviewerName": "Halaqa",
+          "exchangeText": "After exchanging \"Seminar Coverage\" ·",
+          "badge": "Kareem",
+          "reviewText": "Clean work and complete commitment to the agreement. Communication could have been a bit faster at the beginning, but the delivery made up for everything."
+        },
+        {
+          "reviewerInitials": "S",
+          "reviewerName": "Sarah Hassan",
+          "exchangeText": "After sponsoring the service \"Personal Photoshoot Session\" ·",
+          "badge": "Amer",
+          "reviewText": "He made the session easy and light, and the photos came out natural — first time I feel the camera isn't frowning at me."
+        }
+      ]
+    },
+    "fourthCard": {
+      "title": "Satisfaction Index",
+      "overall": [
+        {
+          "rate": "Amer",
+          "about": "As a service provider",
+          "totalReviews": "Rated by 20 members"
+        },
+        {
+          "rate": "Kareem",
+          "about": "As a service recipient",
+          "totalReviews": "Rated by 7 members"
+        }
+      ]
+    },
+    "fifthCard": {
+      "title": "Organization",
+      "viewProfile": "Organization's public profile"
+    }
+  },
+  "org-profile": {
+    "firstCard": {
+      "avatarInitials": "S",
+      "name": "Sout wa Soura",
+      "role": "Community Studio for Visual and Audio Documentation",
+      "rate": "Satisfaction Index",
+      "rateDes": "Rated by 48 members through completed exchanges"
+    },
+    "secondCard": {
+      "bioTitle": "Mission",
+      "bioText": "Documenting Egyptian cultural practices and providing visual and audio production tools for small organizations and their communities, and training a new generation of storytellers in image and sound.",
+      "skillsTitle": "Areas of Expertise",
+      "skills": ["Photography", "Editing", "Podcast", "Archiving", "Training"]
+    },
+    "thirdCard": {
+      "title": "Published Offers",
+      "link1": "Namliya",
+      "link2": "Khalis",
+      "firstHeader": "Human Services",
+      "secondHeader": "Material Resources"
+    },
+    "fourthCard": {
+      "title": "Information"
+    },
+    "fifthCard": {
+      "title": "Organization",
+      "overall": [
+        {
+          "name": "karim Fawzy",
+          "rate": "Epic",
+          "about": "Videographer & Production Manager"
+        },
+        {
+          "name": "Nour Ali",
+          "rate": "Good",
+          "about": "Editor"
+        },
+        {
+          "name": "Hoda Samir",
+          "rate": "Good",
+          "about": "Podcast Producer"
+        },
+        {
+          "name": "Youssef Adel",
+          "rate": "Acceptable",
+          "about": "Training Coordinator"
+        }
+      ]
+    }
+  },
+  "statusBadge": {
+    "veryGood": "Epic",
+    "good": "Good",
+    "acceptable": "Fair",
+    "empty": "-"
+  },
+  "search": {
+    "heading": "Search results for \u00AB{term}\u00BB",
+    "resultCount": "{count} results in the network",
+    "filterAll": "All {count}",
+    "namliyaOffers": "Offers on Namliya",
+    "viewAllNamliya": "See all on Namliya",
+    "khalisOffers": "Offers on Khalis",
+    "viewAllKhalis": "See all on Khalis",
+    "qalishRequests": "Requests on Got Qalish?",
+    "viewAllRequests": "See all requests",
+    "members": "Members",
+    "catDesign": "Design",
+    "catPublicToOrgs": "From public to organizations",
+    "catRequest": "Request",
+    "shahama": "Shahama",
+    "order": "Order",
+    "iHave": "I have",
+    "visualDesigner": "Visual designer · Mishkaa Organization",
+    "kareem": "Kareem",
+    "profile": "Profile"
+  },
+  "infoCard": {
+    "countryCity": {
+      "label": "Country · City",
+      "value": "Egypt · Cairo"
+    },
+    "foundingYear": {
+      "label": "Founding Year",
+      "value": "2017"
+    },
+    "website": {
+      "label": "Website",
+      "value": "sawtwsoora.org"
+    },
+    "socialMedia": {
+      "label": "Social Media",
+      "value": "Instagram · Facebook"
+    }
+  },
+  "serviceCard": {
+    "humanServiceCard": [
+      {
+        "category": "Production",
+        "title": "Video shooting and documentation of events",
+        "providerName": "Karim Fawzy · ",
+        "providerRate": "Amer ·",
+        "availability": "Available any duration",
+        "price": "35",
+        "currency": "Shahama",
+        "request": "Request",
+        "spotsLeft": "5 spots left"
+      },
+      {
+        "category": "Editing",
+        "title": "Short film editing and promotional videos",
+        "providerName": "Nour Ali · ",
+        "providerRate": "Karim · ",
+        "availability": "Limited until October 15",
+        "price": "45",
+        "currency": "Shahama",
+        "request": "Request"
+      }
+    ],
+    "materialResourceCard": [
+      {
+        "category": "Equipment",
+        "title": "Cinema camera with two lenses",
+        "providerName": "Supervised by operator",
+        "providerRate": "Cash deposit required · ",
+        "availability": "Available for a limited period · ",
+        "price": "30",
+        "currency": "Shahama",
+        "request": "Request"
+      },
+      {
+        "category": "Spaces",
+        "title": "Isolated sound studio for recording",
+        "providerName": "Unsupervised",
+        "providerRate": "No deposit · ",
+        "availability": "Available any duration · ",
+        "price": "25",
+        "currency": "Shahama",
+        "request": "Request"
+      }
+    ]
+  },
+  "satisfactionIndex": {
+    "title": "Satisfaction Index — Voice & Vision",
+    "rate": "Rated by 48 members through completed exchanges",
+    "dialog": [
+      {
+        "header": "Human Services",
+        "provider": "As a service provider",
+        "client": "As a service recipient"
+      },
+      {
+        "header": "Material Resources",
+        "provider": "As a resource contributor",
+        "client": "As a resource user"
+      },
+      {
+        "header": "Audience Rating",
+        "activities": "Activities & events"
+      }
+    ],
+    "reviewHeader": "Written reviews",
+    "reviewContent": [
+      {
+        "reviewerName": "Mishkaa",
+        "exchangeText": "After exchanging «Event Coverage» ·",
+        "badge": "Amer",
+        "reviewText": "Punctual and delivered higher quality than expected — they documented three nights of performances as if they were part of the team."
+      },
+      {
+        "reviewerName": "Halaqa",
+        "exchangeText": "After using «Sound Studio» ·",
+        "badge": "Kareem",
+        "reviewText": "The studio is well-equipped and the delivery was on time. We recommend booking early because demand is high."
+      },
+      {
+        "reviewerName": "Sarah Hassan",
+        "exchangeText": "After «Podcast Workshop» ·",
+        "badge": "Amer",
+        "reviewText": "A workshop that changed how I speak — the training was hands-on from day one and the follow-up continued after the workshop."
+      }
+    ]
+  },
+  "namliyaBrowse": {
+    "title": "Namliya — Market for organizations",
+    "description": "What overflows at one organization fills the need of another — browse and request, and the agreement is completed in the conversation.",
+    "serviceLink": "Human services",
+    "resourceLink": "Material resources"
+  },
+  "genny": {
+    "browse": {
+      "title": "Genny — Network Wishes",
+      "description": "What's missing from the network? Wish for it here — the most endorsed wishes will guide new organizations joining.",
+      "chips": {
+        "browse": "Browse",
+        "addNew": "New wish +",
+        "myWishes": "My wishes"
+      },
+      "filter": {
+        "mostEndorsed": "Most endorsed",
+        "latest": "Latest",
+        "professionalServices": "Professional services",
+        "healthCare": "Health & care",
+        "spaces": "Spaces",
+        "production": "Production & publishing"
+      },
+      "wishCard": {
+        "endorsingOrgs": "Endorsing orgs",
+        "zeroEndorsements": "No endorsements yet",
+        "endorse": "Endorse",
+        "endorsed": "Endorsed ✓",
+        "unendorse": "Remove your endorsement",
+        "fixedNote": "After the first endorsement the wish is set — any edit becomes a new wish.",
+        "editableNote": "Before the first endorsement you can edit, withdraw, or delete.",
+        "edit": "Edit",
+        "withdraw": "Withdraw",
+        "delete": "Delete"
+      },
+      "note": "Each organization endorses a wish once — and can remove its endorsement at any time. The Emtedad team returns to this list while reviewing new membership applications.",
+      "noteBold": "A membership request for a specific organization belongs in Hakima, not here."
+    },
+    "myWishes": {
+      "title": "Genny — My Wishes",
+      "description": "Mishkaa's wishes — and who stood by it.",
+      "chips": {
+        "browse": "Browse",
+        "addNew": "New wish +",
+        "myWishes": "My wishes ٢"
+      }
+    },
+    "addWish": {
+      "backToGenny": "← Back to Genny",
+      "title": "New wish",
+      "editTitle": "Edit wish",
+      "subtitle": "Wish for types of organizations, services, or activities you'd love the network to have.",
+      "dupeLabel": "Check first — does the wish already exist?",
+      "dupeSearchAria": "Search wishes",
+      "endorsedCount": "{count} endorsing orgs — close to yours?",
+      "endorseInstead": "Endorse this instead of duplicating",
+      "titleLabel": "Wish title",
+      "titlePlaceholder": "e.g. Shared woodworking workshop for set designs",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "What exactly is the need? Who benefits?",
+      "categoryLabel": "Category",
+      "otherCategory": "Other",
+      "impactLabel": "Why will this strengthen the network?",
+      "impactPlaceholder": "Link it to a recurring need — unfulfilled Got Qalish requests are good evidence.",
+      "submitAdd": "Publish wish",
+      "submitEdit": "Save changes",
+      "tipsTitle": "Before you wish",
+      "tip1": "Genny is for shared needs — a membership request for a specific org belongs in Hakima during the membership cycle.",
+      "tip2": "If you find a similar wish, endorse it instead — collective endorsements speak louder.",
+      "tip3": "Before the first endorsement you can edit, withdraw, or delete — after that the wish is set.",
+      "titleRequired": "Title is required",
+      "titleMin": "Title must be at least 3 characters",
+      "descriptionRequired": "Description is required",
+      "descriptionMin": "Description must be at least 10 characters",
+      "categoryRequired": "Please select a category",
+      "queryRequired": "Search keyword is required"
+    }
+  }
 }
