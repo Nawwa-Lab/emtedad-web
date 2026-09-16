@@ -402,7 +402,42 @@
 		},
 		"myWishes": {
 			"title": "Genny — My Wishes",
-			"description": "Mishkaa's wishes — and who stood by it."
+			"description": "Mishkaa's wishes — and who stood by it.",
+			"chips": {
+				"browse": "Browse",
+				"addNew": "New wish +",
+				"myWishes": "My wishes ٢"
+			}
+		},
+		"addWish": {
+			"backToGenny": "← Back to Genny",
+			"title": "New wish",
+			"editTitle": "Edit wish",
+			"subtitle": "Wish for types of organizations, services, or activities you'd love the network to have.",
+			"dupeLabel": "Check first — does the wish already exist?",
+			"dupeSearchAria": "Search wishes",
+			"endorsedCount": "{count} endorsing orgs — close to yours?",
+			"endorseInstead": "Endorse this instead of duplicating",
+			"titleLabel": "Wish title",
+			"titlePlaceholder": "e.g. Shared woodworking workshop for set designs",
+			"descriptionLabel": "Description",
+			"descriptionPlaceholder": "What exactly is the need? Who benefits?",
+			"categoryLabel": "Category",
+			"otherCategory": "Other",
+			"impactLabel": "Why will this strengthen the network?",
+			"impactPlaceholder": "Link it to a recurring need — unfulfilled Got Qalish requests are good evidence.",
+			"submitAdd": "Publish wish",
+			"submitEdit": "Save changes",
+			"tipsTitle": "Before you wish",
+			"tip1": "Genny is for shared needs — a membership request for a specific org belongs in Hakima during the membership cycle.",
+			"tip2": "If you find a similar wish, endorse it instead — collective endorsements speak louder.",
+			"tip3": "Before the first endorsement you can edit, withdraw, or delete — after that the wish is set.",
+			"titleRequired": "Title is required",
+			"titleMin": "Title must be at least 3 characters",
+			"descriptionRequired": "Description is required",
+			"descriptionMin": "Description must be at least 10 characters",
+			"categoryRequired": "Please select a category",
+			"queryRequired": "Search keyword is required"
 		}
 	}
 }
