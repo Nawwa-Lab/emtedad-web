@@ -212,15 +212,15 @@ function FieldError({
   }
 
   return (
-    <div
-      role="alert"
-      data-slot="field-error"
-      className={cn("text-sm font-normal text-destructive", className)}
-      {...props}
-    >
-      {content}
-    </div>
-  )
+		<div
+			role='alert'
+			data-slot='field-error'
+			className={cn("text-sm font-cairo text-brick", className)}
+			{...props}
+		>
+			{content}
+		</div>
+	);
 }
 
 export {

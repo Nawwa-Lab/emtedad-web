@@ -45,3 +45,8 @@
   -webkit-mask-image: radial-gradient(circle at 50% 50%, white 60%, transparent 100%);
   mask-image: radial-gradient(circle at 50% 50%, white 60%, transparent 100%);
 }
+
+*[aria-invalid="true"] {
+  border-color: var(--color-brick);
+  outline-color: var(--color-brick);
+}
