@@ -22,11 +22,12 @@ import {
 interface WishFormProps {
   mode: 'add' | 'edit'
   initialWish?: Partial<WishFormValues>
+  ns?: string
 }
 
-export function WishForm({ mode, initialWish }: WishFormProps) {
-  const t = useTranslations('genny.addWish')
-  const tf = useTranslations('genny.browse.filter')
+export function WishForm({ mode, initialWish, ns = 'genny' }: WishFormProps) {
+  const t = useTranslations(`${ns}.addWish`)
+  const tf = useTranslations(`${ns}.browse.filter`)
 
   const schema = useMemo(
     () =>
@@ -45,13 +46,13 @@ export function WishForm({ mode, initialWish }: WishFormProps) {
   }
 
   const categories = [
-    { value: 'spaces' as const, label: tf('spaces') },
+    { value: 'workshopLearning' as const, label: tf('workshopLearning') },
     {
-      value: 'professionalServices' as const,
-      label: tf('professionalServices'),
+      value: 'events' as const,
+      label: tf('events'),
     },
-    { value: 'healthCare' as const, label: tf('healthCare') },
-    { value: 'production' as const, label: tf('production') },
+    { value: 'services' as const, label: tf('services') },
+    { value: 'spaces' as const, label: tf('spaces') },
     { value: 'other' as const, label: t('otherCategory') },
   ]
 

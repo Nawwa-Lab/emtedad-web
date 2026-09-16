@@ -18,6 +18,7 @@ interface WishCardProps {
   endorsersText: string
   isEndorsed: boolean
   mode?: 'browse' | 'mine'
+  ns?: 'genny' | 'shbeik'
 }
 
 export function WishCard({
@@ -30,9 +31,10 @@ export function WishCard({
   endorsersText,
   isEndorsed,
   mode = 'browse',
+  ns = 'genny',
 }: WishCardProps) {
   const locale = useLocale()
-  const t = useTranslations('genny.browse.wishCard')
+  const t = useTranslations(`${ns}.browse.wishCard`)
   const [isEndorsedState, setIsEndorsedState] = useState(isEndorsed)
   const [countState, SetCountState] = useState(count)
 

@@ -433,5 +433,77 @@
       "categoryRequired": "Please select a category",
       "queryRequired": "Search keyword is required"
     }
+  },
+  "shbeik": {
+    "browse": {
+      "title": "Shbek Libik — Community Wishes",
+      "description": "What would you like the community to have? Wish for it here — the most endorsed wishes will be implemented.",
+      "chips": {
+        "browse": "Browse",
+        "addNew": "New wish +",
+        "myWishes": "My wishes"
+      },
+      "filter": {
+        "mostEndorsed": "Most endorsed",
+        "latest": "Latest",
+        "workshopLearning": "Workshop & learning",
+        "events": "Events",
+        "services": "Services",
+        "spaces": "Spaces"
+      },
+      "wishCard": {
+        "endorsingOrgs": "Endorsing members",
+        "zeroEndorsements": "No endorsements yet",
+        "endorse": "Endorse",
+        "endorsed": "Endorsed ✓",
+        "unendorse": "Remove your endorsement",
+        "fixedNote": "After the first endorsement the wish is set — any edit becomes a new wish.",
+        "editableNote": "Before the first endorsement you can edit, withdraw, or delete.",
+        "edit": "Edit",
+        "withdraw": "Withdraw",
+        "delete": "Delete"
+      },
+      "note": "Each person endorses a wish once — and can remove their endorsement at any time. The Emtedad team returns to this list while reviewing new membership applications.",
+      "noteBold": "A membership request for a specific organization belongs in Hakima, not here."
+    },
+    "myWishes": {
+      "title": "Shbek Libik — My Wishes",
+      "description": "Community wishes you've endorsed — and who stood by it.",
+      "chips": {
+        "browse": "Browse",
+        "addNew": "New wish +",
+        "myWishes": "My wishes ٢"
+      }
+    },
+    "addWish": {
+      "backToGenny": "← Back to Shbek Libik",
+      "title": "New wish",
+      "editTitle": "Edit wish",
+      "subtitle": "Wish for types of organizations, services, or activities you'd love the community to have.",
+      "dupeLabel": "Check first — does the wish already exist?",
+      "dupeSearchAria": "Search wishes",
+      "endorsedCount": "{count} endorsing members — close to yours?",
+      "endorseInstead": "Endorse this instead of duplicating",
+      "titleLabel": "Wish title",
+      "titlePlaceholder": "e.g. Shared woodworking workshop for set designs",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "What exactly is the need? Who benefits?",
+      "categoryLabel": "Category",
+      "otherCategory": "Other",
+      "impactLabel": "Why will this strengthen the community?",
+      "impactPlaceholder": "Link it to a recurring need — unfulfilled Got Qalish requests are good evidence.",
+      "submitAdd": "Publish wish",
+      "submitEdit": "Save changes",
+      "tipsTitle": "Before you wish",
+      "tip1": "Shbek Libik is for shared needs — a membership request for a specific org belongs in Hakima during the membership cycle.",
+      "tip2": "If you find a similar wish, endorse it instead — collective endorsements speak louder.",
+      "tip3": "Before the first endorsement you can edit, withdraw, or delete — after that the wish is set.",
+      "titleRequired": "Title is required",
+      "titleMin": "Title must be at least 3 characters",
+      "descriptionRequired": "Description is required",
+      "descriptionMin": "Description must be at least 10 characters",
+      "categoryRequired": "Please select a category",
+      "queryRequired": "Search keyword is required"
+    }
   }
 }
