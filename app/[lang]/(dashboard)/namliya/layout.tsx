@@ -1,4 +1,5 @@
 import { QuickAction } from '@/components/QuickAction'
+import { RouteHeader } from '@/components/RouteHeader'
 import { getDictionary } from '@/i18n/dictionary/get-dictionary'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -17,23 +18,29 @@ export default async function NamliyaLayout({
   const namliya = dict.namliyaBrowse
   return (
     <NextIntlClientProvider messages={messages}>
-      <div className="flex items-baseline gap-2 sm:gap-3.5 flex-wrap mb-1.5">
-        <h1 className="font-display font-bold text-[20px] sm:text-[23px] md:text-[26px] leading-normal">
-          {namliya.title}
-        </h1>
-        <span className="ms-auto">
-          <QuickAction />
-        </span>
-      </div>
-      <p className="font-semibold text-[12.5px] sm:text-[13px] md:text-[13.5px] text-ink-soft mt-1 font-cairo">
-        {namliya.description}
-      </p>
-      <SubLinks
-        links={[
-          { href: '/namliya/service-offers', label: namliya.serviceLink },
-          { href: '/namliya/resource-offers', label: namliya.resourceLink },
+      <RouteHeader
+        routes={[
+          {
+            pattern: '/namliya/.*-offers$',
+            config: {
+              title: namliya.title,
+              description: namliya.description,
+              action: <QuickAction />,
+            },
+          },
         ]}
-      />
+        className="mb-1.5"
+        titleClassName="text-[20px] sm:text-[23px] md:text-[26px] leading-normal"
+        descriptionClassName="text-[12.5px] sm:text-[13px] md:text-[13.5px] mt-1"
+      >
+        <SubLinks
+          links={[
+            { href: '/namliya/service-offers', label: namliya.serviceLink },
+            { href: '/namliya/resource-offers', label: namliya.resourceLink },
+          ]}
+        />
+      </RouteHeader>
+
       {children}
     </NextIntlClientProvider>
   )

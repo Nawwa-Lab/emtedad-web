@@ -482,7 +482,7 @@
       }
     },
     "addWish": {
-      "backToGenny": "← Back to Shbek Libik",
+      "backToShbeik": "← Back to Shbek Libik",
       "title": "New wish",
       "editTitle": "Edit wish",
       "subtitle": "Wish for types of organizations, services, or activities you'd love the community to have.",

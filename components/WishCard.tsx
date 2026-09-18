@@ -107,7 +107,7 @@ export function WishCard({
           {!isEndorsedState && (
             <>
               <Link
-                href={`/genny/add-wish/${id}`}
+                href={`/genny/wish/${id}`}
                 className="inline-block border border-green-deep text-green-deep bg-transparent rounded-full font-cairo font-bold text-xs py-2 px-4.5"
               >
                 {t('edit')}

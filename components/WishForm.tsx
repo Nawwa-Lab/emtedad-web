@@ -20,7 +20,7 @@ import {
 } from './ui/select'
 
 interface WishFormProps {
-  mode: 'add' | 'edit'
+  mode: 'create' | 'edit'
   initialWish?: Partial<WishFormValues>
   ns?: string
 }
@@ -57,10 +57,10 @@ export function WishForm({ mode, initialWish, ns = 'genny' }: WishFormProps) {
   ]
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 items-start mt-4">
+    <>
       <Card className="p-7">
         <h1 className="font-display font-bold text-[23px]/[1.5] mb-1.5">
-          {mode === 'add' ? t('title') : t('editTitle')}
+          {mode === 'create' ? t('title') : t('editTitle')}
         </h1>
         <p className="font-cairo font-semibold text-xs text-ink-soft mb-4.5">{t('subtitle')}</p>
         <WishSearch
@@ -128,11 +128,11 @@ export function WishForm({ mode, initialWish, ns = 'genny' }: WishFormProps) {
             type="submit"
             className="bg-green text-ink font-extrabold text-sm py-3 px-7 rounded-full"
           >
-            {mode === 'add' ? t('submitAdd') : t('submitEdit')}
+            {mode === 'create' ? t('submitAdd') : t('submitEdit')}
           </Button>
         </Form>
       </Card>
       <HelpCard title={t('tipsTitle')} tips={[t('tip1'), t('tip2'), t('tip3')]} />
-    </div>
+    </>
   )
 }
