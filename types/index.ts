@@ -1,3 +1,3 @@
-import { LANGUAGES_READONLY } from "./constants";
+import { LANGUAGES_READONLY } from './constants'
 
-export type Locale = (typeof LANGUAGES_READONLY)[number]["code"];
+export type Locale = (typeof LANGUAGES_READONLY)[number]['code']
