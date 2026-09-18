@@ -1,13 +1,11 @@
-import { DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { StatusBadge, getVariantFromLabel } from '@/components/StatusBadge'
-import { getDictionary } from '@/i18n/dictionary/get-dictionary'
-import type { Locale } from '@/types'
-import { Card, CardContent, CardTitle, CardHeader, CardDescription } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { getDictionary } from '@/i18n/dictionary/get-dictionary'
 
-export async function SatisfactionIndex({ params }: { params: Promise<{ lang: Locale }> }) {
-  const { lang } = await params
-  const dict = await getDictionary(lang)
+export async function SatisfactionIndex() {
+  const dict = await getDictionary()
 
   // dict.statusBadge is a Record<string, string>, NOT an array.
   // Filter out the "empty" placeholder before rendering.

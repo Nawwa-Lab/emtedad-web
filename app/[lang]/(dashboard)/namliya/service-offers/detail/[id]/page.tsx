@@ -1,15 +1,13 @@
+import { EntityCard } from '@/components/EntityCard'
+import { RequestActionCard } from '@/components/RequestActionCard'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardTitle } from '@/components/ui/card'
 import { getDictionary } from '@/i18n/dictionary/get-dictionary'
-import type { Locale } from '@/types'
 import { Link } from '@/i18n/navigation'
-import { EntityCard } from '@/components/EntityCard'
 import { namliyaService, sidebar } from './data'
-import { RequestActionCard } from '@/components/RequestActionCard'
 
-export default async function ServiceOfferPage({ params }: { params: Promise<{ lang: Locale }> }) {
-  const { lang } = await params
-  const dict = await getDictionary(lang)
+export default async function ServiceOfferPage() {
+  const dict = await getDictionary()
   const service = dict.namliyaService
 
   return (

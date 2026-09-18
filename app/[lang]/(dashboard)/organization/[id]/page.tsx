@@ -9,16 +9,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Dialog, DialogTrigger } from '@/components/ui/dialog'
 import { Label } from '@/components/ui/label'
 import { getDictionary } from '@/i18n/dictionary/get-dictionary'
-import type { Locale } from '@/types'
 import Image from 'next/image'
 
-export default async function MemberProfileClient({
-  params,
-}: {
-  params: Promise<{ lang: Locale }>
-}) {
-  const { lang } = await params
-  const dict = await getDictionary(lang)
+export default async function MemberProfileClient() {
+  const dict = await getDictionary()
   const profile = dict['org-profile']
   const { humanServiceCard, materialResourceCard } = dict.serviceCard
 

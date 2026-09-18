@@ -5,16 +5,9 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { SubLinks } from '../../../../components/SubLinks'
 
-export default async function NamliyaLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode
-  params: Promise<{ lang: string }>
-}) {
+export default async function NamliyaLayout({ children }: { children: React.ReactNode }) {
   const messages = await getMessages()
-  const { lang } = await params
-  const dict = await getDictionary(lang as 'ar' | 'en')
+  const dict = await getDictionary()
   const namliya = dict.namliyaBrowse
   return (
     <NextIntlClientProvider messages={messages}>

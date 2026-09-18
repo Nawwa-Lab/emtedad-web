@@ -1,16 +1,8 @@
 import { getDictionary } from '@/i18n/dictionary/get-dictionary'
 import { Link } from '@/i18n/navigation'
-import { Locale } from '@/types'
 
-export default async function WishFormLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode
-  params: Promise<{ lang: string }>
-}) {
-  const { lang } = await params
-  const dict = await getDictionary(lang as Locale)
+export default async function WishFormLayout({ children }: { children: React.ReactNode }) {
+  const dict = await getDictionary()
   return (
     <>
       <Link
