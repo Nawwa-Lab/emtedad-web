@@ -5,6 +5,7 @@ import type { Locale } from '@/types'
 import { Link } from '@/i18n/navigation'
 import { EntityCard } from '@/components/EntityCard'
 import { namliyaService, sidebar } from './data'
+import { RequestActionCard } from '@/components/RequestActionCard'
 
 export default async function ServiceOfferPage({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await params
@@ -14,12 +15,12 @@ export default async function ServiceOfferPage({ params }: { params: Promise<{ l
   return (
     <>
       <Link
-        href="#"
+        href="/namliya/service-offers"
         className="inline-block font-bold text-[12.5px] mb-3.5 text-green-deep font-cairo hover:underline"
       >
         {service.backToNamliya}
       </Link>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start pb-36 lg:pb-0">
         <Card className="p-4 sm:p-7 bg-surface border border-line rounded-[22px] col-span-full lg:col-span-2">
           <Badge variant="default">{namliyaService.category}</Badge>
           <CardTitle>{namliyaService.title}</CardTitle>
@@ -65,23 +66,11 @@ export default async function ServiceOfferPage({ params }: { params: Promise<{ l
               />
             ))}
           </div>
-          <Card className="flex gap-2.5 flex-col p-5.5 mb-4">
-            <Link
-              href="#"
-              className="text-center text-[14px] py-3 px-4 sm:px-5 w-full bg-green text-ink border-0 rounded-[999px] cursor-pointer font-cairo font-extrabold inline-block"
-            >
-              {service.requestLink}
-            </Link>
-            <Link
-              href="#"
-              className="text-center text-[13px] py-2.75 px-4 sm:px-5 w-full text-green-deep border border-green-deep hover:bg-green rounded-[999px] cursor-pointer font-cairo font-extrabold inline-block"
-            >
-              {service.saveToFavorites}
-            </Link>
-            <CardDescription className="font-semibold text-[11.5px] text-ink-soft text-center leading-[1.8] mb-0">
-              {service.serviceRequestNote}
-            </CardDescription>
-          </Card>
+          <RequestActionCard
+            requestLabel={service.requestLink}
+            saveLabel={service.saveToFavorites}
+            note={service.serviceRequestNote}
+          />
         </aside>
       </div>
     </>

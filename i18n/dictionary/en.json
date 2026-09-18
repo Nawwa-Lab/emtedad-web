@@ -368,6 +368,20 @@
     "saveToFavorites": "Save to Favorites",
     "serviceRequestNote": "Submitting the request opens a private chat where you can finalize the agreement before the exchange begins."
   },
+  "namliyaResource": {
+    "backToNamliya": "→ Back to Namliya",
+    "requestLink": "Request Resource",
+    "saveToFavorites": "Save to Favorites",
+    "serviceRequestNote": "Submitting the request opens a private chat where you can finalize the agreement before the exchange begins.",
+    "conditionsTitle": "Terms of Use and Supervision",
+    "conditions": [
+      {
+        "condition1": "Use under supervision by an operator from our team — a supervision fee of 10 Shahama is added to the agreement.",
+        "condition2": "Return in the same condition as received, with the joint inspection documented in the chat.",
+        "condition3": "Any malfunction or delay is handled amicably first — with mediation available if needed."
+      }
+    ]
+  },
   "genny": {
     "browse": {
       "title": "Genny — Network Wishes",
