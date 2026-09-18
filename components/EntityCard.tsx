@@ -25,7 +25,7 @@ export function EntityCard({
 }: EntityCardProps) {
   return (
     <Card className={cn('p-4 sm:p-6 bg-surface border border-line rounded-[22px]', className)}>
-      <CardHeader className="font-display font-bold text-lg text-green-deep mb-0 p-0">
+      <CardHeader className="font-display font-bold text-[16px] text-green-deep mb-0 p-0">
         {title}
       </CardHeader>
       <CardContent className="flex items-center gap-3.5 py-3.25 px-0 pb-0">
