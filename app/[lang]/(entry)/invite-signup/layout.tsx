@@ -10,7 +10,6 @@ export const generateMetadata = async (): Promise<Metadata> => {
   }
 }
 
-
 export default async function InviteSignupLayout({ children }: { children: React.ReactNode }) {
   return children
 }

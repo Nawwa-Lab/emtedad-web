@@ -1,9 +1,9 @@
 import createMiddleware from 'next-intl/middleware'
 import { NextResponse, type NextRequest } from 'next/server'
 import { routing } from './i18n/routing'
-import { flagKeys } from './lib/flags'
 import { getOpenFeatureClient } from './lib/openfeature'
-import type { Locale } from './types'
+import { flagKeys } from './lib/openfeature/flags'
+import { Locale } from './types'
 
 const locales = routing.locales as readonly string[]
 const defaultLocale = routing.defaultLocale

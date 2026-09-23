@@ -1,8 +1,7 @@
 'use client'
 
 import { usePathname } from '@/i18n/navigation'
-import { cn } from '@/lib/utils'
-
+import { cn } from 'cn'
 interface RouteHeaderConfig {
   title: string
   description?: string

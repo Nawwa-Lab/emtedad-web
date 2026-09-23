@@ -1,9 +1,8 @@
-import { Card, CardHeader, CardContent } from '@/components/ui/card'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Link } from '@/i18n/navigation'
 import { StatusBadge, getVariantFromLabel } from '@/components/StatusBadge'
-import { cn } from '@/lib/utils'
-
+import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Link } from '@/i18n/navigation'
+import { cn } from 'cn'
 interface EntityCardProps {
   title: string
   entity: string

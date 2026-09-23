@@ -66,7 +66,7 @@ export default async function MemberProfileClient() {
                 </CardContent>
               </Card>
             </DialogTrigger>
-            <SatisfactionIndex params={params} />
+            <SatisfactionIndex />
           </Dialog>
         </div>
 

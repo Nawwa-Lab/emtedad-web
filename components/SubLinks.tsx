@@ -1,8 +1,7 @@
 'use client'
 
 import { Link, usePathname } from '@/i18n/navigation'
-import { cn } from '@/lib/utils'
-
+import { cn } from 'cn'
 interface NavLink {
   href: string
   label: string
