@@ -382,6 +382,85 @@
       }
     ]
   },
+  "postServiceNamliya": {
+    "backToNamliya": "→ Back to Namliya",
+    "addPostTitle": "Make a favor — human service on Namliya",
+    "offerTypeTitle": "Service title",
+    "offerTypePlaceholder": "Example: Graphic design and branding for events",
+    "descriptionTitle": "الوصف",
+    "descriptionPlaceholder": "What exactly do you offer, and what does the other party receive at the end?",
+    "serviceCategory": "Category",
+    "priceTitle": "Value in Shahama",
+    "pricePlaceholder": "40",
+    "timeTitle": "Estimated Duration",
+    "anytime": "Any duration",
+    "specificTime": "Specific time",
+    "memberResponsible": "Member responsible for execution",
+    "post": "Post on Al-Namliya",
+    "save": "Save as draft",
+    "validation": {
+      "titleRequired": "Service title is required",
+      "titleMin": "Title must be at least 5 characters",
+      "categoryRequired": "Please select a category",
+      "priceRequired": "Please enter a valid price",
+      "pricePositive": "Price must be a positive number",
+      "memberRequired": "Please assign a responsible member"
+    },
+    "conditionsTitle": "Before posting",
+    "conditions": [
+      {
+        "condition1": "The offer will appear to all network organizations under the name Mishkat, along with the executing member's badge.",
+        "condition2": "Team members can submit service drafts — and you review and approve them from \"Drafts\".",
+        "condition3": "Your monthly cap is 400 Shahama (80 × 5 members) — remaining: 140.",
+        "condition4": "The exact details are worked out with each requester in the agreement."
+      }
+    ]
+  },
+  "postResourceNamliya": {
+    "backToNamliya": "→ Back to Namliya",
+    "addPostTitle": "Do a good deed — a physical resource on Namliya",
+    "resourceImage": "Resource image",
+    "addPhotos": "Upload photos here",
+    "photoDesc": "Up to 5 photos - the first photo is the main one",
+    "offerTypeTitle": "Resource name",
+    "offerTypePlaceholder": "Example: Projector with screen",
+    "descriptionTitle": "Description",
+    "descriptionPlaceholder": "Condition, accessories, and pickup/return method",
+    "resourceCategory": "Category",
+    "priceTitle": "Value in Shahama",
+    "pricePlaceholder": "30",
+    "timeTitle": "Loan availability",
+    "anytime": "Fixed duration",
+    "specificTime": "Open-ended duration",
+    "cashDeposit": "Cash deposit required",
+    "depositDesc": "Amount fully refunded upon proper return.",
+    "depositValue": "Deposit value (in EGP)",
+    "depositValuePlaceholder": "1,000",
+    "supervisedUse": "Supervised use",
+    "supervisedUseDesc": "A member of your team accompanies the resource's use — its value is added to the agreement",
+    "supervisor": "Supervisor",
+    "supervisorPrice": "Supervision value in Shahama",
+    "price": "10",
+    "memberResponsible": "Member responsible for coordination",
+    "post": "Publish on Namliya",
+    "save": "Save as draft",
+    "validation": {
+      "titleRequired": "Resource name is required",
+      "titleMin": "Name must be at least 3 characters",
+      "categoryRequired": "Please select a category",
+      "priceRequired": "Please enter a valid price",
+      "pricePositive": "Price must be a positive number",
+      "memberRequired": "Please assign a responsible member"
+    },
+    "conditionsTitle": "Before publishing",
+    "conditions": [
+      {
+        "condition1": "Physical resources are published directly by admins — no drafts.",
+        "condition2": "Supervision reduces the need for a cash deposit and maintains trust.",
+        "condition3": "The resource's condition at pickup and return is documented in the exchange conversation."
+      }
+    ]
+  },
   "genny": {
     "browse": {
       "title": "Genny — Network Wishes",

@@ -372,6 +372,85 @@
       }
     ]
   },
+  "postServiceNamliya": {
+    "backToNamliya": "→ رجوع للنملية",
+    "addPostTitle": "اعملي معروف — خدمة بشرية على النملية",
+    "offerTypeTitle": "عنوان الخدمة",
+    "offerTypePlaceholder": "مثال: تصميم مطبوعات و هوية للفعاليات",
+    "descriptionTitle": "الوصف",
+    "descriptionPlaceholder": "إيه اللي بتقدموه بلظبط؟ و إيه اللي بيستلمه الطرف التاني في الاخر؟",
+    "serviceCategory": "الفئة",
+    "priceTitle": "القيمة بالشهامة",
+    "pricePlaceholder": "٤٠",
+    "timeTitle": "المدة التقديرية",
+    "anytime": "أي مدة",
+    "specificTime": "محددة بوقت",
+    "memberResponsible": "العضو المسؤول عن التنفيذ",
+    "post": "انشري على النملية",
+    "save": "احفظي كمسودة",
+    "validation": {
+      "titleRequired": "عنوان الخدمة مطلوب",
+      "titleMin": "العنوان يجب أن يكون ٥ أحرف على الأقل",
+      "categoryRequired": "الرجاء اختيار فئة",
+      "priceRequired": "الرجاء إدخال سعر صحيح",
+      "pricePositive": "السعر يجب أن يكون رقمًا موجبًا",
+      "memberRequired": "الرجاء تعيين عضو مسؤول"
+    },
+    "conditionsTitle": "قبل النشر",
+    "conditions": [
+      {
+        "condition1": "العرض بيظهر لكل مؤسسات الشبكة باسم مشكاة، ومعاه شارة العضو المنفِّذ.",
+        "condition2": "أعضاء الفريق بيقدروا يقدّموا مسودات خدمات — وأنتِ بتراجعيها وتعتمديها من «المسودات».",
+        "condition3": "سقفكم الشهري ٤٠٠ شهامة (٨٠ × ٥ أعضاء) — المتبقي: ١٤٠.",
+        "condition4": "التفاصيل الدقيقة بتتظبط مع كل طالب في الاتفاق."
+      }
+    ]
+  },
+  "postResourceNamliya": {
+    "backToNamliya": "→ رجوع للنملية",
+    "addPostTitle": "اعملي معروف — مورد مادي على النملية",
+    "resourceImage": "صورة المورد",
+    "addPhotos": " ارفعي الصور هنا",
+    "photoDesc": "حتى ٥ صور — الصورة الأولى هي الرئيسية",
+    "offerTypeTitle": "اسم المورد",
+    "offerTypePlaceholder": "مثال: بروجيكتور عرض مع شاشة",
+    "descriptionTitle": "الوصف",
+    "descriptionPlaceholder": "الحاله، الملحقات، و طريقة التسليم و الاستلام",
+    "resourceCategory": "الفئة",
+    "priceTitle": "القيمة بالشهامة",
+    "pricePlaceholder": "٣٠",
+    "timeTitle": "إتاحة الإعارة",
+    "anytime": "مدة محددة",
+    "specificTime": "مدة مفتوحة",
+    "cashDeposit": "تأمين نقدي مطلوب",
+    "depositDesc": "مبلغ بيُسترد بالكامل مع الإرجاع السليم.",
+    "depositValue": "قيمة التأمين (بالجنيه)",
+    "depositValuePlaceholder": "١،٠٠٠",
+    "supervisedUse": "الاستخدام بإشراف",
+    "supervisedUseDesc": " عضو من فريقكم بيرافق استخدام المورد — قيمته بتُضاف للاتفاق",
+    "supervisor": "المشرف",
+    "supervisorPrice": "قيمة الإشراف بالشهامة",
+    "price": "١٠",
+    "memberResponsible": "العضو المسؤول عن التنسيق",
+    "post": "انشري على النملية",
+    "save": "احفظي كمسودة",
+    "validation": {
+      "titleRequired": "اسم المورد مطلوب",
+      "titleMin": "الاسم يجب أن يكون ٣ أحرف على الأقل",
+      "categoryRequired": "الرجاء اختيار فئة",
+      "priceRequired": "الرجاء إدخال سعر صحيح",
+      "pricePositive": "السعر يجب أن يكون رقمًا موجبًا",
+      "memberRequired": "الرجاء تعيين عضو مسؤول"
+    },
+    "conditionsTitle": "قبل النشر",
+    "conditions": [
+      {
+        "condition1": "الموارد المادية بينشرها المديرون مباشرة — من غير مسودات.",
+        "condition2": "الإشراف بيقلل الحاجة للتأمين النقدي ويحافظ على الثقة.",
+        "condition3": "حالة المورد وقت التسليم والإرجاع بتتوثّق في محادثة التبادل."
+      }
+    ]
+  },
   "genny": {
     "browse": {
       "title": "جني — أمنيات الشبكة",
