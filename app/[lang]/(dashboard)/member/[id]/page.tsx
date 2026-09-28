@@ -1,20 +1,14 @@
+import { EntityCard } from '@/components/EntityCard'
+import { StatusBadge, getVariantFromLabel } from '@/components/StatusBadge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
 import { getDictionary } from '@/i18n/dictionary/get-dictionary'
-import type { Locale } from '@/types'
 import Link from 'next/link'
-import { StatusBadge, getVariantFromLabel } from '@/components/StatusBadge'
-import { EntityCard } from '@/components/EntityCard'
 
-export default async function MemberProfileClient({
-  params,
-}: {
-  params: Promise<{ lang: Locale }>
-}) {
-  const { lang } = await params
-  const dict = await getDictionary(lang)
+export default async function MemberProfileClient() {
+  const dict = await getDictionary()
   const profile = dict['member-profile']
   const profileOwner = profile.firstCard.name
   const firstLetter = profileOwner.charAt(0)

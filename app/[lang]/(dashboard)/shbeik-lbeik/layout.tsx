@@ -1,7 +1,6 @@
 import { RouteHeader } from '@/components/RouteHeader'
 import { getDictionary } from '@/i18n/dictionary/get-dictionary'
 import { Link } from '@/i18n/navigation'
-import { Locale } from '@/types'
 import { pick } from 'lodash'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -18,16 +17,9 @@ function MakeWishButton({ text }: { text: string }) {
   )
 }
 
-export default async function ShbeikLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode
-  params: Promise<{ lang: string }>
-}) {
+export default async function ShbeikLayout({ children }: { children: React.ReactNode }) {
   const messages = await getMessages()
-  const { lang } = await params
-  const dict = await getDictionary(lang as Locale)
+  const dict = await getDictionary()
   const shbeik = dict.shbeik
 
   return (

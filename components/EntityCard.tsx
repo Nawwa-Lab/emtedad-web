@@ -1,9 +1,8 @@
-import { Card, CardHeader, CardContent } from '@/components/ui/card'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Link } from '@/i18n/navigation'
 import { StatusBadge, getVariantFromLabel } from '@/components/StatusBadge'
-import { cn } from '@/lib/utils'
-
+import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Link } from '@/i18n/navigation'
+import { cn } from 'cn'
 interface EntityCardProps {
   title: string
   entity: string
@@ -25,7 +24,7 @@ export function EntityCard({
 }: EntityCardProps) {
   return (
     <Card className={cn('p-4 sm:p-6 bg-surface border border-line rounded-[22px]', className)}>
-      <CardHeader className="font-display font-bold text-lg text-green-deep mb-0 p-0">
+      <CardHeader className="font-display font-bold text-[16px] text-green-deep mb-0 p-0">
         {title}
       </CardHeader>
       <CardContent className="flex items-center gap-3.5 py-3.25 px-0 pb-0">

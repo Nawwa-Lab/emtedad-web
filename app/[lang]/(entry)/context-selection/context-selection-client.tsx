@@ -12,7 +12,7 @@ import {
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { useUser } from '@/components/UserContext'
 import { useRouter } from '@/i18n/navigation'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'

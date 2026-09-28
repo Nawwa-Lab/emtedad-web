@@ -1,14 +1,8 @@
 import { getDictionary } from '@/i18n/dictionary/get-dictionary'
-import { Locale } from '@/types'
 import type { Metadata } from 'next'
 
-export const generateMetadata = async ({
-  params,
-}: {
-  params: Promise<{ lang: Locale }>
-}): Promise<Metadata> => {
-  const { lang } = await params
-  const dict = await getDictionary(lang)
+export const generateMetadata = async (): Promise<Metadata> => {
+  const dict = await getDictionary()
 
   return {
     title: dict.login.metaTitle,
@@ -16,6 +10,6 @@ export const generateMetadata = async ({
   }
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function LoginLayout({ children }: { children: React.ReactNode }) {
   return children
 }

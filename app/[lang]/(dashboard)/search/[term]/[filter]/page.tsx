@@ -4,7 +4,7 @@ import { SearchGroup } from '@/components/SearchGroup'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Link } from '@/i18n/navigation'
-import { formatNumber } from '@/utils/formatter'
+import { formatNumber } from '@/lib/utils/formatter'
 import { useLocale, useTranslations } from 'next-intl'
 import { use } from 'react'
 

@@ -1,6 +1,6 @@
 'use client'
 import { Link } from '@/i18n/navigation'
-import { formatNumber } from '@/utils'
+import { formatNumber } from '@/lib/utils/index'
 import { useLocale, useTranslations } from 'next-intl'
 
 export function NotificationText({ notificationsCount = 3 }: { notificationsCount?: number }) {

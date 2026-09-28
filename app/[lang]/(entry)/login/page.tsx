@@ -10,11 +10,9 @@ import {
 import { Field, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { getDictionary } from '@/i18n/dictionary/get-dictionary'
-import type { Locale } from '@/types'
 
-export default async function Home({ params }: { params: Promise<{ lang: Locale }> }) {
-  const { lang } = await params
-  const dict = await getDictionary(lang)
+export default async function LoginPage() {
+  const dict = await getDictionary()
 
   return (
     <div className="relative w-[min(430px,94vw)]">

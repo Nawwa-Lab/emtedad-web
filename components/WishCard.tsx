@@ -1,12 +1,12 @@
 'use client'
 
-import { cn } from '@/lib/utils'
-import { formatNumber } from '@/utils'
+import { Link } from '@/i18n/navigation'
+import { formatNumber } from '@/lib/utils/index'
+import { cn } from 'cn'
 import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Button } from './ui/button'
-import { Link } from '@/i18n/navigation'
 
 interface WishCardProps {
   id: string

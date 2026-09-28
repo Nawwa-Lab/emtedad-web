@@ -1,14 +1,8 @@
-import type { Locale } from '@/types'
-import ContextSelectionClient from './context-selection-client'
 import { getDictionary } from '@/i18n/dictionary/get-dictionary'
+import ContextSelectionClient from './context-selection-client'
 
-export default async function ContextSelectionPage({
-  params,
-}: {
-  params: Promise<{ lang: Locale }>
-}) {
-  const { lang } = await params
-  const dict = await getDictionary(lang)
+export default async function ContextSelectionPage() {
+  const dict = await getDictionary()
   const name = 'عمر'
 
   return (

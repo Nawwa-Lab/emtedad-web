@@ -11,12 +11,10 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Field, FieldContent, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { getDictionary } from '@/i18n/dictionary/get-dictionary'
-import type { Locale } from '@/types'
 import Link from 'next/link'
 
-export default async function Home({ params }: { params: Promise<{ lang: Locale }> }) {
-  const { lang } = await params
-  const dict = await getDictionary(lang)
+export default async function InviteSignupPage() {
+  const dict = await getDictionary()
   const companyName = 'مشكاة'
   const firstLetter = companyName.charAt(0)
   const template = dict.inviteSignup.message
