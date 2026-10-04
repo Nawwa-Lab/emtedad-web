@@ -476,6 +476,20 @@
       }
     ]
   },
+
+  "namliyaDrafts": {
+    "title": "Namliya — Market for organizations",
+    "description": "Drafts of services submitted by team members — awaiting your approval.",
+    "link1": "Browse",
+    "link2": "My offers",
+    "link3": "My requests",
+    "link4": "My drafts",
+    "pending": "Pending Approval",
+    "link5": "Review",
+    "link6": "Edit",
+    "postButton": "Approve and Publish",
+    "deleteButton": "Delete"
+  },
   "genny": {
     "browse": {
       "title": "Genny — Network Wishes",
