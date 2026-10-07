@@ -109,7 +109,7 @@ export function QuickAction() {
           <div className="flex flex-wrap gap-2">
             <Link
               className="inline-block decoration-0 bg-surface border border-line font-bold rounded-full text-ink text-xs font-cairo py-2 px-4"
-              href="#"
+              href="/alaesh-andak/request/create"
             >
               {t('newRequest')}
             </Link>

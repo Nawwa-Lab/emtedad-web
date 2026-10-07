@@ -1,4 +1,9 @@
 {
+  "public": {
+    "form": {
+      "optional": "Optional"
+    }
+  },
   "login": {
     "title": "Welcome to Emtedad",
     "description": "Log in to your account and continue your charity course from where you left off.",
@@ -476,6 +481,20 @@
       }
     ]
   },
+
+  "namliyaDrafts": {
+    "title": "Namliya — Market for organizations",
+    "description": "Drafts of services submitted by team members — awaiting your approval.",
+    "link1": "Browse",
+    "link2": "My offers",
+    "link3": "My requests",
+    "link4": "My drafts",
+    "pending": "Pending Approval",
+    "link5": "Review",
+    "link6": "Edit",
+    "postButton": "Approve and Publish",
+    "deleteButton": "Delete"
+  },
   "genny": {
     "browse": {
       "title": "Genny — Network Wishes",
@@ -618,6 +637,102 @@
       "descriptionMin": "Description must be at least 10 characters",
       "categoryRequired": "Please select a category",
       "queryRequired": "Search keyword is required"
+    }
+  },
+  "alaesh": {
+    "browse": {
+      "title": "Got Qalish? — Request board",
+      "description": "Requests that still have no offers in the markets — if you have it, say “I have it”.",
+      "chips": {
+        "browse": "Browse",
+        "addNew": "Post a request +",
+        "myPosts": "My posts"
+      },
+      "filter": {
+        "all": "All {count}",
+        "namliya": "Namliya {count}",
+        "khalis": "Khalis {count}"
+      },
+      "sections": {
+        "namliya": "On Namliya",
+        "namliyaCount": "٣ — org to org",
+        "khalis": "On Khalis",
+        "khalisCount": "٢ — orgs & troupe members to the public"
+      }
+    },
+    "myPosts": {
+      "title": "Got Qalish? — Request board",
+      "description": "Mishkaa’s published requests, and a record of what converted or was withdrawn.",
+      "filter": {
+        "namliya": "Namliya {count}",
+        "khalis": "Khalis {count}"
+      },
+      "sections": {
+        "published": "Published",
+        "history": "History"
+      }
+    },
+    "card": {
+      "details": "Details",
+      "iHave": "I have it",
+      "edit": "Edit",
+      "withdraw": "Withdraw request",
+      "viewReply": "See reply",
+      "replies": "{count} replies",
+      "oneReply": "One reply",
+      "noReplies": "No replies",
+      "converted": "Converted to exchange",
+      "withdrawn": "Withdrawn"
+    },
+    "detail": {
+      "requesterTitle": "Requesting organization",
+      "facts": {
+        "market": "Market",
+        "timeframe": "Timeframe",
+        "replies": "Replies"
+      },
+      "howItWorksTitle": "How does it work?",
+      "howItWorksBody": "When you say “I have it”, a private chat opens with Melha to agree on details and value — once you agree, the request automatically becomes a normal exchange on Namliya with its familiar statuses.",
+      "iHaveCta": "I have it — we can do it",
+      "saveForTeam": "Save for your team",
+      "ctaNote": "Your reply appears to Melha under Mishkaa’s name with your satisfaction signal."
+    },
+    "addRequest": {
+      "backToBoard": "→ Back to the request board",
+      "title": "Got Qalish? — Post a request",
+      "editTitle": "Edit request",
+      "marketLabel": "Market",
+      "marketNamliya": "Namliya — from organizations",
+      "marketKhalis": "Khalis — from the public",
+      "titleLabel": "Request title",
+      "titlePlaceholder": "e.g. Storage space for stage sets",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "What exactly do you need? What makes a reply a good fit?",
+      "categoryLabel": "Category",
+      "timeframeLabel": "Preferred timeframe",
+      "timeframePlaceholder": "e.g. From October",
+      "categories": {
+        "spaces": "Spaces",
+        "design": "Design",
+        "training": "Training",
+        "maintenance": "Maintenance",
+        "accounting": "Accounting",
+        "other": "Other"
+      },
+      "submitAdd": "Publish request",
+      "submitEdit": "Save changes",
+      "submittedNote": "Request ready to publish (mock).",
+      "tipsTitle": "Before publishing",
+      "tip1": "First make sure what’s needed isn’t already available — search Namliya and Khalis.",
+      "tip2": "Requests surface unmet need, and help Emtedad choose the next organizations to join.",
+      "tip3": "As soon as someone says “I have it” and you agree in chat, the request converts automatically into a normal exchange.",
+      "tip4": "Public audience needs gather in Shbeik Lbeik — not here.",
+      "titleRequired": "Title is required",
+      "titleMin": "Title must be at least 3 characters",
+      "descriptionRequired": "Description is required",
+      "descriptionMin": "Description must be at least 10 characters",
+      "categoryRequired": "Please select a category",
+      "marketRequired": "Please choose a market"
     }
   }
 }
