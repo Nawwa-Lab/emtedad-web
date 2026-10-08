@@ -1,10 +1,9 @@
 import * as React from 'react'
+import { Button as ButtonPrimitive } from '@base-ui/react/button'
 import { mergeProps } from '@base-ui/react/merge-props'
 import { useRender } from '@base-ui/react/use-render'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from 'cn'
-
-import { Button } from '@/components/ui/button'
 
 const attachmentVariants = cva(
   'group/attachment relative flex w-fit max-w-full min-w-0 shrink-0 flex-wrap rounded-xl border bg-card text-card-foreground transition-colors focus-within:ring-1 focus-within:ring-ring/50 has-[>a,>button]:hover:bg-muted/50 data-[state=error]:border-destructive/30 data-[state=idle]:border-dashed',
@@ -130,17 +129,10 @@ function AttachmentActions({ className, ...props }: React.ComponentProps<'div'>)
   )
 }
 
-function AttachmentAction({
-  className,
-  variant = 'unstyled',
-  size,
-  ...props
-}: React.ComponentProps<typeof Button>) {
+function AttachmentAction({ className, ...props }: ButtonPrimitive.Props) {
   return (
-    <Button
+    <ButtonPrimitive
       data-slot="attachment-action"
-      variant={variant}
-      size={size}
       className={cn(
         'flex items-center justify-center border-0 bg-transparent text-white/90 hover:text-white transition-opacity cursor-pointer p-0 h-auto w-auto focus:outline-none drop-shadow-md',
         className,

@@ -2,6 +2,7 @@
 
 import OrgLogo from '@/app/logo.svg'
 import PubLogo from '@/app/pub-icon.svg'
+import { Button } from '@/components/ui/button'
 import {
   Field,
   FieldContent,
@@ -90,16 +91,14 @@ export default function ContextSelectionClient() {
         </FieldLabel>
       </RadioGroup>
 
-      <button
-        type="button"
+      <Button
         onClick={() => {
           if (user) setUser({ ...user, context })
           router.push('/')
         }}
-        className="font-cairo inline-block mt-6 min-w-55 text-center bg-green text-ink border-0 rounded-full cursor-pointer font-body font-extrabold text-[15px] py-3.25 px-8.5 transition-colors duration-150 hover:bg-[#B9C9AC] focus-visible:outline-2 focus-visible:outline-green-deep focus-visible:outline-offset-2"
       >
         {t('submit')}
-      </button>
+      </Button>
     </>
   )
 }

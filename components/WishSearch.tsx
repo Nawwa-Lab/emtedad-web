@@ -69,7 +69,7 @@ export function WishSearch({
               {endorsedCountLabel(formatNumber(suggestion.count, { locale }))}
             </small>
           </p>
-          <Button className="bg-green text-ink rounded-full font-extrabold text-[12px] px-4.5 py-2 cursor-default">
+          <Button>
             {endorseLabel}
           </Button>
         </div>

@@ -109,7 +109,7 @@ export function WishForm({ mode, initialWish, ns = 'genny' }: WishFormProps) {
                 onValueChange={field.onChange}
                 items={categories}
               >
-                <SelectTrigger size="lg" id="wish-category" aria-invalid={fieldState.invalid}>
+                <SelectTrigger id="wish-category" aria-invalid={fieldState.invalid}>
                   <SelectValue placeholder="-" />
                 </SelectTrigger>
                 <SelectContent>
@@ -126,7 +126,6 @@ export function WishForm({ mode, initialWish, ns = 'genny' }: WishFormProps) {
           </FormControl>
           <Button
             type="submit"
-            className="bg-green text-ink font-extrabold text-sm py-3 px-7 rounded-full"
           >
             {mode === 'create' ? t('submitAdd') : t('submitEdit')}
           </Button>

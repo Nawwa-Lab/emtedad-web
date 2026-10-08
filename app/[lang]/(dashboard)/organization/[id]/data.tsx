@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { Card, CardHeader, CardAction } from '@/components/ui/card'
 import { ServiceCard } from '@/components/ServicesCard'
+import { Button } from '@/components/ui/button'
 
 interface ServiceCardData {
   category: string
@@ -64,12 +65,12 @@ export function ServiceListingsCard({
       <CardHeader className="flex flex-col gap-3">
         <span>{title}</span>
         <CardAction className="flex flex-wrap gap-2">
-          <button onClick={handleLink1Click} className={!isLink2 ? activeClasses : inactiveClasses}>
+          <Button onClick={handleLink1Click} className={!isLink2 ? activeClasses : inactiveClasses}>
             {link1Label}
-          </button>
-          <button onClick={handleLink2Click} className={isLink2 ? activeClasses : inactiveClasses}>
+          </Button>
+          <Button onClick={handleLink2Click} className={isLink2 ? activeClasses : inactiveClasses}>
             {link2Label}
-          </button>
+          </Button>
         </CardAction>
       </CardHeader>
 

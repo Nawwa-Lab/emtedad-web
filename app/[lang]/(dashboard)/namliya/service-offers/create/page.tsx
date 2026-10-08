@@ -1,9 +1,9 @@
 'use client'
-import { Link } from '@/i18n/navigation'
+import { Form, FormControl } from '@/components/Form'
+import { Button } from '@/components/ui/button'
 import { Card, CardTitle } from '@/components/ui/card'
 import { FieldTitle } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
 import {
   Select,
   SelectContent,
@@ -12,17 +12,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { Form, FormControl } from '@/components/Form'
-import { items, memberResponsible } from './data'
-import { useTranslations } from 'next-intl'
-import { cn } from 'cn'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useMemo } from 'react'
+import { Textarea } from '@/components/ui/textarea'
+import { Link } from '@/i18n/navigation'
 import {
   createPostServiceSchema,
   type PostServiceFormValues,
 } from '@/types/schemas/post-service-schema'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { cn } from 'cn'
+import { useTranslations } from 'next-intl'
+import { useMemo } from 'react'
 import { useFormContext } from 'react-hook-form'
+import { items, memberResponsible } from './data'
 
 // ── Inner component that consumes form context ──────────────────────────────
 
@@ -78,7 +79,6 @@ function SpecificDurationField({ label, placeholder }: { label: string; placehol
         <Input
           id="service-specific-duration"
           placeholder={placeholder}
-          className="w-full max-w-full sm:max-w-55 py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
           aria-invalid={fieldState.invalid}
           {...field}
           value={(field.value as string) ?? ''}
@@ -147,7 +147,6 @@ export default function PostServicePage() {
                 <Input
                   id="service-title"
                   placeholder={t('offerTypePlaceholder')}
-                  className="w-full py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
                   aria-invalid={fieldState.invalid}
                   {...field}
                   value={(field.value as string) ?? ''}
@@ -186,7 +185,6 @@ export default function PostServicePage() {
                   >
                     <SelectTrigger
                       id="service-category"
-                      className="w-full py-3 px-4 text-[14px] font-cairo font-semibold text-ink min-h-13"
                       aria-invalid={fieldState.invalid}
                     >
                       <SelectValue placeholder={items[1].value} />
@@ -219,13 +217,13 @@ export default function PostServicePage() {
                     type="number"
                     min="1"
                     placeholder={t('pricePlaceholder')}
-                    className="w-full py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
                     aria-invalid={fieldState.invalid}
                     {...field}
                     value={field.value ?? ''}
                     onChange={(e) => {
                       const val = e.target.value
                       field.onChange(val === '' ? undefined : Number(val))
+
                     }}
                   />
                 )}
@@ -259,7 +257,6 @@ export default function PostServicePage() {
                 >
                   <SelectTrigger
                     id="service-member"
-                    className="w-full py-3 px-4 text-[14px] font-cairo font-semibold text-ink min-h-13"
                     aria-invalid={fieldState.invalid}
                   >
                     <SelectValue placeholder={memberResponsible[0].value} />
@@ -282,18 +279,14 @@ export default function PostServicePage() {
             </FormControl>
 
             <div className="flex gap-3 mt-2 flex-wrap">
-              <button
+              <Button
                 type="submit"
-                className="text-center flex items-center justify-center text-[14px] py-3 px-4 sm:px-5 flex-1 bg-green text-ink border-0 rounded-[999px] cursor-pointer font-cairo font-extrabold"
               >
                 {t('post')}
-              </button>
-              <button
-                type="button"
-                className="text-center flex items-center justify-center text-[13px] py-2.75 px-4 sm:px-5 flex-1 text-green-deep border border-green-deep hover:bg-green rounded-[999px] cursor-pointer font-cairo font-extrabold"
-              >
+              </Button>
+              <Button>
                 {t('save')}
-              </button>
+              </Button>
             </div>
           </Form>
         </Card>

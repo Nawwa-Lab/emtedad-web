@@ -21,7 +21,7 @@ export function Header() {
           <DialogHeader>
             <div className="w-[calc(100%-2rem)] flex items-center justify-between mb-5 gap-2">
               <Input
-                className=" sm:w-[min(420px, 32vw)] sm:h-auto h-8.5 border-line-soft rounded-full py-2 px-4.5 "
+                className="sm:w-[min(420px, 32vw)] rounded-full py-2.5 px-5 text-[15px]!"
                 type="search"
                 placeholder={t('searchPlaceholder')}
                 aria-label={t('searchAriaLabel')}
@@ -39,7 +39,7 @@ export function Header() {
         {t('logo')}
       </Link>
       <Input
-        className="hidden sm:block w-[min(420px, 32vw)] border-line-soft rounded-full py-2 px-4.5"
+        className="hidden sm:block w-[min(420px, 32vw)] rounded-full py-2.5 px-5 flex-1 text-[15px]!"
         type="search"
         placeholder={t('searchPlaceholder')}
         aria-label={t('searchAriaLabel')}

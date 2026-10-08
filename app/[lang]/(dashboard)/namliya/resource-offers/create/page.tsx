@@ -1,9 +1,11 @@
 'use client'
-import { Link } from '@/i18n/navigation'
+import { Form, FormControl } from '@/components/Form'
+import { ImageDropzone, type AttachedImage } from '@/components/ImageDropzone'
 import { Card, CardTitle } from '@/components/ui/card'
+import { Checkbox } from '@/components/ui/checkbox'
 import { Field, FieldTitle } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
+import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
@@ -12,20 +14,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { Form, FormControl } from '@/components/Form'
-import { items, memberResponsible } from './data'
-import { useTranslations } from 'next-intl'
-import { cn } from 'cn'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Label } from '@/components/ui/label'
-import { ImageDropzone, type AttachedImage } from '@/components/ImageDropzone'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useMemo } from 'react'
+import { Textarea } from '@/components/ui/textarea'
+import { Link } from '@/i18n/navigation'
 import {
   createPostResourceSchema,
   type PostResourceFormValues,
 } from '@/types/schemas/post-resource-schema'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { cn } from 'cn'
+import { useTranslations } from 'next-intl'
+import { useMemo } from 'react'
 import { useFormContext } from 'react-hook-form'
+import { items, memberResponsible } from './data'
+import { Button } from '@/components/ui/button'
 
 // ── Inner components that consume form context ──────────────────────────────
 
@@ -81,7 +82,6 @@ function SpecificDurationField({ label, placeholder }: { label: string; placehol
         <Input
           id="resource-specific-duration"
           placeholder={placeholder}
-          className="w-full max-w-full sm:max-w-55 py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
           aria-invalid={fieldState.invalid}
           {...field}
           value={(field.value as string) ?? ''}
@@ -138,7 +138,6 @@ function DepositValueField({ label, placeholder }: { label: string; placeholder:
           type="number"
           min="1"
           placeholder={placeholder}
-          className="w-full max-w-full sm:max-w-55 py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
           aria-invalid={fieldState.invalid}
           {...field}
           value={field.value ?? ''}
@@ -207,7 +206,6 @@ function SupervisorFields({
           >
             <SelectTrigger
               id="resource-supervisor"
-              className="w-full py-3 px-4 text-[14px] font-cairo font-semibold text-ink min-h-13"
               aria-invalid={fieldState.invalid}
             >
               <SelectValue placeholder={memberResponsible[0].value} />
@@ -240,7 +238,6 @@ function SupervisorFields({
             type="number"
             min="1"
             placeholder={labels.pricePlaceholder}
-            className="w-full py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
             aria-invalid={fieldState.invalid}
             {...field}
             value={field.value ?? ''}
@@ -341,7 +338,6 @@ export default function PostResourcePage() {
                 <Input
                   id="resource-title"
                   placeholder={t('offerTypePlaceholder')}
-                  className="w-full py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
                   aria-invalid={fieldState.invalid}
                   {...field}
                   value={(field.value as string) ?? ''}
@@ -380,7 +376,6 @@ export default function PostResourcePage() {
                   >
                     <SelectTrigger
                       id="resource-category"
-                      className="w-full py-3 px-4 text-[14px] font-cairo font-semibold text-ink min-h-13"
                       aria-invalid={fieldState.invalid}
                     >
                       <SelectValue placeholder={items[0].value} />
@@ -413,7 +408,6 @@ export default function PostResourcePage() {
                     type="number"
                     min="1"
                     placeholder={t('pricePlaceholder')}
-                    className="w-full py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
                     aria-invalid={fieldState.invalid}
                     {...field}
                     value={field.value ?? ''}
@@ -459,12 +453,11 @@ export default function PostResourcePage() {
             />
 
             <div className="flex gap-3 mt-2 flex-wrap">
-              <button
+              <Button
                 type="submit"
-                className="text-[14px] py-3 px-7 font-cairo cursor-pointer bg-green text-ink rounded-[999px] font-extrabold inline-block text-center w-full sm:w-auto hover:opacity-90"
               >
                 {t('post')}
-              </button>
+              </Button>
             </div>
           </Form>
         </Card>

@@ -8,32 +8,76 @@
 
 @theme {
   /* surfaces */
-  --color-paper: #e8e2d0;
-  --color-surface: #f2eee1;
+  --color-paper: #F1E7CF;
+  --color-paper-dark: #E8DFC8;
+  --color-surface: #FAF4E5;
+
+  /**
+   * TODO: REMOVE AFTER DESIGN SYSTEM MIGRATION
+   * Sage is a soft, muted green color.
+   */
   --color-sage: #e5e7d6;
 
-  /* text */
-  --color-ink: #211b12;
-  --color-ink-soft: #5d5342;
+  --color-ink: #1A1714;
+  --color-soft: #6B5E4E;
+
+  /* --color-ink: #211b12;
+  --color-ink-soft: #5d5342; */
 
   /* identity colors */
+  --color-red: #D8442B;
+  --color-red-dark: #BD3823;
+  --color-blue: #1F4FA3;
+  --color-gold: #F2C230;
+  --color-tint: #F4D3CB;
+
+  /**
+     * TODO: REMOVE AFTER DESIGN SYSTEM MIGRATION
+     * Sage is a soft, muted green color.
+     */
   --color-green: #c6d3bb;
   --color-green-deep: #3f6b4e;
-  --color-gold: #d9b87a;
+  /* --color-gold: #d9b87a; */
   --color-gold-deep: #8a6b33;
   --color-brick: #c4907c;
   --color-brick-deep: #8f5644;
 
+  /* radius*/
+
+  --radius-field: 12px;
+  --radius-card: 16px;
+  --radius-panel: 22px;
+
   /* hairlines */
+  /**
+     * TODO: REMOVE AFTER DESIGN SYSTEM MIGRATION
+     * Sage is a soft, muted green color.
+     */
   --color-line: rgba(33, 27, 18, 0.16);
   --color-line-soft: rgba(33, 27, 18, 0.09);
 }
 
 @theme inline {
   /* fonts*/
+
+  --font-display: var(--lalezar-font), var(--rubik-font), sans-serif;
+  --font-body: var(--rubik-font), system-ui, sans-serif;
+
+  /**
+   * TODO: REMOVE AFTER DESIGN SYSTEM MIGRATION
+   */
   --font-cairo: var(--cairo-font), sans-serif;
   --font-alex: var(--alex-font), sans-serif;
-  --font-display: var(--alex-font), var(--cairo-font), sans-serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
 }
 
 .dot-grid-bg {
@@ -47,6 +91,12 @@
 }
 
 *[aria-invalid='true'] {
-  border-color: var(--color-brick);
-  outline-color: var(--color-brick);
+  border-color: var(--color-red-dark);
+  outline-color: var(--color-red-dark);
+  color: var(--color-red-dark);
+  accent-color: var(--color-red-dark);
+}
+
+*[aria-invalid='true']::placeholder {
+  color: var(--color-soft);
 }

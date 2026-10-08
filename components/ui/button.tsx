@@ -1,38 +1,36 @@
 import { Button as ButtonPrimitive } from '@base-ui/react/button'
 import { cva, type VariantProps } from 'class-variance-authority'
-
 import { cn } from 'cn'
+
 const buttonVariants = cva(
-  'block border-0 cursor-pointer rounded-[999px] font-cairo! font-extrabold  transition-colors ',
+  'inline-flex cursor-pointer items-center justify-center whitespace-nowrap border-[2.5px] font-body font-bold outline-none transition-[color,background-color,border-color,box-shadow,transform] duration-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
   {
     variants: {
       variant: {
         primary:
-          'text-[15px] py-[13px] px-5 bg-green text-ink hover:bg-green/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-deep',
-        ghost:
-          'text-[15px] py-[13px] px-5 border-green-deep text-green-deep hover:bg-green-deep/10 border',
+          'border-ink bg-red text-surface font-extrabold shadow-ink shadow-[4px_4px_0] hover:translate-[1px_1px] hover:shadow-[2px_2px_0] active:shadow-none active:translate-[4px_4px] focus-visible:outline-blue focus-visible:outline-offset-3 focus-visible:outline-1',
+        secondary:
+          'border-ink bg-paper text-ink font-extrabold shadow-ink shadow-[4px_4px_0] hover:translate-[1px_1px] hover:shadow-[2px_2px_0] active:shadow-none active:translate-[4px_4px] focus-visible:outline-blue focus-visible:outline-offset-3 focus-visible:outline-1',
+        outline:
+          'border-ink text-ink hover:bg-gold focus-visible:outline-blue focus-visible:outline-offset-3 focus-visible:outline-1',
         destructive:
-          'bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40',
-        link: 'text-green-deep text-[13.5px] underline-offset-4 hover:underline',
-        unstyled: '',
+          'border-red bg-transparent text-red hover:border-ink hover:bg-red hover:text-surface focus-visible:outline-blue focus-visible:outline-offset-3 focus-visible:outline-1',
+        link: 'border-0! text-red underline-offset-4 hover:underline focus-visible:outline-blue focus-visible:outline-offset-3 focus-visible:outline-1',
       },
       size: {
-        default:
-          'h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2',
-        xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
-        lg: 'h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2',
-        icon: 'size-8',
-        'icon-xs':
-          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
-        'icon-sm':
-          'size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg',
-        'icon-lg': 'size-9',
+        default: "h-12 gap-2 px-5 text-base [&_svg:not([class*='size-'])]:size-4",
+        sm: "h-9 gap-1.5 px-4 text-sm [&_svg:not([class*='size-'])]:size-3.5",
+        icon: "size-10 p-0 [&_svg:not([class*='size-'])]:size-4",
+      },
+      shape: {
+        round: 'rounded-full',
+        square: 'rounded-field',
       },
     },
     defaultVariants: {
       variant: 'primary',
       size: 'default',
+      shape: 'round',
     },
   },
 )
@@ -41,12 +39,13 @@ function Button({
   className,
   variant = 'primary',
   size = 'default',
+  shape = 'round',
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
   return (
     <ButtonPrimitive
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size, shape, className }))}
       {...props}
     />
   )

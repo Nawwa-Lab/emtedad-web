@@ -74,7 +74,6 @@ export function WishCard({
         <div className="shrink-0 flex flex-col items-end gap-2 ">
           <Button
             className={cn(
-              'bg-green text-ink inline-flex items-center gap-1.5 rounded-full font-extrabold text-xs',
               isEndorsedState && 'cursor-default',
             )}
             onClick={() => {
@@ -88,7 +87,6 @@ export function WishCard({
           {isEndorsedState && (
             <Button
               variant="destructive"
-              className="text-brick-deep text-xs font-bold border-0 bg-none"
               type="button"
               onClick={() => {
                 setIsEndorsedState(false)
@@ -114,7 +112,6 @@ export function WishCard({
               </Link>
               <Button
                 variant="destructive"
-                className="text-brick-deep text-xs font-bold border-0 bg-none"
                 type="button"
                 onClick={() => {
                   console.log('Withdraw Wish ', id)
@@ -124,7 +121,6 @@ export function WishCard({
               </Button>
               <Button
                 variant="destructive"
-                className="text-brick-deep text-xs font-bold border-0 bg-none"
                 type="button"
                 onClick={() => {
                   console.log('Remove Wish ', id)

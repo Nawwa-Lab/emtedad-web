@@ -56,11 +56,10 @@ export default function DraftsPage() {
               >
                 {t('link6')}
               </Link>
-              <Button className="text-[13px] py-2.25 px-5 inline-block" variant="primary">
-                {' '}
+              <Button>
                 {t('postButton')}
               </Button>
-              <Button variant="link" className=" font-bold text-xs text-brick-deep p-1.5">
+              <Button variant="link" >
                 {t('deleteButton')}
               </Button>
             </CardAction>
