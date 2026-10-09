@@ -15,6 +15,7 @@ const ToggleGroupContext = React.createContext<
 >({
   size: 'sm',
   variant: 'outline',
+  shape: 'round',
   spacing: 2,
   orientation: 'horizontal',
 })
@@ -23,6 +24,7 @@ function ToggleGroup({
   className,
   variant = 'outline',
   size = 'sm',
+  shape = 'round',
   spacing = 2,
   orientation = 'horizontal',
   children,
@@ -37,6 +39,7 @@ function ToggleGroup({
       data-slot="toggle-group"
       data-variant={variant}
       data-size={size}
+      data-shape={shape}
       data-spacing={spacing}
       data-orientation={orientation}
       style={{ '--gap': spacing } as React.CSSProperties}
@@ -46,7 +49,7 @@ function ToggleGroup({
       )}
       {...props}
     >
-      <ToggleGroupContext.Provider value={{ variant, size, spacing, orientation }}>
+      <ToggleGroupContext.Provider value={{ variant, size, shape, spacing, orientation }}>
         {children}
       </ToggleGroupContext.Provider>
     </ToggleGroupPrimitive>
@@ -58,6 +61,7 @@ function ToggleGroupItem({
   children,
   variant = 'default',
   size = 'default',
+  shape = 'round',
   ...props
 }: TogglePrimitive.Props & VariantProps<typeof toggleVariants>) {
   const context = React.useContext(ToggleGroupContext)
@@ -67,12 +71,14 @@ function ToggleGroupItem({
       data-slot="toggle-group-item"
       data-variant={context.variant || variant}
       data-size={context.size || size}
+      data-shape={context.shape || shape}
       data-spacing={context.spacing}
       className={cn(
-        'shrink-0 group-data-[spacing=0]/toggle-group:rounded-none group-data-[spacing=0]/toggle-group:px-2 focus:z-10 focus-visible:z-10 group-data-[spacing=0]/toggle-group:has-data-[icon=inline-end]:pr-1.5 group-data-[spacing=0]/toggle-group:has-data-[icon=inline-start]:pl-1.5 group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:first:rounded-l-full group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:first:rounded-t-full group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:last:rounded-r-full group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:last:rounded-b-full group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:border-l-0 group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:border-t-0 group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:first:border-l-[2.5px] group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:first:border-t-[2.5px]',
+        'shrink-0 group-data-[spacing=0]/toggle-group:rounded-none group-data-[spacing=0]/toggle-group:px-2 focus:z-10 focus-visible:z-10 group-data-[spacing=0]/toggle-group:has-data-[icon=inline-end]:pr-1.5 group-data-[spacing=0]/toggle-group:has-data-[icon=inline-start]:pl-1.5 group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:data-[shape=round]:first:rounded-l-full group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:data-[shape=round]:first:rounded-t-full group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:data-[shape=round]:last:rounded-r-full group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:data-[shape=round]:last:rounded-b-full group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:data-[shape=square]:first:rounded-l-field group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:data-[shape=square]:first:rounded-t-field group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:data-[shape=square]:last:rounded-r-field group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:data-[shape=square]:last:rounded-b-field group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:border-l-0 group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:border-t-0 group-data-[orientation=horizontal]/toggle-group:data-[spacing=0]:first:border-l-[2.5px] group-data-[orientation=vertical]/toggle-group:data-[spacing=0]:first:border-t-[2.5px]',
         toggleVariants({
           variant: context.variant || variant,
           size: context.size || size,
+          shape: context.shape || shape,
         }),
         className,
       )}

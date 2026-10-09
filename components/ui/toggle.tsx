@@ -14,14 +14,19 @@ const toggleVariants = cva(
           'border-ink text-ink bg-surface hover:bg-gold focus-visible:outline-blue focus-visible:outline-offset-3 focus-visible:outline-1 data-[pressed]:bg-ink data-[pressed]:text-surface',
       },
       size: {
-        default: "h-12 gap-2 rounded-full px-5 text-base [&_svg:not([class*='size-'])]:size-4",
-        sm: "h-9 gap-1.5 rounded-full px-4 text-sm [&_svg:not([class*='size-'])]:size-3.5",
-        lg: "h-14 gap-2 rounded-full px-6 text-lg [&_svg:not([class*='size-'])]:size-5",
+        default: "h-12 gap-2 px-5 text-base [&_svg:not([class*='size-'])]:size-4",
+        sm: "h-9 gap-1.5 px-4 text-sm [&_svg:not([class*='size-'])]:size-3.5",
+        icon: "size-10 p-0 [&_svg:not([class*='size-'])]:size-4",
+      },
+      shape: {
+        round: 'rounded-full',
+        square: 'rounded-field',
       },
     },
     defaultVariants: {
       variant: 'default',
       size: 'default',
+      shape: 'round',
     },
   },
 )
@@ -30,12 +35,13 @@ function Toggle({
   className,
   variant = 'default',
   size = 'default',
+  shape = 'round',
   ...props
 }: TogglePrimitive.Props & VariantProps<typeof toggleVariants>) {
   return (
     <TogglePrimitive
       data-slot="toggle"
-      className={cn(toggleVariants({ variant, size, className }))}
+      className={cn(toggleVariants({ variant, size, shape, className }))}
       {...props}
     />
   )

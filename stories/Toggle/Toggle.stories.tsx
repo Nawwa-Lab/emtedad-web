@@ -1,5 +1,6 @@
 import { Toggle } from '@/components/ui/toggle'
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import { HeartIcon } from 'lucide-react'
 import { expect } from 'storybook/test'
 
 const meta = {
@@ -11,6 +12,20 @@ const meta = {
   tags: ['autodocs'],
   args: {
     children: 'تفعيل الإشعارات',
+  },
+  argTypes: {
+    variant: {
+      control: 'radio',
+      options: ['default', 'outline'],
+    },
+    size: {
+      control: 'radio',
+      options: ['sm', 'default', 'icon'],
+    },
+    shape: {
+      control: 'radio',
+      options: ['round', 'square'],
+    },
   },
 } satisfies Meta<typeof Toggle>
 
@@ -55,8 +70,21 @@ export const Sizes: Story = {
       <Toggle {...args} size="default">
         افتراضي
       </Toggle>
-      <Toggle {...args} size="lg">
-        كبير
+      <Toggle {...args} size="icon" aria-label="إضافة إلى المفضلة">
+        <HeartIcon />
+      </Toggle>
+    </div>
+  ),
+}
+
+export const IconShapes: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Toggle {...args} size="icon" shape="round" aria-label="إضافة إلى المفضلة">
+        <HeartIcon />
+      </Toggle>
+      <Toggle {...args} size="icon" shape="square" aria-label="إضافة إلى المفضلة بمربع">
+        <HeartIcon />
       </Toggle>
     </div>
   ),
