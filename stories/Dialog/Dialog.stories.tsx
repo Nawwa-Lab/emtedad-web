@@ -30,7 +30,7 @@ const meta = {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <DialogClose render={<Button variant="secondary" />}>إلغاء</DialogClose>
+          <DialogClose render={<Button variant="outline" effect="3d" />}>إلغاء</DialogClose>
           <Button>تأكيد</Button>
         </DialogFooter>
       </DialogContent>
@@ -60,7 +60,7 @@ export const Default: Story = {
 export const WithoutHeaderClose: Story = {
   render: (args: React.ComponentProps<typeof Dialog>) => (
     <Dialog {...args}>
-      <DialogTrigger render={<Button variant="secondary" />}>عرض التفاصيل</DialogTrigger>
+      <DialogTrigger render={<Button variant="outline" effect="3d" />}>عرض التفاصيل</DialogTrigger>
       <DialogContent showCloseButton={false}>
         <DialogHeader>
           <DialogTitle>تفاصيل الطلب</DialogTitle>

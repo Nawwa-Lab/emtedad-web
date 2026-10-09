@@ -18,6 +18,10 @@ const meta = {
       control: 'select',
       options: ['sm', 'default', 'lg', 'xl'],
     },
+    effect: {
+      control: 'radio',
+      options: ['flat', '3d'],
+    },
   },
   args: {
     shape: 'round',
@@ -35,6 +39,19 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Effects: Story = {
+  render: (args: React.ComponentProps<typeof Avatar>) => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Avatar {...args} effect="flat">
+        <AvatarFallback>م</AvatarFallback>
+      </Avatar>
+      <Avatar {...args} effect="3d">
+        <AvatarFallback>م</AvatarFallback>
+      </Avatar>
+    </div>
+  ),
+}
 
 export const Colors: Story = {
   render: (args: React.ComponentProps<typeof Avatar>) => (

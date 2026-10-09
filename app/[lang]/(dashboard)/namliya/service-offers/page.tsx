@@ -1,8 +1,8 @@
 'use client'
 import { ServiceCard } from '@/components/ServicesCard'
-import { serviceCard, filterButtons } from './data'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { useState } from 'react'
+import { filterButtons, serviceCard } from './data'
 
 const ALL_ID = filterButtons.find((b) => b.label === 'الكل')?.id ?? '1'
 const categoryButtons = filterButtons.filter((b) => b.label !== 'الأحدث أولا')

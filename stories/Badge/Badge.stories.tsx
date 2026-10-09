@@ -17,6 +17,10 @@ const meta = {
       control: 'select',
       options: ['sm', 'default', 'lg'],
     },
+    effect: {
+      control: 'radio',
+      options: ['flat', '3d'],
+    },
   },
   args: {
     children: 'شارة',
@@ -29,6 +33,19 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Effects: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Badge {...args} effect="flat">
+        مسطحة
+      </Badge>
+      <Badge {...args} effect="3d">
+        ثلاثية الأبعاد
+      </Badge>
+    </div>
+  ),
+}
 
 export const Colors: Story = {
   render: (args) => (

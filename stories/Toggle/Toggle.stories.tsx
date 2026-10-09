@@ -26,6 +26,13 @@ const meta = {
       control: 'radio',
       options: ['round', 'square'],
     },
+    effect: {
+      control: 'radio',
+      options: ['flat', '3d'],
+    },
+    count: {
+      control: 'number',
+    },
   },
 } satisfies Meta<typeof Toggle>
 
@@ -49,6 +56,18 @@ export const Pressed: Story = {
   },
 }
 
+export const WithCount: Story = {
+  args: {
+    count: 3,
+  },
+  play: async ({ canvas, userEvent }: PlayContext) => {
+    const toggle = canvas.getByRole('button', { name: 'تفعيل الإشعارات 3' })
+
+    await userEvent.click(toggle)
+    await expect(toggle).toHaveAttribute('aria-pressed', 'true')
+  },
+}
+
 export const Outline: Story = {
   args: {
     variant: 'outline',
@@ -59,6 +78,19 @@ export const Disabled: Story = {
   args: {
     disabled: true,
   },
+}
+
+export const Effects: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Toggle {...args} effect="flat">
+        مسطح
+      </Toggle>
+      <Toggle {...args} effect="3d">
+        ثلاثي الأبعاد
+      </Toggle>
+    </div>
+  ),
 }
 
 export const Sizes: Story = {

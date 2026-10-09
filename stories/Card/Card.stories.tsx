@@ -15,6 +15,12 @@ const meta = {
   title: 'UI/Card',
   component: Card,
   tags: ['autodocs', 'ai-generated', 'needs-work'],
+  argTypes: {
+    effect: {
+      control: 'radio',
+      options: ['flat', '3d'],
+    },
+  },
   decorators: [
     (Story: React.ComponentType<React.ComponentProps<typeof Card>>) => (
       <div className="max-w-lg p-4">
@@ -63,6 +69,16 @@ export const Animated: Story = {
     <Card {...args}>
       <CardTitle>بطاقة تفاعلية</CardTitle>
       <CardDescription>مرّر المؤشر لرؤية تأثير ارتفاع البطاقة.</CardDescription>
+    </Card>
+  ),
+}
+
+export const Flat: Story = {
+  args: { effect: 'flat' },
+  render: (args: React.ComponentProps<typeof Card>) => (
+    <Card {...args}>
+      <CardTitle>بطاقة مسطحة</CardTitle>
+      <CardDescription>لا تستخدم هذه البطاقة ظلًا أو حركة ثلاثية الأبعاد.</CardDescription>
     </Card>
   ),
 }

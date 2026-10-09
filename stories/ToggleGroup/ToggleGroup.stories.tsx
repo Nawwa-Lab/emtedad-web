@@ -9,6 +9,32 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: 'radio',
+      options: ['default', 'outline'],
+    },
+    spacing: {
+      control: 'number',
+      options: [0, 1, 2, 3, 4],
+    },
+    orientation: {
+      control: 'radio',
+      options: ['horizontal', 'vertical'],
+    },
+    size: {
+      control: 'radio',
+      options: ['sm', 'default', 'icon'],
+    },
+    shape: {
+      control: 'radio',
+      options: ['round', 'square'],
+    },
+    effect: {
+      control: 'radio',
+      options: ['flat', '3d'],
+    },
+  },
   render: (args) => (
     <ToggleGroup aria-label="اختيار المحاذاة" {...args}>
       <ToggleGroupItem value="right">يمين</ToggleGroupItem>
@@ -49,6 +75,29 @@ export const Outline: Story = {
     defaultValue: ['center'],
     variant: 'outline',
   },
+}
+
+export const Flat: Story = {
+  args: {
+    defaultValue: ['center'],
+    effect: 'flat',
+  },
+}
+
+export const WithCounts: Story = {
+  render: (args) => (
+    <ToggleGroup aria-label="فلاتر النتائج" {...args}>
+      <ToggleGroupItem value="all" count={12}>
+        الكل
+      </ToggleGroupItem>
+      <ToggleGroupItem value="open" count={3}>
+        مفتوح
+      </ToggleGroupItem>
+      <ToggleGroupItem value="closed" count={0}>
+        مغلق
+      </ToggleGroupItem>
+    </ToggleGroup>
+  ),
 }
 
 export const Multiple: Story = {

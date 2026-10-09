@@ -5,7 +5,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from 'cn'
 
 const badgeVariants = cva(
-  'inline-flex font-body items-center border-[2.5px] rounded-full border-ink font-bold transition-colors [a]:cursor-pointer',
+  'flex font-body items-center justify-center border-[2.5px] rounded-full border-ink font-bold transition-colors [a]:cursor-pointer',
   {
     variants: {
       color: {
@@ -17,14 +17,20 @@ const badgeVariants = cva(
         surface: 'bg-surface text-ink',
       },
       size: {
+        mini: 'z-3 py-0! px-0.5! h-6 min-w-6 text-[10.5px] shadow-[2px_2px_0]!',
         sm: 'px-2.5 py-0.75 text-[10.5px]',
         default: 'px-[15px] py-[5px] text-[13.5px]',
         lg: 'px-[20px] py-[7px] text-[22px]',
+      },
+      effect: {
+        flat: 'shadow-none',
+        '3d': 'shadow-ink shadow-[4px_4px_0]',
       },
     },
     defaultVariants: {
       color: 'gold',
       size: 'default',
+      effect: '3d',
     },
   },
 )
@@ -33,6 +39,7 @@ function Badge({
   className,
   color = 'gold',
   size = 'default',
+  effect = '3d',
   render,
   ...props
 }: useRender.ComponentProps<'span'> & VariantProps<typeof badgeVariants>) {
@@ -40,7 +47,7 @@ function Badge({
     defaultTagName: 'span',
     props: mergeProps<'span'>(
       {
-        className: cn(badgeVariants({ color, size }), className),
+        className: cn(badgeVariants({ color, size, effect }), className),
       },
       props,
     ),
@@ -49,6 +56,7 @@ function Badge({
       slot: 'badge',
       color,
       size,
+      effect,
     },
   })
 }

@@ -5,6 +5,7 @@ import { Heart } from 'lucide-react'
 import { useState } from 'react'
 import { StatusBadge, getVariantFromLabel } from './StatusBadge'
 import { Button } from './ui/button'
+import { Toggle } from './ui/toggle'
 
 const cardStyles = cva('card', {
   variants: {
@@ -69,22 +70,23 @@ export function ServiceCard({
   return (
     <div className={cardStyles({ variant })}>
       {showSaveButton && (
-        <Button
-          onClick={handleSaveClick}
-          variant="secondary"
-          size="icon"
-          shape="square"
-          aria-pressed={isSaved}
-          aria-label={isSaved ? 'Remove from saved' : 'Save'}
-          className="absolute top-3.5 inset-e-3.5 "
-        >
-          <Heart
-            size={15}
-            strokeWidth={2}
-            fill={isSaved ? 'currentColor' : 'none'}
-            className={isSaved ? 'fill-red stroke-0' : 'text-red'}
-          />
-        </Button>
+        <>
+          <Toggle
+            size="icon"
+            shape="square"
+            onClick={handleSaveClick}
+            aria-pressed={isSaved}
+            aria-label={isSaved ? 'Remove from saved' : 'Save'}
+            className="absolute top-3.5 inset-e-3.5 bg-paper"
+          >
+            <Heart
+              size={15}
+              strokeWidth={2}
+              fill={isSaved ? 'currentColor' : 'none'}
+              className="fill-paper text-red"
+            />
+          </Toggle>
+        </>
       )}
 
       <span className="self-start font-bold text-[10.5px] text-green-deep bg-green rounded-[999px] py-0.75 px-2.5 font-cairo">

@@ -23,6 +23,13 @@ const meta = {
       control: 'select',
       options: ['round', 'square'],
     },
+    effect: {
+      control: 'radio',
+      options: ['flat', '3d'],
+    },
+    count: {
+      control: 'number',
+    },
   },
   args: {
     children: 'زر',
@@ -30,6 +37,7 @@ const meta = {
     shape: 'round',
     size: 'default',
     variant: 'primary',
+    effect: '3d',
   },
 } satisfies Meta<typeof Button>
 
@@ -38,14 +46,17 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const WithCount: Story = {
+  args: {
+    count: 3,
+  },
+}
+
 export const Variants: Story = {
   render: (args) => (
     <div className="flex flex-wrap items-center gap-3">
       <Button {...args} variant="primary">
         زر أساسي
-      </Button>
-      <Button {...args} variant="secondary">
-        زر ثانوي
       </Button>
       <Button {...args} variant="outline">
         زر بإطار
@@ -53,8 +64,21 @@ export const Variants: Story = {
       <Button {...args} variant="destructive">
         حذف
       </Button>
-      <Button {...args} variant="link">
+      <Button {...args} variant="link" effect="flat">
         رابط
+      </Button>
+    </div>
+  ),
+}
+
+export const Effects: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Button {...args} effect="flat">
+        مسطح
+      </Button>
+      <Button {...args} effect="3d">
+        ثلاثي الأبعاد
       </Button>
     </div>
   ),

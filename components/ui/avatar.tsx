@@ -7,7 +7,7 @@ import * as React from 'react'
 import { cn } from 'cn'
 
 const avatarVariants = cva(
-  'font-display group/avatar relative flex border-[2.5px] border-ink shadow-ink shadow-[4px_4px_0] shrink-0 select-none after:absolute after:inset-0 after:mix-blend-darken',
+  'font-display group/avatar relative flex border-[2.5px] border-ink shrink-0 select-none after:absolute after:inset-0 after:mix-blend-darken',
   {
     variants: {
       size: {
@@ -26,17 +26,23 @@ const avatarVariants = cva(
         round: 'rounded-full after:rounded-full',
         square: 'rounded-[20%] after:rounded-[20%]',
       },
+      effect: {
+        flat: 'shadow-none',
+        '3d': 'shadow-ink shadow-[4px_4px_0]',
+      },
     },
     defaultVariants: {
       color: 'gold',
       size: 'default',
       shape: 'round',
+      effect: '3d',
     },
   },
 )
 
 type AvatarProps = Omit<AvatarPrimitive.Root.Props, 'color'> &
   VariantProps<typeof avatarVariants> & {
+    /** @deprecated Legacy motion prop retained for compatibility. */
     isAnimated?: boolean
   }
 
@@ -46,18 +52,23 @@ function Avatar({
   color = 'gold',
   shape = 'round',
   isAnimated = false,
+  effect,
   ...props
 }: AvatarProps) {
+  const usesLegacyAnimation = isAnimated && effect === undefined
+  const resolvedEffect = effect ?? (usesLegacyAnimation ? 'flat' : '3d')
+
   return (
     <AvatarPrimitive.Root
       data-slot="avatar"
       data-size={size}
       data-color={color}
       data-shape={shape}
+      data-effect={resolvedEffect}
       data-animated={isAnimated}
       className={cn(
-        avatarVariants({ size, color, shape, className }),
-        isAnimated &&
+        avatarVariants({ size, color, shape, effect: resolvedEffect, className }),
+        usesLegacyAnimation &&
           'shadow-none focus-visible:outline-blue transition-transform duration-0.1 focus-visible:outline-offset-3 focus-visible:outline-3 hover:shadow-[2px_2px_0] hover:translate-[1px_1px] active:shadow-none active:translate-[4px_4px] cursor-pointer',
       )}
       {...props}
