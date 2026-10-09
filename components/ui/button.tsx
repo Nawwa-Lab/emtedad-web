@@ -15,7 +15,7 @@ const buttonVariants = cva(
           'border-ink text-ink hover:bg-gold focus-visible:outline-blue focus-visible:outline-offset-3 focus-visible:outline-1',
         destructive:
           'border-red bg-transparent text-red hover:border-ink hover:bg-red hover:text-surface focus-visible:outline-blue focus-visible:outline-offset-3 focus-visible:outline-1',
-        link: 'border-0! text-red underline-offset-4 hover:underline focus-visible:outline-blue focus-visible:outline-offset-3 focus-visible:outline-1',
+        link: 'border-0! p-0 border-0 text-red underline-offset-4 hover:underline focus-visible:outline-blue focus-visible:outline-offset-3 focus-visible:outline-1',
       },
       size: {
         default: "h-12 gap-2 px-5 text-base [&_svg:not([class*='size-'])]:size-4",

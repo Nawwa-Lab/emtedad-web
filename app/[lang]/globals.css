@@ -8,9 +8,9 @@
 
 @theme {
   /* surfaces */
-  --color-paper: #F1E7CF;
-  --color-paper-dark: #E8DFC8;
-  --color-surface: #FAF4E5;
+  --color-paper: #f1e7cf;
+  --color-paper-dark: #e8dfc8;
+  --color-surface: #faf4e5;
 
   /**
    * TODO: REMOVE AFTER DESIGN SYSTEM MIGRATION
@@ -18,18 +18,18 @@
    */
   --color-sage: #e5e7d6;
 
-  --color-ink: #1A1714;
-  --color-soft: #6B5E4E;
+  --color-ink: #1a1714;
+  --color-soft: #6b5e4e;
 
   /* --color-ink: #211b12;
   --color-ink-soft: #5d5342; */
 
   /* identity colors */
-  --color-red: #D8442B;
-  --color-red-dark: #BD3823;
-  --color-blue: #1F4FA3;
-  --color-gold: #F2C230;
-  --color-tint: #F4D3CB;
+  --color-red: #d8442b;
+  --color-red-dark: #bd3823;
+  --color-blue: #1f4fa3;
+  --color-gold: #f2c230;
+  --color-tint: #f4d3cb;
 
   /**
      * TODO: REMOVE AFTER DESIGN SYSTEM MIGRATION

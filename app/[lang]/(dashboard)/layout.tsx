@@ -10,7 +10,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
       <Header />
       <div className="flex flex-1 overflow-hidden">
         <SidebarNavMenu />
-        <main className="flex-1 overflow-y-auto p-8">
+        <main className="w-full overflow-y-auto p-8">
           <div className="max-w-300 m-auto">{children}</div>
         </main>
       </div>

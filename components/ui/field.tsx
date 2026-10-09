@@ -92,13 +92,7 @@ function FieldContent({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 function FieldLabel({ className, ...props }: React.ComponentProps<typeof Label>) {
-  return (
-    <Label
-      data-slot="field-label"
-      className={cn('mb-2.5', className)}
-      {...props}
-    />
-  )
+  return <Label data-slot="field-label" className={cn('mb-2.5', className)} {...props} />
 }
 
 function FieldTitle({ className, ...props }: React.ComponentProps<'div'>) {
@@ -214,6 +208,5 @@ export {
   FieldLegend,
   FieldSeparator,
   FieldSet,
-  FieldTitle
+  FieldTitle,
 }
-

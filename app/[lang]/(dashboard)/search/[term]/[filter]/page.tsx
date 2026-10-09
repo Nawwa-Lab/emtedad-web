@@ -87,7 +87,7 @@ export default function SearchPage({
       {/* Filters */}
       <div className="flex flex-wrap gap-2 mt-5 mb-2">
         {filters.map((f) => (
-          <Badge key={f.key} variant={filter === f.key ? 'default' : 'outline'}>
+          <Badge key={f.key} color={filter === f.key ? 'red' : 'paper'}>
             <Link href={`/search/${term}/${f.key}`}>{f.label}</Link>
           </Badge>
         ))}
@@ -155,7 +155,11 @@ export default function SearchPage({
                   </span>
                   <h3 className="font-cairo font-extrabold text-[15px] leading-[1.6]">{o.title}</h3>
                   <div className="font-cairo flex items-center gap-2 font-semibold text-xs text-ink-soft mt-1 flex-wrap">
-                    <Avatar size="sm" className={o.miniGold ? 'bg-gold' : 'bg-green'}>
+                    <Avatar
+                      size="sm"
+                      color={o.miniGold ? 'gold' : undefined}
+                      className={o.miniGold ? undefined : 'bg-green'}
+                    >
                       <AvatarFallback>{o.mini}</AvatarFallback>
                     </Avatar>
                     {o.meta}

@@ -12,7 +12,7 @@ export async function SatisfactionIndex() {
   const rateEntries = Object.entries(dict.statusBadge).filter(([key]) => key !== 'empty')
 
   return (
-    <DialogContent className="w-[calc(100%-2rem)] sm:w-full sm:max-w-lg max-h-[85vh] overflow-y-auto p-4 sm:p-6">
+    <DialogContent>
       <DialogHeader>
         <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5.5">
           <StatusBadge

@@ -49,7 +49,7 @@ function DialogContent({
       <DialogPrimitive.Popup
         data-slot="dialog-content"
         className={cn(
-          'w-screen h-screen absolute sm:w-[min(620px,94vw)] bg-surface border border-line sm:rounded-[22px] sm:fixed sm:max-h-[90vh] overflow-y-auto top-1/2 left-1/2 z-50 sm:p-7.5 p-4.5 -translate-x-1/2 -translate-y-1/2 text-sm text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 scrollbar-thumb-line',
+          'max-w-screen max-h-screen absolute sm:w-[min(620px,94vw)] bg-surface border-3 border-ink shadow-ink shadow-[10px_10px_0] sm:rounded-panel sm:fixed sm:max-h-[90vh] overflow-y-auto top-1/2 left-1/2 z-50 pt-8.5 pb-7.5 px-8 -translate-x-1/2 -translate-y-1/2 text-sm text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 scrollbar-thumb-line',
           className,
         )}
         {...props}
@@ -57,13 +57,15 @@ function DialogContent({
         {children}
         {showCloseButton && (
           <DialogPrimitive.Close
-            nativeButton={false}
+            nativeButton={true}
             data-slot="dialog-close"
             render={
-              <XIcon
-                type="button"
-                className="hover:stroke-brick-deep absolute top-4.5 sm:inset-e-4.5 inset-e-2.5 size-8.5 rounded-full border border-line bg-paper cursor-pointer grid place-items-center font-extrabold text-[15px] text-ink-soft no-underline hover:border-brick-deep place-content-center p-2"
-              />
+              <Button
+                size="icon"
+                className=" absolute top-4.5 sm:inset-e-4.5 inset-e-2.5 size-11.5  no-underline"
+              >
+                <XIcon strokeWidth={3} />
+              </Button>
             }
           >
             <span className="sr-only">Close</span>
@@ -109,7 +111,10 @@ function DialogTitle({ className, ...props }: DialogPrimitive.Title.Props) {
   return (
     <DialogPrimitive.Title
       data-slot="dialog-title"
-      className={cn('text-base leading-none font-medium', className)}
+      className={cn(
+        'font-display text-[clamp(30px,4.2vw,42px)]/[1.2] pe-14.5 font-normal',
+        className,
+      )}
       {...props}
     />
   )
@@ -120,7 +125,7 @@ function DialogDescription({ className, ...props }: DialogPrimitive.Description.
     <DialogPrimitive.Description
       data-slot="dialog-description"
       className={cn(
-        'text-sm text-muted-foreground *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground',
+        'font-body text-[16.5px]/[1.9] text-soft mb-6.5 mt-2 font-medium *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground',
         className,
       )}
       {...props}

@@ -55,15 +55,9 @@ export function WishCard({
         <div className="flex items-center gap-2 mt-3 flex-wrap">
           <div className="flex">
             {endorsers.map((initial, index) => (
-              <Avatar
-                size="sm"
-                key={index}
-                className="text-green-deep border-2 border-surface bg-sage w-16 h-16 sm:w-23 sm:h-23 -ms-1.75 shrink-0"
-              >
+              <Avatar size="sm" key={index}>
                 <AvatarImage src="https://github.com/shadcn.pngg" />
-                <AvatarFallback className="font-bold text-[24px] sm:text-[34px]">
-                  {initial.charAt(0)}
-                </AvatarFallback>
+                <AvatarFallback>{initial.charAt(0)}</AvatarFallback>
               </Avatar>
             ))}
           </div>
@@ -73,9 +67,7 @@ export function WishCard({
       {mode === 'browse' ? (
         <div className="shrink-0 flex flex-col items-end gap-2 ">
           <Button
-            className={cn(
-              isEndorsedState && 'cursor-default',
-            )}
+            className={cn(isEndorsedState && 'cursor-default')}
             onClick={() => {
               if (isEndorsedState) return
               setIsEndorsedState(true)
@@ -86,8 +78,7 @@ export function WishCard({
           </Button>
           {isEndorsedState && (
             <Button
-              variant="destructive"
-              type="button"
+              variant="link"
               onClick={() => {
                 setIsEndorsedState(false)
                 SetCountState((prevCount) => prevCount - 1)
@@ -111,7 +102,7 @@ export function WishCard({
                 {t('edit')}
               </Link>
               <Button
-                variant="destructive"
+                variant="link"
                 type="button"
                 onClick={() => {
                   console.log('Withdraw Wish ', id)

@@ -26,12 +26,7 @@ function SelectValue({ className, ...props }: SelectPrimitive.Value.Props) {
   )
 }
 
-function SelectTrigger({
-  className,
-  children,
-  ...props
-}: SelectPrimitive.Trigger.Props & {
-}) {
+function SelectTrigger({ className, children, ...props }: SelectPrimitive.Trigger.Props & {}) {
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
@@ -181,6 +176,5 @@ export {
   SelectScrollUpButton,
   SelectSeparator,
   SelectTrigger,
-  SelectValue
+  SelectValue,
 }
-

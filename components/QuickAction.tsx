@@ -20,10 +20,8 @@ export function QuickAction() {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className="font-display font-bold text-2xl">{t('title')}</DialogTitle>
-          <DialogDescription className="font-cairo text-ink-soft text-sm mt-1 mb-5">
-            {t('description')}
-          </DialogDescription>
+          <DialogTitle>{t('title')}</DialogTitle>
+          <DialogDescription>{t('description')}</DialogDescription>
         </DialogHeader>
         <div className="bg-paper border border-line-soft mb-5 p-4.5 rounded-2xl">
           <div className="flex items-baseline gap-2.5 mb-3">

@@ -49,9 +49,7 @@ export const WithAction: Story = {
           <CardDescription>أثاث مكتبي جاهز للاستلام.</CardDescription>
         </div>
         <CardAction>
-          <Button>
-            عرض
-          </Button>
+          <Button>عرض</Button>
         </CardAction>
       </CardHeader>
       <CardContent>متاح هذا الأسبوع</CardContent>

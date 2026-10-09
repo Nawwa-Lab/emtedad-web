@@ -3,31 +3,36 @@ import { useRender } from '@base-ui/react/use-render'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from 'cn'
+
 const badgeVariants = cva(
-  'cursor-pointer font-cairo font-bold text-[12.5px] py-[7px] px-3.5 transition-colors inline-flex items-center rounded-[999px] border-transparent font-cairo',
+  'inline-flex font-body items-center border-[2.5px] rounded-full border-ink font-bold transition-colors [a]:cursor-pointer',
   {
     variants: {
-      variant: {
-        default: 'font-bold text-[12px] py-[7px] px-[15px] text-ink  bg-green ',
-        secondary:
-          'font-bold text-[12px] py-[7px] px-[15px] text-gold-deep  bg-[rgba(217,184,122,0.2)]',
-        destructive:
-          'bg-destructive/10 text-destructive focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:focus-visible:ring-destructive/40 [a]:hover:bg-destructive/20',
-        outline:
-          'bg-surface border border-line text-ink-soft hover:border-green-deep hover:text-ink ',
-        ghost: 'hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50',
-        link: 'text-primary underline-offset-4 hover:underline',
+      color: {
+        red: 'bg-red text-surface',
+        blue: 'bg-blue text-surface',
+        gold: 'bg-gold text-ink',
+        tint: 'bg-tint text-ink',
+        paper: 'bg-paper text-ink',
+        surface: 'bg-surface text-ink',
+      },
+      size: {
+        sm: 'px-2.5 py-0.75 text-[10.5px]',
+        default: 'px-[15px] py-[5px] text-[13.5px]',
+        lg: 'px-[20px] py-[7px] text-[22px]',
       },
     },
     defaultVariants: {
-      variant: 'default',
+      color: 'gold',
+      size: 'default',
     },
   },
 )
 
 function Badge({
   className,
-  variant = 'default',
+  color = 'gold',
+  size = 'default',
   render,
   ...props
 }: useRender.ComponentProps<'span'> & VariantProps<typeof badgeVariants>) {
@@ -35,14 +40,15 @@ function Badge({
     defaultTagName: 'span',
     props: mergeProps<'span'>(
       {
-        className: cn(badgeVariants({ variant }), className),
+        className: cn(badgeVariants({ color, size }), className),
       },
       props,
     ),
     render,
     state: {
       slot: 'badge',
-      variant,
+      color,
+      size,
     },
   })
 }

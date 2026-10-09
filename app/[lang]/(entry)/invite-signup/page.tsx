@@ -61,13 +61,11 @@ export default async function InviteSignupPage() {
             <FieldLabel htmlFor="pass"> {dict.inviteSignup.passwordRepeatLabel}</FieldLabel>
             <Input id="pass" type="password" placeholder="••••••••" />
           </Field>
-          <FieldContent className=" flex-row items-start gap-2.5 mt-5 my-0">
+          <FieldContent className=" flex-row items-center gap-2.5 mt-5 my-0">
             <Checkbox id="terms-checkbox-basic" name="terms-checkbox-basic" />
-            <FieldLabel htmlFor="terms-checkbox-basic">
-              {' '}
+            <FieldLabel htmlFor="terms-checkbox-basic" className="mb-0">
               {dict.inviteSignup.firstPart}
-              <Link href="" className="text-green-deep font-bold hover:underline ">
-                {' '}
+              <Link href="" className="text-red font-bold underline ">
                 {dict.inviteSignup.link}
               </Link>
               {dict.inviteSignup.secondPart}

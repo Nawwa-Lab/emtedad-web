@@ -9,7 +9,12 @@ function Card({
   return (
     <div
       data-slot="card"
-      className={cn('bg-surface border-3 border-ink rounded-panel pt-8.5 pb-7.5 px-8 shadow-ink shadow-[8px_8px_0] transition-[transform_.15s,box-shadow_.15s]',animated && 'p-6! shadow-[6px_6px_0] hover:-translate-x-0.5 hover:-translate-y-1 hover:rotate-[-0.3deg] hover:shadow-[9px_11px_0]' , className)}
+      className={cn(
+        'bg-surface border-3 border-ink rounded-panel pt-8.5 pb-7.5 px-8 shadow-ink shadow-[8px_8px_0] transition-[transform_.15s,box-shadow_.15s]',
+        animated &&
+          'p-6! shadow-[6px_6px_0] hover:-translate-x-0.5 hover:-translate-y-1 hover:rotate-[-0.3deg] hover:shadow-[9px_11px_0]',
+        className,
+      )}
       {...props}
     />
   )
@@ -62,13 +67,7 @@ function CardContent({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 function CardFooter({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div
-      data-slot="card-footer"
-      className={cn('flex items-center', className)}
-      {...props}
-    />
-  )
+  return <div data-slot="card-footer" className={cn('flex items-center', className)} {...props} />
 }
 
 export { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }

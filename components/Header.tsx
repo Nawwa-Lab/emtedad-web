@@ -59,10 +59,12 @@ export function Header() {
             {t('switchContext')}
           </Link>
         </span>
-        <Avatar>
-          <AvatarImage src="https://github.com/shadcn.pngg" />
-          <AvatarFallback className="bg-gold">C</AvatarFallback>
-        </Avatar>
+        <Link href="/member/123">
+          <Avatar color="gold" isAnimated>
+            <AvatarImage src="https://github.com/shadcn.pngg" />
+            <AvatarFallback>C</AvatarFallback>
+          </Avatar>
+        </Link>
       </div>
     </header>
   )

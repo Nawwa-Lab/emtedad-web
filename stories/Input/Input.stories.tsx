@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import { expect } from 'storybook/test'
 
 import { Input } from '../../components/ui/input'
 
@@ -16,7 +15,6 @@ const meta = {
 
 export default meta
 type Story = StoryObj<typeof meta>
-type PlayContext = Parameters<NonNullable<Story['play']>>[0]
 
 export const Default: Story = {}
 

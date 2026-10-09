@@ -6,8 +6,8 @@ import type { ReactNode } from 'react'
 import { useEffect } from 'react'
 import '../app/[lang]/globals.css'
 import { alexandriaFont, cairoFont, lalezarFont, rubikFont } from '../lib/fonts'
-import { DEFAULT_LOCALE, LANGUAGES_READONLY } from '../types/constants'
 import type { Locale } from '../types'
+import { DEFAULT_LOCALE, LANGUAGES_READONLY } from '../types/constants'
 
 const fontVariables = [
   rubikFont.variable,
@@ -16,15 +16,7 @@ const fontVariables = [
   alexandriaFont.variable,
 ].join(' ')
 
-function StoryFrame({
-  children,
-  fullHeight,
-  locale,
-}: {
-  children: ReactNode
-  fullHeight: boolean
-  locale: Locale
-}) {
+function StoryFrame({ children, locale }: { children: ReactNode; locale: Locale }) {
   const language = LANGUAGES_READONLY.find(({ code }) => code === locale)
   const direction = language && 'rtl' in language && language.rtl ? 'rtl' : 'ltr'
 
@@ -46,15 +38,7 @@ function StoryFrame({
   }, [direction, locale])
 
   return (
-    <div
-      lang={locale}
-      dir={direction}
-      className={cn(
-        fontVariables,
-        'bg-paper text-ink font-body',
-        fullHeight ? 'min-h-screen flex justify-center items-center' : 'p-4',
-      )}
-    >
+    <div lang={locale} dir={direction} className={cn(fontVariables)}>
       {children}
     </div>
   )
@@ -83,7 +67,7 @@ const preview: Preview = {
       const locale = context.globals.locale as Locale
 
       return (
-        <StoryFrame locale={locale} fullHeight={context.viewMode === 'story'}>
+        <StoryFrame locale={locale}>
           <Story />
         </StoryFrame>
       )

@@ -50,7 +50,7 @@ export const Invalid: Story = {
 
 export const Fieldset: Story = {
   render: () => (
-    <FieldSet className="max-w-md">
+    <FieldSet className="min-w-1/3">
       <FieldLegend>بيانات التواصل</FieldLegend>
       <FieldGroup>
         <Field>

@@ -124,11 +124,7 @@ export function WishForm({ mode, initialWish, ns = 'genny' }: WishFormProps) {
               </Select>
             )}
           </FormControl>
-          <Button
-            type="submit"
-          >
-            {mode === 'create' ? t('submitAdd') : t('submitEdit')}
-          </Button>
+          <Button type="submit">{mode === 'create' ? t('submitAdd') : t('submitEdit')}</Button>
         </Form>
       </Card>
       <HelpCard title={t('tipsTitle')} tips={[t('tip1'), t('tip2'), t('tip3')]} />

@@ -23,7 +23,7 @@ const meta = {
   component: Select,
   tags: ['autodocs', 'ai-generated', 'needs-work'],
   render: (args: React.ComponentProps<typeof Select>) => (
-    <div className="max-w-sm">
+    <div className="min-w-1/4">
       <Select items={services} {...args}>
         <SelectTrigger aria-label="اختر خدمة">
           <SelectValue placeholder="اختر خدمة" />

@@ -183,10 +183,7 @@ export default function PostServicePage() {
                     value={field.value as string}
                     onValueChange={field.onChange}
                   >
-                    <SelectTrigger
-                      id="service-category"
-                      aria-invalid={fieldState.invalid}
-                    >
+                    <SelectTrigger id="service-category" aria-invalid={fieldState.invalid}>
                       <SelectValue placeholder={items[1].value} />
                     </SelectTrigger>
                     <SelectContent side="bottom" sideOffset={0} alignItemWithTrigger={false}>
@@ -223,7 +220,6 @@ export default function PostServicePage() {
                     onChange={(e) => {
                       const val = e.target.value
                       field.onChange(val === '' ? undefined : Number(val))
-
                     }}
                   />
                 )}
@@ -255,10 +251,7 @@ export default function PostServicePage() {
                   value={field.value as string}
                   onValueChange={field.onChange}
                 >
-                  <SelectTrigger
-                    id="service-member"
-                    aria-invalid={fieldState.invalid}
-                  >
+                  <SelectTrigger id="service-member" aria-invalid={fieldState.invalid}>
                     <SelectValue placeholder={memberResponsible[0].value} />
                   </SelectTrigger>
                   <SelectContent side="bottom" sideOffset={0} alignItemWithTrigger={false}>
@@ -279,14 +272,8 @@ export default function PostServicePage() {
             </FormControl>
 
             <div className="flex gap-3 mt-2 flex-wrap">
-              <Button
-                type="submit"
-              >
-                {t('post')}
-              </Button>
-              <Button>
-                {t('save')}
-              </Button>
+              <Button type="submit">{t('post')}</Button>
+              <Button>{t('save')}</Button>
             </div>
           </Form>
         </Card>

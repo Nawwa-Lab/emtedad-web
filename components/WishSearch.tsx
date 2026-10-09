@@ -69,9 +69,7 @@ export function WishSearch({
               {endorsedCountLabel(formatNumber(suggestion.count, { locale }))}
             </small>
           </p>
-          <Button>
-            {endorseLabel}
-          </Button>
+          <Button>{endorseLabel}</Button>
         </div>
       )}
     </div>

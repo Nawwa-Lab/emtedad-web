@@ -8,7 +8,7 @@ const ALL_ID = filterButtons.find((b) => b.label === 'الكل')?.id ?? '1'
 const categoryButtons = filterButtons.filter((b) => b.label !== 'الأحدث أولا')
 const sortButtons = filterButtons.filter((b) => b.label === 'الأحدث أولا')
 
-export default function NamliyaBrowsePage() {
+export default function NamliyaResourceOffersPage() {
   const [active, setActive] = useState<readonly string[]>([ALL_ID])
 
   const handleChange = (values: string[]) => {

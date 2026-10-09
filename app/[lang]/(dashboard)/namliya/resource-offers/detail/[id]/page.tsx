@@ -33,7 +33,7 @@ export default async function ServiceOfferPage() {
       </Link>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start pb-36 lg:pb-0">
         <Card className="p-4 sm:p-7 bg-surface border border-line rounded-[22px] col-span-full lg:col-span-2">
-          <Badge variant="secondary">{namliyaResource.category}</Badge>
+          <Badge color="gold">{namliyaResource.category}</Badge>
           <CardTitle>{namliyaResource.title}</CardTitle>
           <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-2.5 mt-4.5">
             <Card className="sm:row-span-2 aspect-video bg-sage border border-line-soft rounded-2xl grid items-center relative overflow-hidden">

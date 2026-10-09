@@ -86,7 +86,7 @@ export default async function MemberProfileClient() {
                 </Label>
                 <div className="flex-wrap flex gap-2 box-border">
                   {profile.secondCard.skills.map((skill, index) => (
-                    <Badge key={index} variant="outline">
+                    <Badge key={index} color="paper">
                       {skill}
                     </Badge>
                   ))}

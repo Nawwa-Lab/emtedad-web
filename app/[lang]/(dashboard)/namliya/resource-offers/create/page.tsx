@@ -204,10 +204,7 @@ function SupervisorFields({
             value={field.value as string}
             onValueChange={field.onChange}
           >
-            <SelectTrigger
-              id="resource-supervisor"
-              aria-invalid={fieldState.invalid}
-            >
+            <SelectTrigger id="resource-supervisor" aria-invalid={fieldState.invalid}>
               <SelectValue placeholder={memberResponsible[0].value} />
             </SelectTrigger>
             <SelectContent side="bottom" sideOffset={0} alignItemWithTrigger={false}>
@@ -374,10 +371,7 @@ export default function PostResourcePage() {
                     value={field.value as string}
                     onValueChange={field.onChange}
                   >
-                    <SelectTrigger
-                      id="resource-category"
-                      aria-invalid={fieldState.invalid}
-                    >
+                    <SelectTrigger id="resource-category" aria-invalid={fieldState.invalid}>
                       <SelectValue placeholder={items[0].value} />
                     </SelectTrigger>
                     <SelectContent side="bottom" sideOffset={0} alignItemWithTrigger={false}>
@@ -453,11 +447,7 @@ export default function PostResourcePage() {
             />
 
             <div className="flex gap-3 mt-2 flex-wrap">
-              <Button
-                type="submit"
-              >
-                {t('post')}
-              </Button>
+              <Button type="submit">{t('post')}</Button>
             </div>
           </Form>
         </Card>
