@@ -1,28 +1,36 @@
 'use client'
 
 import { Link, usePathname } from '@/i18n/navigation'
+import { toggleVariants } from '@/components/ui/toggle'
 import { cn } from 'cn'
 interface NavLink {
   href: string
   label: string
 }
 
-const activeClass =
-  'bg-green font-cairo border-transparent text-ink inline-block rounded-[999px] font-bold text-[11.5px] sm:text-[12px] py-1.5 sm:py-1.75 px-3 sm:px-3.75'
-
-const inactiveClass =
-  'border border-line font-cairo bg-surface text-ink inline-block rounded-[999px] font-bold text-[11.5px] sm:text-[12px] py-1.5 sm:py-1.75 px-3 sm:px-3.75 hover:border-green-deep'
-
 export function SubLinks({ links, className }: { links: NavLink[]; className?: string }) {
   const pathname = usePathname()
 
   return (
-    <div className={cn('mt-4 mx-0 mb-2 flex flex-wrap gap-2', className)}>
-      {links.map(({ href, label }) => (
-        <Link key={href} href={href} className={pathname === href ? activeClass : inactiveClass}>
-          {label}
-        </Link>
-      ))}
+    <div className={cn('mt-4 mb-2 flex w-fit flex-wrap items-center gap-2', className)}>
+      {links.map(({ href, label }) => {
+        const isActive = pathname === href
+
+        return (
+          <Link
+            key={href}
+            href={href}
+            aria-current={isActive ? 'page' : undefined}
+            data-active={isActive || undefined}
+            className={cn(
+              toggleVariants({ size: 'sm' }),
+              'data-active:bg-red data-active:text-surface',
+            )}
+          >
+            {label}
+          </Link>
+        )
+      })}
     </div>
   )
 }

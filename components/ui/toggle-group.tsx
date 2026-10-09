@@ -14,15 +14,15 @@ const ToggleGroupContext = React.createContext<
   }
 >({
   size: 'sm',
-  variant: 'default',
+  variant: 'outline',
   spacing: 2,
   orientation: 'horizontal',
 })
 
 function ToggleGroup({
   className,
-  variant,
-  size,
+  variant = 'outline',
+  size = 'sm',
   spacing = 2,
   orientation = 'horizontal',
   children,

@@ -11,7 +11,7 @@ const toggleVariants = cva(
         default:
           'border-ink bg-surface text-ink font-extrabold shadow-ink shadow-[4px_4px_0] hover:translate-[1px_1px] hover:shadow-[2px_2px_0] active:translate-[4px_4px] active:shadow-none focus-visible:outline-blue focus-visible:outline-offset-3 focus-visible:outline-1 data-[pressed]:bg-red data-[pressed]:text-surface',
         outline:
-          'border-ink bg-surface text-ink font-extrabold shadow-ink shadow-[4px_4px_0] hover:translate-[1px_1px] hover:shadow-[2px_2px_0] active:translate-[4px_4px] active:shadow-none focus-visible:outline-blue focus-visible:outline-offset-3 focus-visible:outline-1 data-[pressed]:bg-red data-[pressed]:text-surface',
+          'border-ink text-ink bg-surface hover:bg-gold focus-visible:outline-blue focus-visible:outline-offset-3 focus-visible:outline-1 data-[pressed]:bg-ink data-[pressed]:text-surface',
       },
       size: {
         default: "h-12 gap-2 rounded-full px-5 text-base [&_svg:not([class*='size-'])]:size-4",

@@ -44,6 +44,13 @@ export const Connected: Story = {
   },
 }
 
+export const Outline: Story = {
+  args: {
+    defaultValue: ['center'],
+    variant: 'outline',
+  },
+}
+
 export const Multiple: Story = {
   args: {
     defaultValue: ['right', 'left'],

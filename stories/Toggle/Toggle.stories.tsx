@@ -34,6 +34,12 @@ export const Pressed: Story = {
   },
 }
 
+export const Outline: Story = {
+  args: {
+    variant: 'outline',
+  },
+}
+
 export const Disabled: Story = {
   args: {
     disabled: true,
