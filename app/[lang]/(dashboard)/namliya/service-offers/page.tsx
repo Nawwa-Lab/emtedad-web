@@ -29,20 +29,13 @@ export default function NamliyaServiceOffersPage() {
     return active.includes(card.categoryId)
   })
 
-  const chipClass = (id: string) =>
-    `inline-block font-cairo border rounded-[999px] font-bold text-[11.5px] sm:text-[12px] py-1.5 sm:py-1.75 px-3 sm:px-3.75 cursor-pointer hover:border-green-deep ${
-      active.includes(id)
-        ? 'bg-green text-ink border-green hover:border-green-deep'
-        : 'bg-surface border-line text-ink-soft'
-    }`
-
   return (
     <>
       <div className="mb-3.5 sm:mb-4.5 flex flex-wrap items-center gap-1.5 sm:gap-2">
         {/* Category filter chips */}
         <ToggleGroup value={active} onValueChange={handleChange} className="flex-wrap">
           {categoryButtons.map((button) => (
-            <ToggleGroupItem value={button.id} key={button.id} className={chipClass(button.id)}>
+            <ToggleGroupItem value={button.id} key={button.id}>
               {button.label}
             </ToggleGroupItem>
           ))}
@@ -57,7 +50,7 @@ export default function NamliyaServiceOffersPage() {
         {sortButtons.length > 0 && (
           <ToggleGroup value={active} onValueChange={handleChange} className="flex-wrap">
             {sortButtons.map((button) => (
-              <ToggleGroupItem value={button.id} key={button.id} className={chipClass(button.id)}>
+              <ToggleGroupItem value={button.id} key={button.id}>
                 {button.label}
               </ToggleGroupItem>
             ))}

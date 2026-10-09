@@ -7,13 +7,6 @@ import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { filterButtons, khalisRequests, namliyaRequests } from './data'
 
-const chipClass = (id: string, active: readonly string[]) =>
-  `inline-block font-cairo border rounded-[999px] font-bold text-[11.5px] sm:text-[12px] py-1.5 sm:py-1.75 px-3 sm:px-3.75 cursor-pointer hover:border-green-deep ${
-    active.includes(id)
-      ? 'bg-green text-ink border-green hover:border-green-deep'
-      : 'bg-surface border-line text-ink-soft'
-  }`
-
 export default function AlaeshBrowsePage() {
   const t = useTranslations('alaesh.browse')
   const locale = useLocale()
@@ -34,11 +27,7 @@ export default function AlaeshBrowsePage() {
           className="flex-wrap"
         >
           {filterButtons.map((button) => (
-            <ToggleGroupItem
-              value={button.id}
-              key={button.id}
-              className={chipClass(button.id, filterBy)}
-            >
+            <ToggleGroupItem value={button.id} key={button.id}>
               {t(button.labelKey, { count: formatNumber(button.count, { locale }) })}
             </ToggleGroupItem>
           ))}

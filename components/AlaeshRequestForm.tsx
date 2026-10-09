@@ -80,16 +80,7 @@ export function AlaeshRequestForm({ mode, initialRequest }: AlaeshRequestFormPro
                 }}
                 className="flex flex-wrap"
               >
-                <ToggleGroupItem
-                  type="button"
-                  value="namliya"
-                  className={cn(
-                    'inline-block font-cairo border rounded-[999px] font-bold text-[12px] py-1.75 px-3.75 cursor-pointer',
-                    field.value === 'namliya'
-                      ? 'bg-green text-ink border-transparent'
-                      : 'bg-surface border-line text-ink-soft hover:border-green-deep hover:text-ink',
-                  )}
-                >
+                <ToggleGroupItem type="button" value="namliya">
                   {t('marketNamliya')}
                 </ToggleGroupItem>
                 <ToggleGroupItem
@@ -138,7 +129,7 @@ export function AlaeshRequestForm({ mode, initialRequest }: AlaeshRequestFormPro
                   onValueChange={field.onChange}
                   items={categories}
                 >
-                  <SelectTrigger size="lg" id="alaesh-category" aria-invalid={fieldState.invalid}>
+                  <SelectTrigger id="alaesh-category" aria-invalid={fieldState.invalid}>
                     <SelectValue placeholder="-" />
                   </SelectTrigger>
                   <SelectContent>
