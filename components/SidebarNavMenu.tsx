@@ -81,7 +81,7 @@ export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean 
 
   return (
     <nav
-      className="group/sidebar sticky top-0 z-30 flex h-screen w-[84px] shrink-0 flex-col gap-1.5 overflow-hidden border-e-[3px] border-ink bg-surface px-3 py-[18px] transition-[width] duration-250 hover:w-56 focus-within:w-56 max-[820px]:static max-[820px]:h-auto max-[820px]:w-full max-[820px]:flex-row max-[820px]:gap-2 max-[820px]:overflow-x-auto max-[820px]:border-e-0 max-[820px]:border-b-[3px] max-[820px]:p-3 max-[820px]:transition-none max-[820px]:hover:w-full max-[820px]:focus-within:w-full"
+      className="group/sidebar sticky top-0 z-30 flex h-screen w-21 shrink-0 flex-col gap-1.5 overflow-hidden border-e-[3px] border-ink bg-surface px-3 py-4.5 transition-[width] duration-250 hover:w-56 focus-within:w-56 max-[820px]:static max-[820px]:h-auto max-[820px]:w-full max-[820px]:flex-row max-[820px]:gap-2 max-[820px]:overflow-x-auto max-[820px]:border-e-0 max-[820px]:border-b-[3px] max-[820px]:p-3 max-[820px]:transition-none max-[820px]:hover:w-full max-[820px]:focus-within:w-full"
       aria-label={tSidebar('mainNavAriaLabel')}
     >
       {navLinks.map((link, index) => {
@@ -103,7 +103,7 @@ export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean 
           >
             <span
               className={cn(
-                'flex size-[34px] shrink-0 items-center justify-center transition-[opacity,transform] group-hover/item:-rotate-6 group-hover/item:scale-[1.06] group-hover/item:opacity-100',
+                'flex size-8.5 shrink-0 items-center justify-center transition-[opacity,transform] group-hover/item:-rotate-6 group-hover/item:scale-[1.06] group-hover/item:opacity-100',
                 isActive ? '-rotate-6 scale-[1.06] opacity-100' : 'opacity-55',
               )}
             >
@@ -120,7 +120,7 @@ export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean 
           'mt-auto border-ink border-dashed bg-paper max-[820px]:ms-auto max-[820px]:mt-0',
         )}
       >
-        <span className="flex size-[34px] shrink-0 items-center justify-center">
+        <span className="flex size-8.5 shrink-0 items-center justify-center">
           <Image src={HomeIcon} alt="" className="size-full" />
         </span>
         <span className={labelClass}>{tLanding('brand')}</span>

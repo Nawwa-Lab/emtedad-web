@@ -1,4 +1,3 @@
-import { QuickAction } from '@/components/QuickAction'
 import { RouteHeader } from '@/components/RouteHeader'
 import { getDictionary } from '@/i18n/dictionary/get-dictionary'
 import { NextIntlClientProvider } from 'next-intl'
@@ -15,16 +14,10 @@ export default async function NamliyaLayout({ children }: { children: React.Reac
         routes={[
           {
             pattern: '/namliya/.*-offers$',
-            config: {
-              title: namliya.title,
-              description: namliya.description,
-              action: <QuickAction />,
-            },
+            description: namliya.description,
           },
         ]}
-        className="mb-1.5"
-        titleClassName="text-[20px] sm:text-[23px] md:text-[26px] leading-normal"
-        descriptionClassName="text-[12.5px] sm:text-[13px] md:text-[13.5px] mt-1"
+        title={namliya.title}
       >
         <SubLinks
           links={[

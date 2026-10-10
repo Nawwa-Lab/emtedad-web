@@ -16,13 +16,14 @@ export default async function GennyLayout({ children }: { children: React.ReactN
         routes={[
           {
             path: '/genny/browse',
-            config: { title: genny.browse.title, description: genny.browse.description },
+            description: genny.browse.description,
           },
           {
             path: '/genny/my-wishes',
-            config: { title: genny.myWishes.title, description: genny.myWishes.description },
+            description: genny.myWishes.description,
           },
         ]}
+        title={genny.browse.title}
       >
         <SubLinks
           links={[
