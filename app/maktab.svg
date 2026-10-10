@@ -1,0 +1,17 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 100"
+  xmlns:c2pa="http://c2pa.org/manifest"
+>
+  <path
+    fill="#1A1714"
+    fill-rule="evenodd"
+    d="M24 82 L24 48 C24 30.5 35.5 18 50 18 C64.5 18 76 30.5 76 48 L76 82 L72 82 L72 48 C72 33.3 62.5 22 50 22 C37.5 22 28 33.3 28 48 L28 82 Z"
+  />
+
+  <path
+    fill="#D8442B"
+    fill-rule="evenodd"
+    d="M36 82 L36 51 C36 39.2 42.2 31 50 31 C57.8 31 64 39.2 64 51 L64 82 L61 82 L61 51 C61 41.2 56.2 34 50 34 C43.8 34 39 41.2 39 51 L39 82 Z"
+  />
+</svg>
