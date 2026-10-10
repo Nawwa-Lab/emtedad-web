@@ -1,5 +1,5 @@
 'use client'
-import maktab from '@/app/maktab.svg'
+import gate from '@/app/gate.svg'
 import {
   Attachment,
   AttachmentAction,
@@ -147,7 +147,7 @@ export function ImageDropzone({ maxImages = 5, value, onChange, invalid }: Image
               event.target.value = ''
             }}
           />
-          <Image src={maktab} alt="Uplaod images" className="mx-auto mb-3.5 size-15.5" />
+          <Image src={gate} alt="Uplaod images" className="mx-auto mb-3.5 size-15.5" />
           <span
             className={cn(
               'block font-display text-[23px]/[1.3] font-bold text-ink',

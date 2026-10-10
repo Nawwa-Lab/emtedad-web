@@ -1,7 +1,7 @@
 'use client'
 
-import OrgIcon from '@/app/gate.svg'
 import CommunityIcon from '@/app/circles.svg'
+import OrgIcon from '@/app/gate.svg'
 import { Button } from '@/components/ui/button'
 import {
   RadioGroup,
@@ -10,7 +10,7 @@ import {
   RadioGroupItemIcon,
   RadioGroupItemTitle,
 } from '@/components/ui/radio-group'
-import { useUser } from '@/components/UserContext'
+import { useUser } from '@/contexts/UserContext'
 import { useRouter } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'

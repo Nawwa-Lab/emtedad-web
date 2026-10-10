@@ -11,7 +11,7 @@ import KhalliKhalesIcon from '@/app/plant.svg'
 import FahsMahsIcon from '@/app/star-2.svg'
 import HomeIcon from '@/app/star.svg'
 import AlaeshIcon from '@/app/target.svg'
-import { type Role, useUser } from '@/components/UserContext'
+import { type Role, useUser } from '@/contexts/UserContext'
 import { Link, usePathname } from '@/i18n/navigation'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
@@ -68,12 +68,16 @@ const itemClass =
 const labelClass =
   'm-0 max-w-0 overflow-hidden opacity-0 transition-[opacity,max-width,margin] duration-200 min-[821px]:group-hover/sidebar:ms-3.5 min-[821px]:group-hover/sidebar:max-w-[170px] min-[821px]:group-hover/sidebar:opacity-100 min-[821px]:group-focus-within/sidebar:ms-3.5 min-[821px]:group-focus-within/sidebar:max-w-[170px] min-[821px]:group-focus-within/sidebar:opacity-100 max-[820px]:ms-3.5 max-[820px]:max-w-none max-[820px]:opacity-100'
 
-export function SidebarNavMenu() {
+export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean }) {
   const pathname = usePathname()
   const tNav = useTranslations('navigation')
   const tSidebar = useTranslations('sidebar')
   const tLanding = useTranslations('landing')
   const { user } = useUser()
+
+  if (requireUser && !user) {
+    return null
+  }
 
   return (
     <nav

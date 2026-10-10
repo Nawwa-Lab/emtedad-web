@@ -1,4 +1,4 @@
-import { UserProvider } from '@/components/UserContext'
+import { UserProvider } from '@/contexts/UserContext'
 import { alexandriaFont, cairoFont, lalezarFont, rubikFont } from '@/lib/fonts'
 import type { Locale } from '@/types'
 import type { Metadata } from 'next'

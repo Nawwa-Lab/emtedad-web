@@ -33,10 +33,10 @@ export function UserProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setUser({
-        name: 'John Doe',
+        name: 'صلاح خالد',
         context: 'org',
         role: 'admin',
-        org: 'Acme Corp',
+        org: 'مشكاة',
       })
     }, 500)
     return () => clearTimeout(timer)
