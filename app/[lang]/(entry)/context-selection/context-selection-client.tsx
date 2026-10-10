@@ -1,33 +1,20 @@
 'use client'
 
-import OrgLogo from '@/app/logo.svg'
-import PubLogo from '@/app/pub-icon.svg'
+import maktab from '@/app/maktab.svg'
+import namliya from '@/app/namliya.svg'
 import { Button } from '@/components/ui/button'
 import {
-  Field,
-  FieldContent,
-  FieldDescription,
-  FieldLabel,
-  FieldTitle,
-} from '@/components/ui/field'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+  RadioGroup,
+  RadioGroupItem,
+  RadioGroupItemDescription,
+  RadioGroupItemIcon,
+  RadioGroupItemTitle,
+} from '@/components/ui/radio-group'
 import { useUser } from '@/components/UserContext'
 import { useRouter } from '@/i18n/navigation'
-import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
-
-function CheckIndicator({ checked }: { checked: boolean }) {
-  return (
-    <span
-      className={cn(
-        'absolute -top-1 -inset-e-1 w-5.5 h-5.5 rounded-full bg-green grid place-items-center transition-opacity duration-150 after:w-2 after:h-1.25 after:border-b-[2.5px] rtl:after:border-e-[2.5px] ltr:after:border-s-[2.5px] after:border-ink after:-rotate-45 after:-translate-y-px',
-        checked ? 'opacity-100' : 'opacity-0',
-      )}
-    ></span>
-  )
-}
 
 export default function ContextSelectionClient() {
   const { user, setUser } = useUser()
@@ -38,57 +25,21 @@ export default function ContextSelectionClient() {
   return (
     <>
       <RadioGroup value={context} onValueChange={setContext}>
-        <FieldLabel
-          htmlFor="c-org"
-          className={`relative block rounded-[22px] bg-surface border cursor-pointer transition-[border-color] duration-150 hover:border-green-deep focus-visible:outline-2 focus-visible:outline-green-deep focus-visible:outline-offset-2 ${
-            context === 'org'
-              ? 'border-2 border-green-deep p-[25px_23px]'
-              : 'border-line p-[26px_24px]'
-          }`}
-        >
-          <Field className="mb-0" orientation="horizontal">
-            <FieldContent>
-              <Image src={OrgLogo} alt="" width={44} height={44} />
-              <FieldTitle className="font-display font-bold text-ink text-[22px] mt-3.5">
-                {t('orgTitle')}
-              </FieldTitle>
-              <FieldDescription className="text-start font-cairo font-semibold text-[13px] text-ink-soft leading-[1.9] mt-1.5">
-                {t('orgDesc')}
-              </FieldDescription>
-            </FieldContent>
-            <RadioGroupItem
-              value="org"
-              id="c-org"
-              indicator={<CheckIndicator checked={context === 'org'} />}
-            />
-          </Field>
-        </FieldLabel>
+        <RadioGroupItem value="org" aria-label={t('orgTitle')}>
+          <RadioGroupItemIcon>
+            <Image src={maktab} alt="" className="size-full" />
+          </RadioGroupItemIcon>
+          <RadioGroupItemTitle>{t('orgTitle')}</RadioGroupItemTitle>
+          <RadioGroupItemDescription>{t('orgDesc')}</RadioGroupItemDescription>
+        </RadioGroupItem>
 
-        <FieldLabel
-          htmlFor="community"
-          className={`relative block rounded-[22px] bg-surface border cursor-pointer transition-[border-color] duration-150 hover:border-green-deep focus-visible:outline-2 focus-visible:outline-green-deep focus-visible:outline-offset-2 ${
-            context === 'community'
-              ? 'border-2 border-green-deep p-[25px_23px]'
-              : 'border-line p-[26px_24px]'
-          }`}
-        >
-          <Field className="mb-0" orientation="horizontal">
-            <FieldContent>
-              <Image src={PubLogo} alt="" width={44} height={44} />
-              <FieldTitle className="font-display font-bold text-ink text-[22px] mt-3.5">
-                {t('pubTitle')}
-              </FieldTitle>
-              <FieldDescription className="text-start font-cairo font-semibold text-[13px] text-ink-soft leading-[1.9] mt-1.5">
-                {t('pubDesc')}
-              </FieldDescription>
-            </FieldContent>
-            <RadioGroupItem
-              value="community"
-              id="community"
-              indicator={<CheckIndicator checked={context === 'community'} />}
-            />
-          </Field>
-        </FieldLabel>
+        <RadioGroupItem value="community" aria-label={t('pubTitle')}>
+          <RadioGroupItemIcon>
+            <Image src={namliya} alt="" className="size-full" />
+          </RadioGroupItemIcon>
+          <RadioGroupItemTitle>{t('pubTitle')}</RadioGroupItemTitle>
+          <RadioGroupItemDescription>{t('pubDesc')}</RadioGroupItemDescription>
+        </RadioGroupItem>
       </RadioGroup>
 
       <Button
