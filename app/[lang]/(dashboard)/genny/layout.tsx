@@ -25,7 +25,6 @@ export default async function GennyLayout({ children }: { children: React.ReactN
         ]}
       >
         <SubLinks
-          className="mt-4 mb-1.5"
           links={[
             { href: '/genny/browse', label: genny.browse.chips.browse },
             { href: '/genny/wish/create', label: genny.browse.chips.addNew },

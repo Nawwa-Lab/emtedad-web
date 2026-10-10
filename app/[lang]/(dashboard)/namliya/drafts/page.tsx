@@ -15,16 +15,14 @@ export default function DraftsPage() {
       <p className=" font-cairo font-semibold text-[13.5px] text-ink-soft mt-1">
         {t('description')}
       </p>
-      <div className="mt-4 mb-1.5 mx-0">
-        <SubLinks
-          links={[
-            { href: '/namliya/service-offers', label: t('link1') },
-            { href: '/namliya/my-requests', label: t('link2') },
-            { href: '/namliya/my-asks', label: t('link3') },
-            { href: '/namliya/drafts', label: t('link4') },
-          ]}
-        />
-      </div>
+      <SubLinks
+        links={[
+          { href: '/namliya/service-offers', label: t('link1') },
+          { href: '/namliya/my-requests', label: t('link2') },
+          { href: '/namliya/my-asks', label: t('link3') },
+          { href: '/namliya/drafts', label: t('link4') },
+        ]}
+      />
       <div className="mt-5.5">
         {cardContent.map((card, index) => (
           <Card key={index} className="px-5 py-4.5 mb-2.5">

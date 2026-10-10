@@ -45,7 +45,6 @@ export default async function ShbeikLayout({ children }: { children: React.React
         ]}
       >
         <SubLinks
-          className="mt-4 mb-1.5"
           links={[
             { href: '/shbeik-lbeik/browse', label: shbeik.browse.chips.browse },
             { href: '/shbeik-lbeik/my-wishes', label: shbeik.browse.chips.myWishes },

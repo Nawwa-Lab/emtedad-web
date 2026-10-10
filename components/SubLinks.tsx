@@ -12,7 +12,7 @@ export function SubLinks({ links, className }: { links: NavLink[]; className?: s
   const pathname = usePathname()
 
   return (
-    <div className={cn('mt-4 mb-2 flex w-fit flex-wrap items-center gap-2', className)}>
+    <div className={cn('mt-4 mb-6 flex w-fit flex-wrap items-center gap-2', className)}>
       {links.map(({ href, label }) => {
         const isActive = pathname === href
 

@@ -1,12 +1,21 @@
 import { UserProvider } from '@/contexts/UserContext'
 import { alexandriaFont, cairoFont, lalezarFont, rubikFont } from '@/lib/fonts'
 import type { Locale } from '@/types'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Shahamham',
   description: 'Shahamham',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  colorScheme: 'light',
 }
 
 export default async function RootLayout({
