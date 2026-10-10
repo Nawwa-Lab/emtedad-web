@@ -1,6 +1,7 @@
 'use client'
 import { Link } from '@/i18n/navigation'
 import { formatNumber } from '@/lib/utils/index'
+import { cn } from 'cn'
 import { BellIcon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { Button } from './ui/button'
@@ -10,7 +11,11 @@ export function NotificationBell({ notificationsCount = 3 }: { notificationsCoun
   const locale = useLocale()
 
   return (
-    <Link href="/notifications" aria-label={tSidebar('notifications')}>
+    <Link
+      href="/notifications"
+      aria-label={tSidebar('notifications')}
+      className={cn(notificationsCount && 'origin-top animate-ring')}
+    >
       <Button
         size="icon"
         variant="outline"

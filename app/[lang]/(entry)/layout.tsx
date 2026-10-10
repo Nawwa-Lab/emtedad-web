@@ -8,10 +8,10 @@ export default async function EntryLayout({ children }: { children: React.ReactN
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <main className="relative min-h-screen flex flex-col items-center justify-center py-12 px-5 gap-6 dot-grid-bg">
-        <div className="text-center">
-          <Image src={Logo} alt="Shahamham Logo" className="mx-auto mb-2.5" />
-          <div className="font-display font-bold text-[40px]/[1.3] text-green-deep">شهمهم</div>
+      <main className="relative min-h-screen flex flex-col items-center justify-center py-12 px-5 gap-6 dot-grid-bg dot-grid-bg-mask">
+        <div className="flex flex-row items-center justify-center text-center">
+          <Image src={Logo} alt="Shahamham Logo" className="mx-auto mb-2.5 animate-spin" />
+          <div className="font-display font-bold text-[40px]/[1.3] text-red">شهمهم</div>
         </div>
         {children}
       </main>
