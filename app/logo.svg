@@ -1,31 +1,17 @@
 <svg
-	xmlns='http://www.w3.org/2000/svg'
-	class='block mx-auto mt-0 mb-2.5'
-	width='64'
-	height='64'
-	viewBox='0 0 100 100'
-	fill='none'
-	aria-hidden='true'
+	xmlns="http://www.w3.org/2000/svg"
+	viewBox="0 0 100 100"
+	fill="none"
+	xmlns:c2pa="http://c2pa.org/manifest"
 >
 	<path
-		d='M50 10 A40 40 0 0 1 84.6 70'
-		stroke='#3F6B4E'
-		stroke-width='7'
-		stroke-linecap='round'
-	></path>
+		d="M 50.000,8.000 L 61.557,22.099 L 79.698,20.302 L 77.901,38.443 L 92.000,50.000 L 77.901,61.557 L 79.698,79.698 L 61.557,77.901 L 50.000,92.000 L 38.443,77.901 L 20.302,79.698 L 22.099,61.557 L 8.000,50.000 L 22.099,38.443 L 20.302,20.302 L 38.443,22.099 Z"
+		fill="#1A1714"
+	/>
 	<path
-		d='M84.6 70 A40 40 0 0 1 15.4 70'
-		stroke='#D9B87A'
-		stroke-width='7'
-		stroke-linecap='round'
-	></path>
-	<path
-		d='M15.4 70 A40 40 0 0 1 50 10'
-		stroke='#C4907C'
-		stroke-width='7'
-		strokeLinecap='round'
-	></path>
-	<circle cx='50' cy='10' r='6.5' fill='#3F6B4E'></circle>
-	<circle cx='84.6' cy='70' r='6.5' fill='#D9B87A'></circle>
-	<circle cx='15.4' cy='70' r='6.5' fill='#C4907C'></circle>
+		d="M 50.000,11.600 L 60.566,24.490 L 77.153,22.847 L 75.510,39.434 L 88.400,50.000 L 75.510,60.566 L 77.153,77.153 L 60.566,75.510 L 50.000,88.400 L 39.434,75.510 L 22.847,77.153 L 24.490,60.566 L 11.600,50.000 L 24.490,39.434 L 22.847,22.847 L 39.434,24.490 Z"
+		fill="#F2C230"
+	/>
+	<circle cx="50" cy="50" r="4.4" fill="#1A1714" />
+	<circle cx="50" cy="50" r="2.5" fill="#D8442B" />
 </svg>
