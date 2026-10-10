@@ -5,8 +5,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Emtedad',
-  description: 'Emtedad UI',
+  title: 'Shahamham',
+  description: 'Shahamham',
 }
 
 export default async function RootLayout({

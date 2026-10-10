@@ -1,7 +1,7 @@
 'use client'
 
-import maktab from '@/app/maktab.svg'
-import namliya from '@/app/namliya.svg'
+import OrgIcon from '@/app/gate.svg'
+import CommunityIcon from '@/app/circles.svg'
 import { Button } from '@/components/ui/button'
 import {
   RadioGroup,
@@ -27,7 +27,7 @@ export default function ContextSelectionClient() {
       <RadioGroup value={context} onValueChange={setContext}>
         <RadioGroupItem value="org" aria-label={t('orgTitle')}>
           <RadioGroupItemIcon>
-            <Image src={maktab} alt="" className="size-full" />
+            <Image src={OrgIcon} alt="" className="size-full" />
           </RadioGroupItemIcon>
           <RadioGroupItemTitle>{t('orgTitle')}</RadioGroupItemTitle>
           <RadioGroupItemDescription>{t('orgDesc')}</RadioGroupItemDescription>
@@ -35,7 +35,7 @@ export default function ContextSelectionClient() {
 
         <RadioGroupItem value="community" aria-label={t('pubTitle')}>
           <RadioGroupItemIcon>
-            <Image src={namliya} alt="" className="size-full" />
+            <Image src={CommunityIcon} alt="" className="size-full" />
           </RadioGroupItemIcon>
           <RadioGroupItemTitle>{t('pubTitle')}</RadioGroupItemTitle>
           <RadioGroupItemDescription>{t('pubDesc')}</RadioGroupItemDescription>
