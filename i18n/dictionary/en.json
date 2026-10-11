@@ -4,16 +4,145 @@
       "optional": "Optional"
     }
   },
+  "landing": {
+    "metaTitle": "Shahamham — Mutual exchange network",
+    "metaDescription": "A network of exchange and solidarity for Egyptian cultural organizations.",
+    "brand": "Shahamham",
+    "navToggle": "Menu",
+    "nav": {
+      "about": "About",
+      "how": "How it works",
+      "team": "Team",
+      "papers": "Papers",
+      "faq": "FAQ",
+      "contact": "Contact"
+    },
+    "enter": "Log in",
+    "enterNetwork": "Enter the network",
+    "enterOffice": "Enter Maktab",
+    "heroTag": "When good goes around, it grows",
+    "heroLede": "A network of exchange and solidarity for Egyptian cultural organizations. What one organization has in surplus can meet another's need, using the Shahamham network currency instead of draining cash or waiting for donors.",
+    "about": {
+      "eyebrow": "About Shahamham",
+      "title": "A neighborly economy",
+      "lede": "Egyptian cultural organizations work under the pressure of donor economics: short-term funding, competition for scraps, and idle assets in every office. Shahamham revives an old Egyptian logic — the gam'eya that circulates money among neighbors and the pantry that preserves good for the household.",
+      "features": [
+        {
+          "title": "Mutual credit",
+          "body": "Each organization offers what it has and receives what it needs; accounts are recorded in the network currency rather than cash."
+        },
+        {
+          "title": "Surplus becomes value",
+          "body": "An empty venue, an idle camera, or an extra hour from a designer all become value instead of going unused."
+        },
+        {
+          "title": "Democratic governance",
+          "body": "Major decisions are made by member organizations through voting, not by a central administration."
+        }
+      ]
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "title": "Four steps, a cycle that completes",
+      "steps": [
+        {
+          "title": "Join",
+          "body": "Join by invitation from a member organization or the Shahamham team."
+        },
+        {
+          "title": "Offer",
+          "body": "Publish your services and resources on Namliya in the network currency."
+        },
+        { "title": "Exchange", "body": "Request, agree in writing, and deliver your work." },
+        { "title": "Review", "body": "A shared reputation grows through every completed exchange." }
+      ]
+    },
+    "team": {
+      "eyebrow": "The team",
+      "title": "Who is behind Shahamham",
+      "lede": "A small team from culture, design, and technology building the network with its organizations, not from above.",
+      "members": [
+        {
+          "name": "Sara",
+          "role": "Research & partnerships",
+          "bio": "She listens to organizations and turns their needs into clear network rules."
+        },
+        {
+          "name": "Magdy",
+          "role": "Lead developer",
+          "bio": "He builds the platform from backend to interface."
+        },
+        {
+          "name": "Noura",
+          "role": "Design & experience",
+          "bio": "She designs simple tools that respect people's time and work."
+        }
+      ]
+    },
+    "papers": {
+      "eyebrow": "Papers",
+      "title": "The documents behind the network",
+      "lede": "All the rules of the protocol are published and open for review — limits, decay, governance, and dispute resolution.",
+      "items": [
+        {
+          "kind": "White paper",
+          "title": "Shahamham protocol — mutual credit",
+          "body": "The full rules: limits, credit thresholds, balance decay, and governance tokens.",
+          "link": "https://shahamham.org/shahamham-white-paper.pdf"
+        },
+        {
+          "kind": "Charter",
+          "title": "Network charter and terms",
+          "body": "Membership rights and duties, expected conduct, and the mediation path.",
+          "link": "https://shahamham.org/shahamham-terms.pdf"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Before you join",
+      "lede": "Click on a question to open the answer — so the page stays simple on the eye.",
+      "items": [
+        {
+          "question": "Is Shahamham money?",
+          "answer": "No. Shahamham is a unit of account inside the network that records what you offered and received; it cannot be spent outside the network or converted to cash."
+        },
+        {
+          "question": "Who can join?",
+          "answer": "Active Egyptian cultural organizations may join by invitation from a member organization or nomination by the Shahamham team."
+        },
+        {
+          "question": "What if my balance becomes negative?",
+          "answer": "That is part of mutual credit. A credit limit and support help restore balance, without interest or penalties."
+        },
+        {
+          "question": "What prevents misuse?",
+          "answer": "Monthly service limits, visible satisfaction signals, mediation, and member voting for major decisions."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Talk to us",
+      "lede": "The network is still in its first year, and every note helps guide what comes next. If your organization sees itself here, or you have a question, we are listening.",
+      "email": "ahlan@Shahamham.org",
+      "emailHint": "Membership and partnerships",
+      "support": "Support and help",
+      "supportHint": "Questions about using the network",
+      "suggest": "Suggestion or feedback",
+      "suggestHint": "Tell us what could be better"
+    },
+    "footer": "Shahamham — a network of exchange and solidarity for Egyptian cultural organizations."
+  },
   "login": {
-    "title": "Welcome to Emtedad",
+    "title": "Welcome to Shahamham",
     "description": "Log in to your account and continue your charity course from where you left off.",
     "emailLabel": "Email",
     "passwordLabel": "Password",
     "submit": "Log in",
     "forgotPassword": "Forgot password?",
-    "invitation": "Join Emtedad by invitation — from your organization or from the Emtedad team.",
-    "metaTitle": "Emtedad - Login",
-    "metaDescription": "Emtedad Login page"
+    "invitation": "Join Shahamham by invitation — from your organization or from the Shahamham team.",
+    "metaTitle": "Shahamham - Login",
+    "metaDescription": "Shahamham Login page"
   },
   "navigation": {
     "maktab": "Maktab",
@@ -36,8 +165,8 @@
     "pubDesc": "I work in my personal capacity: I sponsor organizations' services and make bookings through Khallis.",
     "submit": "Continue",
     "note": "Your choice doesn't change your permissions — you can switch between roles anytime.",
-    "metaTitle": "Emtedad - Context Selection",
-    "metaDescription": "Emtedad Context Selection page"
+    "metaTitle": "Shahamham - Context Selection",
+    "metaDescription": "Shahamham Context Selection page"
   },
   "passwordReset": {
     "title": "Forgot password?",
@@ -45,8 +174,8 @@
     "emailLabel": "Email",
     "submit": "Send reset link",
     "remembered": "Remembered? Log in here",
-    "metaTitle": "Emtedad - Reset Password",
-    "metaDescription": "Emtedad Reset Password page"
+    "metaTitle": "Shahamham - Reset Password",
+    "metaDescription": "Shahamham Reset Password page"
   },
   "inviteSignup": {
     "message": "{company} invites you to join their team on Emtidad.",
@@ -63,8 +192,8 @@
     "link": "Network Charter",
     "submit": "Complete your account",
     "alreadyAMember": "Already a member? Log in here",
-    "metaTitle": "Emtedad - Create Account via Invitation",
-    "metaDescription": "Create a new account in Emtedad via invitation",
+    "metaTitle": "Shahamham - Create Account via Invitation",
+    "metaDescription": "Create a new account in Shahamham via invitation",
     "namePlaceholder": "Your name here",
     "passwordPlaceholder": "At least 8 characters",
     "emailPlaceholder": "name@example.org"
@@ -73,13 +202,13 @@
     "searchPlaceholder": "Search the network…",
     "searchAriaLabel": "Search",
     "quickAction": "Do a good deed +",
-    "logo": "Emtedad",
+    "logo": "Shahamham",
     "contextLabel": "I'm an organization",
     "switchContext": "Switch",
     "notificationsAriaLabel": "Notifications — 3 unread"
   },
   "dashboard": {
-    "title": "Welcome to Mishkaa in Emtedad",
+    "title": "Welcome to Mishkaa in Shahamham",
     "description": "Good deeds start here — your first published offer opens the cycle, and every kindness comes back.",
     "quickAction": "Do a good deed +",
     "watchNamliya": "Watch Namliya"
@@ -236,8 +365,8 @@
   },
   "search": {
     "heading": "Search results for \u00AB{term}\u00BB",
-    "resultCount": "{count} results in the network",
-    "filterAll": "All {count}",
+    "resultCount": "results in the network",
+    "filterAll": "All",
     "namliyaOffers": "Offers on Namliya",
     "viewAllNamliya": "See all on Namliya",
     "khalisOffers": "Offers on Khalis",
@@ -362,7 +491,7 @@
     ]
   },
   "namliyaBrowse": {
-    "title": "Namliya — Market for organizations",
+    "title": "Namliya",
     "description": "What overflows at one organization fills the need of another — browse and request, and the agreement is completed in the conversation.",
     "serviceLink": "Human services",
     "resourceLink": "Material resources"
@@ -527,7 +656,7 @@
         "withdraw": "Withdraw",
         "delete": "Delete"
       },
-      "note": "Each organization endorses a wish once — and can remove its endorsement at any time. The Emtedad team returns to this list while reviewing new membership applications.",
+      "note": "Each organization endorses a wish once — and can remove its endorsement at any time. The Shahamham team returns to this list while reviewing new membership applications.",
       "noteBold": "A membership request for a specific organization belongs in Hakima, not here."
     },
     "myWishes": {
@@ -546,7 +675,7 @@
       "subtitle": "Wish for types of organizations, services, or activities you'd love the network to have.",
       "dupeLabel": "Check first — does the wish already exist?",
       "dupeSearchAria": "Search wishes",
-      "endorsedCount": "{count} endorsing orgs — close to yours?",
+      "endorsedCount": "endorsing orgs — close to yours?",
       "endorseInstead": "Endorse this instead of duplicating",
       "titleLabel": "Wish title",
       "titlePlaceholder": "e.g. Shared woodworking workshop for set designs",
@@ -599,7 +728,7 @@
         "withdraw": "Withdraw",
         "delete": "Delete"
       },
-      "note": "Each person endorses a wish once — and can remove their endorsement at any time. The Emtedad team returns to this list while reviewing new membership applications.",
+      "note": "Each person endorses a wish once — and can remove their endorsement at any time. The Shahamham team returns to this list while reviewing new membership applications.",
       "noteBold": "A membership request for a specific organization belongs in Hakima, not here."
     },
     "myWishes": {
@@ -618,7 +747,7 @@
       "subtitle": "Wish for types of organizations, services, or activities you'd love the community to have.",
       "dupeLabel": "Check first — does the wish already exist?",
       "dupeSearchAria": "Search wishes",
-      "endorsedCount": "{count} endorsing members — close to yours?",
+      "endorsedCount": "endorsing members — close to yours?",
       "endorseInstead": "Endorse this instead of duplicating",
       "titleLabel": "Wish title",
       "titlePlaceholder": "e.g. Shared woodworking workshop for set designs",
@@ -652,9 +781,9 @@
         "myPosts": "My posts"
       },
       "filter": {
-        "all": "All {count}",
-        "namliya": "Namliya {count}",
-        "khalis": "Khalis {count}"
+        "all": "All",
+        "namliya": "Namliya",
+        "khalis": "Khalis"
       },
       "sections": {
         "namliya": "On Namliya",
@@ -667,8 +796,8 @@
       "title": "Got Qalish? — Request board",
       "description": "Mishkaa’s published requests, and a record of what converted or was withdrawn.",
       "filter": {
-        "namliya": "Namliya {count}",
-        "khalis": "Khalis {count}"
+        "namliya": "Namliya",
+        "khalis": "Khalis"
       },
       "sections": {
         "published": "Published",
@@ -681,7 +810,7 @@
       "edit": "Edit",
       "withdraw": "Withdraw request",
       "viewReply": "See reply",
-      "replies": "{count} replies",
+      "replies": "replies",
       "oneReply": "One reply",
       "noReplies": "No replies",
       "converted": "Converted to exchange",
@@ -727,7 +856,7 @@
       "submittedNote": "Request ready to publish (mock).",
       "tipsTitle": "Before publishing",
       "tip1": "First make sure what’s needed isn’t already available — search Namliya and Khalis.",
-      "tip2": "Requests surface unmet need, and help Emtedad choose the next organizations to join.",
+      "tip2": "Requests surface unmet need, and help Shahamham choose the next organizations to join.",
       "tip3": "As soon as someone says “I have it” and you agree in chat, the request converts automatically into a normal exchange.",
       "tip4": "Public audience needs gather in Shbeik Lbeik — not here.",
       "titleRequired": "Title is required",

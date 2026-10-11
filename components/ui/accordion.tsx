@@ -51,7 +51,10 @@ function AccordionContent({ className, ...props }: AccordionPrimitive.Panel.Prop
   return (
     <AccordionPrimitive.Panel
       data-slot="accordion-content"
-      className={cn('px-5.5 pb-5 text-[16.5px] font-medium leading-[1.95] text-soft', className)}
+      className={cn(
+        'font-body px-5.5 pb-5 text-[16.5px] font-medium leading-[1.95] text-soft',
+        className,
+      )}
       {...props}
     />
   )
