@@ -1,5 +1,5 @@
 'use client'
-import { Form, FormControl } from '@/components/Form'
+import { Form } from '@/components/Form'
 import { ImageDropzone, type AttachedImage } from '@/components/ImageDropzone'
 import { Card, CardTitle } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -72,7 +72,7 @@ function SpecificDurationField({ label, placeholder }: { label: string; placehol
   if (duration !== 'specific') return null
 
   return (
-    <FormControl<PostResourceFormValues>
+    <Form.Control<PostResourceFormValues>
       name="specificDuration"
       label={label}
       labelFor="resource-specific-duration"
@@ -87,7 +87,7 @@ function SpecificDurationField({ label, placeholder }: { label: string; placehol
           value={(field.value as string) ?? ''}
         />
       )}
-    </FormControl>
+    </Form.Control>
   )
 }
 
@@ -126,7 +126,7 @@ function DepositValueField({ label, placeholder }: { label: string; placeholder:
   if (!isCashDeposit) return null
 
   return (
-    <FormControl<PostResourceFormValues>
+    <Form.Control<PostResourceFormValues>
       name="depositValue"
       label={label}
       labelFor="resource-deposit-value"
@@ -147,7 +147,7 @@ function DepositValueField({ label, placeholder }: { label: string; placeholder:
           }}
         />
       )}
-    </FormControl>
+    </Form.Control>
   )
 }
 
@@ -192,7 +192,7 @@ function SupervisorFields({
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-      <FormControl<PostResourceFormValues>
+      <Form.Control<PostResourceFormValues>
         name="supervisor"
         label={labels.supervisor}
         labelFor="resource-supervisor"
@@ -222,9 +222,9 @@ function SupervisorFields({
             </SelectContent>
           </Select>
         )}
-      </FormControl>
+      </Form.Control>
 
-      <FormControl<PostResourceFormValues>
+      <Form.Control<PostResourceFormValues>
         name="supervisorPrice"
         label={labels.supervisorPrice}
         labelFor="resource-supervisor-price"
@@ -244,7 +244,7 @@ function SupervisorFields({
             }}
           />
         )}
-      </FormControl>
+      </Form.Control>
     </div>
   )
 }
@@ -311,7 +311,7 @@ export default function PostResourcePage() {
             }}
             onSubmit={onSubmit}
           >
-            <FormControl<PostResourceFormValues>
+            <Form.Control<PostResourceFormValues>
               name="images"
               label={t('resourceImage')}
               className="mb-4.5"
@@ -324,9 +324,9 @@ export default function PostResourcePage() {
                   invalid={fieldState.invalid}
                 />
               )}
-            </FormControl>
+            </Form.Control>
 
-            <FormControl<PostResourceFormValues>
+            <Form.Control<PostResourceFormValues>
               name="title"
               label={t('offerTypeTitle')}
               labelFor="resource-title"
@@ -340,9 +340,9 @@ export default function PostResourcePage() {
                   value={(field.value as string) ?? ''}
                 />
               )}
-            </FormControl>
+            </Form.Control>
 
-            <FormControl<PostResourceFormValues>
+            <Form.Control<PostResourceFormValues>
               name="description"
               label={t('descriptionTitle')}
               labelFor="resource-description"
@@ -356,10 +356,10 @@ export default function PostResourcePage() {
                   value={(field.value as string) ?? ''}
                 />
               )}
-            </FormControl>
+            </Form.Control>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <FormControl<PostResourceFormValues>
+              <Form.Control<PostResourceFormValues>
                 name="category"
                 label={t('resourceCategory')}
                 labelFor="resource-category"
@@ -389,9 +389,9 @@ export default function PostResourcePage() {
                     </SelectContent>
                   </Select>
                 )}
-              </FormControl>
+              </Form.Control>
 
-              <FormControl<PostResourceFormValues>
+              <Form.Control<PostResourceFormValues>
                 name="price"
                 label={t('priceTitle')}
                 labelFor="resource-price"
@@ -411,16 +411,16 @@ export default function PostResourcePage() {
                     }}
                   />
                 )}
-              </FormControl>
+              </Form.Control>
             </div>
 
-            <FormControl<PostResourceFormValues>
+            <Form.Control<PostResourceFormValues>
               name="duration"
               label={t('timeTitle')}
               className="mb-3.5"
             >
               {() => <DurationToggle labels={{ any: t('anytime'), specific: t('specificTime') }} />}
-            </FormControl>
+            </Form.Control>
 
             <SpecificDurationField
               label={t('specificDuration')}

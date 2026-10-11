@@ -13,7 +13,7 @@ import type {
 } from 'react-hook-form'
 import { Controller, FormProvider, useForm, useFormContext } from 'react-hook-form'
 
-function Form<TFieldValues extends FieldValues>({
+function FormRoot<TFieldValues extends FieldValues>({
   resolver,
   defaultValues,
   mode,
@@ -36,7 +36,7 @@ function Form<TFieldValues extends FieldValues>({
   )
 }
 
-function FormControl<TFieldValues extends FieldValues = FieldValues>({
+function Control<TFieldValues extends FieldValues = FieldValues>({
   name,
   label,
   labelFor,
@@ -83,4 +83,6 @@ function FormControl<TFieldValues extends FieldValues = FieldValues>({
   )
 }
 
-export { Form, FormControl }
+const Form = Object.assign(FormRoot, { Control })
+
+export { Form }

@@ -1,5 +1,5 @@
 'use client'
-import { Form, FormControl } from '@/components/Form'
+import { Form } from '@/components/Form'
 import { Button } from '@/components/ui/button'
 import { Card, CardTitle } from '@/components/ui/card'
 import { FieldTitle } from '@/components/ui/field'
@@ -69,7 +69,7 @@ function SpecificDurationField({ label, placeholder }: { label: string; placehol
   if (duration !== 'specific') return null
 
   return (
-    <FormControl<PostServiceFormValues>
+    <Form.Control<PostServiceFormValues>
       name="specificDuration"
       label={label}
       labelFor="service-specific-duration"
@@ -84,7 +84,7 @@ function SpecificDurationField({ label, placeholder }: { label: string; placehol
           value={(field.value as string) ?? ''}
         />
       )}
-    </FormControl>
+    </Form.Control>
   )
 }
 
@@ -138,7 +138,7 @@ export default function PostServicePage() {
             }}
             onSubmit={onSubmit}
           >
-            <FormControl<PostServiceFormValues>
+            <Form.Control<PostServiceFormValues>
               name="title"
               label={t('offerTypeTitle')}
               labelFor="service-title"
@@ -152,9 +152,9 @@ export default function PostServicePage() {
                   value={(field.value as string) ?? ''}
                 />
               )}
-            </FormControl>
+            </Form.Control>
 
-            <FormControl<PostServiceFormValues>
+            <Form.Control<PostServiceFormValues>
               name="description"
               label={t('descriptionTitle')}
               labelFor="service-description"
@@ -168,10 +168,10 @@ export default function PostServicePage() {
                   value={(field.value as string) ?? ''}
                 />
               )}
-            </FormControl>
+            </Form.Control>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <FormControl<PostServiceFormValues>
+              <Form.Control<PostServiceFormValues>
                 name="category"
                 label={t('serviceCategory')}
                 labelFor="service-category"
@@ -201,9 +201,9 @@ export default function PostServicePage() {
                     </SelectContent>
                   </Select>
                 )}
-              </FormControl>
+              </Form.Control>
 
-              <FormControl<PostServiceFormValues>
+              <Form.Control<PostServiceFormValues>
                 name="price"
                 label={t('priceTitle')}
                 labelFor="service-price"
@@ -223,23 +223,23 @@ export default function PostServicePage() {
                     }}
                   />
                 )}
-              </FormControl>
+              </Form.Control>
             </div>
 
-            <FormControl<PostServiceFormValues>
+            <Form.Control<PostServiceFormValues>
               name="duration"
               label={t('timeTitle')}
               className="mb-3.5"
             >
               {() => <DurationToggle labels={{ any: t('anytime'), specific: t('specificTime') }} />}
-            </FormControl>
+            </Form.Control>
 
             <SpecificDurationField
               label={t('specificDuration')}
               placeholder={t('specificDurationPlaceholder')}
             />
 
-            <FormControl<PostServiceFormValues>
+            <Form.Control<PostServiceFormValues>
               name="member"
               label={t('memberResponsible')}
               labelFor="service-member"
@@ -269,7 +269,7 @@ export default function PostServicePage() {
                   </SelectContent>
                 </Select>
               )}
-            </FormControl>
+            </Form.Control>
 
             <div className="flex gap-3 mt-2 flex-wrap">
               <Button type="submit">{t('post')}</Button>

@@ -1,6 +1,6 @@
 'use client'
 
-import { Form, FormControl } from '@/components/Form'
+import { Form } from '@/components/Form'
 import { HelpCard } from '@/components/HelpCard'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -79,7 +79,7 @@ export function WishForm({ mode, initialWish, ns = 'genny' }: WishFormProps) {
           }}
           onSubmit={onSubmit}
         >
-          <FormControl name="title" label={t('titleLabel')} labelFor="wish-title">
+          <Form.Control name="title" label={t('titleLabel')} labelFor="wish-title">
             {(field, fieldState) => (
               <Input
                 id="wish-title"
@@ -89,8 +89,8 @@ export function WishForm({ mode, initialWish, ns = 'genny' }: WishFormProps) {
                 aria-invalid={fieldState.invalid}
               />
             )}
-          </FormControl>
-          <FormControl name="description" label={t('descriptionLabel')} labelFor="wish-desc">
+          </Form.Control>
+          <Form.Control name="description" label={t('descriptionLabel')} labelFor="wish-desc">
             {(field, fieldState) => (
               <textarea
                 id="wish-desc"
@@ -100,8 +100,8 @@ export function WishForm({ mode, initialWish, ns = 'genny' }: WishFormProps) {
                 aria-invalid={fieldState.invalid}
               />
             )}
-          </FormControl>
-          <FormControl name="category" label={t('categoryLabel')} labelFor="wish-category">
+          </Form.Control>
+          <Form.Control name="category" label={t('categoryLabel')} labelFor="wish-category">
             {(field, fieldState) => (
               <Select
                 name={field.name}
@@ -123,7 +123,7 @@ export function WishForm({ mode, initialWish, ns = 'genny' }: WishFormProps) {
                 </SelectContent>
               </Select>
             )}
-          </FormControl>
+          </Form.Control>
           <Button type="submit">{mode === 'create' ? t('submitAdd') : t('submitEdit')}</Button>
         </Form>
       </Card>

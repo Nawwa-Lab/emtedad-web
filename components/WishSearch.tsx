@@ -1,6 +1,6 @@
 'use client'
 
-import { Form, FormControl } from '@/components/Form'
+import { Form } from '@/components/Form'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { formatNumber } from '@/lib/utils/index'
@@ -46,7 +46,7 @@ export function WishSearch({
         defaultValues={{ query: '' }}
         onSubmit={onSubmit}
       >
-        <FormControl name="query" label={label} className="mb-0">
+        <Form.Control name="query" label={label} className="mb-0">
           {(field, fieldState) => (
             <Input
               type="search"
@@ -59,7 +59,7 @@ export function WishSearch({
               }}
             />
           )}
-        </FormControl>
+        </Form.Control>
       </Form>
       {suggestion && (
         <div className="mt-4 flex items-center gap-3 flex-wrap bg-surface border border-line-soft rounded-xl py-3 px-3.5">
