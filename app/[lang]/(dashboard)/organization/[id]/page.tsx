@@ -1,5 +1,5 @@
 import { ServiceListingsCard } from '@/app/[lang]/(dashboard)/organization/[id]/data'
-import orgCover from '@/app/org-cover.svg'
+import orgCover from '@/icons/org-cover.svg'
 import { InfoCardList } from '@/components/InfoCard'
 import { SatisfactionIndex } from '@/components/Satisfaction Index'
 import { StatusBadge, getVariantFromLabel } from '@/components/StatusBadge'
@@ -86,7 +86,7 @@ export default async function MemberProfileClient() {
                 </Label>
                 <div className="flex-wrap flex gap-2 box-border">
                   {profile.secondCard.skills.map((skill, index) => (
-                    <Badge key={index} variant="outline">
+                    <Badge key={index} color="paper">
                       {skill}
                     </Badge>
                   ))}

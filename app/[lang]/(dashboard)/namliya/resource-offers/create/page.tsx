@@ -1,9 +1,11 @@
 'use client'
-import { Link } from '@/i18n/navigation'
+import { Form } from '@/components/Form'
+import { ImageDropzone, type AttachedImage } from '@/components/ImageDropzone'
 import { Card, CardTitle } from '@/components/ui/card'
+import { Checkbox } from '@/components/ui/checkbox'
 import { Field, FieldTitle } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
+import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
@@ -12,20 +14,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { Form, FormControl } from '@/components/Form'
-import { items, memberResponsible } from './data'
-import { useTranslations } from 'next-intl'
-import { cn } from 'cn'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Label } from '@/components/ui/label'
-import { ImageDropzone, type AttachedImage } from '@/components/ImageDropzone'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useMemo } from 'react'
+import { Textarea } from '@/components/ui/textarea'
+import { Link } from '@/i18n/navigation'
 import {
   createPostResourceSchema,
   type PostResourceFormValues,
 } from '@/types/schemas/post-resource-schema'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { cn } from 'cn'
+import { useTranslations } from 'next-intl'
+import { useMemo } from 'react'
 import { useFormContext } from 'react-hook-form'
+import { items, memberResponsible } from './data'
+import { Button } from '@/components/ui/button'
 
 // ── Inner components that consume form context ──────────────────────────────
 
@@ -71,7 +72,7 @@ function SpecificDurationField({ label, placeholder }: { label: string; placehol
   if (duration !== 'specific') return null
 
   return (
-    <FormControl<PostResourceFormValues>
+    <Form.Control<PostResourceFormValues>
       name="specificDuration"
       label={label}
       labelFor="resource-specific-duration"
@@ -81,13 +82,12 @@ function SpecificDurationField({ label, placeholder }: { label: string; placehol
         <Input
           id="resource-specific-duration"
           placeholder={placeholder}
-          className="w-full max-w-full sm:max-w-55 py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
           aria-invalid={fieldState.invalid}
           {...field}
           value={(field.value as string) ?? ''}
         />
       )}
-    </FormControl>
+    </Form.Control>
   )
 }
 
@@ -126,7 +126,7 @@ function DepositValueField({ label, placeholder }: { label: string; placeholder:
   if (!isCashDeposit) return null
 
   return (
-    <FormControl<PostResourceFormValues>
+    <Form.Control<PostResourceFormValues>
       name="depositValue"
       label={label}
       labelFor="resource-deposit-value"
@@ -138,7 +138,6 @@ function DepositValueField({ label, placeholder }: { label: string; placeholder:
           type="number"
           min="1"
           placeholder={placeholder}
-          className="w-full max-w-full sm:max-w-55 py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
           aria-invalid={fieldState.invalid}
           {...field}
           value={field.value ?? ''}
@@ -148,7 +147,7 @@ function DepositValueField({ label, placeholder }: { label: string; placeholder:
           }}
         />
       )}
-    </FormControl>
+    </Form.Control>
   )
 }
 
@@ -193,7 +192,7 @@ function SupervisorFields({
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-      <FormControl<PostResourceFormValues>
+      <Form.Control<PostResourceFormValues>
         name="supervisor"
         label={labels.supervisor}
         labelFor="resource-supervisor"
@@ -205,11 +204,7 @@ function SupervisorFields({
             value={field.value as string}
             onValueChange={field.onChange}
           >
-            <SelectTrigger
-              id="resource-supervisor"
-              className="w-full py-3 px-4 text-[14px] font-cairo font-semibold text-ink min-h-13"
-              aria-invalid={fieldState.invalid}
-            >
+            <SelectTrigger id="resource-supervisor" aria-invalid={fieldState.invalid}>
               <SelectValue placeholder={memberResponsible[0].value} />
             </SelectTrigger>
             <SelectContent side="bottom" sideOffset={0} alignItemWithTrigger={false}>
@@ -227,9 +222,9 @@ function SupervisorFields({
             </SelectContent>
           </Select>
         )}
-      </FormControl>
+      </Form.Control>
 
-      <FormControl<PostResourceFormValues>
+      <Form.Control<PostResourceFormValues>
         name="supervisorPrice"
         label={labels.supervisorPrice}
         labelFor="resource-supervisor-price"
@@ -240,7 +235,6 @@ function SupervisorFields({
             type="number"
             min="1"
             placeholder={labels.pricePlaceholder}
-            className="w-full py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
             aria-invalid={fieldState.invalid}
             {...field}
             value={field.value ?? ''}
@@ -250,7 +244,7 @@ function SupervisorFields({
             }}
           />
         )}
-      </FormControl>
+      </Form.Control>
     </div>
   )
 }
@@ -317,7 +311,7 @@ export default function PostResourcePage() {
             }}
             onSubmit={onSubmit}
           >
-            <FormControl<PostResourceFormValues>
+            <Form.Control<PostResourceFormValues>
               name="images"
               label={t('resourceImage')}
               className="mb-4.5"
@@ -330,9 +324,9 @@ export default function PostResourcePage() {
                   invalid={fieldState.invalid}
                 />
               )}
-            </FormControl>
+            </Form.Control>
 
-            <FormControl<PostResourceFormValues>
+            <Form.Control<PostResourceFormValues>
               name="title"
               label={t('offerTypeTitle')}
               labelFor="resource-title"
@@ -341,15 +335,14 @@ export default function PostResourcePage() {
                 <Input
                   id="resource-title"
                   placeholder={t('offerTypePlaceholder')}
-                  className="w-full py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
                   aria-invalid={fieldState.invalid}
                   {...field}
                   value={(field.value as string) ?? ''}
                 />
               )}
-            </FormControl>
+            </Form.Control>
 
-            <FormControl<PostResourceFormValues>
+            <Form.Control<PostResourceFormValues>
               name="description"
               label={t('descriptionTitle')}
               labelFor="resource-description"
@@ -363,10 +356,10 @@ export default function PostResourcePage() {
                   value={(field.value as string) ?? ''}
                 />
               )}
-            </FormControl>
+            </Form.Control>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <FormControl<PostResourceFormValues>
+              <Form.Control<PostResourceFormValues>
                 name="category"
                 label={t('resourceCategory')}
                 labelFor="resource-category"
@@ -378,11 +371,7 @@ export default function PostResourcePage() {
                     value={field.value as string}
                     onValueChange={field.onChange}
                   >
-                    <SelectTrigger
-                      id="resource-category"
-                      className="w-full py-3 px-4 text-[14px] font-cairo font-semibold text-ink min-h-13"
-                      aria-invalid={fieldState.invalid}
-                    >
+                    <SelectTrigger id="resource-category" aria-invalid={fieldState.invalid}>
                       <SelectValue placeholder={items[0].value} />
                     </SelectTrigger>
                     <SelectContent side="bottom" sideOffset={0} alignItemWithTrigger={false}>
@@ -400,9 +389,9 @@ export default function PostResourcePage() {
                     </SelectContent>
                   </Select>
                 )}
-              </FormControl>
+              </Form.Control>
 
-              <FormControl<PostResourceFormValues>
+              <Form.Control<PostResourceFormValues>
                 name="price"
                 label={t('priceTitle')}
                 labelFor="resource-price"
@@ -413,7 +402,6 @@ export default function PostResourcePage() {
                     type="number"
                     min="1"
                     placeholder={t('pricePlaceholder')}
-                    className="w-full py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
                     aria-invalid={fieldState.invalid}
                     {...field}
                     value={field.value ?? ''}
@@ -423,16 +411,16 @@ export default function PostResourcePage() {
                     }}
                   />
                 )}
-              </FormControl>
+              </Form.Control>
             </div>
 
-            <FormControl<PostResourceFormValues>
+            <Form.Control<PostResourceFormValues>
               name="duration"
               label={t('timeTitle')}
               className="mb-3.5"
             >
               {() => <DurationToggle labels={{ any: t('anytime'), specific: t('specificTime') }} />}
-            </FormControl>
+            </Form.Control>
 
             <SpecificDurationField
               label={t('specificDuration')}
@@ -459,12 +447,7 @@ export default function PostResourcePage() {
             />
 
             <div className="flex gap-3 mt-2 flex-wrap">
-              <button
-                type="submit"
-                className="text-[14px] py-3 px-7 font-cairo cursor-pointer bg-green text-ink rounded-[999px] font-extrabold inline-block text-center w-full sm:w-auto hover:opacity-90"
-              >
-                {t('post')}
-              </button>
+              <Button type="submit">{t('post')}</Button>
             </div>
           </Form>
         </Card>

@@ -1,9 +1,9 @@
 'use client'
-import { Link } from '@/i18n/navigation'
+import { Form } from '@/components/Form'
+import { Button } from '@/components/ui/button'
 import { Card, CardTitle } from '@/components/ui/card'
 import { FieldTitle } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
 import {
   Select,
   SelectContent,
@@ -12,17 +12,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { Form, FormControl } from '@/components/Form'
-import { items, memberResponsible } from './data'
-import { useTranslations } from 'next-intl'
-import { cn } from 'cn'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useMemo } from 'react'
+import { Textarea } from '@/components/ui/textarea'
+import { Link } from '@/i18n/navigation'
 import {
   createPostServiceSchema,
   type PostServiceFormValues,
 } from '@/types/schemas/post-service-schema'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { cn } from 'cn'
+import { useTranslations } from 'next-intl'
+import { useMemo } from 'react'
 import { useFormContext } from 'react-hook-form'
+import { items, memberResponsible } from './data'
 
 // ── Inner component that consumes form context ──────────────────────────────
 
@@ -68,7 +69,7 @@ function SpecificDurationField({ label, placeholder }: { label: string; placehol
   if (duration !== 'specific') return null
 
   return (
-    <FormControl<PostServiceFormValues>
+    <Form.Control<PostServiceFormValues>
       name="specificDuration"
       label={label}
       labelFor="service-specific-duration"
@@ -78,13 +79,12 @@ function SpecificDurationField({ label, placeholder }: { label: string; placehol
         <Input
           id="service-specific-duration"
           placeholder={placeholder}
-          className="w-full max-w-full sm:max-w-55 py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
           aria-invalid={fieldState.invalid}
           {...field}
           value={(field.value as string) ?? ''}
         />
       )}
-    </FormControl>
+    </Form.Control>
   )
 }
 
@@ -138,7 +138,7 @@ export default function PostServicePage() {
             }}
             onSubmit={onSubmit}
           >
-            <FormControl<PostServiceFormValues>
+            <Form.Control<PostServiceFormValues>
               name="title"
               label={t('offerTypeTitle')}
               labelFor="service-title"
@@ -147,15 +147,14 @@ export default function PostServicePage() {
                 <Input
                   id="service-title"
                   placeholder={t('offerTypePlaceholder')}
-                  className="w-full py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
                   aria-invalid={fieldState.invalid}
                   {...field}
                   value={(field.value as string) ?? ''}
                 />
               )}
-            </FormControl>
+            </Form.Control>
 
-            <FormControl<PostServiceFormValues>
+            <Form.Control<PostServiceFormValues>
               name="description"
               label={t('descriptionTitle')}
               labelFor="service-description"
@@ -169,10 +168,10 @@ export default function PostServicePage() {
                   value={(field.value as string) ?? ''}
                 />
               )}
-            </FormControl>
+            </Form.Control>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <FormControl<PostServiceFormValues>
+              <Form.Control<PostServiceFormValues>
                 name="category"
                 label={t('serviceCategory')}
                 labelFor="service-category"
@@ -184,11 +183,7 @@ export default function PostServicePage() {
                     value={field.value as string}
                     onValueChange={field.onChange}
                   >
-                    <SelectTrigger
-                      id="service-category"
-                      className="w-full py-3 px-4 text-[14px] font-cairo font-semibold text-ink min-h-13"
-                      aria-invalid={fieldState.invalid}
-                    >
+                    <SelectTrigger id="service-category" aria-invalid={fieldState.invalid}>
                       <SelectValue placeholder={items[1].value} />
                     </SelectTrigger>
                     <SelectContent side="bottom" sideOffset={0} alignItemWithTrigger={false}>
@@ -206,9 +201,9 @@ export default function PostServicePage() {
                     </SelectContent>
                   </Select>
                 )}
-              </FormControl>
+              </Form.Control>
 
-              <FormControl<PostServiceFormValues>
+              <Form.Control<PostServiceFormValues>
                 name="price"
                 label={t('priceTitle')}
                 labelFor="service-price"
@@ -219,7 +214,6 @@ export default function PostServicePage() {
                     type="number"
                     min="1"
                     placeholder={t('pricePlaceholder')}
-                    className="w-full py-3 px-4 font-cairo font-semibold text-[14px] text-ink"
                     aria-invalid={fieldState.invalid}
                     {...field}
                     value={field.value ?? ''}
@@ -229,23 +223,23 @@ export default function PostServicePage() {
                     }}
                   />
                 )}
-              </FormControl>
+              </Form.Control>
             </div>
 
-            <FormControl<PostServiceFormValues>
+            <Form.Control<PostServiceFormValues>
               name="duration"
               label={t('timeTitle')}
               className="mb-3.5"
             >
               {() => <DurationToggle labels={{ any: t('anytime'), specific: t('specificTime') }} />}
-            </FormControl>
+            </Form.Control>
 
             <SpecificDurationField
               label={t('specificDuration')}
               placeholder={t('specificDurationPlaceholder')}
             />
 
-            <FormControl<PostServiceFormValues>
+            <Form.Control<PostServiceFormValues>
               name="member"
               label={t('memberResponsible')}
               labelFor="service-member"
@@ -257,11 +251,7 @@ export default function PostServicePage() {
                   value={field.value as string}
                   onValueChange={field.onChange}
                 >
-                  <SelectTrigger
-                    id="service-member"
-                    className="w-full py-3 px-4 text-[14px] font-cairo font-semibold text-ink min-h-13"
-                    aria-invalid={fieldState.invalid}
-                  >
+                  <SelectTrigger id="service-member" aria-invalid={fieldState.invalid}>
                     <SelectValue placeholder={memberResponsible[0].value} />
                   </SelectTrigger>
                   <SelectContent side="bottom" sideOffset={0} alignItemWithTrigger={false}>
@@ -279,21 +269,11 @@ export default function PostServicePage() {
                   </SelectContent>
                 </Select>
               )}
-            </FormControl>
+            </Form.Control>
 
             <div className="flex gap-3 mt-2 flex-wrap">
-              <button
-                type="submit"
-                className="text-center flex items-center justify-center text-[14px] py-3 px-4 sm:px-5 flex-1 bg-green text-ink border-0 rounded-[999px] cursor-pointer font-cairo font-extrabold"
-              >
-                {t('post')}
-              </button>
-              <button
-                type="button"
-                className="text-center flex items-center justify-center text-[13px] py-2.75 px-4 sm:px-5 flex-1 text-green-deep border border-green-deep hover:bg-green rounded-[999px] cursor-pointer font-cairo font-extrabold"
-              >
-                {t('save')}
-              </button>
+              <Button type="submit">{t('post')}</Button>
+              <Button>{t('save')}</Button>
             </div>
           </Form>
         </Card>

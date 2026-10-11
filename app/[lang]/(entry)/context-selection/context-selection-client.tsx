@@ -1,31 +1,33 @@
 'use client'
 
-import OrgLogo from '@/app/logo.svg'
-import PubLogo from '@/app/pub-icon.svg'
+import CommunityIcon from '@/icons/circles.svg'
+import OrgIcon from '@/icons/gate.svg'
+import { Button } from '@/components/ui/button'
 import {
-  Field,
-  FieldContent,
-  FieldDescription,
-  FieldLabel,
-  FieldTitle,
-} from '@/components/ui/field'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { useUser } from '@/components/UserContext'
+  RadioGroup,
+  RadioGroupItem,
+  RadioGroupItemDescription,
+  RadioGroupItemIcon,
+  RadioGroupItemTitle,
+} from '@/components/ui/radio-group'
+import { useUser } from '@/contexts/UserContext'
 import { useRouter } from '@/i18n/navigation'
-import { cn } from 'cn'
+import { useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
 
-function CheckIndicator({ checked }: { checked: boolean }) {
-  return (
-    <span
-      className={cn(
-        'absolute -top-1 -inset-e-1 w-5.5 h-5.5 rounded-full bg-green grid place-items-center transition-opacity duration-150 after:w-2 after:h-1.25 after:border-b-[2.5px] rtl:after:border-e-[2.5px] ltr:after:border-s-[2.5px] after:border-ink after:-rotate-45 after:-translate-y-px',
-        checked ? 'opacity-100' : 'opacity-0',
-      )}
-    ></span>
-  )
+function getReturnTo(redirect: string | null) {
+  if (!redirect || !redirect.startsWith('/') || redirect.startsWith('//')) {
+    return '/'
+  }
+
+  const url = new URL(redirect, window.location.origin)
+  if (url.origin !== window.location.origin || url.pathname === '/context-selection') {
+    return '/'
+  }
+
+  return `${url.pathname}${url.search}${url.hash}`
 }
 
 export default function ContextSelectionClient() {
@@ -33,73 +35,37 @@ export default function ContextSelectionClient() {
   const [context, setContext] = useState(user?.context || 'org')
   const t = useTranslations('contextSelection')
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const returnTo = getReturnTo(searchParams.get('redirect'))
 
   return (
     <>
       <RadioGroup value={context} onValueChange={setContext}>
-        <FieldLabel
-          htmlFor="c-org"
-          className={`relative block rounded-[22px] bg-surface border cursor-pointer transition-[border-color] duration-150 hover:border-green-deep focus-visible:outline-2 focus-visible:outline-green-deep focus-visible:outline-offset-2 ${
-            context === 'org'
-              ? 'border-2 border-green-deep p-[25px_23px]'
-              : 'border-line p-[26px_24px]'
-          }`}
-        >
-          <Field className="mb-0" orientation="horizontal">
-            <FieldContent>
-              <Image src={OrgLogo} alt="" width={44} height={44} />
-              <FieldTitle className="font-display font-bold text-ink text-[22px] mt-3.5">
-                {t('orgTitle')}
-              </FieldTitle>
-              <FieldDescription className="text-start font-cairo font-semibold text-[13px] text-ink-soft leading-[1.9] mt-1.5">
-                {t('orgDesc')}
-              </FieldDescription>
-            </FieldContent>
-            <RadioGroupItem
-              value="org"
-              id="c-org"
-              indicator={<CheckIndicator checked={context === 'org'} />}
-            />
-          </Field>
-        </FieldLabel>
+        <RadioGroupItem value="org" aria-label={t('orgTitle')}>
+          <RadioGroupItemIcon>
+            <Image src={OrgIcon} alt="" className="size-full" />
+          </RadioGroupItemIcon>
+          <RadioGroupItemTitle>{t('orgTitle')}</RadioGroupItemTitle>
+          <RadioGroupItemDescription>{t('orgDesc')}</RadioGroupItemDescription>
+        </RadioGroupItem>
 
-        <FieldLabel
-          htmlFor="community"
-          className={`relative block rounded-[22px] bg-surface border cursor-pointer transition-[border-color] duration-150 hover:border-green-deep focus-visible:outline-2 focus-visible:outline-green-deep focus-visible:outline-offset-2 ${
-            context === 'community'
-              ? 'border-2 border-green-deep p-[25px_23px]'
-              : 'border-line p-[26px_24px]'
-          }`}
-        >
-          <Field className="mb-0" orientation="horizontal">
-            <FieldContent>
-              <Image src={PubLogo} alt="" width={44} height={44} />
-              <FieldTitle className="font-display font-bold text-ink text-[22px] mt-3.5">
-                {t('pubTitle')}
-              </FieldTitle>
-              <FieldDescription className="text-start font-cairo font-semibold text-[13px] text-ink-soft leading-[1.9] mt-1.5">
-                {t('pubDesc')}
-              </FieldDescription>
-            </FieldContent>
-            <RadioGroupItem
-              value="community"
-              id="community"
-              indicator={<CheckIndicator checked={context === 'community'} />}
-            />
-          </Field>
-        </FieldLabel>
+        <RadioGroupItem value="community" aria-label={t('pubTitle')}>
+          <RadioGroupItemIcon>
+            <Image src={CommunityIcon} alt="" className="size-full" />
+          </RadioGroupItemIcon>
+          <RadioGroupItemTitle>{t('pubTitle')}</RadioGroupItemTitle>
+          <RadioGroupItemDescription>{t('pubDesc')}</RadioGroupItemDescription>
+        </RadioGroupItem>
       </RadioGroup>
 
-      <button
-        type="button"
+      <Button
         onClick={() => {
           if (user) setUser({ ...user, context })
-          router.push('/')
+          router.replace(returnTo)
         }}
-        className="font-cairo inline-block mt-6 min-w-55 text-center bg-green text-ink border-0 rounded-full cursor-pointer font-body font-extrabold text-[15px] py-3.25 px-8.5 transition-colors duration-150 hover:bg-[#B9C9AC] focus-visible:outline-2 focus-visible:outline-green-deep focus-visible:outline-offset-2"
       >
         {t('submit')}
-      </button>
+      </Button>
     </>
   )
 }

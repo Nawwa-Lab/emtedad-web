@@ -1,29 +1,28 @@
 'use client'
 import {
-  DialogDescription,
-  DialogTitle,
   Dialog,
-  DialogTrigger,
   DialogContent,
+  DialogDescription,
   DialogHeader,
+  DialogTitle,
+  DialogTrigger,
 } from '@/components/ui/dialog'
 import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
+import { Button } from './ui/button'
 
 export function QuickAction() {
   const t = useTranslations('quickAction')
   const d = useTranslations('header')
   return (
     <Dialog>
-      <DialogTrigger className="hidden sm:block bg-green text-ink border-0 rounded-full cursor-pointer no-underline font-cairo font-extrabold text-sm py-2.5 px-5 whitespace-nowrap">
-        {d('quickAction')}
+      <DialogTrigger className="hidden sm:block">
+        <Button>{d('quickAction')}</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className="font-display font-bold text-2xl">{t('title')}</DialogTitle>
-          <DialogDescription className="font-cairo text-ink-soft text-sm mt-1 mb-5">
-            {t('description')}
-          </DialogDescription>
+          <DialogTitle>{t('title')}</DialogTitle>
+          <DialogDescription>{t('description')}</DialogDescription>
         </DialogHeader>
         <div className="bg-paper border border-line-soft mb-5 p-4.5 rounded-2xl">
           <div className="flex items-baseline gap-2.5 mb-3">

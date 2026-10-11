@@ -8,45 +8,144 @@
 
 @theme {
   /* surfaces */
-  --color-paper: #e8e2d0;
-  --color-surface: #f2eee1;
+  --color-paper: #f1e7cf;
+  --color-paper-dark: #e8dfc8;
+  --color-surface: #faf4e5;
+
+  /**
+   * TODO: REMOVE AFTER DESIGN SYSTEM MIGRATION
+   * Sage is a soft, muted green color.
+   */
   --color-sage: #e5e7d6;
 
-  /* text */
-  --color-ink: #211b12;
-  --color-ink-soft: #5d5342;
+  --color-ink: #1a1714;
+  --color-soft: #6b5e4e;
+
+  /* --color-ink: #211b12;
+  --color-ink-soft: #5d5342; */
 
   /* identity colors */
+  --color-red: #d8442b;
+  --color-red-dark: #bd3823;
+  --color-blue: #1f4fa3;
+  --color-gold: #f2c230;
+  --color-tint: #f4d3cb;
+
+  /**
+     * TODO: REMOVE AFTER DESIGN SYSTEM MIGRATION
+     * Sage is a soft, muted green color.
+     */
   --color-green: #c6d3bb;
   --color-green-deep: #3f6b4e;
-  --color-gold: #d9b87a;
+  /* --color-gold: #d9b87a; */
   --color-gold-deep: #8a6b33;
   --color-brick: #c4907c;
   --color-brick-deep: #8f5644;
 
+  /* radius*/
+
+  --radius-field: 12px;
+  --radius-card: 16px;
+  --radius-panel: 22px;
+
   /* hairlines */
+  /**
+     * TODO: REMOVE AFTER DESIGN SYSTEM MIGRATION
+     * Sage is a soft, muted green color.
+     */
   --color-line: rgba(33, 27, 18, 0.16);
   --color-line-soft: rgba(33, 27, 18, 0.09);
+
+  --animate-spin: spin 40s linear infinite;
+  --animate-ring: ring 5s ease-in-out infinite;
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes ring {
+    0%,
+    88%,
+    100% {
+      transform: rotate(0);
+    }
+
+    90% {
+      transform: rotate(12deg);
+    }
+
+    93% {
+      transform: rotate(-10deg);
+    }
+
+    96% {
+      transform: rotate(6deg);
+    }
+  }
 }
 
 @theme inline {
   /* fonts*/
+
+  --font-display: var(--lalezar-font), var(--rubik-font), sans-serif;
+  --font-body: var(--rubik-font), system-ui, sans-serif;
+
+  /**
+   * TODO: REMOVE AFTER DESIGN SYSTEM MIGRATION
+   */
   --font-cairo: var(--cairo-font), sans-serif;
   --font-alex: var(--alex-font), sans-serif;
-  --font-display: var(--alex-font), var(--cairo-font), sans-serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+html * {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-soft) var(--color-paper);
 }
 
 .dot-grid-bg {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='1.7' fill='%233F6B4E' fill-opacity='0.16'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='1.7' fill='%231a1714' fill-opacity='0.16'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-position: 0 0;
+}
 
+.dark-dot-grid-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='1.7' fill='%23f1e7cf' fill-opacity='0.16'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-position: 0 0;
+}
+
+.dot-grid-bg-mask {
+  /* radial fade mask, replicating the original <mask> + radialGradient */
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, white 60%, transparent 100%);
+  mask-image: radial-gradient(circle at 50% 50%, white 60%, transparent 100%);
+}
+
+.dark-dot-grid-bg-mask {
   /* radial fade mask, replicating the original <mask> + radialGradient */
   -webkit-mask-image: radial-gradient(circle at 50% 50%, white 60%, transparent 100%);
   mask-image: radial-gradient(circle at 50% 50%, white 60%, transparent 100%);
 }
 
 *[aria-invalid='true'] {
-  border-color: var(--color-brick);
-  outline-color: var(--color-brick);
+  border-color: var(--color-red-dark);
+  outline-color: var(--color-red-dark);
+  color: var(--color-red-dark);
+  accent-color: var(--color-red-dark);
+}
+
+*[aria-invalid='true']::placeholder {
+  color: var(--color-soft);
 }

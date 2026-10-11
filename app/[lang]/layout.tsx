@@ -1,26 +1,22 @@
-import { UserProvider } from '@/components/UserContext'
+import { UserProvider } from '@/contexts/UserContext'
+import { alexandriaFont, cairoFont, lalezarFont, rubikFont } from '@/lib/fonts'
 import type { Locale } from '@/types'
-import type { Metadata } from 'next'
-import { Alexandria, Cairo } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
-const cairoFont = Cairo({
-  weight: ['500', '600', '700', '800'],
-  subsets: ['arabic'],
-  variable: '--cairo-font',
-  display: 'block',
-})
-
-const alexandriaFont = Alexandria({
-  weight: ['600', '700'],
-  subsets: ['arabic'],
-  variable: '--alex-font',
-  display: 'block',
-})
-
 export const metadata: Metadata = {
-  title: 'Emtedad',
-  description: 'Emtedad UI',
+  title: 'Shahamham',
+  description: 'Shahamham',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  colorScheme: 'light',
+  themeColor: '#F1E7CF',
 }
 
 export default async function RootLayout({
@@ -35,7 +31,7 @@ export default async function RootLayout({
   return (
     <html lang={lang} dir={dir}>
       <body
-        className={`h-screen flex flex-col relative ${cairoFont.variable} ${alexandriaFont.variable} bg-paper`}
+        className={`h-screen flex flex-col relative ${rubikFont.variable} ${lalezarFont.variable} ${cairoFont.variable} ${alexandriaFont.variable} bg-paper`}
       >
         <UserProvider>{children}</UserProvider>
       </body>

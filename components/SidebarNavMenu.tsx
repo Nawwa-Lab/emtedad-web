@@ -1,181 +1,130 @@
 'use client'
-import { QuickAction } from '@/components/QuickAction'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+
+import HakimaIcon from '@/icons/balance.svg'
+import ManagementIcon from '@/icons/building.svg'
+import NamliyaIcon from '@/icons/circles.svg'
+import MaktabIcon from '@/icons/gate.svg'
+import GennyIcon from '@/icons/genny.svg'
+import EtabatIcon from '@/icons/hand.svg'
+import ShbeikLbeikIcon from '@/icons/message.svg'
+import KhalliKhalesIcon from '@/icons/plant.svg'
+import FahsMahsIcon from '@/icons/star-2.svg'
+import HomeIcon from '@/icons/star.svg'
+import AlaeshIcon from '@/icons/target.svg'
+import { type Role, useUser } from '@/contexts/UserContext'
 import { Link, usePathname } from '@/i18n/navigation'
-import { Separator } from '@base-ui/react'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
-import { useMemo } from 'react'
-import { NotificationText } from './NotificationText'
-import { useUser } from './UserContext'
+import Image from 'next/image'
 
-type Role = 'admin' | 'team-worker' | 'emtedad-team' | 'community'
-type NavLink =
-  | { type: 'separator' }
-  | {
-      type: 'link'
-      href: string
-      label: string
-      roles?: Role[]
-      role?: Role
-    }
+type NavLink = {
+  href: string
+  label: string
+  icon: typeof MaktabIcon
+  roles?: Role[]
+}
 
 const navLinks: NavLink[] = [
-  { type: 'link', href: '/maktab', label: 'maktab' },
+  { href: '/maktab', label: 'maktab', icon: MaktabIcon },
   {
-    type: 'link',
     href: '/namliya',
     label: 'namliya',
+    icon: NamliyaIcon,
     roles: ['admin', 'team-worker', 'emtedad-team'],
   },
-  { type: 'link', href: '/khalli-khales', label: 'khalis' },
-  { type: 'link', href: '/alaesh-andak', label: 'have_qalish' },
+  { href: '/khalli-khales', label: 'khalis', icon: KhalliKhalesIcon },
+  { href: '/alaesh-andak', label: 'have_qalish', icon: AlaeshIcon },
   {
-    type: 'link',
     href: '/hakima',
     label: 'hakima',
+    icon: HakimaIcon,
     roles: ['admin', 'team-worker', 'emtedad-team'],
   },
   {
-    type: 'link',
     href: '/genny',
     label: 'genny',
+    icon: GennyIcon,
     roles: ['admin', 'team-worker', 'emtedad-team'],
   },
   {
-    type: 'link',
     href: '/shbeik-lbeik',
     label: 'shbeik-lbeik',
+    icon: ShbeikLbeikIcon,
     roles: ['community', 'emtedad-team'],
   },
-  { type: 'separator' },
+  { href: '/managment', label: 'managment', icon: ManagementIcon, roles: ['emtedad-team'] },
+  { href: '/etabat', label: 'etabat', icon: EtabatIcon },
   {
-    type: 'link',
-    href: '/managment',
-    label: 'managment',
-    role: 'emtedad-team',
-  },
-  { type: 'link', href: '/etabat', label: 'etabat' },
-  {
-    type: 'link',
     href: '/fahs-mahs',
     label: 'fahs-mahs',
+    icon: FahsMahsIcon,
     roles: ['admin', 'team-worker', 'community'],
   },
 ]
 
-export function SidebarNavMenu({ mobileView = false }: { mobileView?: boolean }) {
+const itemClass =
+  'group/item flex h-14 shrink-0 items-center justify-center rounded-[14px] border-[2.5px] border-transparent px-3 text-[15.5px] font-body font-bold whitespace-nowrap text-ink no-underline transition-[background-color,border-color,box-shadow] hover:border-ink hover:bg-paper focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-blue min-[821px]:group-hover/sidebar:justify-start min-[821px]:group-focus-within/sidebar:justify-start max-[820px]:h-12 max-[820px]:justify-start'
+
+const labelClass =
+  'm-0 max-w-0 overflow-hidden opacity-0 transition-[opacity,max-width,margin] duration-200 min-[821px]:group-hover/sidebar:ms-3.5 min-[821px]:group-hover/sidebar:max-w-[170px] min-[821px]:group-hover/sidebar:opacity-100 min-[821px]:group-focus-within/sidebar:ms-3.5 min-[821px]:group-focus-within/sidebar:max-w-[170px] min-[821px]:group-focus-within/sidebar:opacity-100 max-[820px]:ms-3.5 max-[820px]:max-w-none max-[820px]:opacity-100'
+
+export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean }) {
   const pathname = usePathname()
   const tNav = useTranslations('navigation')
   const tSidebar = useTranslations('sidebar')
-  const tHeader = useTranslations('header')
+  const tLanding = useTranslations('landing')
   const { user } = useUser()
 
-  const links = useMemo(() => {
-    const newNav = navLinks
-      .filter((link) => {
-        if (link.type === 'separator') return true
-        if (!link.roles && !link.role) return true
-        if (user && link.roles?.includes(user.role)) return true
-        if (user && link.role === user.role) return true
-        return false
-      })
-      .map((link) => {
-        if (link.type === 'separator') return { type: 'separator' as const }
-        return { href: link.href, label: tNav(link.label) }
-      })
-    return newNav
-  }, [tNav, user])
+  if (requireUser && !user) {
+    return null
+  }
 
   return (
     <nav
-      className={cn(
-        'sm:w-52.5 sm:shrink-0 bg-surface sm:border-e sm:border-line py-4.5 px-3 sm:flex sm:flex-col sm:overflow-y-auto hidden',
-        mobileView ? 'flex flex-col p-0' : 'hidden',
-      )}
+      className="group/sidebar sticky top-0 z-30 flex h-screen w-21 shrink-0 flex-col gap-1.5 overflow-hidden border-e-[3px] border-ink bg-surface px-3 py-4.5 transition-[width] duration-250 hover:w-56 focus-within:w-56 max-[820px]:static max-[820px]:h-auto max-[820px]:w-full max-[820px]:flex-row max-[820px]:gap-2 max-[820px]:overflow-x-auto max-[820px]:border-e-0 max-[820px]:border-b-[3px] max-[820px]:p-3 max-[820px]:transition-none max-[820px]:hover:w-full max-[820px]:focus-within:w-full"
       aria-label={tSidebar('mainNavAriaLabel')}
     >
-      <Dialog>
-        <DialogTrigger
-          className={cn(
-            'sm:hidden bg-green text-ink border-0 rounded-full cursor-pointer no-underline font-cairo font-extrabold text-sm py-2.5 px-5 whitespace-nowrap ',
-            mobileView && 'mb-3',
-          )}
-        >
-          {tSidebar('quickAction')}
-        </DialogTrigger>
-        <DialogContent>
-          <QuickAction />
-        </DialogContent>
-      </Dialog>
-      {links.map((link, index) => {
-        if (link.type === 'separator') {
-          return <Separator className="h-px bg-line-soft my-2.5 mx-1.5" key={`sep-${index}`} />
+      {navLinks.map((link, index) => {
+        if (link.roles && (!user || !link.roles.includes(user.role))) {
+          return null
         }
-        const isActive = new RegExp(link.href ?? '').test(pathname)
 
+        const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`)
         return (
           <Link
-            key={link.href + String(index)}
-            href={link.href ?? '#'}
+            key={link.href}
+            href={link.href}
+            aria-current={isActive ? 'page' : undefined}
             className={cn(
-              'font-cairo flex items-center gap-2.5 font-bold text-sm rounded-xl py-2.5 px-3.5 mb-1 decoration-0',
-              isActive ? 'text-ink bg-green' : 'text-ink-soft hover:bg-sage hover:text-ink',
-              mobileView && 'w-full ',
+              itemClass,
+              isActive && 'border-ink bg-gold shadow-[3px_3px_0_var(--color-ink)]',
+              index === 7 && 'mt-2.5 max-[820px]:mt-0',
             )}
           >
-            {!mobileView && (
-              <span
-                className={cn(
-                  'w-2 h-2 rounded-full shrink-0',
-                  isActive ? 'bg-gold-deep' : 'bg-line',
-                )}
-              ></span>
-            )}
-            <span className={cn(mobileView && 'text-center w-full')}>{link.label}</span>
+            <span
+              className={cn(
+                'flex size-8.5 shrink-0 items-center justify-center transition-[opacity,transform] group-hover/item:-rotate-6 group-hover/item:scale-[1.06] group-hover/item:opacity-100',
+                isActive ? '-rotate-6 scale-[1.06] opacity-100' : 'opacity-55',
+              )}
+            >
+              <Image src={link.icon} alt="" className="size-full" />
+            </span>
+            <span className={labelClass}>{tNav(link.label)}</span>
           </Link>
         )
       })}
-      <div className="flex flex-1 gap-3">
-        <span
-          className={cn(
-            'sm:hidden flex flex-1 items-center justify-between gap-2 text-sm font-cairo font-bold text-line-soft bg-sage rounded-full py-2 ps-2 pe-3.5',
-          )}
-        >
-          <span className="whitespace-nowrap text-ink">{tHeader('contextLabel')}</span>
-          <Link
-            href="/context-selection"
-            className="text-xs text-green-deep decoration-0 bg-surface rounded-full py-0.75 px-2.5"
-          >
-            {tHeader('switchContext')}
-          </Link>
-        </span>
-        <NotificationText />
-      </div>
-
-      <div
+      <Link
+        href="/"
         className={cn(
-          'mt-auto flex items-center gap-2.5 bg-paper border border-line-soft rounded-2xl p-3',
-          mobileView && 'mt-3',
+          itemClass,
+          'mt-auto border-ink border-dashed bg-paper max-[820px]:ms-auto max-[820px]:mt-0',
         )}
       >
-        <Avatar>
-          <AvatarImage src="https://github.com/shadcn.pngg" />
-          <AvatarFallback className="bg-green">C</AvatarFallback>
-        </Avatar>
-        <span>
-          <span className="font-cairo block font-extrabold text-[13px] text-ink">
-            {tSidebar('orgName')}
-          </span>
-          <Link
-            href="/organization/123"
-            className="font-cairo font-bold text-[11px] no-underline text-green-deep"
-          >
-            {tSidebar('publicProfile')}
-          </Link>
+        <span className="flex size-8.5 shrink-0 items-center justify-center">
+          <Image src={HomeIcon} alt="" className="size-full" />
         </span>
-      </div>
+        <span className={labelClass}>{tLanding('brand')}</span>
+      </Link>
     </nav>
   )
 }

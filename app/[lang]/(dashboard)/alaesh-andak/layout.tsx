@@ -16,16 +16,16 @@ export default async function AlaeshLayout({ children }: { children: React.React
         routes={[
           {
             path: '/alaesh-andak/browse',
-            config: { title: alaesh.browse.title, description: alaesh.browse.description },
+            description: alaesh.browse.description,
           },
           {
             path: '/alaesh-andak/my-posts',
-            config: { title: alaesh.myPosts.title, description: alaesh.myPosts.description },
+            description: alaesh.myPosts.description,
           },
         ]}
+        title={alaesh.browse.title}
       >
         <SubLinks
-          className="mt-4 mb-1.5"
           links={[
             { href: '/alaesh-andak/browse', label: alaesh.browse.chips.browse },
             { href: '/alaesh-andak/request/create', label: alaesh.browse.chips.addNew },

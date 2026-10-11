@@ -7,12 +7,14 @@ export default async function DashboardLayout({ children }: { children: React.Re
   const messages = await getMessages()
   return (
     <NextIntlClientProvider messages={messages}>
-      <Header />
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex min-h-screen min-w-0 flex-1 flex-col min-[821px]:flex-row">
         <SidebarNavMenu />
-        <main className="flex-1 overflow-y-auto p-8">
-          <div className="max-w-300 m-auto">{children}</div>
-        </main>
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+          <Header />
+          <main className="min-w-0 flex-1 overflow-y-auto p-8 max-[820px]:p-4 dot-grid-bg">
+            <div className="max-w-300">{children}</div>
+          </main>
+        </div>
       </div>
     </NextIntlClientProvider>
   )

@@ -92,13 +92,7 @@ function FieldContent({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 function FieldLabel({ className, ...props }: React.ComponentProps<typeof Label>) {
-  return (
-    <Label
-      data-slot="field-label"
-      className={cn('block font-bold text-[13px] text-ink-soft mb-2 font-cairo', className)}
-      {...props}
-    />
-  )
+  return <Label data-slot="field-label" className={cn('mb-2.5', className)} {...props} />
 }
 
 function FieldTitle({ className, ...props }: React.ComponentProps<'div'>) {
@@ -106,7 +100,7 @@ function FieldTitle({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="field-label"
       className={cn(
-        'flex w-fit items-center gap-2 text-sm font-medium group-data-[disabled=true]/field:opacity-50',
+        'flex w-fit items-center gap-2 text-sm font-bold group-data-[disabled=true]/field:opacity-50',
         className,
       )}
       {...props}
@@ -119,9 +113,8 @@ function FieldDescription({ className, ...props }: React.ComponentProps<'p'>) {
     <p
       data-slot="field-description"
       className={cn(
-        'text-left text-sm leading-normal font-normal text-muted-foreground group-has-data-horizontal/field:text-balance [[data-variant=legend]+&]:-mt-1.5',
-        'last:mt-0 nth-last-2:-mt-1',
-        '[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary',
+        'text-start text-[13.5px]/[1.7] font-semibold text-soft mt-1.75 font-body group-has-data-horizontal/field:text-balance [[data-variant=legend]+&]:-mt-1.75',
+        '[&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-red',
         className,
       )}
       {...props}
@@ -197,7 +190,7 @@ function FieldError({
     <div
       role="alert"
       data-slot="field-error"
-      className={cn('text-sm font-cairo text-brick', className)}
+      className={cn('text-sm font-semibold font-body text-red-dark', className)}
       {...props}
     >
       {content}

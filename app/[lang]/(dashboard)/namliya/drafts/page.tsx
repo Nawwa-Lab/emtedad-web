@@ -15,27 +15,25 @@ export default function DraftsPage() {
       <p className=" font-cairo font-semibold text-[13.5px] text-ink-soft mt-1">
         {t('description')}
       </p>
-      <div className="mt-4 mb-1.5 mx-0">
-        <SubLinks
-          links={[
-            { href: '/namliya/service-offers', label: t('link1') },
-            { href: '/namliya/my-requests', label: t('link2') },
-            { href: '/namliya/my-asks', label: t('link3') },
-            { href: '/namliya/drafts', label: t('link4') },
-          ]}
-        />
-      </div>
+      <SubLinks
+        links={[
+          { href: '/namliya/service-offers', label: t('link1') },
+          { href: '/namliya/my-requests', label: t('link2') },
+          { href: '/namliya/my-asks', label: t('link3') },
+          { href: '/namliya/drafts', label: t('link4') },
+        ]}
+      />
       <div className="mt-5.5">
         {cardContent.map((card, index) => (
           <Card key={index} className="px-5 py-4.5 mb-2.5">
             <CardHeader className="flex items-center gap-3 flex-wrap">
-              <Badge variant="default" className="text-green-deep text-[10.5px] py-0.75 px-2.5">
+              <Badge color="red" size="sm">
                 {card.badge}
               </Badge>
               <CardTitle className="text-[15px] leading-[1.65] min-w-55 flex-1 text-ink">
                 {card.title}
               </CardTitle>
-              <Badge variant="secondary">{t('pending')}</Badge>
+              <Badge color="gold">{t('pending')}</Badge>
             </CardHeader>
             <CardDescription className="font-semibold text-[12px] text-ink-soft mt-1.5">
               {card.description}
@@ -56,13 +54,8 @@ export default function DraftsPage() {
               >
                 {t('link6')}
               </Link>
-              <Button className="text-[13px] py-2.25 px-5 inline-block" variant="primary">
-                {' '}
-                {t('postButton')}
-              </Button>
-              <Button variant="link" className=" font-bold text-xs text-brick-deep p-1.5">
-                {t('deleteButton')}
-              </Button>
+              <Button>{t('postButton')}</Button>
+              <Button variant="link">{t('deleteButton')}</Button>
             </CardAction>
           </Card>
         ))}

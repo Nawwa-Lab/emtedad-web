@@ -1,8 +1,11 @@
 'use client'
+import { useRouter } from '@/i18n/navigation'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { useState } from 'react'
 import { Heart } from 'lucide-react'
+import { useState } from 'react'
 import { StatusBadge, getVariantFromLabel } from './StatusBadge'
+import { Button } from './ui/button'
+import { Toggle } from './ui/toggle'
 
 const cardStyles = cva('card', {
   variants: {
@@ -56,6 +59,7 @@ export function ServiceCard({
   const [internalSaved, setInternalSaved] = useState(defaultSaved)
   const isControlled = saved !== undefined
   const isSaved = isControlled ? saved : internalSaved
+  const router = useRouter()
 
   const handleSaveClick = () => {
     const next = !isSaved
@@ -66,20 +70,23 @@ export function ServiceCard({
   return (
     <div className={cardStyles({ variant })}>
       {showSaveButton && (
-        <button
-          type="button"
-          onClick={handleSaveClick}
-          aria-pressed={isSaved}
-          aria-label={isSaved ? 'Remove from saved' : 'Save'}
-          className="absolute top-3.5 inset-e-3.5  w-8 h-8 rounded-[50%] border border-line bg-paper grid items-center justify-center cursor-pointer"
-        >
-          <Heart
-            size={15}
-            strokeWidth={2}
-            fill={isSaved ? 'currentColor' : 'none'}
-            className={isSaved ? 'fill-green-deep stroke-0' : 'text-ink-soft'}
-          />
-        </button>
+        <>
+          <Toggle
+            size="icon"
+            shape="square"
+            onClick={handleSaveClick}
+            aria-pressed={isSaved}
+            aria-label={isSaved ? 'Remove from saved' : 'Save'}
+            className="absolute top-3.5 inset-e-3.5 bg-paper"
+          >
+            <Heart
+              size={15}
+              strokeWidth={2}
+              fill={isSaved ? 'currentColor' : 'none'}
+              className="fill-paper text-red"
+            />
+          </Toggle>
+        </>
       )}
 
       <span className="self-start font-bold text-[10.5px] text-green-deep bg-green rounded-[999px] py-0.75 px-2.5 font-cairo">
@@ -112,19 +119,16 @@ export function ServiceCard({
           <span className="font-semibold text-[10.5px] text-ink-soft font-cairo">{spotsLeft}</span>
         )}
         {onRequest ? (
-          <button
-            className="inline-block text-green-deep border border-green-deep bg-transparent rounded-[999px] font-cairo font-bold text-[12.5px] py-2 px-4.5 cursor-pointer hover:bg-green"
-            onClick={onRequest}
-          >
-            {request}
-          </button>
+          <Button onClick={onRequest}>{request}</Button>
         ) : (
-          <a
-            className="inline-block text-green-deep border border-green-deep bg-transparent rounded-[999px] font-cairo font-bold text-[12.5px] py-2 px-4.5 cursor-pointer hover:bg-green"
-            href={ctaHref}
+          <Button
+            size="sm"
+            onClick={() => {
+              router.push(`${ctaHref}`)
+            }}
           >
             {request}
-          </a>
+          </Button>
         )}
       </div>
     </div>

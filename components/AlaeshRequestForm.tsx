@@ -1,6 +1,6 @@
 'use client'
 
-import { Form, FormControl } from '@/components/Form'
+import { Form } from '@/components/Form'
 import { HelpCard } from '@/components/HelpCard'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -71,7 +71,7 @@ export function AlaeshRequestForm({ mode, initialRequest }: AlaeshRequestFormPro
           }}
           onSubmit={onSubmit}
         >
-          <FormControl name="market" label={t('marketLabel')} labelFor="alaesh-market">
+          <Form.Control name="market" label={t('marketLabel')} labelFor="alaesh-market">
             {(field) => (
               <ToggleGroup
                 value={field.value ? [field.value] : undefined}
@@ -80,16 +80,7 @@ export function AlaeshRequestForm({ mode, initialRequest }: AlaeshRequestFormPro
                 }}
                 className="flex flex-wrap"
               >
-                <ToggleGroupItem
-                  type="button"
-                  value="namliya"
-                  className={cn(
-                    'inline-block font-cairo border rounded-[999px] font-bold text-[12px] py-1.75 px-3.75 cursor-pointer',
-                    field.value === 'namliya'
-                      ? 'bg-green text-ink border-transparent'
-                      : 'bg-surface border-line text-ink-soft hover:border-green-deep hover:text-ink',
-                  )}
-                >
+                <ToggleGroupItem type="button" value="namliya">
                   {t('marketNamliya')}
                 </ToggleGroupItem>
                 <ToggleGroupItem
@@ -106,8 +97,8 @@ export function AlaeshRequestForm({ mode, initialRequest }: AlaeshRequestFormPro
                 </ToggleGroupItem>
               </ToggleGroup>
             )}
-          </FormControl>
-          <FormControl name="title" label={t('titleLabel')} labelFor="alaesh-title">
+          </Form.Control>
+          <Form.Control name="title" label={t('titleLabel')} labelFor="alaesh-title">
             {(field, fieldState) => (
               <Input
                 id="alaesh-title"
@@ -117,8 +108,8 @@ export function AlaeshRequestForm({ mode, initialRequest }: AlaeshRequestFormPro
                 aria-invalid={fieldState.invalid}
               />
             )}
-          </FormControl>
-          <FormControl name="description" label={t('descriptionLabel')} labelFor="alaesh-desc">
+          </Form.Control>
+          <Form.Control name="description" label={t('descriptionLabel')} labelFor="alaesh-desc">
             {(field, fieldState) => (
               <textarea
                 id="alaesh-desc"
@@ -128,9 +119,9 @@ export function AlaeshRequestForm({ mode, initialRequest }: AlaeshRequestFormPro
                 aria-invalid={fieldState.invalid}
               />
             )}
-          </FormControl>
+          </Form.Control>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-            <FormControl name="category" label={t('categoryLabel')} labelFor="alaesh-category">
+            <Form.Control name="category" label={t('categoryLabel')} labelFor="alaesh-category">
               {(field, fieldState) => (
                 <Select
                   name={field.name}
@@ -138,7 +129,7 @@ export function AlaeshRequestForm({ mode, initialRequest }: AlaeshRequestFormPro
                   onValueChange={field.onChange}
                   items={categories}
                 >
-                  <SelectTrigger size="lg" id="alaesh-category" aria-invalid={fieldState.invalid}>
+                  <SelectTrigger id="alaesh-category" aria-invalid={fieldState.invalid}>
                     <SelectValue placeholder="-" />
                   </SelectTrigger>
                   <SelectContent>
@@ -152,8 +143,8 @@ export function AlaeshRequestForm({ mode, initialRequest }: AlaeshRequestFormPro
                   </SelectContent>
                 </Select>
               )}
-            </FormControl>
-            <FormControl
+            </Form.Control>
+            <Form.Control
               name="timeframe"
               required={false}
               label={t('timeframeLabel')}
@@ -167,7 +158,7 @@ export function AlaeshRequestForm({ mode, initialRequest }: AlaeshRequestFormPro
                   {...field}
                 />
               )}
-            </FormControl>
+            </Form.Control>
           </div>
           <div className="flex gap-3 mt-2 flex-wrap">
             <Button
