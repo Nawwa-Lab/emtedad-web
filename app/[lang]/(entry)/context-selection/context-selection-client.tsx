@@ -1,7 +1,7 @@
 'use client'
 
-import CommunityIcon from '@/app/circles.svg'
-import OrgIcon from '@/app/gate.svg'
+import CommunityIcon from '@/icons/circles.svg'
+import OrgIcon from '@/icons/gate.svg'
 import { Button } from '@/components/ui/button'
 import {
   RadioGroup,

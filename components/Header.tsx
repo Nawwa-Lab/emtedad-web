@@ -1,5 +1,5 @@
 'use client'
-import LogoIcon from '@/app/star.svg'
+import LogoIcon from '@/icons/star.svg'
 import { QuickAction } from '@/components/QuickAction'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Input } from '@/components/ui/input'

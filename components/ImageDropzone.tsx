@@ -1,5 +1,5 @@
 'use client'
-import gate from '@/app/gate.svg'
+import gate from '@/icons/gate.svg'
 import {
   Attachment,
   AttachmentAction,
