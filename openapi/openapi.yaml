@@ -1,0 +1,1328 @@
+{
+  'openapi': '3.0.0',
+  'paths':
+    {
+      '/api/v1/health':
+        {
+          'get':
+            {
+              'operationId': 'HealthController_check',
+              'parameters': [],
+              'responses': { '200': { 'description': 'Identity service is up.' } },
+              'summary': 'Liveness probe for the identity service',
+              'tags': ['Health'],
+            },
+        },
+      '/api/v1/auth/register':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_registerUser',
+              'parameters': [],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/RegisterUserDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '201': { 'description': 'User registered successfully.' },
+                  '409': { 'description': 'Email already in use.' },
+                },
+              'summary': 'Register a new community member account',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/org-register':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_registerOrg',
+              'parameters': [],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/RegisterOrgDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '201': { 'description': 'Organization registered successfully.' },
+                  '400': { 'description': 'Invalid invite token.' },
+                },
+              'summary': 'Register a new organization account (requires invite token)',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/login':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_login',
+              'parameters': [],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json': { 'schema': { '$ref': '#/components/schemas/LoginDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '200': { 'description': 'Login successful.' },
+                  '401': { 'description': 'Invalid credentials.' },
+                },
+              'summary': 'Authenticate and return user identity',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/validate-credentials':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_validateCredentials',
+              'parameters': [],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/ValidateCredentialsDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '200': { 'description': 'Credentials valid, returns full user context.' },
+                  '401': { 'description': 'Invalid credentials.' },
+                },
+              'summary': 'Validate email/password (internal — Gateway calls via gRPC)',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/context-switch':
+        {
+          'put':
+            {
+              'description': 'Switches the active context of the current session between "org" (organization) and "community" (individual). This endpoint is intercepted and served by the API Gateway (context-switch middleware), which updates the session stored in Redis. It is documented here for API reference; the identity service does not handle the request itself.',
+              'operationId': 'AuthController_contextSwitch',
+              'parameters': [],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/ContextSwitchDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '200':
+                    {
+                      'description': 'Context switched successfully.',
+                      'content':
+                        {
+                          'application/json':
+                            {
+                              'schema':
+                                {
+                                  'type': 'object',
+                                  'properties':
+                                    {
+                                      'message':
+                                        { 'type': 'string', 'example': 'Context switched' },
+                                      'context':
+                                        {
+                                          'type': 'string',
+                                          'enum': ['org', 'community'],
+                                          'example': 'org',
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                  '400':
+                    {
+                      'description': 'Invalid context, malformed request, or user does not belong to an organization.',
+                    },
+                  '401': { 'description': 'Authentication required or session expired.' },
+                },
+              'security': [{ 'cookie': [] }],
+              'summary': 'Switch the active session context',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/logout':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_logout',
+              'parameters': [],
+              'responses': { '200': { 'description': 'Logged out.' } },
+              'summary': 'Logout',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/forgot-password':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_forgotPassword',
+              'parameters': [],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/ForgotPasswordDto' } },
+                    },
+                },
+              'responses': { '200': { 'description': 'Reset link sent if email exists.' } },
+              'summary': 'Request a password reset link',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/reset-password':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_resetPassword',
+              'parameters': [],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/ResetPasswordDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '200': { 'description': 'Password reset.' },
+                  '400': { 'description': 'Invalid or expired token.' },
+                },
+              'summary': 'Reset password using token from email link',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/step-up/send-otp':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_stepUpSendOtp',
+              'parameters':
+                [
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'responses':
+                {
+                  '200': { 'description': 'OTP sent.' },
+                  '404': { 'description': 'User not found.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Send OTP for step-up verification (financial operations)',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/step-up/verify':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_stepUpVerify',
+              'parameters':
+                [
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/VerifyOtpDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '200': { 'description': 'Step-up verified, temp token issued.' },
+                  '400': { 'description': 'Invalid OTP.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Verify step-up OTP (financial operations)',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/invite':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_inviteTeamWorker',
+              'parameters':
+                [
+                  {
+                    'name': 'x-org-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/InviteTeamWorkerDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '201': { 'description': 'Invitation sent.' },
+                  '403': { 'description': 'Only admins can invite.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Admin invites a team worker to the organization',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/accept-invite':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_acceptInvite',
+              'parameters': [],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/AcceptInviteDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '200': { 'description': 'Account created and joined organization.' },
+                  '400': { 'description': 'Invalid or expired invitation.' },
+                },
+              'summary': 'Invited team worker accepts and creates account',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/verify-email':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_verifyEmail',
+              'parameters': [],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/VerifyEmailDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '200': { 'description': 'Email verified.' },
+                  '400': { 'description': 'Invalid or expired code.' },
+                },
+              'summary': 'Verify email with OTP code',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/otp/request':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_requestOtp',
+              'parameters':
+                [
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/RequestOtpDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '200': { 'description': 'OTP sent (logged to console in dev).' },
+                  '404': { 'description': 'User not found.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Request a one-time password (OTP) code',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/auth/otp/verify':
+        {
+          'post':
+            {
+              'operationId': 'AuthController_verifyOtp',
+              'parameters':
+                [
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/VerifyOtpDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '200': { 'description': 'OTP verified successfully.' },
+                  '400': { 'description': 'Invalid or expired OTP code.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Verify a one-time password (OTP) code',
+              'tags': ['Authentication'],
+            },
+        },
+      '/api/v1/invitations':
+        {
+          'post':
+            {
+              'operationId': 'InvitationsController_create',
+              'parameters': [],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/CreateInvitationDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '201': { 'description': 'Invitation created.' },
+                  '400': { 'description': 'Validation failed or invite code already exists.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Create an invitation code for org registration (Emtedad Admin only)',
+              'tags': ['Invitations'],
+            },
+          'get':
+            {
+              'operationId': 'InvitationsController_findAll',
+              'parameters': [],
+              'responses': { '200': { 'description': 'Returns all invitations.' } },
+              'security': [{ 'bearer': [] }],
+              'summary': 'List all invitation codes',
+              'tags': ['Invitations'],
+            },
+        },
+      '/api/v1/organizations/{id}':
+        {
+          'get':
+            {
+              'operationId': 'OrganizationsController_findOne',
+              'parameters':
+                [{ 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } }],
+              'responses':
+                {
+                  '200': { 'description': 'Returns the organization.' },
+                  '404': { 'description': 'Organization not found.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Get full organization profile',
+              'tags': ['Organizations'],
+            },
+          'put':
+            {
+              'operationId': 'OrganizationsController_update',
+              'parameters':
+                [{ 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } }],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/UpdateOrganizationDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '200': { 'description': 'Organization updated.' },
+                  '403': { 'description': 'Only admins can update.' },
+                  '404': { 'description': 'Organization not found.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Update organization profile (admin only)',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/public':
+        {
+          'get':
+            {
+              'operationId': 'OrganizationsController_getPublicProfile',
+              'parameters':
+                [{ 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } }],
+              'responses':
+                {
+                  '200': { 'description': 'Returns public profile with members.' },
+                  '404': { 'description': 'Organization not found.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Get public organization profile',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/logo':
+        {
+          'post':
+            {
+              'operationId': 'OrganizationsController_uploadLogo',
+              'parameters':
+                [{ 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } }],
+              'responses': { '200': { 'description': 'Logo uploaded.' } },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Upload organization logo (admin only)',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/cover':
+        {
+          'post':
+            {
+              'operationId': 'OrganizationsController_uploadCoverImage',
+              'parameters':
+                [{ 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } }],
+              'responses': { '200': { 'description': 'Cover image uploaded.' } },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Upload organization cover image (admin only)',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/members':
+        {
+          'get':
+            {
+              'operationId': 'OrganizationsController_listMembers',
+              'parameters':
+                [{ 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } }],
+              'responses': { '200': { 'description': 'Returns list of members.' } },
+              'security': [{ 'bearer': [] }],
+              'summary': 'List active team members',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/admins':
+        {
+          'get':
+            {
+              'operationId': 'OrganizationsController_listAdmins',
+              'parameters':
+                [{ 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } }],
+              'responses': { '200': { 'description': 'Returns list of admins.' } },
+              'security': [{ 'bearer': [] }],
+              'summary': 'List organization admins',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/members/{membershipId}/role':
+        {
+          'put':
+            {
+              'operationId': 'OrganizationsController_promoteMember',
+              'parameters':
+                [
+                  { 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } },
+                  {
+                    'name': 'membershipId',
+                    'required': true,
+                    'in': 'path',
+                    'schema': { 'type': 'string' },
+                  },
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'responses':
+                {
+                  '200': { 'description': 'Member promoted.' },
+                  '403': { 'description': 'Only admins can promote.' },
+                  '404': { 'description': 'Member not found.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Promote a team worker to admin (admin only)',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/members/{membershipId}/demote':
+        {
+          'put':
+            {
+              'operationId': 'OrganizationsController_demoteMember',
+              'parameters':
+                [
+                  { 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } },
+                  {
+                    'name': 'membershipId',
+                    'required': true,
+                    'in': 'path',
+                    'schema': { 'type': 'string' },
+                  },
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'responses':
+                {
+                  '200': { 'description': 'Admin demoted.' },
+                  '403': { 'description': 'Only admins can demote. Cannot demote last admin.' },
+                  '404': { 'description': 'Member not found.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Demote an admin to team worker (admin only)',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/members/{membershipId}':
+        {
+          'delete':
+            {
+              'operationId': 'OrganizationsController_removeMember',
+              'parameters':
+                [
+                  { 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } },
+                  {
+                    'name': 'membershipId',
+                    'required': true,
+                    'in': 'path',
+                    'schema': { 'type': 'string' },
+                  },
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'responses':
+                {
+                  '200': { 'description': 'Member removed.' },
+                  '403': { 'description': 'Cannot remove last admin or self.' },
+                  '404': { 'description': 'Member not found.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Remove a member from the organization (admin only)',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/join':
+        {
+          'post':
+            {
+              'operationId': 'OrganizationsController_join',
+              'parameters':
+                [
+                  { 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } },
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'responses':
+                {
+                  '200': { 'description': 'Successfully joined.' },
+                  '400': { 'description': 'Already a member.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Join an organization (individual role required)',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/leave':
+        {
+          'post':
+            {
+              'operationId': 'OrganizationsController_leave',
+              'parameters':
+                [
+                  { 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } },
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'responses':
+                {
+                  '200': { 'description': 'Successfully left.' },
+                  '403': { 'description': 'Locked by contract or last admin.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Leave an organization',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/approve':
+        {
+          'post':
+            {
+              'operationId': 'OrganizationsController_approve',
+              'parameters':
+                [{ 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } }],
+              'responses': { '200': { 'description': 'Organization approved.' } },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Approve an organization (Emtedad Admin only)',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/suspend':
+        {
+          'post':
+            {
+              'operationId': 'OrganizationsController_suspend',
+              'parameters':
+                [{ 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } }],
+              'responses': { '200': { 'description': 'Organization suspended.' } },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Suspend an organization (Emtedad Admin only)',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/users/{userId}/suspend':
+        {
+          'post':
+            {
+              'operationId': 'OrganizationsController_suspendUser',
+              'parameters':
+                [
+                  {
+                    'name': 'userId',
+                    'required': true,
+                    'in': 'path',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'responses': { '200': { 'description': 'User suspended.' } },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Suspend a user account (Emtedad Admin only)',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/broadcast':
+        {
+          'post':
+            {
+              'operationId': 'OrganizationsController_broadcastAnnouncement',
+              'parameters':
+                [{ 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } }],
+              'responses': { '200': { 'description': 'Announcement broadcast.' } },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Broadcast announcement to all org members (Emtedad Admin only)',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/organizations/{id}/support/resolve':
+        {
+          'post':
+            {
+              'operationId': 'OrganizationsController_resolveSupport',
+              'parameters':
+                [{ 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } }],
+              'responses': { '200': { 'description': 'Support request resolved.' } },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Resolve a support request (Emtedad Admin only)',
+              'tags': ['Organizations'],
+            },
+        },
+      '/api/v1/users/me':
+        {
+          'get':
+            {
+              'operationId': 'ProfileController_getMyProfile',
+              'parameters':
+                [
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'responses':
+                {
+                  '200': { 'description': 'Returns profile data.' },
+                  '404': { 'description': 'Account not found.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Get current user profile',
+              'tags': ['Users'],
+            },
+          'put':
+            {
+              'operationId': 'ProfileController_updateMyProfile',
+              'parameters':
+                [
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/UpdateProfileDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '200': { 'description': 'Profile updated.' },
+                  '404': { 'description': 'Account not found.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Update own profile',
+              'tags': ['Users'],
+            },
+        },
+      '/api/v1/users/{id}':
+        {
+          'get':
+            {
+              'operationId': 'ProfileController_getPublicProfile',
+              'parameters':
+                [{ 'name': 'id', 'required': true, 'in': 'path', 'schema': { 'type': 'string' } }],
+              'responses':
+                {
+                  '200': { 'description': 'Returns public profile.' },
+                  '404': { 'description': 'Account not found.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Get public profile of any member',
+              'tags': ['Users'],
+            },
+        },
+      '/api/v1/users/password/change':
+        {
+          'post':
+            {
+              'operationId': 'ProfileController_changePassword',
+              'parameters':
+                [
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'requestBody':
+                {
+                  'required': true,
+                  'content':
+                    {
+                      'application/json':
+                        { 'schema': { '$ref': '#/components/schemas/ChangePasswordDto' } },
+                    },
+                },
+              'responses':
+                {
+                  '200': { 'description': 'Password changed.' },
+                  '400': { 'description': 'Current password is incorrect.' },
+                },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Change password (requires current password)',
+              'tags': ['Users'],
+            },
+        },
+      '/api/v1/users/send-verification':
+        {
+          'post':
+            {
+              'operationId': 'ProfileController_sendVerification',
+              'parameters':
+                [
+                  {
+                    'name': 'x-user-id',
+                    'required': true,
+                    'in': 'header',
+                    'schema': { 'type': 'string' },
+                  },
+                ],
+              'responses': { '200': { 'description': 'Verification code sent.' } },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Send email verification code',
+              'tags': ['Users'],
+            },
+        },
+      '/api/v1/eligibility/mediators':
+        {
+          'get':
+            {
+              'operationId': 'EligibilityController_getEligibleMediators',
+              'parameters': [],
+              'responses': { '200': { 'description': 'Returns list of eligible mediators.' } },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Get eligible mediator pool for disputes',
+              'tags': ['Eligibility'],
+            },
+        },
+      '/api/v1/eligibility/arbitrators':
+        {
+          'get':
+            {
+              'operationId': 'EligibilityController_getEligibleArbitrators',
+              'parameters': [],
+              'responses': { '200': { 'description': 'Returns list of eligible arbitrators.' } },
+              'security': [{ 'bearer': [] }],
+              'summary': 'Get eligible arbitrator pool for disputes',
+              'tags': ['Eligibility'],
+            },
+        },
+    },
+  'info':
+    {
+      'title': 'Emtedad Identity Service',
+      'description': 'Authentication, user registration, organization membership, team management, and eligibility APIs.',
+      'version': '1.0',
+      'contact': {},
+    },
+  'tags':
+    [
+      { 'name': 'Authentication', 'description': 'Authentication & session management' },
+      { 'name': 'Users', 'description': 'User profiles' },
+      { 'name': 'Organizations', 'description': 'Organization management & team' },
+      { 'name': 'Eligibility', 'description': 'Mediator/arbitrator pool for disputes' },
+      { 'name': 'Invitations', 'description': 'Invite codes & team invitations' },
+    ],
+  'servers': [{ 'url': 'http://localhost:4001' }],
+  'components':
+    {
+      'securitySchemes': { 'cookie': { 'type': 'apiKey', 'in': 'cookie', 'name': 'emtedad.sid' } },
+      'schemas':
+        {
+          'RegisterUserDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'email': { 'type': 'string', 'format': 'email', 'example': 'user@example.com' },
+                  'password':
+                    {
+                      'type': 'string',
+                      'minLength': 8,
+                      'maxLength': 128,
+                      'example': 'securePassword123',
+                    },
+                  'firstName':
+                    { 'type': 'string', 'minLength': 1, 'maxLength': 100, 'example': 'Ahmed' },
+                  'lastName':
+                    { 'type': 'string', 'minLength': 1, 'maxLength': 100, 'example': 'Al-Kindi' },
+                  'bio': { 'type': 'string', 'example': 'Community organizer and educator' },
+                  'skills':
+                    {
+                      'example': ['mediation', 'teaching'],
+                      'type': 'array',
+                      'items': { 'type': 'string' },
+                    },
+                  'areasOfExpertise':
+                    {
+                      'example': ['conflict resolution', 'youth programs'],
+                      'type': 'array',
+                      'items': { 'type': 'string' },
+                    },
+                },
+              'required': ['email', 'password', 'firstName', 'lastName'],
+            },
+          'RegisterOrgDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'inviteToken':
+                    {
+                      'type': 'string',
+                      'minLength': 1,
+                      'maxLength': 128,
+                      'description': 'Invite token from Emtedad Team',
+                      'example': 'abc123invite',
+                    },
+                  'email':
+                    { 'type': 'string', 'format': 'email', 'example': 'admin@org.example.com' },
+                  'password':
+                    {
+                      'type': 'string',
+                      'minLength': 8,
+                      'maxLength': 128,
+                      'example': 'securePassword123',
+                    },
+                  'firstName':
+                    { 'type': 'string', 'minLength': 1, 'maxLength': 100, 'example': 'Postolo' },
+                  'lastName':
+                    { 'type': 'string', 'minLength': 1, 'maxLength': 100, 'example': 'Farouk' },
+                  'legalName':
+                    {
+                      'type': 'string',
+                      'minLength': 1,
+                      'maxLength': 255,
+                      'example': 'Al-Khayriya Organization for Development',
+                    },
+                  'mission':
+                    {
+                      'type': 'string',
+                      'example': 'Empowering communities through education and services',
+                    },
+                  'description':
+                    { 'type': 'string', 'example': 'A non-profit serving rural communities' },
+                  'websiteUrl':
+                    { 'type': 'string', 'maxLength': 255, 'example': 'https://org.example.com' },
+                  'country': { 'type': 'string', 'maxLength': 100, 'example': 'Jordan' },
+                  'city': { 'type': 'string', 'maxLength': 100, 'example': 'Amman' },
+                  'foundationDate': { 'type': 'string', 'example': '2020-01-15' },
+                  'areasOfWork':
+                    {
+                      'example': ['education', 'healthcare', 'agriculture'],
+                      'type': 'array',
+                      'items': { 'type': 'string' },
+                    },
+                },
+              'required':
+                ['inviteToken', 'email', 'password', 'firstName', 'lastName', 'legalName'],
+            },
+          'LoginDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'email': { 'type': 'string', 'format': 'email', 'example': 'user@example.com' },
+                  'password': { 'type': 'string', 'example': 'securePassword123' },
+                },
+              'required': ['email', 'password'],
+            },
+          'ValidateCredentialsDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'email': { 'type': 'string', 'format': 'email', 'example': 'user@example.com' },
+                  'password': { 'type': 'string', 'example': 'securePassword123' },
+                },
+              'required': ['email', 'password'],
+            },
+          'ContextSwitchDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'context':
+                    {
+                      'enum': ['org', 'community'],
+                      'type': 'string',
+                      'description': 'Active context to switch the session to',
+                      'example': 'org',
+                    },
+                },
+              'required': ['context'],
+            },
+          'ForgotPasswordDto':
+            {
+              'type': 'object',
+              'properties':
+                { 'email': { 'type': 'string', 'format': 'email', 'example': 'user@example.com' } },
+              'required': ['email'],
+            },
+          'ResetPasswordDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'token':
+                    { 'type': 'string', 'description': 'Password reset token from email link' },
+                  'newPassword':
+                    {
+                      'type': 'string',
+                      'minLength': 8,
+                      'maxLength': 128,
+                      'example': 'newSecurePassword123',
+                    },
+                },
+              'required': ['token', 'newPassword'],
+            },
+          'VerifyOtpDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'userId':
+                    { 'type': 'string', 'format': 'uuid', 'description': 'User account ID' },
+                  'code':
+                    {
+                      'type': 'string',
+                      'minLength': 6,
+                      'maxLength': 6,
+                      'example': '123456',
+                      'description': '6-digit OTP code',
+                    },
+                },
+              'required': ['userId', 'code'],
+            },
+          'InviteTeamWorkerDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'email': { 'type': 'string', 'format': 'email', 'example': 'worker@example.com' },
+                  'name':
+                    {
+                      'type': 'string',
+                      'minLength': 1,
+                      'maxLength': 255,
+                      'example': 'Fatima Al-Zahra',
+                    },
+                },
+              'required': ['email', 'name'],
+            },
+          'AcceptInviteDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'token': { 'type': 'string', 'description': 'Invitation token' },
+                  'email': { 'type': 'string', 'format': 'email', 'example': 'worker@example.com' },
+                  'password':
+                    {
+                      'type': 'string',
+                      'minLength': 8,
+                      'maxLength': 128,
+                      'example': 'securePassword123',
+                    },
+                  'firstName':
+                    { 'type': 'string', 'minLength': 1, 'maxLength': 100, 'example': 'Fatima' },
+                  'lastName':
+                    { 'type': 'string', 'minLength': 1, 'maxLength': 100, 'example': 'Al-Zahra' },
+                  'bio': { 'type': 'string', 'example': 'Educator and community organizer' },
+                  'skills':
+                    {
+                      'example': ['teaching', 'project management'],
+                      'type': 'array',
+                      'items': { 'type': 'string' },
+                    },
+                  'areasOfExpertise':
+                    {
+                      'example': ['youth development', 'literacy programs'],
+                      'type': 'array',
+                      'items': { 'type': 'string' },
+                    },
+                },
+              'required': ['token', 'email', 'password', 'firstName', 'lastName'],
+            },
+          'VerifyEmailDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'userId':
+                    { 'type': 'string', 'format': 'uuid', 'description': 'User account ID' },
+                  'code':
+                    {
+                      'type': 'string',
+                      'minLength': 6,
+                      'maxLength': 6,
+                      'example': '123456',
+                      'description': '6-digit verification code',
+                    },
+                },
+              'required': ['userId', 'code'],
+            },
+          'RequestOtpDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'userId':
+                    { 'type': 'string', 'format': 'uuid', 'description': 'User account ID' },
+                },
+              'required': ['userId'],
+            },
+          'CreateInvitationDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'inviteCode':
+                    {
+                      'type': 'string',
+                      'description': 'Unique invitation code',
+                      'example': 'ORG-INVITE-2026-001',
+                    },
+                  'targetEmail':
+                    {
+                      'type': 'string',
+                      'format': 'email',
+                      'description': 'Email of the organization admin to invite',
+                      'example': 'admin@org.example.com',
+                    },
+                  'createdByAdminId':
+                    {
+                      'type': 'string',
+                      'format': 'uuid',
+                      'description': 'Emtedad admin who created this invitation',
+                    },
+                  'expiresAt':
+                    {
+                      'type': 'string',
+                      'description': 'Invitation expiry date (ISO 8601)',
+                      'example': '2026-12-31T23:59:59.000Z',
+                    },
+                },
+              'required': ['inviteCode', 'targetEmail', 'createdByAdminId', 'expiresAt'],
+            },
+          'UpdateOrganizationDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'legalName':
+                    {
+                      'type': 'string',
+                      'maxLength': 255,
+                      'example': 'Al-Khayriya Organization for Development',
+                    },
+                  'taxIdentifier': { 'type': 'string', 'maxLength': 100, 'example': '1234567890' },
+                  'websiteUrl':
+                    {
+                      'type': 'string',
+                      'maxLength': 255,
+                      'format': 'uri',
+                      'example': 'https://org.example.com',
+                    },
+                  'mission':
+                    {
+                      'type': 'string',
+                      'example': 'Empowering communities through education and services',
+                    },
+                  'description':
+                    {
+                      'type': 'string',
+                      'example': 'A non-profit serving rural communities in Jordan',
+                    },
+                  'areasOfWork':
+                    {
+                      'example': ['education', 'healthcare', 'agriculture'],
+                      'type': 'array',
+                      'items': { 'type': 'string' },
+                    },
+                  'country': { 'type': 'string', 'maxLength': 100, 'example': 'Jordan' },
+                  'city': { 'type': 'string', 'maxLength': 100, 'example': 'Amman' },
+                  'foundationDate': { 'type': 'string', 'example': '2020-01-15' },
+                  'socialLinks':
+                    {
+                      'type': 'object',
+                      'additionalProperties': { 'type': 'string' },
+                      'example':
+                        {
+                          'facebook': 'https://facebook.com/org',
+                          'twitter': 'https://twitter.com/org',
+                        },
+                    },
+                },
+            },
+          'UpdateProfileDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'firstName': { 'type': 'string', 'maxLength': 100, 'example': 'Ahmed' },
+                  'lastName': { 'type': 'string', 'maxLength': 100, 'example': 'Al-Kindi' },
+                  'bio': { 'type': 'string', 'example': 'Community organizer and educator' },
+                  'skills':
+                    {
+                      'example': ['mediation', 'teaching', 'project management'],
+                      'type': 'array',
+                      'items': { 'type': 'string' },
+                    },
+                  'areasOfExpertise':
+                    {
+                      'example': ['conflict resolution', 'youth programs'],
+                      'type': 'array',
+                      'items': { 'type': 'string' },
+                    },
+                },
+            },
+          'ChangePasswordDto':
+            {
+              'type': 'object',
+              'properties':
+                {
+                  'currentPassword': { 'type': 'string', 'example': 'currentPassword123' },
+                  'newPassword':
+                    {
+                      'type': 'string',
+                      'minLength': 8,
+                      'maxLength': 128,
+                      'example': 'newSecurePassword123',
+                    },
+                },
+              'required': ['currentPassword', 'newPassword'],
+            },
+        },
+    },
+}

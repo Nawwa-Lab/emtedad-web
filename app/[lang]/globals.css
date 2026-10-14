@@ -118,7 +118,7 @@ html * {
 .dot-grid-bg {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='1.7' fill='%231a1714' fill-opacity='0.16'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-position: 0 0;
+  background-position: center;
 }
 
 .dark-dot-grid-bg {
@@ -129,8 +129,14 @@ html * {
 
 .dot-grid-bg-mask {
   /* radial fade mask, replicating the original <mask> + radialGradient */
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, white 60%, transparent 100%);
-  mask-image: radial-gradient(circle at 50% 50%, white 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, white 30%, transparent 80%);
+  mask-image: radial-gradient(circle at 50% 50%, white 30%, transparent 80%);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
 }
 
 .dark-dot-grid-bg-mask {
