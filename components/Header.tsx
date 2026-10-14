@@ -9,9 +9,11 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { NotificationBell } from './NotificationBell'
 import { Button } from './ui/button'
+import { useUser } from '@/contexts/UserContext'
 
 export function Header() {
   const t = useTranslations('header')
+  const { user } = useUser()
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const query = searchParams.toString()
@@ -47,7 +49,7 @@ export function Header() {
             </Button>
           </Link>
         </span>
-        <Link href="/member/123">
+        <Link href={`/member/${user?.uuid}`}>
           <Avatar color="red" isAnimated>
             <AvatarImage src="https://github.com/shadcn.pngg" />
             <AvatarFallback>C</AvatarFallback>

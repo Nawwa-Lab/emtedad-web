@@ -5,11 +5,11 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const dict = await getDictionary()
 
   return {
-    title: dict.passwordReset.metaTitle,
-    description: dict.passwordReset.metaDescription,
+    title: dict.forgetPassword.metaTitle,
+    description: dict.forgetPassword.metaDescription,
   }
 }
 
-export default async function PasswordResetLayout({ children }: { children: React.ReactNode }) {
+export default async function ForgetPasswordLayout({ children }: { children: React.ReactNode }) {
   return children
 }

@@ -1,8 +1,11 @@
 import { UserProvider } from '@/contexts/UserContext'
 import { alexandriaFont, cairoFont, lalezarFont, rubikFont } from '@/lib/fonts'
+import { QueryProvider } from '@/services/query'
+import { Toaster } from '@/components/ui/toast'
 import type { Locale } from '@/types'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { DirectionProvider } from '@base-ui/react'
 
 export const metadata: Metadata = {
   title: 'Shahamham',
@@ -31,9 +34,14 @@ export default async function RootLayout({
   return (
     <html lang={lang} dir={dir}>
       <body
-        className={`h-screen flex flex-col relative ${rubikFont.variable} ${lalezarFont.variable} ${cairoFont.variable} ${alexandriaFont.variable} bg-paper`}
+        className={`flex flex-col relative ${rubikFont.variable} ${lalezarFont.variable} ${cairoFont.variable} ${alexandriaFont.variable} bg-paper`}
       >
-        <UserProvider>{children}</UserProvider>
+        <QueryProvider>
+          <DirectionProvider direction={dir}>
+            <UserProvider>{children}</UserProvider>
+          </DirectionProvider>
+        </QueryProvider>
+        <Toaster />
       </body>
     </html>
   )
