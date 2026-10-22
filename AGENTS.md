@@ -21,3 +21,18 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   unless explicitly asked.
 - Finish with the outcome, files changed, and verification performed. State
   blockers or checks not run plainly.
+
+## HTML design migration
+
+When changing a dashboard UI page, read `designs/manifest.md` first.
+
+- Convert regular CSS declarations from the source HTML to Tailwind utilities on
+  the corresponding JSX element; do not add page-specific CSS.
+- Reuse existing `components/` modules and the applicable route layout before
+  creating an equivalent component or layout.
+- Extract a shared component only when at least two approved design rows need it.
+- Put visible static text in its feature's locale JSON file. Put cross-domain
+  business copy (such as brand, currency, teams, and badges) in the `global`
+  namespace in `i18n/dictionary/{ar,en}/global.json`.
+- Keep temporary dynamic content in typed route-local `data.ts` fixtures until
+  backend integration is explicitly requested.
