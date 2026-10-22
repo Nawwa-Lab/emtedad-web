@@ -1,10 +1,8 @@
 import type { Locale } from '@/types'
 
-import ar from '@/i18n/dictionary/ar.json'
-import en from '@/i18n/dictionary/en.json'
 import { getLocale } from 'next-intl/server'
 
-const dictionaries = { ar, en } as const
+import { dictionaries } from '.'
 
 export type Dictionary = (typeof dictionaries)[Locale]
 

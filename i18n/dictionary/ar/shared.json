@@ -1,0 +1,150 @@
+{
+  "navigation": {
+    "maktab": "المكتب",
+    "namliya": "نملية",
+    "khalis": "خلي خالص",
+    "have_qalish": "ألقيش عندك؟",
+    "hakima": "حكيمة",
+    "genny": "جني",
+    "shbeik-lbeik": "شبّيك لبيك",
+    "managment": "إدارة",
+    "etabat": "عتابات",
+    "fahs-mahs": "فحص محص",
+    "logout": "تسجيل الخروج"
+  },
+  "header": {
+    "searchPlaceholder": "ابحث في الشبكة…",
+    "searchAriaLabel": "بحث",
+    "quickAction": "اعمل معروف +",
+    "logo": "شهمهم",
+    "contextLabel": "أنا مؤسسة",
+    "switchContext": "بدِّل",
+    "notificationsAriaLabel": "الإشعارات — ٣ غير مقروءة"
+  },
+  "dashboard": {
+    "title": "أهلًا بمشكاة في شهمهم",
+    "description": "من هنا يبدأ المعروف — أول عرض تنشره بيفتح الدورة، وكل خير بيلفّ يرجع.",
+    "quickAction": "اعمل معروف +",
+    "watchNamliya": "اتفرّج على النملية"
+  },
+  "quickAction": {
+    "title": "اعمل معروف",
+    "description": "هتعمله فين؟ اختار المكان ونوع المعروف.",
+    "namliyaTitle": "نملية",
+    "namliyaDesc": "سوق المؤسسات — من مؤسسة لمؤسسة",
+    "humanService": "خدمة بشرية",
+    "materialResource": "مورد مادي",
+    "khalisTitle": "خلي خالص",
+    "khalisDesc": "سوق المجتمع — من مؤسستك للجمهور",
+    "workshop": "ورشة",
+    "course": "كورس",
+    "culturalProgram": "برنامج ثقافي",
+    "event": "فعالية",
+    "qalishTitle": "ألقيش عندك؟",
+    "qalishDesc": "لوح الطلبات — لما اللي محتاجه مش موجود",
+    "newRequest": "طلب جديد",
+    "footer": "كل معروف بينشر باسم مؤسستك — مشكاة."
+  },
+  "sidebar": {
+    "mainNavAriaLabel": "التنقل الرئيسي",
+    "quickAction": "اعمل معروف +",
+    "notifications": "الإشعارات",
+    "orgName": "مؤسسة مشكاة",
+    "publicProfile": "الملف العام"
+  },
+  "dialog": {
+    "close": "إغلاق"
+  },
+  "statusBadge": {
+    "veryGood": "عامر",
+    "good": "كريم",
+    "acceptable": "أحسن عندك",
+    "empty": "-"
+  },
+  "search": {
+    "heading": "نتائج البحث عن «{term}»",
+    "resultCount": "نتائج في الشبكة",
+    "filterAll": "الكل",
+    "namliyaOffers": "عروض على النملية",
+    "viewAllNamliya": "شوف الكل في النملية",
+    "khalisOffers": "عروض على خلي خالص",
+    "viewAllKhalis": "شوف الكل في خلي خالص",
+    "qalishRequests": "طلبات على ألقيش عندك؟",
+    "viewAllRequests": "شوف كل الطلبات",
+    "members": "أعضاء",
+    "catDesign": "تصميم",
+    "catPublicToOrgs": "من الجمهور للمؤسسات",
+    "catRequest": "طلب",
+    "shahama": "شهامة",
+    "order": "اطلب",
+    "iHave": "عندي",
+    "visualDesigner": "مصمم بصري · مؤسسة مشكاة",
+    "kareem": "كريم",
+    "profile": "الملف"
+  },
+  "infoCard": {
+    "countryCity": {
+      "label": "البلد · المدينة",
+      "value": "مصر · القاهرة"
+    },
+    "foundingYear": {
+      "label": "سنة التأسيس",
+      "value": "٢٠١٧"
+    },
+    "website": {
+      "label": "الموقع",
+      "value": "sawtwsoora.org"
+    },
+    "socialMedia": {
+      "label": "وسائل التواصل",
+      "value": "إنستجرام · فيسبوك"
+    }
+  },
+  "serviceCard": {
+    "humanServiceCard": [
+      {
+        "category": "إنتاج",
+        "title": "تصوير وتوثيق فعاليات بالفيديو",
+        "providerName": "كريم فوزي ",
+        "providerRate": "عامر ",
+        "availability": "متاح أي مدة",
+        "price": "٣٥",
+        "currency": "شهامة",
+        "request": "اطلب",
+        "spotsLeft": "فاضل ٥ أماكن"
+      },
+      {
+        "category": "مونتاج",
+        "title": "مونتاج أفلام قصيرة وفيديوهات تعريفية",
+        "providerName": "نور علي ",
+        "providerRate": "كريم  ",
+        "availability": "محدد حتى ١٥ أكتوبر",
+        "price": "٤٥",
+        "currency": "شهامة",
+        "request": "اطلب"
+      }
+    ],
+    "materialResourceCard": [
+      {
+        "category": "معدات",
+        "title": "كاميرا سينمائية مع عدستين",
+        "providerName": "بإشراف مشغّل",
+        "providerRate": "تأمين نقدي مطلوب  ",
+        "availability": "متاحة بمدة محددة ",
+        "price": "٣٠",
+        "currency": "شهامة",
+        "request": "اطلب"
+      },
+      {
+        "category": "مساحات",
+        "title": "استوديو صوت معزول للتسجيل",
+        "providerName": "بلا إشراف",
+        "providerRate": "بلا تأمين  ",
+        "availability": "متاح أي مدة  ",
+        "price": "٢٥",
+        "currency": "شهامة",
+        "request": "اطلب"
+      }
+    ]
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "navigation": {
+    "maktab": "Maktab",
+    "namliya": "Namliya",
+    "khalis": "Khalis",
+    "have_qalish": "Do you have Qalish?",
+    "hakima": "Hakima",
+    "genny": "Jni",
+    "shbeik-lbeik": "Shbeik Lbeik",
+    "managment": "Management",
+    "etabat": "Reproaches",
+    "fahs-mahs": "Exam",
+    "logout": "Log out"
+  },
+  "header": {
+    "searchPlaceholder": "Search the network…",
+    "searchAriaLabel": "Search",
+    "quickAction": "Do a good deed +",
+    "logo": "Shahamham",
+    "contextLabel": "I'm an organization",
+    "switchContext": "Switch",
+    "notificationsAriaLabel": "Notifications — 3 unread"
+  },
+  "dashboard": {
+    "title": "Welcome to Mishkaa in Shahamham",
+    "description": "Good deeds start here — your first published offer opens the cycle, and every kindness comes back.",
+    "quickAction": "Do a good deed +",
+    "watchNamliya": "Watch Namliya"
+  },
+  "quickAction": {
+    "title": "Do a good deed",
+    "description": "Where will you do it? Choose the place and type of good deed.",
+    "namliyaTitle": "Namliya",
+    "namliyaDesc": "Organizations market — from organization to organization",
+    "humanService": "Human service",
+    "materialResource": "Material resource",
+    "khalisTitle": "Khalis",
+    "khalisDesc": "Community market — from your organization to the public",
+    "workshop": "Workshop",
+    "course": "Course",
+    "culturalProgram": "Cultural program",
+    "event": "Event",
+    "qalishTitle": "Got Qalish?",
+    "qalishDesc": "Request board — when what you need isn't available",
+    "newRequest": "New request",
+    "footer": "Every good deed is published under your organization's name — Mishkaa."
+  },
+  "sidebar": {
+    "mainNavAriaLabel": "Main navigation",
+    "quickAction": "Do a good deed +",
+    "notifications": "Notifications",
+    "orgName": "Mishkaa Organization",
+    "publicProfile": "Public profile"
+  },
+  "dialog": {
+    "close": "Close"
+  },
+  "statusBadge": {
+    "veryGood": "Epic",
+    "good": "Good",
+    "acceptable": "Fair",
+    "empty": "-"
+  },
+  "search": {
+    "heading": "Search results for «{term}»",
+    "resultCount": "results in the network",
+    "filterAll": "All",
+    "namliyaOffers": "Offers on Namliya",
+    "viewAllNamliya": "See all on Namliya",
+    "khalisOffers": "Offers on Khalis",
+    "viewAllKhalis": "See all on Khalis",
+    "qalishRequests": "Requests on Got Qalish?",
+    "viewAllRequests": "See all requests",
+    "members": "Members",
+    "catDesign": "Design",
+    "catPublicToOrgs": "From public to organizations",
+    "catRequest": "Request",
+    "shahama": "Shahama",
+    "order": "Order",
+    "iHave": "I have",
+    "visualDesigner": "Visual designer · Mishkaa Organization",
+    "kareem": "Kareem",
+    "profile": "Profile"
+  },
+  "infoCard": {
+    "countryCity": {
+      "label": "Country · City",
+      "value": "Egypt · Cairo"
+    },
+    "foundingYear": {
+      "label": "Founding Year",
+      "value": "2017"
+    },
+    "website": {
+      "label": "Website",
+      "value": "sawtwsoora.org"
+    },
+    "socialMedia": {
+      "label": "Social Media",
+      "value": "Instagram · Facebook"
+    }
+  },
+  "serviceCard": {
+    "humanServiceCard": [
+      {
+        "category": "Production",
+        "title": "Video shooting and documentation of events",
+        "providerName": "Karim Fawzy · ",
+        "providerRate": "Amer ·",
+        "availability": "Available any duration",
+        "price": "35",
+        "currency": "Shahama",
+        "request": "Request",
+        "spotsLeft": "5 spots left"
+      },
+      {
+        "category": "Editing",
+        "title": "Short film editing and promotional videos",
+        "providerName": "Nour Ali · ",
+        "providerRate": "Karim · ",
+        "availability": "Limited until October 15",
+        "price": "45",
+        "currency": "Shahama",
+        "request": "Request"
+      }
+    ],
+    "materialResourceCard": [
+      {
+        "category": "Equipment",
+        "title": "Cinema camera with two lenses",
+        "providerName": "Supervised by operator",
+        "providerRate": "Cash deposit required · ",
+        "availability": "Available for a limited period · ",
+        "price": "30",
+        "currency": "Shahama",
+        "request": "Request"
+      },
+      {
+        "category": "Spaces",
+        "title": "Isolated sound studio for recording",
+        "providerName": "Unsupervised",
+        "providerRate": "No deposit · ",
+        "availability": "Available any duration · ",
+        "price": "25",
+        "currency": "Shahama",
+        "request": "Request"
+      }
+    ]
+  }
+}

@@ -1,6 +1,5 @@
 import { ImageDropzone, type AttachedImage } from '@/components/ImageDropzone'
-import ar from '@/i18n/dictionary/ar.json'
-import en from '@/i18n/dictionary/en.json'
+import { dictionaries } from '@/i18n/dictionary'
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { NextIntlClientProvider } from 'next-intl'
 import * as React from 'react'
@@ -47,7 +46,7 @@ const meta = {
       const locale = context.globals.locale === 'en' ? 'en' : 'ar'
 
       return (
-        <NextIntlClientProvider locale={locale} messages={locale === 'en' ? en : ar}>
+        <NextIntlClientProvider locale={locale} messages={dictionaries[locale]}>
           <div className="mx-auto w-full max-w-2xl">
             <Story />
           </div>
