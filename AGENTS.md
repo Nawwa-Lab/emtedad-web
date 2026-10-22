@@ -31,6 +31,9 @@ When changing a dashboard UI page, read `designs/manifest.md` first.
 - Reuse existing `components/` modules and the applicable route layout before
   creating an equivalent component or layout.
 - Extract a shared component only when at least two approved design rows need it.
+- Before using or adding an SVG, inspect `icons/` and reuse a matching
+  `@/icons/*.svg` asset. If none matches, stop and request approval; do not add
+  or substitute an icon.
 - Put visible static text in its feature's locale JSON file. Put cross-domain
   business copy (such as brand, currency, teams, and badges) in the `global`
   namespace in `i18n/dictionary/{ar,en}/global.json`.
