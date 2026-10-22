@@ -12,7 +12,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
         <div className="flex min-h-0 min-w-0 flex-1 flex-col">
           <Header />
           <main className="min-w-0 flex-1 overflow-y-auto p-8 max-[820px]:p-4 dot-grid-bg">
-            <div className="max-w-300">{children}</div>
+            <div className="">{children}</div>
           </main>
         </div>
       </div>

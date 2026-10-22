@@ -1,0 +1,39 @@
+{
+  "etabat": {
+    "home": {
+      "title": "عتابات",
+      "description": "الخلافات اللي أنت طرف فيها — تقديم، رد، وساطة، وتحكيم",
+      "privacyNote": "العتاب <strong>مش منشور لحد</strong>. اللي بيشوفه هم أطراف النزاع، والوسطاء والمحكمين اللي النظام بيختارهم، وبس. العتابات اللي اتختارت فيها كوسيط أو محكّم بتظهر في <fahs>فحص محص</fahs>، مش هنا.",
+      "actions": {
+        "exchangeComplaint": "عتاب على تبادل +",
+        "generalComplaint": "عتاب عام +"
+      },
+      "filters": {
+        "roleLabel": "تصفية حسب صفتي",
+        "roles": { "all": "الكل", "claimant": "قدّمتها", "respondent": "مقدّمة عليّ" },
+        "statusLabel": "تصفية حسب الحالة",
+        "status": { "all": "مفتوحة ومقفولة", "open": "المفتوحة بس", "closed": "المقفولة بس" }
+      },
+      "roles": { "claimant": "مشتكي", "respondent": "مشتكى عليه" },
+      "caseNumber": "ع-{id}",
+      "opponent": "الطرف التاني:",
+      "amount": "قيمة النزاع {value} {currency}",
+      "noAmount": "مش مرتبط برصيد",
+      "states": {
+        "mediation": "تحت الوساطة",
+        "arbitration": "تحت التحكيم",
+        "decision": "صدر قرار التحكيم",
+        "closed": "مغلق"
+      },
+      "progressLabel": "تقدم القضية",
+      "steps": {
+        "filed": "قُدِّم",
+        "response": "الرد",
+        "mediation": "الوساطة",
+        "arbitration": "التحكيم",
+        "closed": "مغلق"
+      },
+      "empty": "مفيش عتابات في التصنيف ده."
+    }
+  }
+}

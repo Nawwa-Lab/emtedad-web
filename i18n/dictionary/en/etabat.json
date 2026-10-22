@@ -1,0 +1,39 @@
+{
+  "etabat": {
+    "home": {
+      "title": "Etabat",
+      "description": "Disputes you are involved in — filing, response, mediation, and arbitration",
+      "privacyNote": "An Etab <strong>is not public</strong>. Only the dispute parties and the mediators or arbitrators selected by the system can see it. Cases where you are selected as a mediator or arbitrator appear in <fahs>Fahs Mahs</fahs>, not here.",
+      "actions": {
+        "exchangeComplaint": "Complaint about an exchange +",
+        "generalComplaint": "General complaint +"
+      },
+      "filters": {
+        "roleLabel": "Filter by my role",
+        "roles": { "all": "All", "claimant": "Filed by me", "respondent": "Filed against me" },
+        "statusLabel": "Filter by status",
+        "status": { "all": "Open and closed", "open": "Open only", "closed": "Closed only" }
+      },
+      "roles": { "claimant": "Claimant", "respondent": "Respondent" },
+      "caseNumber": "E-{id}",
+      "opponent": "Other party:",
+      "amount": "Dispute value: {value} {currency}",
+      "noAmount": "Not linked to a balance",
+      "states": {
+        "mediation": "In mediation",
+        "arbitration": "In arbitration",
+        "decision": "Arbitration decision issued",
+        "closed": "Closed"
+      },
+      "progressLabel": "Case progress",
+      "steps": {
+        "filed": "Filed",
+        "response": "Response",
+        "mediation": "Mediation",
+        "arbitration": "Arbitration",
+        "closed": "Closed"
+      },
+      "empty": "There are no Etabat in this filter."
+    }
+  }
+}

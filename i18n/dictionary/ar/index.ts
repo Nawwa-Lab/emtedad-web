@@ -1,5 +1,6 @@
 import alaesh from './alaesh.json'
 import auth from './auth.json'
+import etabat from './etabat.json'
 import genny from './genny.json'
 import global from './global.json'
 import landing from './landing.json'
@@ -11,6 +12,7 @@ import shared from './shared.json'
 const messages = {
   ...landing,
   ...auth,
+  ...etabat,
   ...global,
   ...shared,
   ...profiles,
