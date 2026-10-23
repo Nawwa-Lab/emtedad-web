@@ -16,8 +16,9 @@
       },
       "roles": { "claimant": "Claimant", "respondent": "Respondent" },
       "caseNumber": "E-{id}",
+      "filedDate": "Filed {date}",
       "opponent": "Other party:",
-      "amount": "Dispute value: {value} {currency}",
+      "amount": "Dispute value: {value} <currency>{currencyValue}</currency>",
       "noAmount": "Not linked to a balance",
       "states": {
         "mediation": "In mediation",
@@ -33,7 +34,78 @@
         "arbitration": "Arbitration",
         "closed": "Closed"
       },
-      "empty": "There are no Etabat in this filter."
+      "empty": "There are no Etabat in this filter.",
+      "case": {
+        "back": "Back to Etabat",
+        "claimant": "Claimant:",
+        "state": "Awaiting response",
+        "facts": {
+          "amount": "Dispute value",
+          "exchange": "Exchange",
+          "duration": "Maximum duration",
+          "mediators": "Mediators"
+        },
+        "workingDays": "{value} <unit>working days</unit>",
+        "todoTitle": "What you need to do now: respond",
+        "todoText": "You have two days to respond and upload evidence. If the deadline passes without a response, the case proceeds to mediation with this account only.",
+        "writeResponse": "Write your response",
+        "readComplaint": "Read the complaint first",
+        "tabs": {
+          "complaint": "Complaint",
+          "response": "My response",
+          "exchange": "Exchange file",
+          "timeline": "Process"
+        },
+        "complaintTitle": "What the claimant says",
+        "claimantRole": "Claimant",
+        "filedTime": "30 September · 11:40 AM",
+        "requestTitle": "Their request",
+        "evidenceTitle": "Their evidence",
+        "uploaded": "Uploaded 30 September",
+        "responseTitle": "Your response",
+        "responseIntro": "Write your account of what happened. Mediators read the complaint and response together before the first session.",
+        "whatHappened": "What happened from your side?",
+        "whatHappenedHint": "In chronological order — mention any circumstance that changed the schedule",
+        "solution": "Do you have a proposed solution?",
+        "solutionHint": "A written proposal can save a full mediation session",
+        "optionalHint": "Optional — a reasonable proposal resolves many cases during mediation without arbitration.",
+        "evidence": "Your evidence",
+        "upload": "Upload photos, files, or screenshots",
+        "uploadHint": "PDF · PNG · JPG — up to 5 files",
+        "responseLock": "After you send the response, <strong>you cannot edit it</strong>. You can add new evidence during mediation.",
+        "send": "Send response",
+        "save": "Save draft",
+        "saved": "Draft saved",
+        "sent": "Response sent",
+        "validation": {
+          "responseRequired": "Write your account before sending the response.",
+          "responseMin": "Your response must be at least 10 characters."
+        },
+        "exchangeTitle": "Exchange file — locked",
+        "exchangeIntro": "It was locked automatically when the complaint was filed. Both parties can see it, but nobody can edit it.",
+        "locked": "Locked",
+        "currencyHeld": "The currency <strong>is held</strong> from the time the complaint was filed. It is not transferred until the case closes.",
+        "timelineTitle": "Case process",
+        "timeline": [
+          [
+            "Complaint filed — 30 September",
+            "The claimant filed the complaint. The exchange file was locked and the currency was held."
+          ],
+          [
+            "Response — two days left",
+            "Your turn. If the deadline passes, mediation continues without your response."
+          ],
+          [
+            "Mediation — free",
+            "The system selects three mediators. It fails automatically if no settlement is reached in time."
+          ],
+          [
+            "Arbitration — deposit",
+            "Five arbitrators and a deposit per arbitrator apply to this balance-linked case."
+          ],
+          ["Appeal — 5 business days", "A larger panel reviews the appeal with a doubled deposit."]
+        ]
+      }
     }
   }
 }
