@@ -159,6 +159,69 @@
           "detailsMin": "Details must be at least 10 characters.",
           "requestRequired": "Enter your requested resolution."
         }
+      },
+      "generalComplaint": {
+        "back": "Back to Etabat",
+        "title": "General complaint",
+        "subtitle": "Not linked to an exchange · Mishkat for Culture",
+        "intro": "A general complaint concerns <strong>conduct</strong>, not an exchange. If the dispute concerns an agreed service or resource, file an <link>exchange complaint</link> so its records are attached automatically.",
+        "kindTitle": "Complaint type",
+        "kindIntro": "The type determines the Code of Conduct penalty category if the complaint reaches arbitration.",
+        "kinds": {
+          "harassment": {
+            "title": "Harassment or abuse",
+            "description": "Abusive conduct, threats, or discrimination toward a member or organization team."
+          },
+          "fraud": {
+            "title": "Fraud",
+            "description": "A false claim or a currency transfer for something that was never delivered."
+          },
+          "rules": {
+            "title": "Rule misuse",
+            "description": "Exploiting a system loophole — fake accounts, reciprocal ratings, or cycling balances."
+          },
+          "exclusion": {
+            "title": "Suspension or exclusion proposal",
+            "description": "A request to suspend an organization membership or exclude it from the network."
+          }
+        },
+        "membershipNote": "<strong>Exclusion</strong> cases are resolved here, not under <link>organization membership</link> — that area is for joining only.",
+        "detailsTitle": "Details",
+        "target": "Who is the complaint against?",
+        "targetPlaceholder": "Search by organization or member name",
+        "targetHint": "Start typing and the system completes from network members.",
+        "complaintTitle": "Complaint title",
+        "titlePlaceholder": "One line describing the incident",
+        "details": "What happened?",
+        "detailsPlaceholder": "Write chronologically — dates, place, and who was present",
+        "request": "What do you want?",
+        "requestPlaceholder": "For example: a written apology or a three-month suspension",
+        "evidence": "Evidence",
+        "optional": "optional but helpful",
+        "upload": "Upload photos, files, or screenshots",
+        "uploadHint": "PDF · PNG · JPG — up to 5 files",
+        "differenceTitle": "How this differs from an exchange complaint",
+        "facts": {
+          "duration": "Maximum duration",
+          "durationValue": "One month",
+          "arbitrators": "Number of arbitrators",
+          "arbitratorsValue": "7",
+          "deposit": "Deposit",
+          "depositValue": "40",
+          "mediation": "Mediation",
+          "mediationValue": "Free"
+        },
+        "warning": "This complaint is <strong>not linked to a balance</strong>, so the deposit is the minimum — 40 units, doubled with each appeal — and arbitration starts with seven arbitrators instead of five. The maximum processing duration is one month from filing.",
+        "submit": "File complaint",
+        "cancel": "Cancel",
+        "validation": {
+          "kindRequired": "Choose a complaint type.",
+          "targetRequired": "Choose an organization or member.",
+          "titleRequired": "Enter a complaint title.",
+          "detailsRequired": "Describe what happened.",
+          "detailsMin": "Details must be at least 10 characters.",
+          "requestRequired": "Enter your requested resolution."
+        }
       }
     }
   }
