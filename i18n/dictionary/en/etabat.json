@@ -105,6 +105,60 @@
           ],
           ["Appeal — 5 business days", "A larger panel reviews the appeal with a doubled deposit."]
         ]
+      },
+      "exchangeComplaint": {
+        "back": "Back to Etabat",
+        "title": "File a complaint",
+        "subtitle": "Linked to an exchange · Mishkat for Culture",
+        "chooseTitle": "Which exchange is this complaint about?",
+        "chooseIntro": "Choose the exchange and the system will attach its complete file automatically.",
+        "with": "With",
+        "generalNote": "A complaint <strong>not linked to an exchange</strong> — harassment, fraud, rule misuse, or a membership-suspension proposal — is filed as a <link>general complaint</link>.",
+        "continue": "Continue",
+        "cancel": "Cancel",
+        "attachmentsTitle": "Attached automatically",
+        "attachmentsIntro": "These are the exchange records as stored in the system. They are locked when the complaint is filed, which makes them evidence.",
+        "locked": "Locked",
+        "backStep": "Back",
+        "storyTitle": "Tell us what happened",
+        "complaintTitle": "Complaint title",
+        "details": "What happened exactly?",
+        "detailsHint": "In chronological order — what was agreed, what actually happened, and when",
+        "detailsHelp": "Mediators and arbitrators read this before anything else.",
+        "request": "What do you want?",
+        "requestHint": "For example: deliver the remaining sessions within two weeks",
+        "evidence": "Additional evidence",
+        "optional": "Optional",
+        "upload": "Upload photos, files, or screenshots",
+        "uploadHint": "PDF · PNG · JPG — up to 5 files",
+        "deadline": "<strong>Maximum duration for a service-linked complaint: 15 business days.</strong> A complaint not linked to a service has a one-month duration.",
+        "submit": "File complaint",
+        "nextTitle": "What happens after filing",
+        "nextSteps": [
+          [
+            "Response — 3 days",
+            "The other party sees the complaint and attached file, then responds with their evidence."
+          ],
+          [
+            "Mediation — free",
+            "The system selects three mediators to work with both parties on a settlement."
+          ],
+          [
+            "Arbitration — deposit",
+            "If mediation fails, either party can continue with a deposit and an anonymous arbitration panel."
+          ],
+          [
+            "Appeal — 5 business days",
+            "Either party can appeal to a larger panel with a doubled deposit."
+          ]
+        ],
+        "validation": {
+          "exchangeRequired": "Choose an exchange.",
+          "titleRequired": "Enter a complaint title.",
+          "detailsRequired": "Describe what happened.",
+          "detailsMin": "Details must be at least 10 characters.",
+          "requestRequired": "Enter your requested resolution."
+        }
       }
     }
   }

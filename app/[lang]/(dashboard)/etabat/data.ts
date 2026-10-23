@@ -90,3 +90,41 @@ export async function saveCaseResponseDraft() {
 export async function submitCaseResponse(response: { response: string; proposal: string }) {
   return Promise.resolve(response)
 }
+
+export const exchangeComplaintExchanges = [
+  {
+    id: 'workshop',
+    title: 'ورشة تصوير وثائقي — ٣ جلسات',
+    state: 'بيحصل',
+    party: 'استوديو الورشة',
+    value: 500,
+    detail: 'اتفقنا ١ سبتمبر · التسليم كان المفروض ٢٠ سبتمبر',
+    complaintTitle: 'تسليم الورشة اتأخّر ١٢ يوم عن الاتفاق',
+  },
+  {
+    id: 'rehearsal',
+    title: 'تأجير قاعة البروفات — أسبوعين',
+    state: 'حصل',
+    party: 'بيت الحكاية',
+    value: 180,
+    detail: 'اتقفل ١٢ سبتمبر',
+    complaintTitle: 'خلاف على تأجير قاعة البروفات',
+  },
+  {
+    id: 'identity',
+    title: 'تصميم هوية مهرجان الحكي',
+    state: 'بيحصل',
+    party: 'مروان صبحي',
+    value: 360,
+    detail: 'اتفقنا ٢٥ أغسطس',
+    complaintTitle: 'تسليم هوية مهرجان الحكي اتأخّر',
+  },
+] as const
+
+export const exchangeComplaintFiles = [
+  ['الاتفاق المكتوب', 'نسخة ٣ · آخر تعديل ٨ سبتمبر'],
+  ['الجدول الزمني', '٤ مراحل تسليم'],
+  ['الرسائل', '٦٢ رسالة'],
+  ['التسليمات', '٢ من ٤ اتسلّموا'],
+  ['قيمة الشهمهم', '٥٠٠ شهمهم · ٢٠ ساعة × ٢٥'],
+] as const
