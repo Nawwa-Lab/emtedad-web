@@ -20,7 +20,7 @@ export function Header() {
   const returnTo = query ? `${pathname}?${query}` : pathname
 
   return (
-    <header className="flex shrink-0 items-center gap-4 border-b-[3px] border-ink bg-surface px-6 py-3 max-[820px]:flex-wrap max-[820px]:px-4">
+    <header className="sticky top-0 z-20 flex shrink-0 items-center gap-4 border-b-[3px] border-ink bg-surface px-6 py-3 max-[820px]:flex-wrap max-[820px]:px-4">
       <div className="font-display flex flex-row gap-3 justify-center items-center font-bold text-xl text-red decoration-0">
         <Image src={LogoIcon} alt={t('logo')} className="size-10" />
         <span>{t('logo')}</span>
