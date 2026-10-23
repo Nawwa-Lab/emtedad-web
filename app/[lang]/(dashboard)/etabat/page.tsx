@@ -29,7 +29,13 @@ export default function EtabatHomePage() {
   )
 
   return (
-    <div className="">
+    <div className="mx-auto max-w-245">
+      <div className="mb-2 flex flex-row flex-wrap items-end gap-5">
+        <h1 className="font-display text-[clamp(44px,5.4vw,70px)]/[1] font-normal max-[520px]:text-[40px]">
+          {t('title')}
+        </h1>
+        <p className="mb-2.5 font-body text-[17px] font-medium text-soft">{t('description')}</p>
+      </div>
       <div className="mb-6 flex items-start gap-4 rounded-panel border-[3px] border-ink bg-blue px-6 py-5 text-surface shadow-[6px_6px_0] shadow-ink">
         <Image src={EtabatIcon} alt="" className="mt-0.5 size-8.5 shrink-0" />
         <p className="font-body text-[15.5px] font-semibold leading-[1.9]">
@@ -118,15 +124,16 @@ export default function EtabatHomePage() {
               |
               {item.amount ? (
                 <span>
-                  {t('amount', {
+                  {t.rich('amount', {
                     value: formatNumber(item.amount, { locale }),
-                    currency: global('currency'),
+                    currencyValue: global('currency'),
+                    currency: (chunks) => <span className="">{chunks}</span>,
                   })}
                 </span>
               ) : (
                 <span>{t('noAmount')}</span>
               )}
-              |<span>{item.date}</span>
+              |<span>{item.open ? t('filedDate', { date: item.date }) : item.date}</span>
               {item.deadline && (
                 <Badge color="red" effect="flat">
                   {item.deadline}
