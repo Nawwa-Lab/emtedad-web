@@ -128,3 +128,15 @@ export const exchangeComplaintFiles = [
   ['التسليمات', '٢ من ٤ اتسلّموا'],
   ['قيمة الشهمهم', '٥٠٠ شهمهم · ٢٠ ساعة × ٢٥'],
 ] as const
+
+export const generalComplaintTarget = 'دار نون للنشر'
+
+export async function submitGeneralComplaint(complaint: {
+  kind: string
+  target: string
+  title: string
+  details: string
+  request: string
+}) {
+  return Promise.resolve(complaint)
+}
