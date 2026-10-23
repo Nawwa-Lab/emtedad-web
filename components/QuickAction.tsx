@@ -8,16 +8,17 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Link } from '@/i18n/navigation'
+import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
-import { Button } from './ui/button'
+import { buttonVariants } from './ui/button'
 
 export function QuickAction() {
   const t = useTranslations('quickAction')
   const d = useTranslations('header')
   return (
     <Dialog>
-      <DialogTrigger className="hidden sm:block">
-        <Button>{d('quickAction')}</Button>
+      <DialogTrigger className={cn(buttonVariants(), 'hidden sm:block')}>
+        {d('quickAction')}
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
