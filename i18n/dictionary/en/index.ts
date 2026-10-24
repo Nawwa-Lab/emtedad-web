@@ -4,6 +4,7 @@ import etabat from './etabat.json'
 import fahsMahs from './fahs-mahs.json'
 import genny from './genny.json'
 import global from './global.json'
+import hakima from './hakima.json'
 import landing from './landing.json'
 import namliya from './namliya.json'
 import profiles from './profiles.json'
@@ -16,6 +17,7 @@ const messages = {
   ...etabat,
   ...fahsMahs,
   ...global,
+  ...hakima,
   ...shared,
   ...profiles,
   ...namliya,

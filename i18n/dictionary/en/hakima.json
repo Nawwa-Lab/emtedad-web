@@ -1,0 +1,307 @@
+{
+  "hakima": {
+    "name": "Hakima",
+    "back": "Back to Hakima",
+    "browseSubtitle": "Network governance — organizations decide together",
+    "nav": {
+      "label": "Hakima sections",
+      "browse": "Browse",
+      "support": "Support phase",
+      "voting": "Voting phase",
+      "mine": "My proposals",
+      "annualReview": "Annual review",
+      "log": "Log"
+    },
+    "intro": "<title>What is Hakima and how does it work?</title>Hakima is where network decisions are made. Each organization earns governance tokens from its contributions, and its vote carries the weight of its tokens. Every cycle has two phases: <strong>support</strong> (4 days), where proposals need 5% of tokens to qualify; then <strong>voting</strong> (3 days), where votes stay hidden until voting closes. Full participation earns your organization 30 {currency} and protects your tokens from decay.",
+    "cycle": {
+      "number": "Cycle",
+      "phase": "Current phase",
+      "voting": "Voting",
+      "remaining": "Remaining",
+      "days": "days",
+      "balance": "Your token balance"
+    },
+    "newProposal": {
+      "title": "Have a proposal for the network?",
+      "text": "Each organization can submit one proposal every four months, and your next proposal is available now.",
+      "action": "Submit proposal +"
+    },
+    "search": "Search proposals…",
+    "searchLabel": "Search",
+    "category": {
+      "protocol": "Protocol amendment",
+      "membership": "Organization membership",
+      "other": "Other proposals"
+    },
+    "status": {
+      "support": "In support phase",
+      "voting": "In voting phase",
+      "done": "Final decision",
+      "qualified": "Qualified for voting"
+    },
+    "phase": {
+      "daysLeft": "days left",
+      "support": {
+        "subtitle": "Support phase · Cycle 12",
+        "title": "Support phase is open",
+        "text": "Each proposal needs <strong>{threshold} tokens</strong> (5% of Hakima tokens) to qualify for voting. You can support any number of proposals—support is not a vote; it only says the proposal deserves discussion."
+      },
+      "voting": {
+        "subtitle": "Voting phase · Cycle 12",
+        "title": "Voting is open",
+        "text": "Four proposals qualified during support. Your vote is weighted by your token balance, and you can change it any time before voting closes."
+      }
+    },
+    "stats": {
+      "qualified": "Qualified for voting",
+      "qualifiedNote": "of 5 proposals in this phase",
+      "supported": "You supported",
+      "supportedNote": "with {amount} tokens per proposal",
+      "supportThreshold": "Qualification threshold",
+      "supportThresholdNote": "tokens — 5% of {total}",
+      "voted": "You voted on",
+      "votedNote": "of 4 proposals — full participation earns {reward} {currency}",
+      "votingBalance": "Your voting balance",
+      "votingBalanceNote": "tokens — 3.2% of network tokens",
+      "cycleThresholds": "Thresholds this cycle",
+      "protocolThreshold": "Protocol amendment · 60%",
+      "otherThreshold": "Operations and membership · 20%"
+    },
+    "groups": {
+      "protocol": "Protocol amendments",
+      "membership": "Organization membership",
+      "other": "Other proposals",
+      "support": "Proposals in this phase",
+      "voting": "Proposals open for voting"
+    },
+    "card": {
+      "closesAfter": "Closes in {days} days",
+      "votingCloses": "Closes September 12, 11:59 PM",
+      "supporters": "Supported by {count} organizations",
+      "requiredQualification": "Needs <amountTag>{amount}</amountTag> tokens to qualify",
+      "requiredApproval": "Needs <amountTag>{amount}</amountTag> tokens for approval",
+      "thresholdDetail": "({percent}% of all Hakima tokens — {total} tokens)",
+      "votingThresholdProtocol": "({percent}% of all Hakima tokens — {total} tokens · Protocol amendment threshold)",
+      "votingThresholdOther": "({percent}% of all Hakima tokens — {total} tokens · Operations / membership threshold)",
+      "supportedWith": "Supported with <amountTag>{amount}</amountTag> tokens",
+      "qualifiedWith": "Qualified with <amountTag>{amount}</amountTag> tokens during support",
+      "overThreshold": "Exceeded the threshold by {amount} tokens ✓",
+      "overThresholdSupport": "Exceeded the threshold by {amount} tokens ✓ — Qualified for voting",
+      "remainingThreshold": "{amount} tokens remaining",
+      "votingBalance": "Your voting balance: {amount} tokens",
+      "carry": "If it does not reach the threshold before the phase closes, <strong>the proposal is not deleted</strong>—it carries into future cycles with its existing support.",
+      "result": {
+        "passed": "Approved ✓",
+        "failed": "Rejected"
+      },
+      "resultAmount": "{support} of {threshold} required"
+    },
+    "actions": {
+      "viewProposal": "View proposal",
+      "viewSupport": "View and support",
+      "viewVote": "View and vote",
+      "viewListVote": "View list and vote",
+      "viewResult": "View result",
+      "discussion": "Discussion",
+      "support": "Support",
+      "removeSupport": "Remove support",
+      "detailsDocuments": "Details and documents",
+      "edit": "Edit",
+      "withdraw": "Withdraw",
+      "viewLog": "View log",
+      "resubmit": "Submit again"
+    },
+    "vote": {
+      "yes": "Support",
+      "no": "Oppose",
+      "selected": "You voted <strong>{choice}</strong> — you can change your vote until voting closes.",
+      "notSelected": "<strong>You have not voted yet</strong> — your balance is not counted — you can vote until voting closes."
+    },
+    "hiddenVotes": "<strong>Votes stay hidden until voting closes.</strong> Nobody can see the live result. This keeps later votes independent. The number on each proposal is its support-phase total, not the vote result.",
+    "my": {
+      "subtitle": "My proposals · submitted by your organization",
+      "submitted": "Proposals submitted",
+      "submittedNote": "since joining in March 2025",
+      "approved": "Approved",
+      "approvedNote": "Digital resources — implemented September 1",
+      "next": "Your next proposal",
+      "available": "Available",
+      "nextNote": "One proposal every four months · last submitted September 1",
+      "supportLock": "Still in support—you can edit or withdraw it. <strong>Its wording locks once voting begins.</strong>",
+      "voteLock": "Voting started—<strong>the wording is locked</strong> and votes stay hidden until closing."
+    },
+    "proposals": {
+      "small-business-cap": {
+        "title": "Raise the monthly service cap for small organizations",
+        "description": "Organizations with fewer than five team members exhaust their monthly cap early. This raises the minimum from 80 per member to a fixed 400 {currency}.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens — used to vote",
+        "when": ""
+      },
+      "shorter-decay": {
+        "title": "Shorten the decay period from one year to ten months",
+        "description": "Shahamham currently begins decaying after a full year. This proposal shortens it to ten months so surplus circulates faster.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens",
+        "when": ""
+      },
+      "membership-list": {
+        "title": "Membership candidate list — Cycle 12",
+        "description": "The Emtedad team nominated four organizations: a printer, two legal organizations, and a transport team. The list is voted on as a whole.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens — not voted yet",
+        "when": ""
+      },
+      "add-margin": {
+        "title": "Add a candidate: Al-Hamish Publishing House",
+        "description": "An independent publisher that worked with three network organizations outside the system. The proposal adds it to Cycle 12 candidates.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens",
+        "when": ""
+      },
+      "remove-candidate": {
+        "title": "Remove a candidate from the Cycle 12 list",
+        "description": "An objection to one candidate due to a conflict between its activity and the network charter. The proposal removes it before voting.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens",
+        "when": ""
+      },
+      "rotating-meeting": {
+        "title": "Rotate the quarterly network meeting between organizations",
+        "description": "Each cycle is hosted by a different organization, which receives 20 {currency} to cover costs.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens — used to vote",
+        "when": ""
+      },
+      "digital-resources": {
+        "title": "Add a digital resources category to Namliya",
+        "description": "A new category for software, subscriptions, and digital templates organizations can share.",
+        "browseDescription": "A new category for software, subscriptions, and digital templates organizations can share.",
+        "mine": "Submitted <amountTag>January 5</amountTag> · your balance: <amountTag>{amount}</amountTag> tokens",
+        "browseWhen": "Closed August 28",
+        "when": "Closed August 28 — Cycle 11",
+        "resultNote": "Implemented September 1"
+      },
+      "direct-transfer": {
+        "title": "Allow direct Shahamham transfers between organizations",
+        "description": "Direct transfers between two organizations without a service exchange, with a limited monthly cap for solidarity during crises.",
+        "mine": "Submitted September 1 · your balance: <amountTag>{amount}</amountTag> tokens",
+        "when": ""
+      },
+      "lower-protocol-threshold": {
+        "title": "Lower the protocol threshold from 60% to 50%",
+        "description": "The 60% threshold is hard to reach, and proposals fail from low participation rather than opposition.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens",
+        "when": ""
+      },
+      "activity-cap": {
+        "title": "Tie the service cap to activity, not team size",
+        "description": "Instead of calculating the monthly cap as 80 times the number of members, calculate it from the organization’s average exchanges over the last three months.",
+        "mine": "Submitted <amountTag>May 12</amountTag> · qualified for voting on <amountTag>September 5</amountTag>",
+        "when": ""
+      },
+      "shorter-cycle": {
+        "title": "Shorten the governance cycle from three months to two",
+        "description": "A shorter cycle for faster decisions, with two days each for support and voting.",
+        "mine": "Submitted <amountTag>February 10</amountTag> · you can submit a revised version",
+        "when": "Closed April 30 — Cycle 10",
+        "resultNote": "Short by 8,620 tokens"
+      }
+    },
+    "form": {
+      "subtitle": "Submit a proposal · from Mishkat Organization",
+      "available": "Available proposals",
+      "availableValue": "1",
+      "availableNote": "Each organization can submit one proposal every four months. Your last proposal was May 12.",
+      "currentCycle": "Current cycle",
+      "cycleNote": "Support: September 1–5 · voting: September 9–12",
+      "qualification": "Voting qualification threshold",
+      "qualificationNote": "(5% of all Hakima tokens)—proposals below this threshold carry into future cycles.",
+      "title": "Proposal",
+      "intro": "Write as if explaining the proposal to an organization without context. Clarity and numbers matter more than length.",
+      "titleLabel": "Proposal title",
+      "titlePlaceholder": "One clear sentence—for example: raise the monthly service cap for small organizations",
+      "category": "Category",
+      "categoryOther": "Other proposal",
+      "thresholdHint": "<strong>Approval threshold for {category}: {amount} tokens</strong> ({percent}% of Hakima tokens).",
+      "proposal": "Proposal",
+      "proposalPlaceholder": "What exactly should change? Write it as it should be implemented.",
+      "reason": "Why?",
+      "reasonPlaceholder": "What problem does this solve, and what happens without it?",
+      "impact": "Expected impact",
+      "impactPlaceholder": "Who will be affected, how, and are there possible negative effects?",
+      "impactHint": "Organizations read this first when deciding whether to support.",
+      "documents": "Supporting documents",
+      "optional": "optional",
+      "upload": "Drag files here or click to upload",
+      "uploadHint": "Data, analysis, or examples · PDF or XLSX · up to 5 files",
+      "submit": "Submit proposal",
+      "draft": "Save draft",
+      "submitted": "Proposal submitted successfully.",
+      "drafted": "Draft saved locally.",
+      "after": "<strong>After submission:</strong> the proposal enters support at the start of the next cycle. You may edit or withdraw it during support, but its wording locks once voting begins.",
+      "validation": {
+        "title": "Enter a proposal title.",
+        "category": "Choose a proposal category.",
+        "proposal": "Enter the proposal text.",
+        "proposalMin": "The proposal must be at least 20 characters.",
+        "reason": "Explain why the proposal is needed.",
+        "impact": "Describe the expected impact."
+      }
+    },
+    "detail": {
+      "cycle": "Cycle 12",
+      "closesAt": "September 12, 11:59 PM",
+      "proposer": "Halqa",
+      "proposedMeta": "Submitted August 28 · qualified September 5",
+      "proposal": "Proposal",
+      "proposalText": "Organizations with fewer than five team members exhaust their cap in the first half of the month and then stop exchanging until the next month. This adds a fixed 400 {currency} minimum instead of only 80 per member.",
+      "why": "Why?",
+      "whyText": "The current cap ties exchange capacity to team size rather than need or activity. A three-person organization may be more active than a ten-person one, but its cap is 240 instead of 800.",
+      "impact": "Expected impact",
+      "impactItems": [
+        "7 of 19 organizations receive a higher cap",
+        "Expected monthly exchange growth of 12% to 18%",
+        "No effect on larger organizations already above the minimum",
+        "Limited network balance pressure because the cap resets monthly"
+      ],
+      "documents": "Supporting documents",
+      "files": ["Cycle 9–11 cap analysis.pdf", "Exchange data by team size.xlsx"],
+      "fileSizes": ["1.2 MB", "480 KB"],
+      "discussion": "Discussion",
+      "entries": "4 contributions",
+      "commentPlaceholder": "Share your view before voting closes…",
+      "commentLabel": "Contribution",
+      "send": "Send",
+      "votingBalance": "Your organization’s voting balance",
+      "token": "tokens",
+      "voteState": "You voted <strong>{choice}</strong> on September 6—you can change it until voting closes.",
+      "voteChanged": "You changed your vote to <strong>{choice}</strong>—you can change it until voting closes.",
+      "hidden": "<strong>Votes stay hidden until voting closes.</strong> The number above is support from the support phase, not the voting result.",
+      "info": "Proposal information",
+      "infoLabels": ["Category", "Approval threshold", "Voters", "Closes"],
+      "infoValues": [
+        "Protocol amendment",
+        "27,720 tokens",
+        "14 of 19 organizations",
+        "September 12"
+      ],
+      "comments": [
+        {
+          "author": "Sound and Vision",
+          "date": "August 29",
+          "text": "The proposal makes sense, but 400 may be high as a starting point. Could we test 300 for one cycle first?"
+        },
+        {
+          "author": "Halqa",
+          "date": "August 30",
+          "text": "We considered 300, but three affected organizations already have a cap of 240, so it would not solve the problem. The second attachment has the figures."
+        },
+        {
+          "author": "Milha",
+          "date": "September 1",
+          "text": "We are one of the affected organizations. We will vote rather than abstain; transparency matters more here."
+        },
+        {
+          "author": "Daw",
+          "date": "September 4",
+          "text": "How often will this minimum be reviewed? It could become outdated after a year."
+        }
+      ]
+    }
+  }
+}
