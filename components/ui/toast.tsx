@@ -4,7 +4,7 @@ import { Toast } from '@base-ui/react/toast'
 
 export const toast = Toast.createToastManager()
 
-function ToastList() {
+function ToastList({ dismissLabel }: { dismissLabel: string }) {
   const { toasts } = Toast.useToastManager()
 
   return toasts.map((item) => (
@@ -35,22 +35,19 @@ function ToastList() {
           <Toast.Description className="mt-1 text-sm font-medium text-surface/80" />
         </div>
         <Toast.Close className="sr-only focus:not-sr-only focus:absolute focus:inset-e-3 focus:rounded-full focus:bg-surface focus:px-2 focus:text-xs focus:font-bold focus:text-ink">
-          Dismiss notification
+          {dismissLabel}
         </Toast.Close>
       </Toast.Content>
     </Toast.Root>
   ))
 }
 
-export function Toaster() {
+export function Toaster({ dismissLabel }: { dismissLabel: string }) {
   return (
     <Toast.Provider toastManager={toast} timeout={4000} limit={3}>
       <Toast.Portal>
-        <Toast.Viewport
-          className="pointer-events-none fixed inset-x-0 bottom-7 z-50 mx-auto h-40 w-[min(460px,92vw)]"
-          dir="ltr"
-        >
-          <ToastList />
+        <Toast.Viewport className="pointer-events-none fixed inset-x-0 bottom-7 z-50 mx-auto h-40 w-[min(460px,92vw)]">
+          <ToastList dismissLabel={dismissLabel} />
         </Toast.Viewport>
       </Toast.Portal>
     </Toast.Provider>

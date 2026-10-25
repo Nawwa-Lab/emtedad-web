@@ -7,7 +7,9 @@ import {
   DialogDescription,
   DialogTitle,
 } from '@/components/ui/dialog'
+import { EmptyState } from '@/components/ui/empty-state'
 import { Link, useRouter } from '@/i18n/navigation'
+import FahsIcon from '@/icons/star-2.svg'
 import TargetIcon from '@/icons/target.svg'
 import { formatNumber } from '@/lib/utils'
 import { useLocale, useTranslations } from 'next-intl'
@@ -46,9 +48,11 @@ export default function InvitationsPage() {
       </div>
 
       {remaining.length === 0 && (
-        <p className="rounded-panel border-[3px] border-dashed border-ink bg-paper px-[26px] py-10 text-center font-body text-[16.5px]/[1.95] font-semibold text-soft">
-          {t('invitations.empty')}
-        </p>
+        <EmptyState
+          icon={FahsIcon}
+          title={t('invitations.empty')}
+          description={t('invitations.emptyDescription')}
+        />
       )}
 
       {remaining.map((kind) => {

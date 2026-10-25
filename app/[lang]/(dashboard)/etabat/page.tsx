@@ -1,7 +1,8 @@
 'use client'
 
 import { Badge } from '@/components/ui/badge'
-import { buttonVariants } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { EmptyState } from '@/components/ui/empty-state'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { Link } from '@/i18n/navigation'
 import EtabatIcon from '@/icons/hand.svg'
@@ -179,7 +180,23 @@ export default function EtabatHomePage() {
       </div>
 
       {!cases.length ? (
-        <p className="mt-6 font-body font-semibold text-soft">{t('empty')}</p>
+        <EmptyState
+          icon={EtabatIcon}
+          title={t('empty')}
+          description={t('emptyDescription')}
+          className="mt-6"
+          action={
+            <Button
+              type="button"
+              onClick={() => {
+                setRole('all')
+                setStatus('all')
+              }}
+            >
+              {t('emptyAction')}
+            </Button>
+          }
+        />
       ) : null}
     </div>
   )
