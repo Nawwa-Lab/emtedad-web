@@ -27,7 +27,7 @@ export default function HakimaVotingPage() {
       <PhaseBanner phase="voting" days={3}>
         {t('phase.voting.text')}
       </PhaseBanner>
-      <div className="mb-6 flex items-start gap-3.5 rounded-panel border-[2.5px] border-dashed border-ink bg-paper px-[22px] py-[18px]">
+      <div className="mb-6 flex items-start gap-3.5 rounded-panel border-[2.5px] border-dashed border-ink bg-paper px-5.5 py-4.5">
         <Image src={TargetIcon} alt="" className="h-9 w-8.5 shrink-0" />
         <p className="font-body text-[15.5px]/[1.9] font-semibold text-soft">
           {t.rich('hiddenVotes', {
@@ -57,11 +57,11 @@ export default function HakimaVotingPage() {
             label: t('stats.cycleThresholds'),
             note: (
               <span className="mt-2 flex flex-wrap gap-2.5">
-                <span className="inline-flex items-center gap-[9px] rounded-card border-[2.5px] border-ink bg-surface px-4 py-[11px] text-ink">
+                <span className="inline-flex items-center gap-2.25 rounded-card border-[2.5px] border-ink bg-surface px-4 py-2.75 text-ink">
                   <strong className="font-display text-[19px] font-normal">{n(27720)}</strong>
                   <span className="text-[12.5px] text-soft">{t('stats.protocolThreshold')}</span>
                 </span>
-                <span className="inline-flex items-center gap-[9px] rounded-card border-[2.5px] border-ink bg-surface px-4 py-[11px] text-ink">
+                <span className="inline-flex items-center gap-2.25 rounded-card border-[2.5px] border-ink bg-surface px-4 py-2.75 text-ink">
                   <strong className="font-display text-[19px] font-normal">{n(9240)}</strong>
                   <span className="text-[12.5px] text-soft">{t('stats.otherThreshold')}</span>
                 </span>
