@@ -1,6 +1,21 @@
 {
   "global": {
     "currency": "Shahamham",
-    "team": "Emtedad team"
+    "team": "Emtedad team",
+    "organizations": {
+      "sawt": "Sawt w Soura",
+      "halaqa": "Halaqa",
+      "melha": "Melha",
+      "daw": "Daw",
+      "mishkaa": "Mishkaa"
+    },
+    "members": {
+      "tarek": "Tarek Mounir · Mishkaa team member",
+      "salma": "Salma Fouad · Mishkaa team member"
+    },
+    "badges": {
+      "amer": "Amer",
+      "kareem": "Kareem"
+    }
   }
 }
