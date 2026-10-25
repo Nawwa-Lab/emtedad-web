@@ -87,7 +87,7 @@ export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean 
 
   return (
     <nav
-      className="group/sidebar sticky top-0 z-30 flex h-screen w-21 shrink-0 flex-col gap-1.5 overflow-hidden border-e-[3px] border-ink bg-surface px-3 py-4.5 transition-[width] duration-250 hover:w-56 focus-within:w-56 max-[820px]:static max-[820px]:h-auto max-[820px]:w-full max-[820px]:flex-row max-[820px]:gap-2 max-[820px]:overflow-x-auto max-[820px]:border-e-0 max-[820px]:border-b-[3px] max-[820px]:p-3 max-[820px]:transition-none max-[820px]:hover:w-full max-[820px]:focus-within:w-full"
+      className="group/sidebar sticky top-0 z-20 flex h-screen w-21 shrink-0 flex-col gap-1.5 overflow-hidden border-e-[3px] border-ink bg-surface px-3 py-4.5 transition-[width] duration-250 hover:w-56 focus-within:w-56 max-[820px]:static max-[820px]:h-auto max-[820px]:w-full max-[820px]:flex-row max-[820px]:gap-2 max-[820px]:overflow-x-auto max-[820px]:border-e-0 max-[820px]:border-b-[3px] max-[820px]:p-3 max-[820px]:transition-none max-[820px]:hover:w-full max-[820px]:focus-within:w-full"
       aria-label={tSidebar('mainNavAriaLabel')}
     >
       {navLinks.map((link, index) => {

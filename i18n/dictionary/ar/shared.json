@@ -28,22 +28,30 @@
     "watchNamliya": "اتفرّج على النملية"
   },
   "quickAction": {
-    "title": "اعمل معروف",
-    "description": "هتعمله فين؟ اختار المكان ونوع المعروف.",
-    "namliyaTitle": "نملية",
-    "namliyaDesc": "سوق المؤسسات — من مؤسسة لمؤسسة",
-    "humanService": "خدمة بشرية",
-    "materialResource": "مورد مادي",
-    "khalisTitle": "خلي خالص",
-    "khalisDesc": "سوق المجتمع — من مؤسستك للجمهور",
-    "workshop": "ورشة",
-    "course": "كورس",
-    "culturalProgram": "برنامج ثقافي",
-    "event": "فعالية",
-    "qalishTitle": "ألقيش عندك؟",
-    "qalishDesc": "لوح الطلبات — لما اللي محتاجه مش موجود",
-    "newRequest": "طلب جديد",
-    "footer": "كل معروف بينشر باسم مؤسستك — مشكاة."
+    "title": "هتعمل معروف فين؟",
+    "description": "اختار السوق الأول، وبعدين نوع المعروف — وهنفتحلك النموذج المناسب على طول.",
+    "destinations": {
+      "namliya": {
+        "title": "نملية",
+        "description": "لمؤسسات الشبكة: خدمات فريقك أو موارد مؤسستك المتاحة."
+      },
+      "khalliKhales": {
+        "title": "خلي خالص",
+        "description": "لجمهورك: ورش وفعاليات وبرامج، أو خدمة ومورد للناس."
+      },
+      "alaesh": {
+        "title": "ألقيش عندك؟",
+        "description": "مش بتعرض — بتدوّر. انشر احتياجك واستنى مين يقول «عندي»."
+      }
+    },
+    "actions": {
+      "humanService": "خدمة بشرية",
+      "materialResource": "مورد مادي",
+      "activity": "نشاط",
+      "service": "خدمة",
+      "resource": "مورد",
+      "request": "طلب"
+    }
   },
   "sidebar": {
     "mainNavAriaLabel": "التنقل الرئيسي",
@@ -54,6 +62,11 @@
   },
   "dialog": {
     "close": "إغلاق"
+  },
+  "systemStates": {
+    "toast": {
+      "dismiss": "اقفل الإشعار"
+    }
   },
   "statusBadge": {
     "veryGood": "عامر",

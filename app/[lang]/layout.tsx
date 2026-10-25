@@ -4,6 +4,7 @@ import { QueryProvider } from '@/services/query'
 import { Toaster } from '@/components/ui/toast'
 import type { Locale } from '@/types'
 import type { Metadata, Viewport } from 'next'
+import { getTranslations } from 'next-intl/server'
 import './globals.css'
 import { DirectionProvider } from '@base-ui/react'
 
@@ -31,6 +32,7 @@ export default async function RootLayout({
 }) {
   const { lang } = await params
   const dir = (lang as Locale) === 'ar' ? 'rtl' : 'ltr'
+  const t = await getTranslations({ locale: lang, namespace: 'systemStates.toast' })
   return (
     <html lang={lang} dir={dir}>
       <body
@@ -41,7 +43,7 @@ export default async function RootLayout({
             <UserProvider>{children}</UserProvider>
           </DirectionProvider>
         </QueryProvider>
-        <Toaster />
+        <Toaster dismissLabel={t('dismiss')} />
       </body>
     </html>
   )

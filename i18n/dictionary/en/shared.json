@@ -28,22 +28,30 @@
     "watchNamliya": "Watch Namliya"
   },
   "quickAction": {
-    "title": "Do a good deed",
-    "description": "Where will you do it? Choose the place and type of good deed.",
-    "namliyaTitle": "Namliya",
-    "namliyaDesc": "Organizations market — from organization to organization",
-    "humanService": "Human service",
-    "materialResource": "Material resource",
-    "khalisTitle": "Khalis",
-    "khalisDesc": "Community market — from your organization to the public",
-    "workshop": "Workshop",
-    "course": "Course",
-    "culturalProgram": "Cultural program",
-    "event": "Event",
-    "qalishTitle": "Got Qalish?",
-    "qalishDesc": "Request board — when what you need isn't available",
-    "newRequest": "New request",
-    "footer": "Every good deed is published under your organization's name — Mishkaa."
+    "title": "Where will you do a good deed?",
+    "description": "Choose the market first, then the type of good deed, and we’ll open the right form immediately.",
+    "destinations": {
+      "namliya": {
+        "title": "Namliya",
+        "description": "For network organizations: your team’s services or your organization’s available resources."
+      },
+      "khalliKhales": {
+        "title": "Khalli Khales",
+        "description": "For your audience: workshops, events, programs, services, and resources for people."
+      },
+      "alaesh": {
+        "title": "Got Qalish?",
+        "description": "You’re not offering—you’re looking. Post what you need and wait for someone to say, “I have it.”"
+      }
+    },
+    "actions": {
+      "humanService": "Human service",
+      "materialResource": "Material resource",
+      "activity": "Activity",
+      "service": "Service",
+      "resource": "Resource",
+      "request": "Request"
+    }
   },
   "sidebar": {
     "mainNavAriaLabel": "Main navigation",
@@ -54,6 +62,11 @@
   },
   "dialog": {
     "close": "Close"
+  },
+  "systemStates": {
+    "toast": {
+      "dismiss": "Dismiss notification"
+    }
   },
   "statusBadge": {
     "veryGood": "Epic",

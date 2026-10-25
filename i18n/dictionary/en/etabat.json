@@ -35,6 +35,8 @@
         "closed": "Closed"
       },
       "empty": "There are no Etabat in this filter.",
+      "emptyDescription": "Try another filter to see the rest of your Etabat.",
+      "emptyAction": "Clear filters",
       "case": {
         "back": "Back to Etabat",
         "claimant": "Claimant:",
