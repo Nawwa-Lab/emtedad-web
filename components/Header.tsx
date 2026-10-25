@@ -3,8 +3,8 @@ import LogoIcon from '@/icons/star.svg'
 import { QuickAction } from '@/components/QuickAction'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Input } from '@/components/ui/input'
-import { Link, usePathname } from '@/i18n/navigation'
-import { useSearchParams } from 'next/navigation'
+import { Link, usePathname, useRouter } from '@/i18n/navigation'
+import { useParams, useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { NotificationBell } from './NotificationBell'
@@ -14,10 +14,28 @@ import { useUser } from '@/contexts/UserContext'
 export function Header() {
   const t = useTranslations('header')
   const { user } = useUser()
+  const router = useRouter()
   const pathname = usePathname()
+  const params = useParams<{ term?: string }>()
   const searchParams = useSearchParams()
   const query = searchParams.toString()
   const returnTo = query ? `${pathname}?${query}` : pathname
+  let currentTerm = ''
+
+  if (typeof params.term === 'string') {
+    try {
+      currentTerm = decodeURIComponent(params.term)
+    } catch {
+      currentTerm = params.term
+    }
+  }
+
+  const submitSearch = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const value = new FormData(event.currentTarget).get('query')?.toString().trim()
+    if (!value) return
+    router.push(`/search/${encodeURIComponent(value)}/all`)
+  }
 
   return (
     <header className="sticky top-0 z-20 flex shrink-0 items-center gap-4 border-b-[3px] border-ink bg-surface px-6 py-3 max-[820px]:flex-wrap max-[820px]:px-4">
@@ -25,12 +43,22 @@ export function Header() {
         <Image src={LogoIcon} alt={t('logo')} className="size-10" />
         <span>{t('logo')}</span>
       </div>
-      <Input
-        className="w-[min(420px,32vw)] flex-1 rounded-full px-5 py-2.5 text-[15px]! max-[820px]:order-last max-[820px]:w-full max-[820px]:basis-full"
-        type="search"
-        placeholder={t('searchPlaceholder')}
-        aria-label={t('searchAriaLabel')}
-      />
+      <form
+        role="search"
+        onSubmit={submitSearch}
+        className="w-[min(420px,32vw)] flex-1 max-[820px]:order-last max-[820px]:w-full max-[820px]:basis-full"
+      >
+        <Input
+          key={currentTerm}
+          name="query"
+          className="w-full rounded-full px-5 py-2.5 text-[15px]!"
+          type="search"
+          required
+          defaultValue={currentTerm}
+          placeholder={t('searchPlaceholder')}
+          aria-label={t('searchAriaLabel')}
+        />
+      </form>
       <div className="flex-1"></div>
       <QuickAction />
       <NotificationBell />
