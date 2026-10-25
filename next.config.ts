@@ -25,6 +25,11 @@ const nextConfig: NextConfig = {
         destination: '/:lang/shbeik-lbeik/browse',
         permanent: false,
       },
+      {
+        source: '/:lang/hakima',
+        destination: '/:lang/hakima/browse',
+        permanent: false,
+      },
     ]
   },
 }
