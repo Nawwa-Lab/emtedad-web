@@ -46,8 +46,7 @@ export function QuickAction() {
   const t = useTranslations('quickAction')
   const header = useTranslations('header')
   const dialog = useTranslations('dialog')
-  const portalContainer =
-    typeof document === 'undefined' ? null : document.getElementById('dashboard-content-region')
+  const portalContainer = typeof document === 'undefined' ? null : document.body
 
   return (
     <Dialog>
@@ -58,7 +57,7 @@ export function QuickAction() {
         portalContainer={portalContainer}
         overlayClassName="absolute bg-ink/55"
         closeLabel={dialog('close')}
-        className="absolute top-7 left-1/2 max-h-[calc(100%-56px)] w-[calc(100%-44px)] max-w-220 translate-y-0 px-8 pt-8.5 pb-7.5 sm:absolute sm:w-[calc(100%-44px)]"
+        className="absolute top-1/16 left-1/2 max-h-[calc(100%-56px)] w-[calc(100%-44px)] max-w-220 translate-y-0 px-8 pt-8.5 pb-7.5 sm:absolute sm:w-[calc(100%-44px)]"
       >
         <DialogHeader>
           <DialogTitle>{t('title')}</DialogTitle>

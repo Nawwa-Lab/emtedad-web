@@ -1,98 +1,419 @@
 {
   "alaesh": {
-    "browse": {
-      "title": "Got Qalish? — Request board",
-      "description": "Requests that still have no offers in the markets — if you have it, say “I have it”.",
-      "chips": {
-        "browse": "Browse",
-        "addNew": "Post a request +",
-        "myPosts": "My posts"
-      },
-      "filter": {
-        "all": "All",
-        "namliya": "Namliya",
-        "khalis": "Khalis"
-      },
-      "sections": {
-        "namliya": "On Namliya",
-        "namliyaCount": "٣ — org to org",
-        "khalis": "On Khalis",
-        "khalisCount": "٢ — orgs & troupe members to the public"
+    "header": {
+      "title": "Got Qalish?",
+      "navigation": "Request board navigation",
+      "browse": "Browse",
+      "myPosts": "My posts",
+      "create": "Post a request +",
+      "backToBoard": "Back to the request board",
+      "subtitles": {
+        "browse": "The request board — what the network is looking for",
+        "myPosts": "My posts · requests your organization published",
+        "create": "Post a request · from Mishkaa"
       }
+    },
+    "markets": {
+      "namliya": "Request on Namliya",
+      "namliyaShort": "Namliya",
+      "khalis": "Request on Khalli Khales",
+      "khalisShort": "Khalli Khales",
+      "public": "Team member → public",
+      "publicShort": "Public"
+    },
+    "browse": {
+      "leadTitle": "Requests with no offers yet — if you can help, say “I have it”",
+      "leadBody": "Organizations and individuals post what they need but cannot find on offer. Saying “I have it” opens a private conversation, and an accepted agreement turns the request into a normal exchange.",
+      "market": "Market",
+      "markets": {
+        "namliya": "On Namliya",
+        "khalis": "On Khalli Khales",
+        "public": "Team member → public"
+      },
+      "searchPlaceholder": "Search requests…",
+      "searchLabel": "Search requests",
+      "resultSummary": "open requests {market}",
+      "emptyTitle": "No requests here",
+      "emptyBody": "Try another market or change the search text."
     },
     "myPosts": {
-      "title": "Got Qalish? — Request board",
-      "description": "Mishkaa’s published requests, and a record of what converted or was withdrawn.",
-      "filter": {
-        "namliya": "Namliya",
-        "khalis": "Khalis"
-      },
-      "sections": {
-        "published": "Published",
+      "status": "Status",
+      "market": "Market",
+      "states": {
+        "open": "Open",
         "history": "History"
-      }
+      },
+      "markets": {
+        "all": "All",
+        "namliya": "Namliya",
+        "khalis": "Khalli Khales"
+      },
+      "resultSummary": {
+        "open": "open requests",
+        "history": "requests in history"
+      },
+      "emptyTitle": "Nothing here",
+      "emptyBody": "Try another status or market above."
     },
     "card": {
-      "details": "Details",
+      "replySummary": "{count} said “I have it”",
+      "noReplies": "No replies yet",
+      "tax": "+ {percent}% VAT",
+      "taxLong": "+ {percent}% VAT on the exchange value"
+    },
+    "actions": {
+      "expand": "Open full details",
       "iHave": "I have it",
+      "iHaveFull": "I have it",
+      "viewRequest": "View request",
+      "viewReplies": "View replies",
       "edit": "Edit",
+      "increaseValue": "Increase value",
       "withdraw": "Withdraw request",
-      "viewReply": "See reply",
-      "replies": "replies",
-      "oneReply": "One reply",
-      "noReplies": "No replies",
-      "converted": "Converted to exchange",
-      "withdrawn": "Withdrawn"
+      "viewExchange": "View exchange",
+      "viewAgreement": "View agreement",
+      "republish": "Publish again",
+      "chooseProvider": "Choose a provider",
+      "askQuestion": "Send a question",
+      "close": "Close",
+      "save": "Save ♡",
+      "saved": "Saved ♥"
+    },
+    "dialog": {
+      "value": "Offered value",
+      "replies": "Replies",
+      "timeframe": "Deadline",
+      "requested": "What is needed",
+      "responders": "Who replied",
+      "respondersBody": "There are {count} replies to this request. Choosing one opens a conversation and starts the agreement.",
+      "ownerBody": "Your open request on {market} has {count} replies so far. Choosing one opens a conversation and starts the agreement.",
+      "repliesUntilNow": "{count} so far",
+      "respondersList": [
+        "Kamal Darwish — Amer · 12 completed services",
+        "Nadia Kamal — Amer · 8 services",
+        "Sami Fathy — Kareem · 3 services"
+      ],
+      "provider": "Posting organization"
     },
     "detail": {
-      "requesterTitle": "Requesting organization",
-      "facts": {
-        "market": "Market",
-        "timeframe": "Timeframe",
-        "replies": "Replies"
-      },
-      "howItWorksTitle": "How does it work?",
-      "howItWorksBody": "When you say “I have it”, a private chat opens with Melha to agree on details and value — once you agree, the request automatically becomes a normal exchange on Namliya with its familiar statuses.",
-      "iHaveCta": "I have it — we can do it",
-      "saveForTeam": "Save for your team",
-      "ctaNote": "Your reply appears to Melha under Mishkaa’s name with your satisfaction signal."
+      "value": "Offered value",
+      "timeframe": "Preferred timeframe",
+      "market": "Market",
+      "requested": "Exactly what is needed",
+      "suppliedTitle": "What we will provide",
+      "requirements": [
+        "Two 45-second videos",
+        "A simple illustrated style with no filming or acting",
+        "Open project files with delivery",
+        "One feedback round for each video"
+      ],
+      "supplied": [
+        "A complete approved script",
+        "A recorded voice-over ready to use",
+        "Our visual identity guide"
+      ],
+      "openProfile": "Open public profile",
+      "satisfaction": "Satisfaction indicator",
+      "ratedBy": "Rated by {count} members",
+      "replies": "Replies",
+      "replyStatus": "{count} said “I have it” · no one selected yet",
+      "howTitle": "What happens when you say “I have it”?",
+      "howSteps": {
+        "1": "A private conversation opens between you and the organization.",
+        "2": "You agree on the details and write the agreement there.",
+        "3": "Once confirmed, the request becomes a normal exchange with the usual steps."
+      }
     },
-    "addRequest": {
-      "backToBoard": "→ Back to the request board",
-      "title": "Got Qalish? — Post a request",
-      "editTitle": "Edit request",
-      "marketLabel": "Market",
-      "marketNamliya": "Namliya — from organizations",
-      "marketKhalis": "Khalis — from the public",
-      "titleLabel": "Request title",
-      "titlePlaceholder": "e.g. Storage space for stage sets",
-      "descriptionLabel": "Description",
-      "descriptionPlaceholder": "What exactly do you need? What makes a reply a good fit?",
-      "categoryLabel": "Category",
-      "timeframeLabel": "Preferred timeframe",
-      "timeframePlaceholder": "e.g. From October",
-      "categories": {
-        "spaces": "Spaces",
-        "design": "Design",
-        "training": "Training",
-        "maintenance": "Maintenance",
-        "accounting": "Accounting",
-        "other": "Other"
+    "create": {
+      "kind": {
+        "title": "What are you looking for?",
+        "description": "Choose the type first — it controls pricing and appears on the request card.",
+        "label": "Request type",
+        "options": {
+          "human": {
+            "title": "Human service",
+            "description": "Work done by a person — design, translation, photography, training…"
+          },
+          "resource": {
+            "title": "Material resource",
+            "description": "Equipment or a space you need to borrow or use."
+          }
+        }
       },
-      "submitAdd": "Publish request",
-      "submitEdit": "Save changes",
-      "submittedNote": "Request ready to publish (mock).",
-      "tipsTitle": "Before publishing",
-      "tip1": "First make sure what’s needed isn’t already available — search Namliya and Khalis.",
-      "tip2": "Requests surface unmet need, and help Shahamham choose the next organizations to join.",
-      "tip3": "As soon as someone says “I have it” and you agree in chat, the request converts automatically into a normal exchange.",
-      "tip4": "Public audience needs gather in Shbeik Lbeik — not here.",
-      "titleRequired": "Title is required",
-      "titleMin": "Title must be at least 3 characters",
-      "descriptionRequired": "Description is required",
-      "descriptionMin": "Description must be at least 10 characters",
-      "categoryRequired": "Please select a category",
-      "marketRequired": "Please choose a market"
+      "details": {
+        "title": "Request details",
+        "requestTitle": "Request title",
+        "titlePlaceholder": "A clear sentence — e.g. We need a motion designer",
+        "description": "Description",
+        "descriptionPlaceholder": "What exactly do you need, what will you provide, and are there special conditions?",
+        "descriptionHint": "The first two lines appear on the request-board card.",
+        "category": "Category",
+        "categoryPlaceholder": "Design · Translation · Spaces",
+        "categoryHint": "One word describing the request; it appears as the card label.",
+        "market": "Market",
+        "markets": {
+          "namliya": "On Namliya — from network organizations",
+          "khalis": "On Khalli Khales — from the public"
+        },
+        "timeframe": "Preferred timeframe (optional)",
+        "timeframes": {
+          "open": "Open",
+          "fixed": "Specific dates"
+        },
+        "from": "From",
+        "to": "Until",
+        "fromPlaceholder": "1 September",
+        "toPlaceholder": "15 September"
+      },
+      "pricing": {
+        "title": "Offered value",
+        "description": "This is what your organization is ready to pay. The other party can negotiate it before the agreement.",
+        "hours": "Expected service hours",
+        "rate": "Hourly rate (1–5 Shahamham)",
+        "resourceValue": "Offered value in Shahamham",
+        "resourceHint": "+ {percent}% VAT on the exchange value — any cash deposit is set in the agreement.",
+        "offeredValue": "Offered value",
+        "calculation": "{hours} hours × {rate} Shahamham",
+        "tax": "+ {percent}% VAT on the exchange value",
+        "guideTitle": "Simple pricing guide",
+        "guide": {
+          "1": "Human service = service hours × hourly rate (1 to 5 Shahamham).",
+          "2": "Organization-to-public services = provider hours × hourly rate ÷ seats.",
+          "3": "The provider sets the hourly rate from 1 to 5; these limits protect the network from extreme pricing.",
+          "4": "You can publish for free; it is recorded at zero and does not reduce your allowance."
+        }
+      },
+      "summary": {
+        "title": "Request summary",
+        "kind": "Type",
+        "market": "Market",
+        "audience": "Who will see it",
+        "value": "Value",
+        "markets": {
+          "namliya": "Namliya",
+          "khalis": "Khalli Khales"
+        },
+        "audiences": {
+          "namliya": "Network organizations",
+          "khalis": "Members of the public"
+        }
+      },
+      "after": {
+        "title": "After publishing",
+        "body": "Anyone who can help says “I have it”, opening a private conversation. You can receive several replies and choose one; the request becomes a normal exchange after you confirm the agreement."
+      },
+      "note": {
+        "title": "Publishing here is for organizations and team members.",
+        "body": "Members of the public publish wishes in",
+        "link": "Shbeik Lbeik"
+      },
+      "submit": "Publish request",
+      "published": "The mock request was published.",
+      "updated": "The mock changes were saved.",
+      "validation": {
+        "titleRequired": "Title is required",
+        "titleMin": "Title must contain at least 3 characters",
+        "descriptionRequired": "Description is required",
+        "descriptionMin": "Description must contain at least 10 characters",
+        "categoryRequired": "Enter a request category",
+        "marketRequired": "Choose a market",
+        "timeframeRequired": "Enter a date",
+        "positiveNumber": "Enter a valid number"
+      }
+    },
+    "feedback": {
+      "replySaved": "The mock “I have it” reply was recorded.",
+      "exchange": "Exchange data is still mocked.",
+      "agreement": "Agreement data is still mocked.",
+      "replies": "Reply selection is still mocked.",
+      "increase": "Value editing is still mocked.",
+      "withdraw": "Request withdrawal is still mocked.",
+      "questionSent": "The mock question was sent."
+    },
+    "requests": {
+      "motion": {
+        "category": "Design",
+        "title": "We need a motion graphics designer",
+        "description": "Two short videos for an audio-archiving awareness campaign, using simple illustration and a quick rhythm.",
+        "dialogDescription": "Sawt w Soura is looking for a motion designer for two short illustrated videos in an audio-archiving awareness campaign.",
+        "requirements": [
+          "Two 45-second videos",
+          "A simple illustrated style with no filming",
+          "Open project files on delivery"
+        ],
+        "detailDescription": "We are preparing an awareness campaign about audio archiving and need a motion designer for two short illustrated videos. The idea and script are ready; we need the visual translation. No filming or acting is required, and we will provide the voice-over.",
+        "ownerPublished": "Published 3 September — 3 days ago",
+        "published": "Published 3 days ago",
+        "timeframe": "Preferred timeframe: before 15 September",
+        "timeframeShort": "Before 15 September",
+        "converted": "Converted to an exchange",
+        "withdrawn": "Request withdrawn"
+      },
+      "translation": {
+        "category": "Translation",
+        "title": "Arabic ⇄ English translator for reports",
+        "description": "Translate a 40-page annual report using cultural-sector terminology, including proofreading.",
+        "dialogDescription": "Halaqa is looking for an Arabic-English translator for its annual report, with careful review of cultural terminology.",
+        "requirements": [
+          "Translate a 40-page annual report",
+          "Standardize cultural-sector terminology",
+          "Proofread before delivery"
+        ],
+        "detailDescription": "We need a full annual report translated from Arabic to English, proofread, and aligned with cultural-sector terminology.",
+        "ownerPublished": "Published 20 August",
+        "published": "Published yesterday",
+        "timeframe": "Preferred timeframe: open",
+        "timeframeShort": "Open",
+        "converted": "Converted to an exchange with Melha",
+        "historyDetail": "Closed 5 September · 35 Shahamham transferred",
+        "withdrawn": "Request withdrawn"
+      },
+      "storage": {
+        "category": "Spaces",
+        "title": "We need storage for theatre sets",
+        "description": "A dry 20-square-metre storage space for three months in Greater Cairo.",
+        "dialogDescription": "Melha is looking for secure, dry storage for theatre sets for three months in Greater Cairo.",
+        "requirements": [
+          "At least 20 square metres",
+          "A dry, secure, accessible location",
+          "Availability for three months"
+        ],
+        "detailDescription": "We need a safe, dry storage space for theatre sets for three months within Greater Cairo.",
+        "ownerPublished": "Published 1 September — 5 days ago",
+        "published": "Published 5 days ago",
+        "timeframe": "Preferred timeframe: from October",
+        "timeframeShort": "From October",
+        "converted": "Converted to an exchange",
+        "withdrawn": "Request withdrawn"
+      },
+      "sound-event": {
+        "category": "Sound",
+        "title": "We need a sound engineer for a seminar",
+        "description": "Record a three-hour seminar clearly from the stage and audience and deliver a publishable file.",
+        "dialogDescription": "Daw is looking for a sound engineer to record a three-hour seminar from the stage and audience.",
+        "requirements": [
+          "Record the stage and audience",
+          "Cover the full three-hour seminar",
+          "Deliver a clean, publishable file"
+        ],
+        "detailDescription": "We need a sound engineer to record a three-hour seminar from the stage and audience and deliver a clean, publishable file.",
+        "ownerPublished": "Published 2 days ago",
+        "published": "Published 2 days ago",
+        "timeframe": "Preferred timeframe: 18 September",
+        "timeframeShort": "18 September",
+        "converted": "Converted to an exchange",
+        "withdrawn": "Request withdrawn"
+      },
+      "photographer": {
+        "category": "Photography",
+        "title": "We need a photographer for closing night",
+        "description": "Photograph the closing night and deliver 40 edited images within a week.",
+        "dialogDescription": "Mishkaa is looking for a photographer to cover the program’s closing night and deliver 40 edited images.",
+        "requirements": [
+          "Cover four hours from the start of the evening",
+          "Deliver 40 edited images within one week",
+          "Photograph the stage and audience"
+        ],
+        "detailDescription": "We need a photographer to cover closing night and deliver forty edited, publishable images within one week.",
+        "ownerPublished": "Published 2 September — 4 days ago",
+        "published": "Published 4 days ago",
+        "timeframe": "Preferred timeframe: 30 September",
+        "timeframeShort": "30 September",
+        "converted": "Converted to an exchange",
+        "withdrawn": "Request withdrawn"
+      },
+      "writer": {
+        "category": "Writing",
+        "title": "We need a website content writer",
+        "description": "Write website and introductory copy in a clear voice that feels close to the audience.",
+        "dialogDescription": "Sawt w Soura is looking for a content writer for its website and introductory materials.",
+        "requirements": [
+          "Write the main website pages",
+          "Create approachable introductory copy",
+          "Include one review round"
+        ],
+        "detailDescription": "We need a content writer for the website and introductory materials, using clear language close to the audience.",
+        "ownerPublished": "Published 29 August — one week ago",
+        "published": "Published one week ago",
+        "timeframe": "Preferred timeframe: open",
+        "timeframeShort": "Open",
+        "converted": "Converted to an exchange",
+        "withdrawn": "Request withdrawn"
+      },
+      "network": {
+        "category": "Technical support",
+        "title": "We need someone to configure the office network",
+        "description": "Inspect and configure the network and office devices, with basic maintenance training for the team.",
+        "dialogDescription": "Halaqa is looking for technical support to inspect its office network, configure devices, and train the team.",
+        "requirements": [
+          "Inspect the office network and devices",
+          "Configure equipment and resolve issues",
+          "Provide brief basic-maintenance training"
+        ],
+        "detailDescription": "We need technical support to inspect the office network, configure devices, and train the team on basic maintenance.",
+        "ownerPublished": "Published 12 August",
+        "published": "Published 3 days ago",
+        "timeframe": "Preferred timeframe: early October",
+        "timeframeShort": "Early October",
+        "converted": "Converted to an exchange with Youssef Helmy",
+        "historyDetail": "Closed 28 August · 15 Shahamham transferred",
+        "withdrawn": "Request withdrawn"
+      },
+      "oud": {
+        "category": "Learning",
+        "title": "A team member needs oud lessons",
+        "description": "Eight individual sessions covering playing fundamentals and notation for a Mishkaa team member.",
+        "dialogDescription": "Tarek Mounir from Mishkaa is looking for an oud teacher for eight individual sessions.",
+        "requirements": [
+          "Eight individual sessions",
+          "Oud-playing fundamentals",
+          "An introduction to reading notation"
+        ],
+        "detailDescription": "A Mishkaa team member needs eight individual sessions covering oud fundamentals and reading notation.",
+        "ownerPublished": "Published 2 days ago",
+        "published": "Published 2 days ago",
+        "timeframe": "Preferred timeframe: from October",
+        "timeframeShort": "From October",
+        "converted": "Converted to an exchange",
+        "withdrawn": "Request withdrawn"
+      },
+      "nutrition": {
+        "category": "Health",
+        "title": "A team member needs a nutrition consultation",
+        "description": "An online session to review her diet and create a simple, practical plan.",
+        "dialogDescription": "Salma Fouad from Mishkaa is looking for a nutrition specialist for an online consultation.",
+        "requirements": [
+          "An online consultation",
+          "Review the current diet",
+          "Create a simple, practical plan"
+        ],
+        "detailDescription": "A Mishkaa team member needs an online session to review her diet and create a simple, practical plan.",
+        "ownerPublished": "Published yesterday",
+        "published": "Published yesterday",
+        "timeframe": "Preferred timeframe: open",
+        "timeframeShort": "Open",
+        "converted": "Converted to an exchange",
+        "withdrawn": "Request withdrawn"
+      },
+      "sound-workshop": {
+        "category": "Sound",
+        "title": "We need a sound engineer for a workshop",
+        "description": "Record a two-day workshop clearly and deliver publishable files.",
+        "dialogDescription": "Mishkaa was looking for a sound engineer to record a two-day workshop.",
+        "requirements": [
+          "Record a two-day workshop",
+          "Clean and balance the audio",
+          "Deliver publishable files"
+        ],
+        "detailDescription": "We need a sound engineer to record a two-day workshop and deliver files ready to publish.",
+        "ownerPublished": "Published 5 August",
+        "published": "Published 5 August",
+        "timeframe": "Reason: we found an internal solution",
+        "timeframeShort": "Closed 10 August",
+        "converted": "Converted to an exchange",
+        "withdrawn": "Withdrawn 10 August",
+        "historyDetail": "Reason: we found an internal solution"
+      }
     }
   }
 }
