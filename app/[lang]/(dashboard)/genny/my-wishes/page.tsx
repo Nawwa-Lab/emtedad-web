@@ -1,14 +1,6 @@
-'use client'
-
-import { WishCard } from '@/components/WishCard'
-import { myWishes } from './data'
+import { WishBoard } from '@/components/WishBoard'
+import { gennyMyWishes } from '../data'
 
 export default function MyWishesPage() {
-  return (
-    <>
-      {myWishes.map((wish, index) => (
-        <WishCard key={index} {...wish} mode="mine" />
-      ))}
-    </>
-  )
+  return <WishBoard family="genny" wishes={gennyMyWishes} mode="mine" />
 }
