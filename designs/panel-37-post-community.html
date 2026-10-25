@@ -1,0 +1,2825 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>شهمهم · ٣٧ — النشر: فرد</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lalezar&family=Rubik:wght@300..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-synthesis: none;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-weight: 400;
+        text-rendering: geometricPrecision;
+      }
+      :root {
+        --paper: #f1e7cf; /* القماش الخام */
+        --surface: #faf4e5; /* القطن الأبيض */
+        --ink: #1a1714; /* الخيط الأسود */
+        --soft: #6b5e4e;
+        --red: #d8442b; /* أحمر الشادر */
+        --blue: #1f4fa3; /* أزرق النيلة */
+        --gold: #f2c230; /* أصفر الشمسية */
+        --tint: #f4d3cb;
+        --display: 'Lalezar', 'Rubik', sans-serif;
+        --body: 'Rubik', system-ui, sans-serif;
+        --r-field: 12px;
+        --r-card: 16px;
+        --r-panel: 22px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--body);
+        font-size: 18px;
+        line-height: 1.75;
+        -webkit-font-smoothing: antialiased;
+        position: relative;
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.5;
+        mix-blend-mode: multiply;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+      svg {
+        display: block;
+      }
+      /* square option control — identity colours, never the browser default */
+      .sqrow {
+        display: flex;
+        gap: 26px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .sqopt {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.4;
+      }
+      .sqopt input {
+        appearance: none;
+        -webkit-appearance: none;
+        margin: 0;
+        width: 26px;
+        height: 26px;
+        flex-shrink: 0;
+        border: 2.5px solid var(--ink);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: 2px 2px 0 var(--ink);
+        cursor: pointer;
+        position: relative;
+        transition: background 0.16s;
+      }
+      .sqopt input:checked {
+        background: var(--gold);
+      }
+      .sqopt input:checked::after {
+        content: '';
+        position: absolute;
+        inset: 5px 7px 8px 7px;
+        border: solid var(--ink);
+        border-width: 0 0 3px 3px;
+        transform: rotate(-45deg);
+      }
+      .sqopt input:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+      .sqopt:hover input {
+        background: var(--gold);
+      }
+      .sqopt:hover input:not(:checked) {
+        background: var(--paper);
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+      /* form controls don't inherit the page font by default — make them */
+      button,
+      input,
+      select,
+      textarea {
+        font-family: inherit;
+      }
+
+      .ltr {
+        direction: ltr;
+        unicode-bidi: isolate;
+      }
+
+      /* buttons — press into the hard shadow */
+      .btn {
+        background: var(--red);
+        color: var(--surface);
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        font-family: var(--body);
+        font-weight: 800;
+        font-size: 16px;
+        padding: 11px 26px;
+        cursor: pointer;
+        box-shadow: 4px 4px 0 var(--ink);
+        transition:
+          transform 0.1s,
+          box-shadow 0.1s;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .btn:hover {
+        transform: translate(1px, 1px);
+        box-shadow: 2px 2px 0 var(--ink);
+      }
+      .btn:active {
+        transform: translate(4px, 4px);
+        box-shadow: none;
+      }
+      .btn:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+      .btn.wide {
+        width: 100%;
+        text-align: center;
+      }
+      .btn.gold {
+        background: var(--gold);
+        color: var(--ink);
+      }
+      .btn.blue {
+        background: var(--blue);
+      }
+      .ghost {
+        background: var(--surface);
+        color: var(--ink);
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 15px;
+        padding: 10px 22px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .ghost:hover {
+        background: var(--gold);
+      }
+      .ghost:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+      .linkbtn {
+        background: none;
+        border: 0;
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 15px;
+        color: var(--red);
+        cursor: pointer;
+        text-decoration: none;
+        border-bottom: 2.5px solid var(--red);
+        padding-bottom: 1px;
+      }
+      .linkbtn:hover {
+        color: var(--ink);
+        border-color: var(--ink);
+      }
+
+      /* cards */
+      .card {
+        background: var(--surface);
+        border: 2.5px solid var(--ink);
+        border-radius: var(--r-card);
+        box-shadow: 5px 5px 0 var(--ink);
+      }
+      .panel {
+        background: var(--surface);
+        border: 3px solid var(--ink);
+        border-radius: var(--r-panel);
+        box-shadow: 8px 8px 0 var(--ink);
+      }
+
+      /* fields */
+      .field {
+        margin-bottom: 20px;
+      }
+      .label {
+        display: block;
+        font-weight: 700;
+        font-size: 15px;
+        color: var(--soft);
+        margin-bottom: 9px;
+      }
+      .input {
+        width: 100%;
+        background: var(--paper);
+        border: 2.5px solid var(--ink);
+        border-radius: var(--r-field);
+        padding: 14px 18px;
+        font-family: var(--body);
+        font-weight: 600;
+        font-size: 17px;
+        color: var(--ink);
+      }
+      .input::placeholder {
+        color: rgba(107, 94, 78, 0.6);
+        font-weight: 500;
+      }
+      .input:focus {
+        outline: 3px solid var(--blue);
+        outline-offset: 2px;
+      }
+      .input.locked {
+        background: #e8dfc8;
+        color: var(--soft);
+        border-style: dashed;
+      }
+      .hint {
+        font-weight: 600;
+        font-size: 13.5px;
+        color: var(--soft);
+        margin-top: 7px;
+        line-height: 1.7;
+      }
+
+      /* checkbox */
+      .check {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin: 6px 0 4px;
+      }
+      .check input {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 26px;
+        height: 26px;
+        flex-shrink: 0;
+        margin-top: 2px;
+        border: 2.5px solid var(--ink);
+        border-radius: 8px;
+        background: var(--surface);
+        cursor: pointer;
+        position: relative;
+        box-shadow: 2px 2px 0 var(--ink);
+        transition: background 0.15s;
+      }
+      .check input:checked {
+        background: var(--gold);
+      }
+      .check input:checked::after {
+        content: '';
+        position: absolute;
+        inset: 5px 7px 8px 7px;
+        border: solid var(--ink);
+        border-width: 0 0 3px 3px;
+        transform: rotate(-45deg);
+      }
+      .check input:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+      .check label {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 1.8;
+        cursor: pointer;
+        color: var(--ink);
+      }
+      .check label a {
+        color: var(--red);
+        font-weight: 800;
+        text-decoration: none;
+        border-bottom: 2px solid var(--red);
+      }
+
+      /* count badge — corner circle, never inline */
+      .cnt {
+        position: absolute;
+        top: -11px;
+        inset-inline-start: -11px;
+        min-width: 24px;
+        height: 24px;
+        padding: 0 6px;
+        background: var(--red);
+        color: var(--surface);
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        font-family: var(--body);
+        font-weight: 800;
+        font-size: 13px;
+        line-height: 1;
+        display: grid;
+        place-items: center;
+        font-feature-settings: 'tnum' 1;
+        box-shadow: 2px 2px 0 var(--ink);
+        z-index: 3;
+      }
+      .cnt.dark {
+        background: var(--ink);
+      }
+
+      /* seals */
+      .seal {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 2px solid var(--ink);
+        border-radius: 999px;
+        font-family: var(--display);
+        font-size: 15px;
+        padding: 3px 13px 3px 8px;
+      }
+      .seal svg {
+        width: 19px;
+        height: 19px;
+      }
+      .seal.a {
+        background: var(--gold);
+      }
+      .seal.b {
+        background: var(--surface);
+      }
+      .seal.c {
+        border-style: dashed;
+        color: var(--soft);
+      }
+
+      /* a motif on a ground of its own color would vanish — swap that fill */
+      .gold-ground [fill='#F2C230'] {
+        fill: var(--surface);
+      }
+      .red-ground [fill='#D8442B'] {
+        fill: var(--surface);
+      }
+      .blue-ground [fill='#1F4FA3'] {
+        fill: var(--surface);
+      }
+
+      /* icon well — fixed height, motif vertically centred, so text below always aligns
+   (a wide motif like تموّج النيل must not push its caption up) */
+      .iconwell {
+        width: 100%;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        flex-shrink: 0;
+      }
+      .iconwell svg {
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+
+      /* numerals lifted one step */
+      .fig {
+        font-feature-settings: 'tnum' 1;
+        font-family: var(--display);
+      }
+
+      /* motion — response only, ≤1.2s, resolves to stillness */
+      .dd path[pathLength] {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        animation: draw 1.1s ease-out forwards;
+      }
+      @keyframes draw {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes slam {
+        from {
+          transform: rotate(-16deg) scale(1.9);
+          opacity: 0;
+        }
+        to {
+          transform: rotate(-5deg) scale(1);
+          opacity: 1;
+        }
+      }
+      @keyframes pop {
+        0% {
+          transform: translate(-50%, -50%) scale(0.2);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1)
+            rotate(180deg);
+          opacity: 0;
+        }
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-synthesis: none;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-weight: 400;
+        text-rendering: geometricPrecision;
+      }
+      :root {
+        --paper: #f1e7cf; /* القماش الخام */
+        --surface: #faf4e5; /* القطن الأبيض */
+        --ink: #1a1714; /* الخيط الأسود */
+        --soft: #6b5e4e;
+        --red: #d8442b; /* أحمر الشادر */
+        --blue: #1f4fa3; /* أزرق النيلة */
+        --gold: #f2c230; /* أصفر الشمسية */
+        --tint: #f4d3cb;
+        --display: 'Lalezar', 'Rubik', sans-serif;
+        --body: 'Rubik', system-ui, sans-serif;
+        --r-field: 12px;
+        --r-card: 16px;
+        --r-panel: 22px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--body);
+        font-size: 18px;
+        line-height: 1.75;
+        -webkit-font-smoothing: antialiased;
+        position: relative;
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.5;
+        mix-blend-mode: multiply;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+      svg {
+        display: block;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      /* form controls don't inherit the page font by default — make them */
+      button,
+      input,
+      select,
+      textarea {
+        font-family: inherit;
+      }
+
+      .ltr {
+        direction: ltr;
+        unicode-bidi: isolate;
+      }
+
+      /* buttons — press into the hard shadow */
+      .btn {
+        background: var(--red);
+        color: var(--surface);
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        font-family: var(--body);
+        font-weight: 800;
+        font-size: 16px;
+        padding: 11px 26px;
+        cursor: pointer;
+        box-shadow: 4px 4px 0 var(--ink);
+        transition:
+          transform 0.1s,
+          box-shadow 0.1s;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .btn:hover {
+        transform: translate(1px, 1px);
+        box-shadow: 2px 2px 0 var(--ink);
+      }
+      .btn:active {
+        transform: translate(4px, 4px);
+        box-shadow: none;
+      }
+      .btn:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+      .btn.wide {
+        width: 100%;
+        text-align: center;
+      }
+      .btn.gold {
+        background: var(--gold);
+        color: var(--ink);
+      }
+      .btn.blue {
+        background: var(--blue);
+      }
+      .ghost {
+        background: var(--surface);
+        color: var(--ink);
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 15px;
+        padding: 10px 22px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .ghost:hover {
+        background: var(--gold);
+      }
+      .ghost:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+      .linkbtn {
+        background: none;
+        border: 0;
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 15px;
+        color: var(--red);
+        cursor: pointer;
+        text-decoration: none;
+        border-bottom: 2.5px solid var(--red);
+        padding-bottom: 1px;
+      }
+      .linkbtn:hover {
+        color: var(--ink);
+        border-color: var(--ink);
+      }
+
+      /* cards */
+      .card {
+        background: var(--surface);
+        border: 2.5px solid var(--ink);
+        border-radius: var(--r-card);
+        box-shadow: 5px 5px 0 var(--ink);
+      }
+      .panel {
+        background: var(--surface);
+        border: 3px solid var(--ink);
+        border-radius: var(--r-panel);
+        box-shadow: 8px 8px 0 var(--ink);
+      }
+
+      /* fields */
+      .field {
+        margin-bottom: 20px;
+      }
+      .label {
+        display: block;
+        font-weight: 700;
+        font-size: 15px;
+        color: var(--soft);
+        margin-bottom: 9px;
+      }
+      .input {
+        width: 100%;
+        background: var(--paper);
+        border: 2.5px solid var(--ink);
+        border-radius: var(--r-field);
+        padding: 14px 18px;
+        font-family: var(--body);
+        font-weight: 600;
+        font-size: 17px;
+        color: var(--ink);
+      }
+      .input::placeholder {
+        color: rgba(107, 94, 78, 0.6);
+        font-weight: 500;
+      }
+      .input:focus {
+        outline: 3px solid var(--blue);
+        outline-offset: 2px;
+      }
+      .input.locked {
+        background: #e8dfc8;
+        color: var(--soft);
+        border-style: dashed;
+      }
+      .hint {
+        font-weight: 600;
+        font-size: 13.5px;
+        color: var(--soft);
+        margin-top: 7px;
+        line-height: 1.7;
+      }
+
+      /* checkbox */
+      .check {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin: 6px 0 4px;
+      }
+      .check input {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 26px;
+        height: 26px;
+        flex-shrink: 0;
+        margin-top: 2px;
+        border: 2.5px solid var(--ink);
+        border-radius: 8px;
+        background: var(--surface);
+        cursor: pointer;
+        position: relative;
+        box-shadow: 2px 2px 0 var(--ink);
+        transition: background 0.15s;
+      }
+      .check input:checked {
+        background: var(--gold);
+      }
+      .check input:checked::after {
+        content: '';
+        position: absolute;
+        inset: 5px 7px 8px 7px;
+        border: solid var(--ink);
+        border-width: 0 0 3px 3px;
+        transform: rotate(-45deg);
+      }
+      .check input:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+      .check label {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 1.8;
+        cursor: pointer;
+        color: var(--ink);
+      }
+      .check label a {
+        color: var(--red);
+        font-weight: 800;
+        text-decoration: none;
+        border-bottom: 2px solid var(--red);
+      }
+
+      /* count badge — corner circle, never inline */
+      .cnt {
+        position: absolute;
+        top: -11px;
+        inset-inline-start: -11px;
+        min-width: 24px;
+        height: 24px;
+        padding: 0 6px;
+        background: var(--red);
+        color: var(--surface);
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        font-family: var(--body);
+        font-weight: 800;
+        font-size: 13px;
+        line-height: 1;
+        display: grid;
+        place-items: center;
+        font-feature-settings: 'tnum' 1;
+        box-shadow: 2px 2px 0 var(--ink);
+        z-index: 3;
+      }
+      .cnt.dark {
+        background: var(--ink);
+      }
+
+      /* seals */
+      .seal {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 2px solid var(--ink);
+        border-radius: 999px;
+        font-family: var(--display);
+        font-size: 15px;
+        padding: 3px 13px 3px 8px;
+      }
+      .seal svg {
+        width: 19px;
+        height: 19px;
+      }
+      .seal.a {
+        background: var(--gold);
+      }
+      .seal.b {
+        background: var(--surface);
+      }
+      .seal.c {
+        border-style: dashed;
+        color: var(--soft);
+      }
+
+      /* a motif on a ground of its own color would vanish — swap that fill */
+      .gold-ground [fill='#F2C230'] {
+        fill: var(--surface);
+      }
+      .red-ground [fill='#D8442B'] {
+        fill: var(--surface);
+      }
+      .blue-ground [fill='#1F4FA3'] {
+        fill: var(--surface);
+      }
+
+      /* icon well — fixed height, motif vertically centred, so text below always aligns
+   (a wide motif like تموّج النيل must not push its caption up) */
+      .iconwell {
+        width: 100%;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        flex-shrink: 0;
+      }
+      .iconwell svg {
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+
+      /* numerals lifted one step */
+      .fig {
+        font-feature-settings: 'tnum' 1;
+        font-family: var(--display);
+      }
+
+      /* motion — response only, ≤1.2s, resolves to stillness */
+      .dd path[pathLength] {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        animation: draw 1.1s ease-out forwards;
+      }
+      @keyframes draw {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes slam {
+        from {
+          transform: rotate(-16deg) scale(1.9);
+          opacity: 0;
+        }
+        to {
+          transform: rotate(-5deg) scale(1);
+          opacity: 1;
+        }
+      }
+      @keyframes pop {
+        0% {
+          transform: translate(-50%, -50%) scale(0.2);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1)
+            rotate(180deg);
+          opacity: 0;
+        }
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        line-height: 1;
+      }
+      .brand .bstar {
+        display: block;
+        flex-shrink: 0;
+      }
+      .brand .bstar svg {
+        width: 100%;
+        height: auto;
+      }
+      .brandword {
+        font-family: var(--display);
+        line-height: 1;
+      }
+
+      /* ── app frame ── */
+      .app {
+        display: flex;
+        min-height: 100vh;
+      }
+      .side {
+        width: 84px;
+        flex-shrink: 0;
+        background: var(--surface);
+        border-inline-end: 3px solid var(--ink);
+        padding: 18px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        transition: width 0.25s ease;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: hidden;
+        z-index: 30;
+      }
+      .side:hover,
+      .side:focus-within {
+        width: 224px;
+      }
+      .ni {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        height: 56px;
+        padding: 0 12px;
+        border-radius: 14px;
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 15.5px;
+        white-space: nowrap;
+        border: 2.5px solid transparent;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .ni .ic {
+        width: 34px;
+        height: 34px;
+        flex-shrink: 0;
+        opacity: 0.55;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ni .ic svg {
+        width: 100%;
+        height: 100%;
+      }
+      /* label takes NO layout width while collapsed, so the icon is dead-centre in its box */
+      .ni .lb {
+        opacity: 0;
+        max-width: 0;
+        margin: 0;
+        overflow: hidden;
+        transition:
+          opacity 0.2s,
+          max-width 0.25s ease,
+          margin 0.25s ease;
+      }
+      .side:hover .ni,
+      .side:focus-within .ni {
+        justify-content: flex-start;
+      }
+      .side:hover .ni .lb,
+      .side:focus-within .ni .lb {
+        opacity: 1;
+        max-width: 170px;
+        margin-inline-start: 14px;
+      }
+      .ni:hover {
+        background: var(--paper);
+        border-color: var(--ink);
+      }
+      .ni:hover .ic,
+      .ni.on .ic {
+        opacity: 1;
+        transform: rotate(-6deg) scale(1.06);
+      }
+      .ni.on {
+        background: var(--gold);
+        border-color: var(--ink);
+        box-shadow: 3px 3px 0 var(--ink);
+      }
+      .ni:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 2px;
+      }
+      .ni.home {
+        margin-top: auto;
+        background: var(--paper);
+        border-color: var(--ink);
+        border-style: dashed;
+      }
+      .ni.home .ic {
+        opacity: 1;
+      }
+
+      /* ── top bar ── */
+      .main {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .top {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 26px;
+        border-bottom: 3px solid var(--ink);
+        background: var(--surface);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+      }
+      .top .brand {
+        flex-shrink: 0;
+      }
+      .search {
+        flex: 1 1 0;
+        min-width: 0;
+        max-width: 420px;
+        background: var(--paper);
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        padding: 11px 20px;
+        font-family: var(--body);
+        font-weight: 600;
+        font-size: 15px;
+        color: var(--ink);
+      }
+      .search::placeholder {
+        color: rgba(107, 94, 78, 0.65);
+      }
+      .search:focus {
+        outline: 3px solid var(--blue);
+        outline-offset: 2px;
+      }
+      .top .spacer {
+        flex: 1;
+      }
+      .bell {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 2.5px solid var(--ink);
+        background: var(--paper);
+        display: grid;
+        place-items: center;
+        position: relative;
+        flex-shrink: 0;
+        cursor: pointer;
+        transform-origin: top center;
+        animation: ring 5s ease-in-out infinite;
+      }
+      .bell svg {
+        width: 23px;
+        height: 23px;
+      }
+      @keyframes ring {
+        0%,
+        88%,
+        100% {
+          transform: rotate(0);
+        }
+        90% {
+          transform: rotate(12deg);
+        }
+        93% {
+          transform: rotate(-10deg);
+        }
+        96% {
+          transform: rotate(6deg);
+        }
+      }
+      .ctx {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        background: var(--gold);
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        padding: 7px 9px 7px 16px;
+        font-weight: 800;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+      .ctx a {
+        font-weight: 700;
+        font-size: 12.5px;
+        color: var(--ink);
+        background: var(--surface);
+        border: 2px solid var(--ink);
+        border-radius: 999px;
+        padding: 3px 11px;
+        text-decoration: none;
+      }
+      .ctx a:hover {
+        background: var(--red);
+        color: var(--surface);
+      }
+      a.avatar {
+        text-decoration: none;
+        transition:
+          transform 0.12s,
+          box-shadow 0.12s;
+      }
+      a.avatar:hover {
+        transform: translate(1px, 1px);
+        box-shadow: 2px 2px 0 var(--ink);
+      }
+      .avatar {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: var(--red);
+        color: var(--surface);
+        flex-shrink: 0;
+        border: 2.5px solid var(--ink);
+        display: grid;
+        place-items: center;
+        font-family: var(--display);
+        font-size: 20px;
+      }
+
+      /* ── content ── */
+      .content {
+        position: relative;
+        padding: 30px 26px 44px;
+        flex: 1;
+        background-image: radial-gradient(circle, rgba(26, 23, 20, 0.09) 1.4px, transparent 1.7px);
+        background-size: 19px 19px;
+      }
+      .pagehead {
+        display: flex;
+        align-items: flex-end;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+      }
+      .pagehead h1 {
+        font-family: var(--display);
+        font-size: clamp(44px, 5.4vw, 70px);
+        line-height: 1;
+      }
+      .pagehead p {
+        font-weight: 500;
+        font-size: 17px;
+        color: var(--soft);
+        padding-bottom: 10px;
+      }
+      .chips {
+        display: flex;
+        gap: 9px;
+        flex-wrap: wrap;
+        margin: 20px 0 24px;
+      }
+      .chip {
+        position: relative;
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        padding: 9px 18px;
+        font-weight: 700;
+        font-size: 14.5px;
+        background: var(--surface);
+        cursor: pointer;
+        transition:
+          transform 0.12s,
+          box-shadow 0.12s;
+        text-decoration: none;
+        color: var(--ink);
+      }
+      .chip:hover {
+        transform: translate(-1px, -2px);
+        box-shadow: 3px 3px 0 var(--ink);
+      }
+      .chip.on {
+        background: var(--ink);
+        color: var(--surface);
+      }
+      .chip:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 2px;
+      }
+
+      /* ── service card: big, square-ish, 2 up, 2-line description ── */
+      .sgrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .scard {
+        position: relative;
+        background: var(--surface);
+        border: 3px solid var(--ink);
+        border-radius: var(--r-panel);
+        padding: 24px;
+        box-shadow: 6px 6px 0 var(--ink);
+        display: flex;
+        flex-direction: column;
+        min-height: 300px;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+      }
+      .scard:hover {
+        transform: translate(-2px, -4px) rotate(-0.3deg);
+        box-shadow: 9px 11px 0 var(--ink);
+      }
+      .scard .cat {
+        align-self: flex-start;
+        font-weight: 700;
+        font-size: 13px;
+        background: var(--blue);
+        color: var(--surface);
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        padding: 5px 15px;
+        margin-bottom: 14px;
+      }
+      .scard .cat.res {
+        background: var(--gold);
+        color: var(--ink);
+      }
+      .scard h3 {
+        font-family: var(--display);
+        font-size: 28px;
+        line-height: 1.3;
+      }
+      .scard .desc {
+        font-weight: 500;
+        font-size: 16px;
+        color: var(--soft);
+        line-height: 1.85;
+        margin-top: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .scard .meta {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-weight: 600;
+        font-size: 14.5px;
+        color: var(--soft);
+        margin-top: auto;
+        padding-top: 16px;
+        flex-wrap: wrap;
+      }
+      .mini {
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: var(--paper);
+        border: 2.5px solid var(--ink);
+        display: grid;
+        place-items: center;
+        font-family: var(--display);
+        font-size: 14px;
+        color: var(--ink);
+        line-height: 1;
+      }
+      .scard .foot {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 14px;
+        padding-top: 15px;
+        border-top: 2.5px dashed var(--ink);
+      }
+      .price {
+        font-family: var(--display);
+        font-size: 34px;
+        line-height: 1;
+        flex: 1;
+        font-feature-settings: 'tnum' 1;
+      }
+      .price small {
+        font-size: 16px;
+        color: var(--red);
+        margin-inline-start: 5px;
+      }
+      /* expand affordance — upper-left corner */
+      .expand {
+        position: absolute;
+        top: 14px;
+        inset-inline-end: 14px;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: var(--paper);
+        border: 2.5px solid var(--ink);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        box-shadow: 3px 3px 0 var(--ink);
+        transition:
+          transform 0.12s,
+          box-shadow 0.12s,
+          background 0.2s;
+        z-index: 2;
+      }
+      .expand:hover {
+        background: var(--gold);
+        transform: translate(1px, 1px);
+        box-shadow: 1px 1px 0 var(--ink);
+      }
+      .expand:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 2px;
+      }
+      .expand svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* ── overlay: full offer on the same page, scrollable, X to close ── */
+      .ov {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: none;
+        background: rgba(26, 23, 20, 0.55);
+        padding: 32px 20px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .ov.open {
+        display: block;
+      }
+      .ov-card {
+        position: relative;
+        width: min(760px, 100%);
+        margin: 0 auto;
+        background: var(--surface);
+        border: 3px solid var(--ink);
+        border-radius: var(--r-panel);
+        box-shadow: 10px 10px 0 var(--ink);
+        padding: 34px 32px 30px;
+        animation: ovin 0.28s cubic-bezier(0.2, 1.3, 0.4, 1) both;
+      }
+      @keyframes ovin {
+        from {
+          transform: translateY(22px) scale(0.97);
+          opacity: 0;
+        }
+        to {
+          transform: none;
+          opacity: 1;
+        }
+      }
+      .ov-x {
+        text-decoration: none;
+        position: absolute;
+        top: 16px;
+        inset-inline-end: 16px;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: var(--red);
+        color: var(--surface);
+        border: 2.5px solid var(--ink);
+        box-shadow: 3px 3px 0 var(--ink);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        font-family: var(--body);
+        font-weight: 800;
+        font-size: 20px;
+        z-index: 3;
+      }
+      .ov-x:hover {
+        transform: translate(1px, 1px);
+        box-shadow: 1px 1px 0 var(--ink);
+      }
+      .ov-x:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+      .ov-card h2 {
+        font-family: var(--display);
+        font-size: clamp(30px, 4vw, 40px);
+        line-height: 1.25;
+        padding-inline-end: 56px;
+      }
+      .ov-card .body {
+        font-weight: 500;
+        font-size: 17px;
+        color: var(--soft);
+        line-height: 2;
+        margin-top: 14px;
+      }
+      .ov-facts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 22px;
+      }
+      .ov-fact {
+        background: var(--paper);
+        border: 2.5px solid var(--ink);
+        border-radius: var(--r-card);
+        padding: 16px;
+      }
+      .ov-fact .k {
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--soft);
+      }
+      .ov-fact .v {
+        font-family: var(--display);
+        font-size: 22px;
+        margin-top: 5px;
+        font-feature-settings: 'tnum' 1;
+        line-height: 1.3;
+      }
+      .ov-sec {
+        margin-top: 24px;
+      }
+      .ov-sec h3 {
+        font-family: var(--display);
+        font-size: 22px;
+        color: var(--red);
+        margin-bottom: 8px;
+      }
+      .ov-sec li {
+        list-style: none;
+        font-weight: 500;
+        font-size: 16px;
+        color: var(--soft);
+        line-height: 1.95;
+        padding-inline-start: 22px;
+        position: relative;
+        margin-bottom: 6px;
+      }
+      .ov-sec li::before {
+        content: '';
+        position: absolute;
+        inset-inline-start: 2px;
+        top: 12px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--gold);
+        border: 2px solid var(--ink);
+      }
+      .ov-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 26px;
+        padding-top: 20px;
+        border-top: 3px dashed var(--ink);
+      }
+      body.locked {
+        overflow: hidden;
+      }
+
+      /* ── responsive: sidebar becomes a scrollable strip ── */
+      @media (max-width: 900px) {
+        .sgrid {
+          grid-template-columns: 1fr;
+        }
+        .ov-facts {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 1024px) {
+        .top {
+          gap: 12px;
+          padding: 12px 18px;
+        }
+        .top .spacer {
+          display: none;
+        }
+        .ctx {
+          padding: 6px 8px 6px 12px;
+          font-size: 13px;
+        }
+      }
+      @media (max-width: 820px) {
+        .app {
+          flex-direction: column;
+        }
+        .side {
+          width: 100% !important;
+          height: auto;
+          flex-direction: row;
+          overflow-x: auto;
+          position: static;
+          border-inline-end: 0;
+          border-bottom: 3px solid var(--ink);
+          padding: 12px;
+          gap: 8px;
+        }
+        .side:hover {
+          width: 100% !important;
+        }
+        .ni {
+          height: 48px;
+          flex-shrink: 0;
+          justify-content: flex-start;
+        }
+        .ni .lb {
+          opacity: 1;
+          max-width: none;
+          margin-inline-start: 14px;
+        }
+        .ni.home {
+          margin-top: 0;
+          margin-inline-start: auto;
+        }
+        .top {
+          flex-wrap: wrap;
+          gap: 12px;
+          padding: 12px 16px;
+        }
+        .search {
+          order: 5;
+          flex: 1 0 100%;
+          max-width: none;
+        }
+        .top .spacer {
+          display: none;
+        }
+        .content {
+          padding: 22px 16px 36px;
+        }
+      }
+      @media (max-width: 520px) {
+        .pagehead h1 {
+          font-size: 40px;
+        }
+        .scard {
+          min-height: 0;
+          padding: 20px;
+        }
+        .scard h3 {
+          font-size: 24px;
+        }
+        .ov {
+          padding: 16px 12px;
+        }
+        .ov-card {
+          padding: 26px 20px 24px;
+        }
+        .ctx {
+          font-size: 13px;
+          padding: 6px 8px 6px 12px;
+        }
+      }
+
+      .ovcat {
+        display: inline-block;
+        font-weight: 700;
+        font-size: 13px;
+        background: var(--blue);
+        color: var(--surface);
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        padding: 5px 15px;
+        margin-bottom: 12px;
+      }
+      .orgrow {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: var(--paper);
+        border: 2.5px solid var(--ink);
+        border-radius: var(--r-card);
+        padding: 14px 18px;
+        margin-top: 4px;
+      }
+      .orgrow b {
+        font-family: var(--display);
+        font-size: 22px;
+        line-height: 1;
+        flex: 1;
+      }
+      .mini.lg {
+        width: 48px;
+        height: 48px;
+        font-size: 21px;
+        background: var(--gold);
+        box-shadow: 2px 2px 0 var(--ink);
+      }
+      .notechip {
+        display: inline-flex;
+        align-items: center;
+        background: var(--paper);
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        padding: 4px 13px;
+        font-weight: 700;
+        font-size: 13.5px;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+      /* the attribution / extra line sits above the dashed rule with matching breathing room */
+      .scard .extra {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-weight: 700;
+        font-size: 14.5px;
+        color: var(--ink);
+        margin-top: auto;
+        padding-top: 16px;
+        border-top: 2.5px dashed rgba(26, 23, 20, 0.28);
+      }
+      .scard .extra .when {
+        font-weight: 600;
+        color: var(--soft);
+      }
+      .scard .meta + .extra {
+        margin-top: 16px;
+      }
+      .scard .srcchip {
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+        font-size: 13.5px;
+        background: var(--blue);
+        color: var(--surface);
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        padding: 5px 14px 5px 8px;
+        margin-bottom: 14px;
+      }
+      .scard .srcchip .w {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        background: var(--surface);
+        border-radius: 50%;
+        padding: 3px;
+        border: 1.5px solid var(--ink);
+      }
+      .scard .srcchip .w svg {
+        width: 100%;
+        height: 100%;
+      }
+      .scard .srcchip.kk {
+        background: var(--gold);
+        color: var(--ink);
+      }
+      .scard .srcchip.al {
+        background: var(--red);
+      }
+      .remove {
+        background: var(--surface);
+        color: var(--red);
+        border: 2.5px solid var(--red);
+        border-radius: 999px;
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 14.5px;
+        padding: 9px 18px;
+        cursor: pointer;
+      }
+      .remove:hover {
+        background: var(--red);
+        color: var(--surface);
+        border-color: var(--ink);
+      }
+      .numrow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      @media (max-width: 620px) {
+        .numrow {
+          grid-template-columns: 1fr;
+        }
+      }
+      .unitpills {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .upill {
+        position: relative;
+        display: block;
+        cursor: pointer;
+      }
+      .upill input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .upill .in {
+        display: block;
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        padding: 8px 18px;
+        font-family: var(--body);
+        font-weight: 800;
+        font-size: 14.5px;
+        background: var(--paper);
+      }
+      .upill:hover .in {
+        background: var(--gold);
+      }
+      .upill input:checked ~ .in {
+        background: var(--ink);
+        color: var(--surface);
+      }
+      .upill input:focus-visible ~ .in {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+      .rate {
+        display: flex;
+        gap: 9px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .rbtn2 {
+        width: 52px;
+        height: 52px;
+        border: 2.5px solid var(--ink);
+        border-radius: 14px;
+        background: var(--paper);
+        font-family: var(--display);
+        font-size: 24px;
+        line-height: 1;
+        cursor: pointer;
+        color: var(--ink);
+        box-shadow: 3px 3px 0 var(--ink);
+        transition: background 0.16s;
+      }
+      .rbtn2:hover {
+        background: var(--gold);
+      }
+      .rbtn2[aria-pressed='true'] {
+        background: var(--red);
+        color: var(--surface);
+      }
+      .rbtn2:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+      .calc {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        background: var(--gold);
+        border: 3px solid var(--ink);
+        border-radius: var(--r-card);
+        padding: 18px 22px;
+        margin-top: 16px;
+        box-shadow: 4px 4px 0 var(--ink);
+      }
+      .calc .lab {
+        font-family: var(--display);
+        font-size: 19px;
+        flex: 1;
+        min-width: 160px;
+      }
+      .calc .lab span {
+        display: block;
+        font-family: var(--body);
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--soft);
+        margin-top: 3px;
+      }
+      .calc .sum {
+        display: block;
+        font-family: var(--display);
+        font-size: 44px;
+        line-height: 1;
+        font-feature-settings: 'tnum' 1;
+      }
+      .calc .sum small {
+        font-size: 18px;
+        margin-inline-start: 6px;
+      }
+      .calc .vat {
+        display: block;
+        font-weight: 600;
+        font-size: 12.5px;
+        color: var(--soft);
+        margin-top: 4px;
+      }
+      .paytoggle {
+        display: flex;
+        gap: 9px;
+        flex-wrap: wrap;
+        margin-bottom: 14px;
+      }
+      .guide {
+        background: var(--paper);
+        border: 2.5px dashed var(--ink);
+        border-radius: var(--r-card);
+        padding: 16px 20px;
+        margin-top: 16px;
+      }
+      .guide > b {
+        display: block;
+        font-family: var(--display);
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      .guide li {
+        list-style: none;
+        font-weight: 500;
+        font-size: 14.5px;
+        color: var(--soft);
+        line-height: 1.9;
+        padding-inline-start: 20px;
+        position: relative;
+        margin-bottom: 5px;
+      }
+      .guide li::before {
+        content: '';
+        position: absolute;
+        inset-inline-start: 2px;
+        top: 11px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--gold);
+        border: 2px solid var(--ink);
+      }
+      .guide li b {
+        font-weight: 800;
+        color: var(--ink);
+      }
+      .tag {
+        display: inline-block;
+        font-weight: 800;
+        font-size: 13.5px;
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        padding: 5px 14px;
+        flex-shrink: 0;
+      }
+      .tag.off {
+        background: var(--surface);
+        color: var(--soft);
+        border-style: dashed;
+      }
+      .back {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 15.5px;
+        color: var(--ink);
+        text-decoration: none;
+        margin-bottom: 16px;
+      }
+      .back:hover {
+        color: var(--red);
+      }
+      .rbtn {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        border: 2.5px solid var(--ink);
+        background: var(--surface);
+        box-shadow: 3px 3px 0 var(--ink);
+        display: grid;
+        place-items: center;
+        padding: 9px;
+        color: var(--ink);
+      }
+      .rbtn svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .two {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 24px;
+        align-items: start;
+      }
+      @media (max-width: 980px) {
+        .two {
+          grid-template-columns: 1fr;
+        }
+      }
+      .sheet {
+        background: var(--surface);
+        border: 3px solid var(--ink);
+        border-radius: var(--r-panel);
+        box-shadow: 6px 6px 0 var(--ink);
+        padding: 28px 30px;
+        margin-bottom: 22px;
+      }
+      .sheet h2 {
+        font-family: var(--display);
+        font-size: 27px;
+        line-height: 1.2;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
+      .sheet h2 .w {
+        display: block;
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+      }
+      .sheet h2 .w svg {
+        width: 100%;
+        height: 100%;
+      }
+      .sheet .sub {
+        font-weight: 500;
+        font-size: 16.5px;
+        color: var(--soft);
+        line-height: 1.95;
+        margin-top: 8px;
+        margin-bottom: 22px;
+      }
+      /* type chooser */
+      .types {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      @media (max-width: 700px) {
+        .types {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 420px) {
+        .types {
+          grid-template-columns: 1fr;
+        }
+      }
+      .ty {
+        position: relative;
+        display: block;
+        cursor: pointer;
+      }
+      .ty input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .ty .in {
+        display: block;
+        background: var(--paper);
+        border: 3px solid var(--ink);
+        border-radius: var(--r-card);
+        padding: 16px 14px;
+        box-shadow: 4px 4px 0 var(--ink);
+        text-align: center;
+        transition:
+          background 0.18s,
+          transform 0.1s;
+      }
+      .ty:hover .in {
+        transform: translate(-1px, -2px);
+      }
+      .ty input:checked ~ .in {
+        background: var(--gold);
+      }
+      .ty input:focus-visible ~ .in {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+      .ty b {
+        display: block;
+        font-family: var(--display);
+        font-size: 20px;
+        line-height: 1.3;
+      }
+      .ty span {
+        display: block;
+        font-weight: 500;
+        font-size: 13.5px;
+        color: var(--soft);
+        line-height: 1.7;
+        margin-top: 4px;
+      }
+      .ty input:checked ~ .in span {
+        color: var(--ink);
+      }
+      .kv {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 2.5px dashed rgba(26, 23, 20, 0.26);
+        font-weight: 700;
+        font-size: 15.5px;
+      }
+      .kv:last-child {
+        border-bottom: 0;
+      }
+      .kv .k {
+        font-weight: 600;
+        color: var(--soft);
+      }
+      .capbar {
+        display: block;
+        height: 16px;
+        border: 2.5px solid var(--ink);
+        border-radius: 999px;
+        background: var(--paper);
+        overflow: hidden;
+        margin-top: 10px;
+      }
+      .capbar i {
+        display: block;
+        height: 100%;
+        background: var(--gold);
+        width: var(--w);
+        animation: grow 1.1s ease-out both;
+      }
+      @keyframes grow {
+        from {
+          width: 0;
+        }
+      }
+      .note {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: var(--gold);
+        border: 3px solid var(--ink);
+        border-radius: var(--r-panel);
+        box-shadow: 6px 6px 0 var(--ink);
+        padding: 20px 24px;
+        margin-top: 22px;
+      }
+      .note .w {
+        width: 42px;
+        height: 46px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .note .w svg {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+      }
+      .note p {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.9;
+        flex: 1;
+        min-width: 200px;
+      }
+      .note p b {
+        font-family: var(--display);
+        font-size: 18px;
+      }
+      .hide {
+        display: none;
+      }
+
+      /* responsive — stress-tested 390 / 520 / 768 / 1280 */
+      @media (max-width: 980px) {
+        .two-col {
+          grid-template-columns: 1fr !important;
+        }
+      }
+      @media (max-width: 760px) {
+        .sgrid {
+          grid-template-columns: 1fr !important;
+        }
+      }
+      @media (max-width: 520px) {
+        body {
+          font-size: 17px;
+        }
+        .wrap {
+          padding: 0 18px;
+        }
+        .btn {
+          font-size: 15px;
+          padding: 10px 20px;
+        }
+        .authcard {
+          padding: 26px 20px;
+        }
+        .brandword {
+          font-size: 56px;
+        }
+      }
+      @media (max-width: 390px) {
+        .brandword {
+          font-size: 48px;
+        }
+      }
+
+      /* responsive — stress-tested 390 / 520 / 768 / 1280 */
+      @media (max-width: 980px) {
+        .two-col {
+          grid-template-columns: 1fr !important;
+        }
+      }
+      @media (max-width: 760px) {
+        .sgrid {
+          grid-template-columns: 1fr !important;
+        }
+      }
+      @media (max-width: 520px) {
+        body {
+          font-size: 17px;
+        }
+        .wrap {
+          padding: 0 18px;
+        }
+        .btn {
+          font-size: 15px;
+          padding: 10px 20px;
+        }
+        .authcard {
+          padding: 26px 20px;
+        }
+        .brandword {
+          font-size: 56px;
+        }
+      }
+      @media (max-width: 390px) {
+        .brandword {
+          font-size: 48px;
+        }
+      }
+
+      /* spacing overrides — must come last to win the cascade */
+      .pagehead {
+        margin-bottom: 26px;
+      }
+      .pagehead h1 {
+        line-height: 1.25;
+      }
+      .sheet h2 + .paytoggle {
+        margin-top: 22px;
+      }
+      .sheet h2 + .sqrow {
+        margin-top: 18px;
+      }
+      .field > .label + .sqrow {
+        margin-top: 10px;
+      }
+      .sheet .sub + .sqrow {
+        margin-top: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <nav class="side" aria-label="التنقل الرئيسي">
+        <a class="ni on" href="panel-32c-gift-shop.html"
+          ><span class="ic"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              fill="none"
+              xmlns:c2pa="http://c2pa.org/manifest"
+            >
+              <path d="M50 84V34" stroke="#1A1714" stroke-width="3" stroke-linecap="round" />
+              <path
+                d="M50 34c0-8 6-14 6-14M50 44c0-8 8-12 8-12M50 54c0-8 8-12 8-12M50 34c0-8-6-14-6-14M50 44c0-8-8-12-8-12M50 54c0-8-8-12-8-12"
+                stroke="#F2C230"
+                stroke-width="3"
+                stroke-linecap="round"
+                fill="none"
+              /></svg></span
+          ><span class="lb">خلي خالص</span></a
+        ><a class="ni" href="panel-42-shobeik-lobeik.html"
+          ><span class="ic"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              xmlns:c2pa="http://c2pa.org/manifest"
+            >
+              <path
+                fill="#1A1714"
+                fill-rule="evenodd"
+                d="
+    M72 43
+    C82 32 94 34 97 44
+    C100 54 94 64 84 65
+    C79 65 75 63 72 60
+    L76 54
+    C79 57 82 58 85 58
+    C90 57 93 52 91 47
+    C90 42 84 40 79 44
+    L72 51
+    Z"
+              />
+              <path
+                fill="#F2C230"
+                fill-rule="evenodd"
+                d="
+    M74 44
+    C82 36 91 37 94 45
+    C96 52 92 60 85 61
+    C81 61 78 60 75 57
+    L77 54
+    C80 56 82 57 85 57
+    C89 56 91 52 90 48
+    C89 44 84 43 80 46
+    L74 52
+    Z"
+              />
+
+              <path
+                fill="#1A1714"
+                d="
+    M7 48
+    C17 44 25 43 34 45
+    C42 47 48 46 55 42
+    C62 38 68 38 75 42
+    C79 45 81 49 79 54
+    C76 63 67 72 57 77
+    C49 81 40 79 33 74
+    L20 63
+    C16 59 11 57 5 57
+    L1 58
+    L4 52
+    Z"
+              />
+
+              <path
+                fill="#F2C230"
+                d="
+    M8 51
+    C18 47 26 47 34 49
+    C43 51 50 49 57 45
+    C63 42 68 42 73 45
+    C76 47 77 50 75 54
+    C72 61 65 68 56 72
+    C49 76 42 75 35 70
+    L22 59
+    C18 56 13 54 7 54
+    L5 54
+    Z"
+              />
+
+              <path
+                fill="#D8442B"
+                d="
+    M20 55
+    C33 57 43 64 54 64
+    C62 64 68 61 73 57
+    C69 64 63 69 56 72
+    C49 76 42 75 35 70
+    Z"
+              />
+
+              <path
+                fill="#1A1714"
+                d="
+    M42 43
+    C43 37 46 34 49 32
+    C48 27 50 23 54 21
+    C58 23 60 27 59 32
+    C63 34 66 38 66 43
+    Z"
+              />
+
+              <path
+                fill="#F2C230"
+                d="
+    M46 40
+    C47 36 50 34 53 33
+    C52 29 53 26 55 25
+    C57 27 57 30 56 33
+    C60 34 62 37 62 40
+    Z"
+              />
+
+              <circle cx="55" cy="22" r="5" fill="#1A1714" />
+              <circle cx="55" cy="22" r="2.5" fill="#F2C230" />
+
+              <path fill="#1A1714" d="M42 40 C49 42 59 42 67 40 L67 45 C59 47 49 47 41 45 Z" />
+              <path fill="#F2C230" d="M45 42 C51 43 59 43 64 42 L64 44 C58 45 51 45 44 44 Z" />
+
+              <path
+                fill="#1A1714"
+                d="
+    M42 73
+    H57
+    C56 81 59 86 66 89
+    L69 91
+    H31
+    L34 89
+    C40 86 43 81 42 73
+    Z"
+              />
+              <path
+                fill="#F2C230"
+                d="
+    M46 76
+    H54
+    C54 82 56 86 60 88
+    H40
+    C44 85 46 81 46 76
+    Z"
+              /></svg></span
+          ><span class="lb">شبيك لبيك</span></a
+        ><a class="ni" href="panel-62-etabat-home.html"
+          ><span class="ic"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              xmlns:c2pa="http://c2pa.org/manifest"
+            >
+              <g transform="translate(0 51) scale(1 1.13) translate(0 -51)">
+                <path
+                  fill="#1A1714"
+                  d="
+      M50 8 C43 8 39 13 39 20 L39 25
+      C37 20 33 17 28 17 C21 17 17 22 17 29 L18 47
+      C13 45 8 46 5 50 C2 53 1 57 1 60
+      C8 64 12 69 13 77 C15 90 27 94 50 94
+      C73 94 85 90 87 77 C88 69 92 64 99 60
+      C99 57 98 53 95 50 C92 46 87 45 82 47
+      L83 29 C83 22 79 17 72 17 C67 17 63 20 61 25
+      L61 20 C61 13 57 8 50 8 Z"
+                />
+                <path
+                  fill="#1F4FA3"
+                  d="
+      M50 12 C45 12 43 16 43 21 L43 38
+      C43 40 42 41 40 41 C38 41 37 40 37 38 L36 29
+      C36 24 33 21 28 21 C23 21 21 25 21 30 L22 53
+      C16 49 10 50 7 56 C14 60 18 67 19 76
+      C21 86 31 90 50 90 C69 90 79 86 81 76
+      C82 67 86 60 93 56 C90 50 84 49 78 53 L79 30
+      C79 25 77 21 72 21 C67 21 64 24 64 29 L63 38
+      C63 40 62 41 60 41 C58 41 57 40 57 38 L57 21
+      C57 16 55 12 50 12 Z"
+                />
+                <path
+                  fill="#1A1714"
+                  d="
+      M24 64 C31 55 40 51 50 51 C60 51 69 55 76 64
+      C69 73 60 77 50 77 C40 77 31 73 24 64 Z"
+                />
+                <path
+                  fill="#F2C230"
+                  d="
+      M29 64 C35 58 42 55 50 55 C58 55 65 58 71 64
+      C65 70 58 73 50 73 C42 73 35 70 29 64 Z"
+                />
+                <circle cx="50" cy="64" r="7" fill="#1A1714" />
+              </g></svg></span
+          ><span class="lb">عتابات</span></a
+        ><a class="ni home" href="panel-00-landing.html"
+          ><span class="ic"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              fill="none"
+              xmlns:c2pa="http://c2pa.org/manifest"
+            >
+              <path
+                d="M 50.000,8.000 L 61.557,22.099 L 79.698,20.302 L 77.901,38.443 L 92.000,50.000 L 77.901,61.557 L 79.698,79.698 L 61.557,77.901 L 50.000,92.000 L 38.443,77.901 L 20.302,79.698 L 22.099,61.557 L 8.000,50.000 L 22.099,38.443 L 20.302,20.302 L 38.443,22.099 Z"
+                fill="#1A1714"
+              />
+              <path
+                d="M 50.000,11.600 L 60.566,24.490 L 77.153,22.847 L 75.510,39.434 L 88.400,50.000 L 75.510,60.566 L 77.153,77.153 L 60.566,75.510 L 50.000,88.400 L 39.434,75.510 L 22.847,77.153 L 24.490,60.566 L 11.600,50.000 L 24.490,39.434 L 22.847,22.847 L 39.434,24.490 Z"
+                fill="#F2C230"
+              />
+              <circle cx="50" cy="50" r="4.4" fill="#1A1714" />
+              <circle cx="50" cy="50" r="2.5" fill="#D8442B" /></svg></span
+          ><span class="lb">امتداد</span></a
+        >
+      </nav>
+      <div class="main">
+        <header class="top">
+          <span class="brand" style="--bs: 30px"
+            ><span class="bstar" style="width: 28px"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns:c2pa="http://c2pa.org/manifest"
+              >
+                <path
+                  d="M 50.000,8.000 L 61.557,22.099 L 79.698,20.302 L 77.901,38.443 L 92.000,50.000 L 77.901,61.557 L 79.698,79.698 L 61.557,77.901 L 50.000,92.000 L 38.443,77.901 L 20.302,79.698 L 22.099,61.557 L 8.000,50.000 L 22.099,38.443 L 20.302,20.302 L 38.443,22.099 Z"
+                  fill="#1A1714"
+                />
+                <path
+                  d="M 50.000,11.600 L 60.566,24.490 L 77.153,22.847 L 75.510,39.434 L 88.400,50.000 L 75.510,60.566 L 77.153,77.153 L 60.566,75.510 L 50.000,88.400 L 39.434,75.510 L 22.847,77.153 L 24.490,60.566 L 11.600,50.000 L 24.490,39.434 L 22.847,22.847 L 39.434,24.490 Z"
+                  fill="#F2C230"
+                />
+                <circle cx="50" cy="50" r="4.4" fill="#1A1714" />
+                <circle cx="50" cy="50" r="2.5" fill="#D8442B" /></svg></span
+            ><span class="brandword" style="font-size: 30px; color: var(--red)">شهمهم</span></span
+          >
+          <input
+            class="search"
+            type="search"
+            placeholder="ابحث في الشبكة…"
+            aria-label="بحث في الشبكة"
+          />
+          <span class="spacer"></span>
+          <a
+            class="btn"
+            href="panel-37-post-community.html"
+            style="font-size: 15px; padding: 10px 20px"
+            >اعرض خدمة +</a
+          >
+          <button class="bell" aria-label="الإشعارات — ٣ غير مقروءة">
+            <i class="cnt">٣</i
+            ><svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#1A1714"
+              stroke-width="2.4"
+              stroke-linejoin="round"
+            >
+              <path d="M6 16v-5a6 6 0 0 1 12 0v5l1.6 2.3H4.4Z" />
+              <circle cx="12" cy="21" r="1.7" fill="#1A1714" />
+            </svg>
+          </button>
+          <span class="ctx"
+            ><b>أنا جمهور</b><a href="panel-04-context-selection.html">بدِّل</a></span
+          >
+          <a class="avatar" href="panel-10-member-public-profile.html" aria-label="ملفي الشخصي"
+            >ن</a
+          >
+        </header>
+        <main class="content">
+          <a class="back" href="panel-32c-gift-shop.html"
+            ><span class="rbtn"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 4l8 8-8 8" /></svg></span
+            >رجوع لخلي خالص</a
+          >
+          <div class="pagehead">
+            <h1>خلي خالص</h1>
+            <p>اعرض خدمة · نادية كمال</p>
+          </div>
+          <div class="two">
+            <div>
+              <section class="sheet">
+                <h2>
+                  <span class="w"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 100 100"
+                      xmlns:c2pa="http://c2pa.org/manifest"
+                    >
+                      <circle cx="50.00" cy="19.00" r="10.5" fill="#1A1714" />
+                      <circle cx="50.00" cy="19.00" r="7.5" fill="#D8442B" />
+                      <circle cx="79.48" cy="40.42" r="10.5" fill="#1A1714" />
+                      <circle cx="79.48" cy="40.42" r="7.5" fill="#F2C230" />
+                      <circle cx="68.22" cy="75.08" r="10.5" fill="#1A1714" />
+                      <circle cx="68.22" cy="75.08" r="7.5" fill="#1F4FA3" />
+                      <circle cx="31.78" cy="75.08" r="10.5" fill="#1A1714" />
+                      <circle cx="31.78" cy="75.08" r="7.5" fill="#3E9B5F" />
+                      <circle cx="20.52" cy="40.42" r="10.5" fill="#1A1714" />
+                      <circle cx="20.52" cy="40.42" r="7.5" fill="#8A4FA3" /></svg></span
+                  >بتعرض الخدمة لمين؟
+                </h2>
+                <p class="sub">النوع بيحدد مين هيشوف عرضك ومين يقدر يطلبه.</p>
+                <div
+                  class="types"
+                  style="grid-template-columns: 1fr 1fr"
+                  role="radiogroup"
+                  aria-label="نوع الخدمة"
+                >
+                  <label class="ty"
+                    ><input type="radio" name="aud" id="audOrg" checked />
+                    <span class="in"
+                      ><b>خدمات للمؤسسات</b
+                      ><span
+                        >ترجمة، تصميم، تصوير، دعم تقني، استشارات — المؤسسة هي اللي بتطلب.</span
+                      ></span
+                    ></label
+                  >
+                  <label class="ty"
+                    ><input type="radio" name="aud" id="audMem" />
+                    <span class="in"
+                      ><b>خدمات لأعضاء الفرق</b
+                      ><span
+                        >صحة، قانون، تعليم، مساعدة منزلية — الفرد هو اللي بيحجز لنفسه.</span
+                      ></span
+                    ></label
+                  >
+                </div>
+              </section>
+
+              <section class="sheet">
+                <h2>
+                  <span class="w"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 100 100"
+                      xmlns:c2pa="http://c2pa.org/manifest"
+                    >
+                      <g transform="translate(0 51) scale(1 1.13) translate(0 -51)">
+                        <path
+                          fill="#1A1714"
+                          d="
+      M50 8 C43 8 39 13 39 20 L39 25
+      C37 20 33 17 28 17 C21 17 17 22 17 29 L18 47
+      C13 45 8 46 5 50 C2 53 1 57 1 60
+      C8 64 12 69 13 77 C15 90 27 94 50 94
+      C73 94 85 90 87 77 C88 69 92 64 99 60
+      C99 57 98 53 95 50 C92 46 87 45 82 47
+      L83 29 C83 22 79 17 72 17 C67 17 63 20 61 25
+      L61 20 C61 13 57 8 50 8 Z"
+                        />
+                        <path
+                          fill="#1F4FA3"
+                          d="
+      M50 12 C45 12 43 16 43 21 L43 38
+      C43 40 42 41 40 41 C38 41 37 40 37 38 L36 29
+      C36 24 33 21 28 21 C23 21 21 25 21 30 L22 53
+      C16 49 10 50 7 56 C14 60 18 67 19 76
+      C21 86 31 90 50 90 C69 90 79 86 81 76
+      C82 67 86 60 93 56 C90 50 84 49 78 53 L79 30
+      C79 25 77 21 72 21 C67 21 64 24 64 29 L63 38
+      C63 40 62 41 60 41 C58 41 57 40 57 38 L57 21
+      C57 16 55 12 50 12 Z"
+                        />
+                        <path
+                          fill="#1A1714"
+                          d="
+      M24 64 C31 55 40 51 50 51 C60 51 69 55 76 64
+      C69 73 60 77 50 77 C40 77 31 73 24 64 Z"
+                        />
+                        <path
+                          fill="#F2C230"
+                          d="
+      M29 64 C35 58 42 55 50 55 C58 55 65 58 71 64
+      C65 70 58 73 50 73 C42 73 35 70 29 64 Z"
+                        />
+                        <circle cx="50" cy="64" r="7" fill="#1A1714" />
+                      </g></svg></span
+                  >تفاصيل الخدمة
+                </h2>
+                <form id="pub" novalidate>
+                  <div class="field">
+                    <label class="label" for="t">عنوان الخدمة</label>
+                    <input
+                      class="input"
+                      id="t"
+                      type="text"
+                      placeholder="جملة واضحة — مثال: ترجمة عربي ⇄ إنجليزي للمواد الثقافية"
+                      required
+                    />
+                  </div>
+                  <div class="field">
+                    <label class="label" for="d">الوصف</label>
+                    <textarea
+                      class="input"
+                      id="d"
+                      style="min-height: 140px; resize: vertical"
+                      placeholder="بتقدّم إيه بالظبط؟ وإيه اللي هيستلمه الطرف التاني؟"
+                      required
+                    ></textarea>
+                    <p class="hint">أول سطرين بيظهروا على البطاقة في التصفح.</p>
+                  </div>
+                  <div class="field">
+                    <label class="label" for="c">الفئة</label>
+                    <input
+                      class="input"
+                      id="c"
+                      type="text"
+                      maxlength="14"
+                      placeholder="ترجمة · تصميم · تعليم"
+                      required
+                    />
+                    <p class="hint">كلمة واحدة بتوصف نوع الخدمة — بتظهر كوسم على البطاقة.</p>
+                  </div>
+                  <div class="field">
+                    <span class="label">الإتاحة</span>
+                    <div class="sqrow" role="radiogroup" aria-label="الإتاحة">
+                      <label class="sqopt"
+                        ><input type="radio" name="av" id="avOpen" checked /><span
+                          >متاحة أي وقت</span
+                        ></label
+                      ><label class="sqopt"
+                        ><input type="radio" name="av" id="avFix" /><span>مدة محددة</span></label
+                      >
+                    </div>
+                    <div class="condwrap" id="avBox">
+                      <div class="numrow">
+                        <div>
+                          <label class="label" for="avN">قدّ إيه؟</label>
+                          <input
+                            class="input"
+                            id="avN"
+                            type="text"
+                            placeholder="٤"
+                            inputmode="numeric"
+                          />
+                          <div class="unitpills" role="radiogroup" aria-label="وحدة المدة">
+                            <label class="upill"
+                              ><input type="radio" name="avU" checked /><span class="in"
+                                >ساعات</span
+                              ></label
+                            >
+                            <label class="upill"
+                              ><input type="radio" name="avU" /><span class="in">أيام</span></label
+                            >
+                            <label class="upill"
+                              ><input type="radio" name="avU" /><span class="in">جلسات</span></label
+                            >
+                          </div>
+                        </div>
+                        <div>
+                          <label class="label" for="avFrom">متاحة من</label
+                          ><input class="input" id="avFrom" type="text" placeholder="١ سبتمبر" />
+                          <label class="label" for="avTo" style="margin-top: 12px">لحد</label
+                          ><input class="input" id="avTo" type="text" placeholder="٣٠ سبتمبر" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </section>
+
+              <section class="sheet">
+                <h2>
+                  <span class="w"
+                    ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+                      <path
+                        d="M50 20v56M30 76h40M50 30l-24 8M50 30l24 8"
+                        stroke="#1A1714"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M16 38a10 10 0 0020 0zM64 38a10 10 0 0020 0z"
+                        fill="#F2C230"
+                        stroke="#1A1714"
+                        stroke-width="2.4"
+                        stroke-linejoin="round"
+                      /></svg></span
+                  >التسعير
+                </h2>
+                <div class="paytoggle" role="radiogroup" aria-label="التسعير">
+                  <label class="upill"
+                    ><input type="radio" name="pay" id="fPaid" checked /><span class="in"
+                      >بمقابل</span
+                    ></label
+                  >
+                  <label class="upill"
+                    ><input type="radio" name="pay" id="fFree" /><span class="in"
+                      >مجانًا</span
+                    ></label
+                  >
+                </div>
+                <div id="paidBox">
+                  <div class="numrow">
+                    <div>
+                      <label class="label" for="fH">عدد ساعات الخدمة</label>
+                      <input class="input" id="fH" type="text" value="٤" inputmode="numeric" />
+                    </div>
+                    <div>
+                      <span class="label">سعر الساعة (١–٥ شهمهم)</span>
+                      <div class="rate" role="group" aria-label="سعر الساعة">
+                        <button
+                          type="button"
+                          class="rbtn2"
+                          data-rate="1"
+                          data-for="f"
+                          aria-pressed="false"
+                        >
+                          ١</button
+                        ><button
+                          type="button"
+                          class="rbtn2"
+                          data-rate="2"
+                          data-for="f"
+                          aria-pressed="false"
+                        >
+                          ٢</button
+                        ><button
+                          type="button"
+                          class="rbtn2"
+                          data-rate="3"
+                          data-for="f"
+                          aria-pressed="false"
+                        >
+                          ٣</button
+                        ><button
+                          type="button"
+                          class="rbtn2"
+                          data-rate="4"
+                          data-for="f"
+                          aria-pressed="false"
+                        >
+                          ٤</button
+                        ><button
+                          type="button"
+                          class="rbtn2"
+                          data-rate="5"
+                          data-for="f"
+                          aria-pressed="true"
+                        >
+                          ٥
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="calc" id="fCalc">
+                    <span class="lab">قيمة الخدمة<span>٤ ساعات × ٥ شهمهم</span></span>
+                    <span
+                      ><span class="sum" id="fSum">٢٠<small>شهمهم</small></span>
+                      <span class="vat">+ ١٤٪ ض.ق.م على قيمة المقايضة</span></span
+                    >
+                  </div>
+                </div>
+                <div class="guide">
+                  <b>دليل التسعير المبسّط</b>
+                  <ul>
+                    <li>
+                      <b>الخدمة البشرية</b> = عدد ساعات الخدمة × سعر الساعة (من ١ إلى ٥ شهمهم).
+                    </li>
+                    <li>
+                      <b>خدمات المؤسسات للجمهور</b> (ورش، كورسات، برامج) = (ساعات المقدِّمين × سعر
+                      الساعة) ÷ عدد المقاعد.
+                    </li>
+                    <li>
+                      سعر الساعة بيحدده مقدّم الخدمة بين ١ و٥ — الحدود دي بتحمي الشبكة من المبالغة
+                      في الاتجاهين.
+                    </li>
+                    <li>تقدر تنشر <b>مجانًا</b> — بتتسجّل بقيمة صفر وما بتتخصمش من سقفكم.</li>
+                  </ul>
+                </div>
+                <button class="btn wide" type="button" id="go" style="margin-top: 18px">
+                  انشر الخدمة
+                </button>
+              </section>
+            </div>
+
+            <aside>
+              <section class="sheet">
+                <h2 style="font-size: 22px">ملخّص العرض</h2>
+                <div class="kv" style="margin-top: 14px">
+                  <span class="k">معروضة على</span><span id="sumAud">المؤسسات</span>
+                </div>
+                <div class="kv">
+                  <span class="k">مين يقدر يطلبها</span><span id="sumWho">مؤسسات الشبكة</span>
+                </div>
+                <div class="kv">
+                  <span class="k">القيمة</span><span id="sumPrice">٢٠ شهمهم</span>
+                </div>
+              </section>
+              <div class="note">
+                <span class="w"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns:c2pa="http://c2pa.org/manifest"
+                  >
+                    <path d="M50 84V34" stroke="#1A1714" stroke-width="3" stroke-linecap="round" />
+                    <path
+                      d="M50 34c0-8 6-14 6-14M50 44c0-8 8-12 8-12M50 54c0-8 8-12 8-12M50 34c0-8-6-14-6-14M50 44c0-8-8-12-8-12M50 54c0-8-8-12-8-12"
+                      stroke="#F2C230"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      fill="none"
+                    /></svg
+                ></span>
+                <p>
+                  <b>اللي تكسبه بتصرفه في خلي خالص.</b> الشهمهم اللي بييجيلك من خدماتك تقدر تصرفه
+                  على ورش المؤسسات وفعالياتها وخدماتها للجمهور.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script>
+      const ar = (n) => String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[d])
+      const west = (v) =>
+        String(v)
+          .replace(/[٠-٩]/g, (d) => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))
+          .replace(/[^0-9]/g, '')
+      let fRate = 5
+      function calc() {
+        const free = document.getElementById('fFree').checked
+        document.getElementById('paidBox').style.display = free ? 'none' : ''
+        const h = parseInt(west(document.getElementById('fH').value)) || 0
+        const t = h * fRate
+        document.getElementById('fSum').innerHTML = ar(t) + '<small>شهمهم</small>'
+        document.querySelector('#fCalc .lab span').textContent =
+          ar(h) + ' ساعة × ' + ar(fRate) + ' شهمهم'
+        document.getElementById('sumPrice').textContent = free ? 'مجانًا' : ar(t) + ' شهمهم'
+      }
+      document.querySelectorAll('[data-rate][data-for="f"]').forEach((b) =>
+        b.addEventListener('click', () => {
+          fRate = +b.dataset.rate
+          document
+            .querySelectorAll('[data-rate][data-for="f"]')
+            .forEach((x) => x.setAttribute('aria-pressed', x === b))
+          calc()
+        }),
+      )
+      document.getElementById('fH').addEventListener('input', calc)
+      ;['fPaid', 'fFree'].forEach((id) =>
+        document.getElementById(id).addEventListener('change', calc),
+      )
+      function aud() {
+        const org = document.getElementById('audOrg').checked
+        document.getElementById('sumAud').textContent = org ? 'المؤسسات' : 'أعضاء الفرق'
+        document.getElementById('sumWho').textContent = org
+          ? 'مؤسسات الشبكة'
+          : 'الأفراد من حساباتهم'
+      }
+      ;['audOrg', 'audMem'].forEach((id) =>
+        document.getElementById(id).addEventListener('change', aud),
+      )
+      const avFix = document.getElementById('avFix'),
+        avOpen = document.getElementById('avOpen'),
+        avBox = document.getElementById('avBox')
+      ;[avFix, avOpen].forEach((r) =>
+        r.addEventListener('change', () => avBox.classList.toggle('on', avFix.checked)),
+      )
+      document.getElementById('go').addEventListener('click', () => {
+        window.location.href = 'panel-32a-from-public-to-orgs.html'
+      })
+      calc()
+      aud()
+    </script>
+  </body>
+</html>
