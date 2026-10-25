@@ -19,3 +19,17 @@ export function createHakimaProposalSchema(err: {
 }
 
 export type HakimaProposalFormValues = z.infer<ReturnType<typeof createHakimaProposalSchema>>
+
+export function createAnnualReviewSchema(required: string) {
+  const answer = z.enum(['1', '2', '3', '4', '5'], { error: required })
+
+  return z.object({
+    exchange: answer,
+    governance: answer,
+    discovery: answer,
+    fairness: answer,
+    retention: answer,
+  })
+}
+
+export type AnnualReviewFormValues = z.infer<ReturnType<typeof createAnnualReviewSchema>>

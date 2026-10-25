@@ -15,8 +15,8 @@ const navLinks = [
   ['/hakima/support', 'support'],
   ['/hakima/voting', 'voting'],
   ['/hakima/my-proposals', 'mine'],
-  ['/governance/annual-review', 'annualReview'],
-  ['/governance/log', 'log'],
+  ['/hakima/annual-review', 'annualReview'],
+  ['/hakima/log', 'log'],
 ] as const
 
 const primaryLink =
@@ -429,7 +429,7 @@ export function ProposalCard({
               <Link
                 href={
                   mode === 'browse' && proposal.id === 'membership-list'
-                    ? '/governance/membership'
+                    ? '/hakima/membership'
                     : `/hakima/proposals/${proposal.id}`
                 }
                 className={done ? secondaryLink : primaryLink}
@@ -493,9 +493,7 @@ export function ProposalCard({
               )}
               {mode === 'mine' && done && (
                 <Link
-                  href={
-                    proposal.result === 'passed' ? '/governance/log' : '/hakima/proposals/create'
-                  }
+                  href={proposal.result === 'passed' ? '/hakima/log' : '/hakima/proposals/create'}
                   className={secondaryLink}
                 >
                   {t(proposal.result === 'passed' ? 'actions.viewLog' : 'actions.resubmit')}

@@ -137,7 +137,7 @@ export default function GeneralComplaintPage() {
               strong: (chunks) => <strong className="text-ink">{chunks}</strong>,
               link: (chunks) => (
                 <Link
-                  href="/governance/membership"
+                  href="/hakima/membership"
                   className="border-b-[2.5px] border-red font-extrabold text-ink hover:text-red"
                 >
                   {chunks}
