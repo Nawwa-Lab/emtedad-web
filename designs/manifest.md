@@ -4,12 +4,12 @@
 
 ## Migration progress
 
-**Status: In progress** — `████████░░░░░░░░░░░░` **40% (43/108)**
+**Status: In progress** — `█████████░░░░░░░░░░░` **44% (48/108)**
 
 | Work status                         | Rows |
 | ----------------------------------- | ---: |
-| Completed (`migrated` + `done`)     |   43 |
-| Awaiting visual review (`existing`) |   13 |
+| Completed (`migrated` + `done`)     |   48 |
+| Awaiting visual review (`existing`) |    8 |
 | Not started (`proposed`)            |   52 |
 
 | Family          | Progress          | Complete | Review | Proposed | Total |
@@ -25,7 +25,7 @@
 | entry           | `██████████` 100% |        5 |      0 |        0 |     5 |
 | etabat          | `██████████` 100% |        7 |      0 |        0 |     7 |
 | fahs-mahs       | `██████████` 100% |       10 |      0 |        0 |    10 |
-| genny           | `░░░░░░░░░░` 0%   |        0 |      3 |        0 |     3 |
+| genny           | `██████████` 100% |        3 |      0 |        0 |     3 |
 | hakima          | `██████████` 100% |        9 |      0 |        0 |     9 |
 | khalli-khales   | `░░░░░░░░░░` 0%   |        0 |      0 |        9 |     9 |
 | landing         | `██████████` 100% |        4 |      0 |        0 |     4 |
@@ -37,7 +37,7 @@
 | ratings         | `░░░░░░░░░░` 0%   |        0 |      0 |        2 |     2 |
 | search          | `██████████` 100% |        1 |      0 |        0 |     1 |
 | shared states   | `██████████` 100% |        1 |      0 |        0 |     1 |
-| shbeik          | `░░░░░░░░░░` 0%   |        0 |      2 |        0 |     2 |
+| shbeik          | `██████████` 100% |        2 |      0 |        0 |     2 |
 | team            | `░░░░░░░░░░` 0%   |        0 |      0 |        4 |     4 |
 | transfers       | `░░░░░░░░░░` 0%   |        0 |      0 |        1 |     1 |
 
@@ -106,11 +106,11 @@ For one migration batch, read only the selected rows and their source HTML. Conv
 | `designs/panel-46-request-detail.html`                      | alaesh          | `app/[lang]/(dashboard)/alaesh-andak/request/[id]/page.tsx`                               | `components/ui/button.tsx`, `components/ui/toast.tsx`                                                                                          | migrated | Dynamic request detail, provider profile, pricing, requirements, saved state, and mock reply added.                                            |
 | `designs/panel-47-post-request.html`                        | alaesh          | `app/[lang]/(dashboard)/alaesh-andak/request/create/page.tsx`                             | `components/AlaeshRequestForm.tsx`, `components/Form.tsx`, `components/ui/*`                                                                   | migrated | Validated conditional request form, live pricing, summary, guidance, and mock submission rebuilt.                                              |
 | `designs/panel-48-my-requests.html`                         | alaesh          | `app/[lang]/(dashboard)/alaesh-andak/my-posts/page.tsx`                                   | `components/AlaeshRequestCard.tsx`, `components/ui/dialog.tsx`                                                                                 | migrated | Open/history fixtures, combined status and market filters, action states, dialog, and empty state rebuilt.                                     |
-| `designs/panel-49-genny-browse.html`                        | genny           | `app/[lang]/(dashboard)/genny/browse/page.tsx`                                            | `components/WishCard.tsx`, `components/WishSearch.tsx`, `components/ui/toggle-group.tsx`                                                       | existing |                                                                                                                                                |
-| `designs/panel-50-add-wish.html`                            | genny           | `app/[lang]/(dashboard)/genny/wish/create/page.tsx`                                       | `components/WishForm.tsx`, `components/ui/*`                                                                                                   | existing |                                                                                                                                                |
-| `designs/panel-51-my-wishes.html`                           | genny           | `app/[lang]/(dashboard)/genny/my-wishes/page.tsx`                                         | `components/WishCard.tsx`, `components/ui/toggle-group.tsx`                                                                                    | existing |                                                                                                                                                |
-| `designs/panel-52-shobeik-lobeik.html`                      | shbeik          | `app/[lang]/(dashboard)/shbeik-lbeik/browse/page.tsx`                                     | `components/WishCard.tsx`, `components/WishSearch.tsx`, `components/ui/toggle-group.tsx`                                                       | existing |                                                                                                                                                |
-| `designs/panel-52a-add-community-wish.html`                 | shbeik          | `app/[lang]/(dashboard)/shbeik-lbeik/wish/create/page.tsx`                                | `components/WishForm.tsx`, `components/ui/*`                                                                                                   | existing |                                                                                                                                                |
+| `designs/panel-49-genny-browse.html`                        | genny           | `app/[lang]/(dashboard)/genny/browse/page.tsx`                                            | `components/WishBoard.tsx`, `components/WishCard.tsx`, `components/ui/dialog.tsx`, `components/ui/empty-state.tsx`                             | migrated | Shared wish board with working filters, sorting, endorsement state, supporter dialog, and empty state.                                         |
+| `designs/panel-50-add-wish.html`                            | genny           | `app/[lang]/(dashboard)/genny/wish/create/page.tsx`                                       | `components/WishForm.tsx`, `components/WishSearch.tsx`, `components/Form.tsx`, `components/ui/*`                                               | migrated | Shared validated search-first wish flow with mock results, edit reuse, and completion state.                                                   |
+| `designs/panel-51-my-wishes.html`                           | genny           | `app/[lang]/(dashboard)/genny/my-wishes/page.tsx`                                         | `components/WishBoard.tsx`, `components/WishCard.tsx`, `components/ui/dialog.tsx`                                                              | migrated | Source statistics and editable/locked wish actions share the common card behavior.                                                             |
+| `designs/panel-52-shobeik-lobeik.html`                      | shbeik          | `app/[lang]/(dashboard)/shbeik-lbeik/browse/page.tsx`                                     | `components/WishBoard.tsx`, `components/WishCard.tsx`, `components/ui/dialog.tsx`, `components/ui/empty-state.tsx`                             | migrated | Reuses the wish board functionality with community-specific authors, categories, copy, and routes.                                             |
+| `designs/panel-52a-add-community-wish.html`                 | shbeik          | `app/[lang]/(dashboard)/shbeik-lbeik/wish/create/page.tsx`                                | `components/WishForm.tsx`, `components/WishSearch.tsx`, `components/Form.tsx`, `components/ui/*`                                               | migrated | Reuses the validated search-first flow with community-specific fields, author notice, fixtures, and success copy.                              |
 | `designs/panel-53-hakima-browse.html`                       | hakima          | `app/[lang]/(dashboard)/hakima/browse/page.tsx`                                           | `app/[lang]/(dashboard)/hakima/components.tsx`                                                                                                 | migrated | Browse groups, cycle summary, search, proposal cards, and localized fixtures added.                                                            |
 | `designs/panel-54-proposal-detail.html`                     | hakima          | `app/[lang]/(dashboard)/hakima/proposals/[id]/page.tsx`                                   | `app/[lang]/(dashboard)/hakima/components.tsx`                                                                                                 | migrated | Proposal content, documents, discussion, voting, threshold, and information panel added.                                                       |
 | `designs/panel-55-submit-proposal.html`                     | hakima          | `app/[lang]/(dashboard)/hakima/proposals/create/page.tsx`                                 | `components/Form.tsx`, `components/ui/radio-group.tsx`                                                                                         | migrated | Validated proposal form, supporting files, draft feedback, and mock submission added.                                                          |
