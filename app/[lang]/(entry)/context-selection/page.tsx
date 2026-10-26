@@ -110,7 +110,7 @@ export default function ContextSelectionPage() {
               >
                 {t('submit')}
               </Button>
-              <p className="mt-4 font-body text-[14.5px] font-semibold text-ink-soft">
+              <p className="mt-4 font-body text-[14.5px] font-semibold text-soft">
                 {t('switchHint')}
               </p>
             </>

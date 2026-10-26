@@ -1,12 +1,5 @@
 import type { components } from '@/services/generated/openapi'
 
-export type AuthProfile = {
-  id: string
-  email: string
-  name?: string
-  roles?: string[]
-}
-
 // shortcut: OpenAPI omits the /users/me response schema; replace with its generated type once documented.
 export type CurrentUserProfile = {
   account: {

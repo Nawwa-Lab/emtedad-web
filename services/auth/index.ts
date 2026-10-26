@@ -10,7 +10,6 @@ export {
 } from './queries'
 export type {
   AuthMessage,
-  AuthProfile,
   ContextSwitchInput,
   ContextSwitchResult,
   CurrentUserProfile,

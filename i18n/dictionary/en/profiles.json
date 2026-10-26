@@ -1,4 +1,91 @@
 {
+  "organizationProfile": {
+    "back": "Back to {name}'s profile",
+    "sectionDescription": "{name} — sorted by marketplace.",
+    "markets": {
+      "all": "All",
+      "namliya": "Namliya",
+      "khalli": "Khalli Khales",
+      "alaesh": "Alaesh Andak?",
+      "onNamliya": "On Namliya",
+      "onKhalli": "On Khalli Khales",
+      "onAlaesh": "On Alaesh Andak?"
+    },
+    "marketCounts": {
+      "human": { "namliya": "8 services", "khalli": "4 services", "alaesh": "2 requests" },
+      "material": { "namliya": "4 resources", "khalli": "1 resource", "alaesh": "1 request" }
+    },
+    "marketNotes": {
+      "human": {
+        "namliya": "Team services available to network organizations.",
+        "khalli": "Public services and activities booked from the individual's monthly allowance.",
+        "alaesh": "Human services the organization is looking for, not offering."
+      },
+      "material": {
+        "namliya": "Equipment and spaces available to network organizations.",
+        "khalli": "Resources available directly to the public.",
+        "alaesh": "Resources the organization is looking for, not offering."
+      }
+    },
+    "defaults": {
+      "description": "An organization active in the network.",
+      "mission": "No mission has been published yet.",
+      "unpublished": "Not published"
+    },
+    "ratingSummary": "Rated by {count} members — see details",
+    "facts": {
+      "city": "City",
+      "founded": "Founded",
+      "website": "Website",
+      "contact": "Contact"
+    },
+    "mission": "Our mission",
+    "publishedOffers": "Published offers",
+    "humanServices": "Human services",
+    "humanServicesCount": "14 services — select the title to see all",
+    "materialResources": "Material resources",
+    "materialResourcesCount": "6 resources — select the title to see all",
+    "humanServicesTitle": "All human services",
+    "humanServicesDescription": "{name} — 14 human services, sorted by marketplace.",
+    "materialResourcesTitle": "All material resources",
+    "materialResourcesDescription": "{name} — 6 material resources, sorted by marketplace.",
+    "satisfactionTitle": "Satisfaction index details",
+    "ratedByNetwork": "Rated by {count} network members",
+    "team": "Team",
+    "membersCount": "{count} members",
+    "itemsCount": "{count} items",
+    "previous": "Previous",
+    "next": "Next",
+    "request": "Request",
+    "haveIt": "I have it",
+    "vat": "+ 14% VAT",
+    "details": {
+      "expand": "Open full details",
+      "humanService": "Human service",
+      "materialResource": "Material resource",
+      "value": "Value",
+      "provider": "Providing organization",
+      "requestService": "Request service",
+      "save": "Save to favorites",
+      "close": "Close"
+    },
+    "reviews": "Written reviews",
+    "ratingSections": "Rating sections",
+    "reviewsCount": "{shown} of {total} reviews",
+    "roles": {
+      "org_admin": "Organization admin",
+      "team_worker": "Team member"
+    }
+  },
+  "memberProfile": {
+    "back": "Back to {name}'s profile",
+    "fallbackName": "Emtedad member",
+    "fallbackBio": "No bio has been published yet.",
+    "servicesTitle": "Services they deliver",
+    "servicesCount": "4 services on Namliya and Khalli Khales",
+    "reviews": "Written reviews",
+    "reviewsCount": "{shown} of {total} reviews"
+  },
   "member-profile": {
     "firstCard": {
       "avatarInitials": "K",
