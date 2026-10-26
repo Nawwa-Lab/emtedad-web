@@ -1,80 +1,52 @@
 'use client'
-import { ServiceCard } from '@/components/ServicesCard'
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { useState } from 'react'
-import { filterButtons, serviceCard } from './data'
-
-const ALL_ID = filterButtons.find((b) => b.label === 'الكل')?.id ?? '1'
-const categoryButtons = filterButtons.filter((b) => b.label !== 'الأحدث أولا')
-const sortButtons = filterButtons.filter((b) => b.label === 'الأحدث أولا')
+import { ServiceCard } from '@/components/ServicesCard'
+import { serviceCard } from './data'
+import { Input } from '@/components/ui/input'
 
 export default function NamliyaServiceOffersPage() {
-  const [active, setActive] = useState<readonly string[]>([ALL_ID])
+  const [query, setQuery] = useState('')
 
-  const handleChange = (values: string[]) => {
-    if (values.length === 0) {
-      setActive([ALL_ID])
-      return
-    }
-    const withoutAll = values.filter((v) => v !== ALL_ID)
-    if (values.includes(ALL_ID) && withoutAll.length < values.length) {
-      setActive([ALL_ID])
-      return
-    }
-    setActive(withoutAll.length > 0 ? withoutAll : [ALL_ID])
-  }
+  const q = query.trim().toLowerCase()
 
-  const filteredServices = serviceCard.filter((card) => {
-    if (active.includes(ALL_ID)) return true
-    return active.includes(card.categoryId)
-  })
+  const filteredCards = serviceCard.filter((card) =>
+    [card.title, card.desc, card.category, card.providerName].join(' ').toLowerCase().includes(q),
+  )
 
   return (
     <>
-      <div className="mb-3.5 sm:mb-4.5 flex flex-wrap items-center gap-1.5 sm:gap-2">
-        {/* Category filter chips */}
-        <ToggleGroup value={active} onValueChange={handleChange} className="flex-wrap">
-          {categoryButtons.map((button) => (
-            <ToggleGroupItem value={button.id} key={button.id}>
-              {button.label}
-            </ToggleGroupItem>
+      <div className="flex gap-3 flex-wrap mb-4.5">
+        <Input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="ابحث في الخدمات البشريه…"
+          className="flex-1 font-body min-w-55 bg-surface rounded-full border-[2.5px] border-ink py-3.25 px-6.5 font-semibold text-[16px] text-ink shadow-ink shadow-[3px_3px_0_var(--ink)]"
+        />
+      </div>
+
+      {filteredCards.length === 0 ? (
+        <p className="text-center font-body font-bold text-ink py-10">لا توجد نتائج</p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+          {filteredCards.map((card) => (
+            <ServiceCard
+              key={card.categoryId}
+              category={card.category}
+              title={card.title}
+              desc={card.desc}
+              providerName={card.providerName}
+              providerRate={card.providerRate}
+              price={card.price}
+              currency={card.currency}
+              request={card.request}
+              detail={card.detail}
+              showStatusBadge={true}
+              showSaveButton
+              ctaHref="#"
+            />
           ))}
-        </ToggleGroup>
-
-        {/* Vertical separator */}
-        {sortButtons.length > 0 && (
-          <span className="self-stretch w-px bg-line mx-0.5" aria-hidden />
-        )}
-
-        {/* Sorting chip(s) */}
-        {sortButtons.length > 0 && (
-          <ToggleGroup value={active} onValueChange={handleChange} className="flex-wrap">
-            {sortButtons.map((button) => (
-              <ToggleGroupItem value={button.id} key={button.id}>
-                {button.label}
-              </ToggleGroupItem>
-            ))}
-          </ToggleGroup>
-        )}
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
-        {filteredServices.map((card) => (
-          <ServiceCard
-            key={card.categoryId}
-            category={card.category}
-            title={card.title}
-            providerName={card.providerName}
-            providerRate={card.providerRate}
-            availability={card.availability}
-            price={card.price}
-            currency={card.currency}
-            request={card.request}
-            showStatusBadge={true}
-            showSaveButton
-            ctaHref="#"
-          />
-        ))}
-      </div>
+        </div>
+      )}
     </>
   )
 }

@@ -1,5 +1,5 @@
 import { EntityCard } from '@/components/EntityCard'
-import { StatusBadge, getVariantFromLabel } from '@/components/StatusBadge'
+import { StatusBadge } from '@/components/StatusBadge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -69,7 +69,7 @@ export default async function MemberProfileClient() {
             </Card>
 
             {/* Reviews Card */}
-            <Card className="p-4 sm:p-6 mb-5 bg-surface border border-line rounded-[22px]">
+            <Card className="p-4 sm:p-6 mb-5 bg-surface border border-line rounded-panel">
               <CardTitle className="text-green-deep text-[18px] mb-3">
                 {profile.thirdCard.reviewsTitle}
               </CardTitle>
@@ -92,12 +92,7 @@ export default async function MemberProfileClient() {
                       <span className="font-semibold text-[11px] text-ink-soft font-cairo">
                         {t.exchangeText}
                       </span>
-                      <StatusBadge
-                        variant={getVariantFromLabel(t.badge)}
-                        label={t.badge}
-                        shape="pill"
-                        labels={dict.statusBadge}
-                      />
+                      <StatusBadge label={t.badge} shape="pill" />
                     </div>
                     <CardDescription className="font-medium text-[13px] text-ink-soft leading-relaxed font-cairo">
                       {t.reviewText}
@@ -111,7 +106,7 @@ export default async function MemberProfileClient() {
           {/* Sidebar section */}
           <aside className="box-border m-0 p-0 w-full">
             {/* Fourth Card */}
-            <Card className="p-4 sm:p-6 mb-5 bg-surface border border-line rounded-[22px]">
+            <Card className="p-4 sm:p-6 mb-5 bg-surface border border-line rounded-panel">
               <CardHeader className="font-display font-bold text-lg text-green-deep mb-3 p-0">
                 {profile.fourthCard.title}
               </CardHeader>
@@ -120,11 +115,7 @@ export default async function MemberProfileClient() {
                   key={index}
                   className="flex items-center gap-3.5 border-b border-line-soft py-3.25 px-0 last:border-b-0"
                 >
-                  <StatusBadge
-                    variant={getVariantFromLabel(t.rate)}
-                    label={t.rate}
-                    labels={dict.statusBadge}
-                  />
+                  <StatusBadge label={t.rate} />
                   <div>
                     <span className="block font-extrabold text-[13.5px] font-cairo">{t.about}</span>
                     <span className="font-semibold text-[11.5px] text-ink-soft font-cairo">

@@ -15,7 +15,7 @@ export function HelpCard({ title, tips }: HelpCardProps) {
             key={tip}
             className="relative font-cairo font-semibold text-[12.5px] text-ink-soft leading-[1.95] ps-5 mb-2 last:mb-0"
           >
-            <span className="absolute start-0.5 top-2.5 w-[7px] h-[7px] rounded-full bg-green" />
+            <span className="absolute inset-s-0.5 top-2.5 w-1.75 h-1.75 rounded-full bg-green" />
             {tip}
           </li>
         ))}

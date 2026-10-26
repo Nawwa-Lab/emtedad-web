@@ -2,7 +2,7 @@ import { ServiceListingsCard } from '@/app/[lang]/(dashboard)/organization/[id]/
 import orgCover from '@/icons/org-cover.svg'
 import { InfoCardList } from '@/components/InfoCard'
 import { SatisfactionIndex } from '@/components/Satisfaction Index'
-import { StatusBadge, getVariantFromLabel } from '@/components/StatusBadge'
+import { StatusBadge } from '@/components/StatusBadge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -20,7 +20,7 @@ export default async function MemberProfileClient() {
     <div className="relative w-full max-w-7xl mx-auto flex-1 overflow-x-hidden overflow-y-auto m-0">
       <div className="w-full mx-auto box-border m-0 p-0">
         {/* first card */}
-        <Card className="relative h-32 sm:h-40 lg:h-47.5 bg-green rounded-[22px] overflow-hidden border-none">
+        <Card className="relative h-32 sm:h-40 lg:h-47.5 bg-green rounded-panel overflow-hidden border-none">
           <Image
             src={orgCover}
             alt={'hero'}
@@ -51,11 +51,7 @@ export default async function MemberProfileClient() {
           <Dialog>
             <DialogTrigger className="w-full sm:w-auto sm:ms-auto">
               <Card className="bg-surface border-none border-ink rounded-[999px] pr-2.5 pb-2 pl-4.5 gap-2.5 pt-2 flex items-center justify-between sm:justify-start shrink-0 cursor-pointer w-full sm:w-auto">
-                <StatusBadge
-                  variant={getVariantFromLabel(dict.statusBadge.veryGood)}
-                  label={dict.statusBadge.veryGood}
-                  labels={dict.statusBadge}
-                />
+                <StatusBadge label={dict.statusBadge.veryGood} />
                 <CardContent className="block text-start font-semibold text-[11px] text-ink-soft">
                   <span className="font-extrabold text-[13px] text-ink font-cairo">
                     {profile.firstCard.rate}
@@ -106,12 +102,12 @@ export default async function MemberProfileClient() {
 
           {/* Sidebar section */}
           <aside className="box-border m-0 p-0 w-full min-w-0">
-            <Card className="p-4 sm:p-6 mb-5 bg-surface border border-line rounded-[22px]">
+            <Card className="p-4 sm:p-6 mb-5 bg-surface border border-line rounded-panel">
               <CardHeader>{profile.fourthCard.title}</CardHeader>
               <InfoCardList />
             </Card>
 
-            <Card className="p-4 sm:p-6 bg-surface border border-line rounded-[22px]">
+            <Card className="p-4 sm:p-6 bg-surface border border-line rounded-panel">
               <CardHeader>{profile.fifthCard.title}</CardHeader>
               {profile.fifthCard.overall.map((t, index) => (
                 <CardContent
@@ -132,12 +128,7 @@ export default async function MemberProfileClient() {
                       {t.about}
                     </span>
                   </div>
-                  <StatusBadge
-                    variant={getVariantFromLabel(t.rate)}
-                    label={t.rate}
-                    labels={dict.statusBadge}
-                    shape="pill"
-                  />
+                  <StatusBadge label={t.rate} shape="pill" />
                 </CardContent>
               ))}
             </Card>
