@@ -1,0 +1,337 @@
+{
+  "navigation": {
+    "maktab": "Maktab",
+    "namliya": "Namliya",
+    "khalis": "Khalis",
+    "have_qalish": "Do you have Qalish?",
+    "hakima": "Hakima",
+    "genny": "Jni",
+    "shbeik-lbeik": "Shbeik Lbeik",
+    "managment": "Management",
+    "etabat": "Reproaches",
+    "fahs-mahs": "Exam",
+    "logout": "Log out"
+  },
+  "header": {
+    "searchPlaceholder": "Search the network…",
+    "searchAriaLabel": "Search",
+    "quickAction": "Do a good deed +",
+    "logo": "Shahamham",
+    "contextLabel": "I'm an organization",
+    "switchContext": "Switch",
+    "notificationsAriaLabel": "Notifications — 3 unread"
+  },
+  "dashboard": {
+    "title": "Welcome to Mishkaa in Shahamham",
+    "description": "Good deeds start here — your first published offer opens the cycle, and every kindness comes back.",
+    "quickAction": "Do a good deed +",
+    "watchNamliya": "Watch Namliya"
+  },
+  "quickAction": {
+    "title": "Where will you do a good deed?",
+    "description": "Choose the market first, then the type of good deed, and we’ll open the right form immediately.",
+    "destinations": {
+      "namliya": {
+        "title": "Namliya",
+        "description": "For network organizations: your team’s services or your organization’s available resources."
+      },
+      "khalliKhales": {
+        "title": "Khalli Khales",
+        "description": "For your audience: workshops, events, programs, services, and resources for people."
+      },
+      "alaesh": {
+        "title": "Got Qalish?",
+        "description": "You’re not offering—you’re looking. Post what you need and wait for someone to say, “I have it.”"
+      }
+    },
+    "actions": {
+      "humanService": "Human service",
+      "materialResource": "Material resource",
+      "activity": "Activity",
+      "service": "Service",
+      "resource": "Resource",
+      "request": "Request"
+    }
+  },
+  "sidebar": {
+    "mainNavAriaLabel": "Main navigation",
+    "quickAction": "Do a good deed +",
+    "notifications": "Notifications",
+    "orgName": "Mishkaa Organization",
+    "publicProfile": "Public profile"
+  },
+  "dialog": {
+    "close": "Close"
+  },
+  "systemStates": {
+    "toast": {
+      "dismiss": "Dismiss notification"
+    }
+  },
+  "statusBadge": {
+    "veryGood": "Epic",
+    "good": "Good",
+    "acceptable": "Fair",
+    "empty": "-"
+  },
+  "search": {
+    "title": "Search results",
+    "summary": "For “{term}” — {count} results across the network.",
+    "filtersLabel": "Filter search results",
+    "filters": {
+      "all": "All",
+      "offers": "Offers",
+      "requests": "Requests",
+      "organizations": "Organizations",
+      "members": "Members",
+      "proposals": "Proposals"
+    },
+    "categories": {
+      "production": "Production",
+      "design": "Design",
+      "equipment": "Equipment",
+      "request": "Request",
+      "organization": "Organization",
+      "member": "Member",
+      "proposal": "Proposal"
+    },
+    "kinds": {
+      "service": "Human service",
+      "resource": "Material resource"
+    },
+    "providers": {
+      "sawt-w-soura": "Sawt w Soura",
+      "mishkaa": "Mishkaa",
+      "halaqa": "Halaqa",
+      "beit-el-hekaya": "Beit El Hekaya",
+      "dar-noon": "Dar Noon Publishing"
+    },
+    "members": {
+      "omar": "Omar El Sayed",
+      "sara": "Sara Hassan",
+      "karim": "Karim Fawzy"
+    },
+    "ratings": {
+      "amer": "Amer",
+      "kareem": "Kareem"
+    },
+    "tax": "+ {percent}% VAT",
+    "price": "{value} {currency}",
+    "requestMeta": "{provider} · posted {days} days ago · {responses} “I have it” replies",
+    "memberMeta": "{provider} · {rating}",
+    "organizationMeta": "Member organization · {rating}",
+    "proposalMeta": "Supported by {support} organizations",
+    "openDetails": "Open full details",
+    "providerTitle": "Provider organization",
+    "facts": {
+      "value": "Value",
+      "availability": "Availability",
+      "delivery": "Delivery",
+      "duration": "Duration",
+      "reviews": "Review rounds",
+      "deposit": "Cash deposit"
+    },
+    "sections": {
+      "deliverables": "What you will receive",
+      "specialTerms": "Special terms",
+      "usageTerms": "Usage terms"
+    },
+    "actions": {
+      "order": "Order",
+      "orderFull": "Order service",
+      "save": "Save",
+      "saved": "Saved",
+      "saveFull": "Save to favourites",
+      "iHave": "I have it",
+      "viewProfile": "View profile",
+      "viewProposal": "View proposal"
+    },
+    "empty": {
+      "title": "We couldn’t find “{term}”",
+      "description": "Try a closer term, or post a request on Got Qalish? and let the network respond.",
+      "action": "Post a request"
+    },
+    "filterEmpty": {
+      "title": "No preview results in this category",
+      "description": "The current mock includes the offer examples provided by the approved design.",
+      "action": "Back to all results"
+    },
+    "items": {
+      "video": {
+        "title": "Event filming and video documentation",
+        "description": "Complete event coverage from preparation to the final shot, with two cameras and clean stage and audience audio.",
+        "details": "Complete event coverage from preparation to the final shot: two-camera filming, clean stage and audience audio, and detail shots that capture the atmosphere. Delivery includes organized raw footage and a publication-ready ninety-second highlight.",
+        "facts": {
+          "availability": "Available for any duration",
+          "delivery": "Within 48 hours"
+        },
+        "sections": {
+          "raw": "Raw footage organized in folders by time",
+          "summary": "A 90-second highlight in vertical and horizontal formats",
+          "audio": "A separate stage audio file",
+          "arrival": "Arrive one hour before the event to prepare",
+          "power": "The hosting organization provides power and basic lighting"
+        }
+      },
+      "event-identity": {
+        "title": "Event print and identity design",
+        "description": "A complete visual identity for one event: poster, banner, print materials, and ready-to-publish social templates.",
+        "details": "A complete visual identity for one event, from the initial idea to print- and publication-ready files. We start with a short discovery session, deliver two directions, then complete every required size after your selection.",
+        "facts": {
+          "duration": "Two weeks",
+          "reviews": "Two rounds"
+        },
+        "sections": {
+          "poster": "A poster and banner in print sizes",
+          "social": "Ready-to-use square and vertical social templates",
+          "sourceFiles": "Editable source files"
+        }
+      },
+      "educational-print": {
+        "title": "Educational guide and print design",
+        "description": "Workshop guide and educational print design from concept to print-ready files, using learner-friendly visual language.",
+        "details": "Workshop guide and educational print design from concept to print-ready files, using visual language that considers learners of different ages. Structure and sequence are developed before styling.",
+        "facts": {
+          "availability": "Until September 30",
+          "duration": "Three weeks"
+        },
+        "sections": {
+          "guide": "A complete print-ready designed guide",
+          "digital": "A digital screen-reading edition",
+          "illustrations": "Original icons and illustrations"
+        }
+      },
+      "cinema-camera": {
+        "title": "Cinema camera with two lenses",
+        "description": "An excellent-condition camera with two lenses, three batteries, and a hard case, suitable for events and short films.",
+        "details": "An excellent-condition camera with a 24–70 lens, a fixed 50 lens, three batteries, a dual charger, and a hard case. Pickup and return take place at our Downtown office.",
+        "facts": {
+          "availability": "Up to three days",
+          "deposit": "EGP 1,000"
+        },
+        "sections": {
+          "supervision": "Use is supervised by one of our operators for {value} {currency}",
+          "return": "Return it in the same condition; the joint inspection is documented in the conversation",
+          "damage": "Any fault is handled amicably first, with Etabat available if needed"
+        }
+      },
+      "social-campaign": {
+        "title": "Complete social campaign design",
+        "description": "A visual campaign system with 12 editable post and story templates for one month."
+      },
+      "annual-report": {
+        "title": "Data-led annual report design",
+        "description": "Turn impact stories and numbers into a clear 40-page report for print and digital publishing."
+      },
+      "podcast-cover": {
+        "title": "Podcast season identity and cover",
+        "description": "A main cover, episode system, and quote templates aligned across audio and social platforms."
+      },
+      "exhibition-kit": {
+        "title": "Portable exhibition display kit",
+        "description": "Two roll-up stands, a backdrop, and a display table made from reusable materials."
+      },
+      "motion-request": {
+        "title": "Motion graphics needed for an awareness campaign",
+        "description": "A 60-second video explaining domestic workers’ rights using simple language and social-friendly graphics."
+      },
+      "report-request": {
+        "title": "Designer needed for our annual impact report",
+        "description": "The content and data are ready; we need report and infographic design within three weeks."
+      },
+      "signage-request": {
+        "title": "Exhibition booth identity and signage design",
+        "description": "A small book-fair booth needs price signs, directions, and one consistent backdrop."
+      },
+      "halaqa-org": {
+        "title": "Halaqa",
+        "description": "A community education organization specializing in curriculum, print, and learning-experience design."
+      },
+      "sawt-org": {
+        "title": "Sawt w Soura",
+        "description": "A social production studio offering filming, editing, and visual design across the network."
+      },
+      "omar-member": {
+        "title": "Omar El Sayed",
+        "description": "A visual designer at Mishkaa specializing in event identities and print materials."
+      },
+      "sara-member": {
+        "title": "Sara Hassan",
+        "description": "An independent designer working on social campaigns and illustration for community initiatives."
+      },
+      "karim-member": {
+        "title": "Karim Fawzy",
+        "description": "A motion designer and editor at Sawt w Soura specializing in short awareness videos."
+      },
+      "visual-library-proposal": {
+        "title": "A shared visual library for network organizations",
+        "description": "A proposal for shared templates, icons, and photography available under a network-wide license."
+      }
+    }
+  },
+  "infoCard": {
+    "countryCity": {
+      "label": "Country · City",
+      "value": "Egypt · Cairo"
+    },
+    "foundingYear": {
+      "label": "Founding Year",
+      "value": "2017"
+    },
+    "website": {
+      "label": "Website",
+      "value": "sawtwsoora.org"
+    },
+    "socialMedia": {
+      "label": "Social Media",
+      "value": "Instagram · Facebook"
+    }
+  },
+  "serviceCard": {
+    "humanServiceCard": [
+      {
+        "category": "Production",
+        "title": "Video shooting and documentation of events",
+        "providerName": "Karim Fawzy · ",
+        "providerRate": "Amer ·",
+        "availability": "Available any duration",
+        "price": "35",
+        "currency": "Shahama",
+        "request": "Request",
+        "spotsLeft": "5 spots left"
+      },
+      {
+        "category": "Editing",
+        "title": "Short film editing and promotional videos",
+        "providerName": "Nour Ali · ",
+        "providerRate": "Karim · ",
+        "availability": "Limited until October 15",
+        "price": "45",
+        "currency": "Shahama",
+        "request": "Request"
+      }
+    ],
+    "materialResourceCard": [
+      {
+        "category": "Equipment",
+        "title": "Cinema camera with two lenses",
+        "providerName": "Supervised by operator",
+        "providerRate": "Cash deposit required · ",
+        "availability": "Available for a limited period · ",
+        "price": "30",
+        "currency": "Shahama",
+        "request": "Request"
+      },
+      {
+        "category": "Spaces",
+        "title": "Isolated sound studio for recording",
+        "providerName": "Unsupervised",
+        "providerRate": "No deposit · ",
+        "availability": "Available any duration · ",
+        "price": "25",
+        "currency": "Shahama",
+        "request": "Request"
+      }
+    ]
+  }
+}

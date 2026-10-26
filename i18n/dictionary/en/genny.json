@@ -1,0 +1,155 @@
+{
+  "genny": {
+    "browse": {
+      "title": "Genny",
+      "subtitle": "Network wishes — the organizations we hope will join us",
+      "sectionNav": "Genny sections",
+      "browseTab": "Browse",
+      "myWishesTab": "My wishes",
+      "addWish": "Add a wish +",
+      "introTitle": "What is Genny, and how does it work?",
+      "intro": "Genny is the network wish board. Organizations describe the kinds of institutions the network is missing and would benefit from — legal aid, health, printing, or transport. Each organization can endorse a wish once and remove its endorsement at any time. The Emtedad team starts with the most-endorsed wishes when nominating new organizations for Hakima membership.",
+      "filter": "Filter",
+      "sortLabel": "Sort",
+      "mostEndorsed": "Most endorsed",
+      "latest": "Newest",
+      "resultSingle": "<strong>{count}</strong> wish{category}",
+      "results": "<strong>{count}</strong> wishes{category}",
+      "filterLabel": "Requested organization type",
+      "optional": "(optional)",
+      "all": "All",
+      "whyTitle": "Why would this strengthen the network?",
+      "supportCount": "organizations endorsed",
+      "zeroEndorsements": "No endorsements yet",
+      "endorse": "Endorse",
+      "removeEndorsement": "Remove endorsement",
+      "supportersTitle": "Organizations that endorsed",
+      "supportersDescription": "Names are intentionally hidden on the card so the endorsement stays focused on the idea, not who endorsed it.",
+      "supportersDescriptionMine": "Names are hidden on the card so endorsement stays focused on the idea, not who endorsed it.",
+      "organizationRole": "Member organization",
+      "memberRole": "Network member",
+      "close": "Close",
+      "closeAction": "Close",
+      "emptyTitle": "No wishes in this category",
+      "emptyDescription": "Clear the filter or add a new wish.",
+      "edit": "Edit",
+      "delete": "Delete wish",
+      "withdraw": "Withdraw wish",
+      "lockedNote": "Editing and deletion close after the first endorsement — <strong>endorsement applies to the wording organizations saw.</strong> You can withdraw it instead.",
+      "editableNote": "Nobody has endorsed it yet — you can edit or delete it.",
+      "newWishTitle": "Have a wish that is not here?",
+      "newWishDescription": "Search first — if a similar wish exists, endorsing it is stronger than adding a duplicate."
+    },
+    "myWishes": {
+      "title": "Genny",
+      "subtitle": "My wishes · what your organization proposed",
+      "proposed": "Wishes you proposed",
+      "endorsements": "Total endorsements",
+      "fulfilled": "Your fulfilled wishes"
+    },
+    "addWish": {
+      "back": "Back to Genny",
+      "familyTitle": "Genny",
+      "pageSubtitle": "Add a wish · from Mishkaa",
+      "editSubtitle": "Edit wish · from Mishkaa",
+      "searchTitle": "Search first",
+      "searchDescription": "If a similar wish already exists, endorsing it is stronger than adding a duplicate because support stays gathered in one place.",
+      "searchAria": "Search wishes",
+      "searchPlaceholder": "Type the missing organization type — e.g. printer",
+      "defaultQuery": "legal aid",
+      "supportCount": "organizations endorsed",
+      "endorseInstead": "Endorse this instead",
+      "endorsedInstead": "Endorsed ✓",
+      "noSearchResults": "No similar wish — continue and add it.",
+      "continueToWish": "I cannot find it — add a new wish",
+      "cancel": "Back",
+      "detailsTitle": "Your wish",
+      "detailsDescription": "Describe the kind of organization the network is missing — not a specific organization by name, but the type and what it would add.",
+      "editTitle": "Edit the wish",
+      "editDescription": "Revise the wording before any organization endorses the wish.",
+      "titleLabel": "The wish in one line",
+      "titlePlaceholder": "e.g. Printer and publishing house",
+      "categoryLabel": "Type",
+      "categoryPlaceholder": "Production · Health · Transport",
+      "categoryHint": "One or two words describing the field — shown as a tag on the wish card.",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "What exactly is this kind of organization, and what does it do?",
+      "impactLabel": "Why would this strengthen the network?",
+      "impactPlaceholder": "What is currently paid for outside the network that would become internal exchange if it joined?",
+      "impactHint": "This is the most important field — it persuades other organizations to endorse and helps Emtedad nominate members.",
+      "submitAdd": "Publish wish",
+      "submitEdit": "Save changes",
+      "backToSearch": "Back to search",
+      "publicNameTitle": "Your wish will show your name.",
+      "publicNameDescription": "Anyone can endorse it once, and you can edit or remove it while it has no endorsements.",
+      "successTitle": "Wish published",
+      "successDescription": "It now appears in Genny and other organizations can endorse it. You will find it under My wishes and can edit or remove it while it has no endorsements.",
+      "editSuccessDescription": "Your changes were saved and the updated wording now appears in Genny.",
+      "viewBoard": "View Genny",
+      "viewMine": "My wishes",
+      "queryRequired": "Enter a search term first",
+      "titleRequired": "Write the wish in one line",
+      "titleMin": "The wish title must be at least 3 characters",
+      "descriptionRequired": "Description is required",
+      "descriptionMin": "Description must be at least 10 characters",
+      "categoryRequired": "Enter a wish type",
+      "categoryMax": "Type cannot exceed 14 characters",
+      "impactRequired": "Explain why this strengthens the network",
+      "impactMin": "The explanation must be at least 10 characters"
+    },
+    "data": {
+      "categories": {
+        "legalAid": "Legal aid",
+        "health": "Health",
+        "production": "Production",
+        "transport": "Transport",
+        "training": "Training",
+        "spaces": "Spaces"
+      },
+      "wishes": {
+        "legalAid": {
+          "title": "More legal-aid organizations",
+          "description": "The network needs organizations specializing in legal support for cultural workers — contracts, licenses, and intellectual property.",
+          "why": "Every organization handles contracts and licenses and currently pays outside the network. Two legal organizations would turn that into internal exchange.",
+          "createdAt": "Added two months ago"
+        },
+        "communityHealth": {
+          "title": "Community health clinics",
+          "description": "Clinics or health initiatives that can provide basic care to organization teams at network rates.",
+          "why": "Most cultural workers have no health insurance. This would turn healthcare from a personal burden into a network resource.",
+          "createdAt": "Added six weeks ago"
+        },
+        "printerPublisher": {
+          "title": "Printer and publishing house",
+          "description": "A small printer or independent publisher that can print catalogs, guides, and publications at network rates.",
+          "why": "Every organization prints, and printing is the third-largest expense for most of us. One printer inside the network would change everyone's budget.",
+          "createdAt": "Added June 5, 2026"
+        },
+        "transportLogistics": {
+          "title": "Transport and logistics service",
+          "description": "An organization or team specializing in moving equipment, sets, and publications between event venues.",
+          "why": "Transport recurs at every event and is currently arranged by chance or purchased outside the network at high cost.",
+          "createdAt": "Added August 14, 2026"
+        },
+        "culturalManagement": {
+          "title": "Cultural-management trainers",
+          "description": "Trainers specializing in cultural organization management — planning, budgeting, and fundraising.",
+          "why": "Most of our organizations were built through experience, not training. Trainers in the network would raise everyone's capacity.",
+          "createdAt": "Added two weeks ago"
+        },
+        "rehearsalSpace": {
+          "title": "Shared rehearsal space",
+          "description": "A large, equipped rehearsal space that theatre, dance, and music groups can use in rotation.",
+          "why": "Many groups cancel rehearsals because they lack a venue. One shared space would serve at least six organizations.",
+          "createdAt": "Added yesterday"
+        },
+        "personalLegalAdvice": {
+          "title": "Legal advice for individuals",
+          "description": "Individual lawyers offering personal advice to team members on employment contracts and rights.",
+          "why": "",
+          "createdAt": "Added one week ago"
+        }
+      }
+    }
+  }
+}

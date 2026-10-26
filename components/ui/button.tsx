@@ -42,6 +42,7 @@ const buttonVariants = cva(
 type ButtonProps = ButtonPrimitive.Props &
   VariantProps<typeof buttonVariants> & {
     count?: string | number
+    loading?: boolean
   }
 
 function Button({
@@ -52,6 +53,8 @@ function Button({
   shape = 'round',
   effect,
   count,
+  loading = false,
+  disabled,
   ...props
 }: ButtonProps) {
   const resolvedEffect = effect ?? (variant === 'link' ? 'flat' : '3d')
@@ -60,9 +63,19 @@ function Button({
     <ButtonPrimitive
       data-slot="button"
       className={cn(buttonVariants({ variant, size, shape, effect: resolvedEffect, className }))}
+      disabled={loading || disabled}
+      aria-busy={loading || undefined}
       {...props}
     >
-      {children}
+      {loading ? (
+        <span aria-label="Loading" className="flex gap-1">
+          <span className="size-1.5 animate-bounce rounded-full bg-current [animation-delay:-0.3s]" />
+          <span className="size-1.5 animate-bounce rounded-full bg-current [animation-delay:-0.15s]" />
+          <span className="size-1.5 animate-bounce rounded-full bg-current" />
+        </span>
+      ) : (
+        children
+      )}
       {count && (
         <Badge
           size="mini"

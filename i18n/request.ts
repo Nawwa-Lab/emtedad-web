@@ -1,6 +1,7 @@
 import * as rootParams from 'next/root-params'
 import { hasLocale } from 'next-intl'
 import { getRequestConfig } from 'next-intl/server'
+import { dictionaries } from './dictionary'
 import { routing } from './routing'
 
 export default getRequestConfig(async () => {
@@ -10,6 +11,6 @@ export default getRequestConfig(async () => {
 
   return {
     locale,
-    messages: (await import(`./dictionary/${locale}.json`)).default,
+    messages: dictionaries[locale],
   }
 })

@@ -5,8 +5,7 @@ import {
   RadioGroupItemIcon,
   RadioGroupItemTitle,
 } from '@/components/ui/radio-group'
-import ar from '@/i18n/dictionary/ar.json'
-import en from '@/i18n/dictionary/en.json'
+import { dictionaries } from '@/i18n/dictionary'
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { Building2Icon, UsersRoundIcon } from 'lucide-react'
 import { NextIntlClientProvider, useTranslations } from 'next-intl'
@@ -55,7 +54,7 @@ const meta = {
       const locale = context.globals.locale === 'en' ? 'en' : 'ar'
 
       return (
-        <NextIntlClientProvider locale={locale} messages={locale === 'en' ? en : ar}>
+        <NextIntlClientProvider locale={locale} messages={dictionaries[locale]}>
           <Story />
         </NextIntlClientProvider>
       )

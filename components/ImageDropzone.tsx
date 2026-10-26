@@ -15,6 +15,7 @@ import Image from 'next/image'
 import * as React from 'react'
 
 import { cn } from 'cn'
+import { Input } from './ui/input'
 
 export interface AttachedImage {
   id: string
@@ -30,6 +31,10 @@ interface ImageDropzoneProps {
   invalid?: boolean
 }
 
+/**
+ * @deprecated Use `FileDropzone` from `@/components/FileDropzone` instead.
+ * This component is kept for backward compatibility but will be removed in a future version.
+ */
 export function ImageDropzone({ maxImages = 5, value, onChange, invalid }: ImageDropzoneProps) {
   const [internalImages, setInternalImages] = React.useState<AttachedImage[]>([])
   const [isDraggingFiles, setIsDraggingFiles] = React.useState(false)
@@ -137,7 +142,7 @@ export function ImageDropzone({ maxImages = 5, value, onChange, invalid }: Image
             invalid && 'border-red-dark',
           )}
         >
-          <input
+          <Input
             type="file"
             accept="image/*"
             multiple

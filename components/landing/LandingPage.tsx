@@ -73,17 +73,19 @@ export function LandingNav({ copy }: { copy: LandingCopy }) {
           ))}
         </div>
         {signedIn && user ? (
-          <Link href="/organization/123">
+          <Link href={user.org ? `/organization/${user.org.organizationId}` : '/maktab'}>
             <Button
               variant="outline"
               effect="3d"
               className="font-body py-1.25 p-4 bg-gold text-surface max-[900px]:translate-0 max-[900px]:p-0 max-[900px]:border-0 max-[900px]:aspect-square max-[900px]:size-10"
             >
               <Avatar color="red" size="sm" effect="flat" className="max-[900px]:size-full">
-                <AvatarImage src={''} alt={user.org} />
-                <AvatarFallback>{user.org.charAt(0)}</AvatarFallback>
+                <AvatarImage src={''} alt={user.org?.legalName ?? user.first ?? ''} />
+                <AvatarFallback>
+                  {(user.org?.legalName ?? user.first ?? '').charAt(0)}
+                </AvatarFallback>
               </Avatar>
-              <span className="max-[900px]:hidden">{user.org}</span>
+              <span className="max-[900px]:hidden">{user.org?.legalName ?? user.first}</span>
             </Button>
           </Link>
         ) : (

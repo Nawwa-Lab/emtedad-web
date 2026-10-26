@@ -1,0 +1,563 @@
+{
+  "hakima": {
+    "name": "Hakima",
+    "back": "Back to Hakima",
+    "browseSubtitle": "Network governance — organizations decide together",
+    "nav": {
+      "label": "Hakima sections",
+      "browse": "Browse",
+      "support": "Support phase",
+      "voting": "Voting phase",
+      "mine": "My proposals",
+      "annualReview": "Annual review",
+      "log": "Log"
+    },
+    "intro": "<title>What is Hakima and how does it work?</title>Hakima is where network decisions are made. Each organization earns governance tokens from its contributions, and its vote carries the weight of its tokens. Every cycle has two phases: <strong>support</strong> (4 days), where proposals need 5% of tokens to qualify; then <strong>voting</strong> (3 days), where votes stay hidden until voting closes. Full participation earns your organization 30 {currency} and protects your tokens from decay.",
+    "cycle": {
+      "number": "Cycle",
+      "phase": "Current phase",
+      "voting": "Voting",
+      "remaining": "Remaining",
+      "days": "days",
+      "balance": "Your token balance"
+    },
+    "newProposal": {
+      "title": "Have a proposal for the network?",
+      "text": "Each organization can submit one proposal every four months, and your next proposal is available now.",
+      "action": "Submit proposal +"
+    },
+    "search": "Search proposals…",
+    "searchLabel": "Search",
+    "category": {
+      "protocol": "Protocol amendment",
+      "membership": "Organization membership",
+      "other": "Other proposals"
+    },
+    "status": {
+      "support": "In support phase",
+      "voting": "In voting phase",
+      "done": "Final decision",
+      "qualified": "Qualified for voting"
+    },
+    "phase": {
+      "daysLeft": "days left",
+      "support": {
+        "subtitle": "Support phase · Cycle 12",
+        "title": "Support phase is open",
+        "text": "Each proposal needs <strong>{threshold} tokens</strong> (5% of Hakima tokens) to qualify for voting. You can support any number of proposals—support is not a vote; it only says the proposal deserves discussion."
+      },
+      "voting": {
+        "subtitle": "Voting phase · Cycle 12",
+        "title": "Voting is open",
+        "text": "Four proposals qualified during support. Your vote is weighted by your token balance, and you can change it any time before voting closes."
+      }
+    },
+    "stats": {
+      "qualified": "Qualified for voting",
+      "qualifiedNote": "of 5 proposals in this phase",
+      "supported": "You supported",
+      "supportedNote": "with {amount} tokens per proposal",
+      "supportThreshold": "Qualification threshold",
+      "supportThresholdNote": "tokens — 5% of {total}",
+      "voted": "You voted on",
+      "votedNote": "of 4 proposals — full participation earns {reward} {currency}",
+      "votingBalance": "Your voting balance",
+      "votingBalanceNote": "tokens — 3.2% of network tokens",
+      "cycleThresholds": "Thresholds this cycle",
+      "protocolThreshold": "Protocol amendment · 60%",
+      "otherThreshold": "Operations and membership · 20%"
+    },
+    "groups": {
+      "protocol": "Protocol amendments",
+      "membership": "Organization membership",
+      "other": "Other proposals",
+      "support": "Proposals in this phase",
+      "voting": "Proposals open for voting"
+    },
+    "card": {
+      "closesAfter": "Closes in {days} days",
+      "votingCloses": "Closes September 12, 11:59 PM",
+      "supporters": "Supported by {count} organizations",
+      "requiredQualification": "Needs <amountTag>{amount}</amountTag> tokens to qualify",
+      "requiredApproval": "Needs <amountTag>{amount}</amountTag> tokens for approval",
+      "thresholdDetail": "({percent}% of all Hakima tokens — {total} tokens)",
+      "votingThresholdProtocol": "({percent}% of all Hakima tokens — {total} tokens · Protocol amendment threshold)",
+      "votingThresholdOther": "({percent}% of all Hakima tokens — {total} tokens · Operations / membership threshold)",
+      "supportedWith": "Supported with <amountTag>{amount}</amountTag> tokens",
+      "qualifiedWith": "Qualified with <amountTag>{amount}</amountTag> tokens during support",
+      "overThreshold": "Exceeded the threshold by {amount} tokens ✓",
+      "overThresholdSupport": "Exceeded the threshold by {amount} tokens ✓ — Qualified for voting",
+      "remainingThreshold": "{amount} tokens remaining",
+      "votingBalance": "Your voting balance: {amount} tokens",
+      "carry": "If it does not reach the threshold before the phase closes, <strong>the proposal is not deleted</strong>—it carries into future cycles with its existing support.",
+      "result": {
+        "passed": "Approved ✓",
+        "failed": "Rejected"
+      },
+      "resultAmount": "{support} of {threshold} required"
+    },
+    "actions": {
+      "viewProposal": "View proposal",
+      "viewSupport": "View and support",
+      "viewVote": "View and vote",
+      "viewListVote": "View list and vote",
+      "viewResult": "View result",
+      "discussion": "Discussion",
+      "support": "Support",
+      "removeSupport": "Remove support",
+      "detailsDocuments": "Details and documents",
+      "edit": "Edit",
+      "withdraw": "Withdraw",
+      "viewLog": "View log",
+      "resubmit": "Submit again"
+    },
+    "vote": {
+      "yes": "Support",
+      "no": "Oppose",
+      "selected": "You voted <strong>{choice}</strong> — you can change your vote until voting closes.",
+      "notSelected": "<strong>You have not voted yet</strong> — your balance is not counted — you can vote until voting closes."
+    },
+    "hiddenVotes": "<strong>Votes stay hidden until voting closes.</strong> Nobody can see the live result. This keeps later votes independent. The number on each proposal is its support-phase total, not the vote result.",
+    "my": {
+      "subtitle": "My proposals · submitted by your organization",
+      "submitted": "Proposals submitted",
+      "submittedNote": "since joining in March 2025",
+      "approved": "Approved",
+      "approvedNote": "Digital resources — implemented September 1",
+      "next": "Your next proposal",
+      "available": "Available",
+      "nextNote": "One proposal every four months · last submitted September 1",
+      "supportLock": "Still in support—you can edit or withdraw it. <strong>Its wording locks once voting begins.</strong>",
+      "voteLock": "Voting started—<strong>the wording is locked</strong> and votes stay hidden until closing."
+    },
+    "proposals": {
+      "small-business-cap": {
+        "title": "Raise the monthly service cap for small organizations",
+        "description": "Organizations with fewer than five team members exhaust their monthly cap early. This raises the minimum from 80 per member to a fixed 400 {currency}.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens — used to vote",
+        "when": ""
+      },
+      "shorter-decay": {
+        "title": "Shorten the decay period from one year to ten months",
+        "description": "Shahamham currently begins decaying after a full year. This proposal shortens it to ten months so surplus circulates faster.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens",
+        "when": ""
+      },
+      "membership-list": {
+        "title": "Membership candidate list — Cycle 12",
+        "description": "The Emtedad team nominated four organizations: a printer, two legal organizations, and a transport team. The list is voted on as a whole.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens — not voted yet",
+        "when": ""
+      },
+      "add-margin": {
+        "title": "Add a candidate: Al-Hamish Publishing House",
+        "description": "An independent publisher that worked with three network organizations outside the system. The proposal adds it to Cycle 12 candidates.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens",
+        "when": ""
+      },
+      "remove-candidate": {
+        "title": "Remove a candidate from the Cycle 12 list",
+        "description": "An objection to one candidate due to a conflict between its activity and the network charter. The proposal removes it before voting.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens",
+        "when": ""
+      },
+      "rotating-meeting": {
+        "title": "Rotate the quarterly network meeting between organizations",
+        "description": "Each cycle is hosted by a different organization, which receives 20 {currency} to cover costs.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens — used to vote",
+        "when": ""
+      },
+      "digital-resources": {
+        "title": "Add a digital resources category to Namliya",
+        "description": "A new category for software, subscriptions, and digital templates organizations can share.",
+        "browseDescription": "A new category for software, subscriptions, and digital templates organizations can share.",
+        "mine": "Submitted <amountTag>January 5</amountTag> · your balance: <amountTag>{amount}</amountTag> tokens",
+        "browseWhen": "Closed August 28",
+        "when": "Closed August 28 — Cycle 11",
+        "resultNote": "Implemented September 1"
+      },
+      "direct-transfer": {
+        "title": "Allow direct Shahamham transfers between organizations",
+        "description": "Direct transfers between two organizations without a service exchange, with a limited monthly cap for solidarity during crises.",
+        "mine": "Submitted September 1 · your balance: <amountTag>{amount}</amountTag> tokens",
+        "when": ""
+      },
+      "lower-protocol-threshold": {
+        "title": "Lower the protocol threshold from 60% to 50%",
+        "description": "The 60% threshold is hard to reach, and proposals fail from low participation rather than opposition.",
+        "mine": "Your balance in this proposal: <amountTag>{amount}</amountTag> tokens",
+        "when": ""
+      },
+      "activity-cap": {
+        "title": "Tie the service cap to activity, not team size",
+        "description": "Instead of calculating the monthly cap as 80 times the number of members, calculate it from the organization’s average exchanges over the last three months.",
+        "mine": "Submitted <amountTag>May 12</amountTag> · qualified for voting on <amountTag>September 5</amountTag>",
+        "when": ""
+      },
+      "shorter-cycle": {
+        "title": "Shorten the governance cycle from three months to two",
+        "description": "A shorter cycle for faster decisions, with two days each for support and voting.",
+        "mine": "Submitted <amountTag>February 10</amountTag> · you can submit a revised version",
+        "when": "Closed April 30 — Cycle 10",
+        "resultNote": "Short by 8,620 tokens"
+      }
+    },
+    "form": {
+      "subtitle": "Submit a proposal · from Mishkat Organization",
+      "available": "Available proposals",
+      "availableValue": "1",
+      "availableNote": "Each organization can submit one proposal every four months. Your last proposal was May 12.",
+      "currentCycle": "Current cycle",
+      "cycleNote": "Support: September 1–5 · voting: September 9–12",
+      "qualification": "Voting qualification threshold",
+      "qualificationNote": "(5% of all Hakima tokens)—proposals below this threshold carry into future cycles.",
+      "title": "Proposal",
+      "intro": "Write as if explaining the proposal to an organization without context. Clarity and numbers matter more than length.",
+      "titleLabel": "Proposal title",
+      "titlePlaceholder": "One clear sentence—for example: raise the monthly service cap for small organizations",
+      "category": "Category",
+      "categoryOther": "Other proposal",
+      "thresholdHint": "<strong>Approval threshold for {category}: {amount} tokens</strong> ({percent}% of Hakima tokens).",
+      "proposal": "Proposal",
+      "proposalPlaceholder": "What exactly should change? Write it as it should be implemented.",
+      "reason": "Why?",
+      "reasonPlaceholder": "What problem does this solve, and what happens without it?",
+      "impact": "Expected impact",
+      "impactPlaceholder": "Who will be affected, how, and are there possible negative effects?",
+      "impactHint": "Organizations read this first when deciding whether to support.",
+      "documents": "Supporting documents",
+      "optional": "optional",
+      "upload": "Drag files here or click to upload",
+      "uploadHint": "Data, analysis, or examples · PDF or XLSX · up to 5 files",
+      "submit": "Submit proposal",
+      "draft": "Save draft",
+      "submitted": "Proposal submitted successfully.",
+      "drafted": "Draft saved locally.",
+      "after": "<strong>After submission:</strong> the proposal enters support at the start of the next cycle. You may edit or withdraw it during support, but its wording locks once voting begins.",
+      "validation": {
+        "title": "Enter a proposal title.",
+        "category": "Choose a proposal category.",
+        "proposal": "Enter the proposal text.",
+        "proposalMin": "The proposal must be at least 20 characters.",
+        "reason": "Explain why the proposal is needed.",
+        "impact": "Describe the expected impact."
+      }
+    },
+    "detail": {
+      "cycle": "Cycle 12",
+      "closesAt": "September 12, 11:59 PM",
+      "proposer": "Halqa",
+      "proposedMeta": "Submitted August 28 · qualified September 5",
+      "proposal": "Proposal",
+      "proposalText": "Organizations with fewer than five team members exhaust their cap in the first half of the month and then stop exchanging until the next month. This adds a fixed 400 {currency} minimum instead of only 80 per member.",
+      "why": "Why?",
+      "whyText": "The current cap ties exchange capacity to team size rather than need or activity. A three-person organization may be more active than a ten-person one, but its cap is 240 instead of 800.",
+      "impact": "Expected impact",
+      "impactItems": [
+        "7 of 19 organizations receive a higher cap",
+        "Expected monthly exchange growth of 12% to 18%",
+        "No effect on larger organizations already above the minimum",
+        "Limited network balance pressure because the cap resets monthly"
+      ],
+      "documents": "Supporting documents",
+      "files": ["Cycle 9–11 cap analysis.pdf", "Exchange data by team size.xlsx"],
+      "fileSizes": ["1.2 MB", "480 KB"],
+      "discussion": "Discussion",
+      "entries": "4 contributions",
+      "commentPlaceholder": "Share your view before voting closes…",
+      "commentLabel": "Contribution",
+      "send": "Send",
+      "votingBalance": "Your organization’s voting balance",
+      "token": "tokens",
+      "voteState": "You voted <strong>{choice}</strong> on September 6—you can change it until voting closes.",
+      "voteChanged": "You changed your vote to <strong>{choice}</strong>—you can change it until voting closes.",
+      "hidden": "<strong>Votes stay hidden until voting closes.</strong> The number above is support from the support phase, not the voting result.",
+      "info": "Proposal information",
+      "infoLabels": ["Category", "Approval threshold", "Voters", "Closes"],
+      "infoValues": [
+        "Protocol amendment",
+        "27,720 tokens",
+        "14 of 19 organizations",
+        "September 12"
+      ],
+      "comments": [
+        {
+          "author": "Sound and Vision",
+          "date": "August 29",
+          "text": "The proposal makes sense, but 400 may be high as a starting point. Could we test 300 for one cycle first?"
+        },
+        {
+          "author": "Halqa",
+          "date": "August 30",
+          "text": "We considered 300, but three affected organizations already have a cap of 240, so it would not solve the problem. The second attachment has the figures."
+        },
+        {
+          "author": "Milha",
+          "date": "September 1",
+          "text": "We are one of the affected organizations. We will vote rather than abstain; transparency matters more here."
+        },
+        {
+          "author": "Daw",
+          "date": "September 4",
+          "text": "How often will this minimum be reviewed? It could become outdated after a year."
+        }
+      ]
+    },
+    "membership": {
+      "back": "Back to voting",
+      "title": "Organization membership",
+      "subtitle": "Cycle 12 candidates · Vote on the full list",
+      "vote": {
+        "title": "Vote on the full list",
+        "description": "The list is voted on once—<yes>Support</yes> means all four join, and <no>Oppose</no> means none join this cycle. To change the list itself, propose removing or adding a candidate before voting closes.",
+        "required": "Needs <strong>{amount}</strong> tokens for approval",
+        "threshold": "({percent}% of all Hakima tokens — {total} tokens · Membership threshold)",
+        "qualified": "Qualified with <strong>{amount}</strong> tokens during support",
+        "yes": "Support the list",
+        "no": "Oppose the list",
+        "pending": "<strong>You have not voted yet</strong>—your {amount} tokens are not counted. Votes remain hidden until voting closes.",
+        "selected": "<strong>You voted {choice}</strong>—you can change your vote until voting closes."
+      },
+      "candidates": "Candidates",
+      "removalPending": "Removal proposed",
+      "whyTitle": "Why did {team} nominate it?",
+      "viewProfile": "View full application",
+      "remove": "Propose removal from the list",
+      "fileUnits": {
+        "mb": "{size} MB",
+        "kb": "{size} KB"
+      },
+      "items": {
+        "margin": {
+          "name": "Al-Hamish Publishing House",
+          "meta": "Independent publisher · Cairo — Zamalek",
+          "about": "A small publisher specializing in art books and catalogues. Operating since 2018, it has printed for three network organizations outside the platform.",
+          "why": "Printing and publishing is the third-largest expense for most network organizations. The Geny wish for a printer and publisher received support from 15 organizations—the highest on the board. This publisher has worked with Sound and Vision, Halqa, and Milha with good reviews.",
+          "files": {
+            "application": "Application — Al-Hamish Publishing.pdf",
+            "portfolio": "Previous work samples.pdf"
+          }
+        },
+        "awn": {
+          "name": "Awn Legal Office",
+          "meta": "Legal support organization · Cairo — Downtown",
+          "about": "A law office specializing in cultural-sector contracts, event licensing, and intellectual property rights.",
+          "why": "The wish for more legal-support organizations received support from 12 organizations. This office has worked with cultural initiatives since 2019 and has particular experience in event licensing.",
+          "files": {
+            "application": "Application — Awn Office.pdf",
+            "recommendation": "Recommendation from Milha.pdf"
+          }
+        },
+        "law-culture": {
+          "name": "Law and Culture Initiative",
+          "meta": "Legal support organization · Alexandria",
+          "about": "A nonprofit initiative providing free legal advice to arts workers through a team of four volunteer lawyers.",
+          "why": "It covers Alexandria, which currently has no member organization. Its membership expands the network geographically and adds legal support at the same time.",
+          "files": {
+            "application": "Application — Law and Culture.pdf"
+          }
+        },
+        "mahrousa": {
+          "name": "Mahrousa Transport Team",
+          "meta": "Transport and logistics · Giza",
+          "about": "A transport team specializing in sensitive equipment and sets for theatres and exhibition spaces.",
+          "why": "The Geny wish for transport and logistics received support from six organizations. Transport is needed at every event and is currently purchased outside the network at high cost.",
+          "files": {
+            "application": "Application — Mahrousa.pdf"
+          }
+        }
+      },
+      "add": {
+        "title": "Is an organization missing from the list?",
+        "text": "You can propose a candidate before voting closes. The proposal needs {amount} tokens ({percent}%) during support to be added to the list.",
+        "action": "Propose a candidate"
+      },
+      "etabat": "<strong>Objections to existing members are not handled here.</strong> This page is only for new candidates. A charter breach or exchange dispute involving an existing member should be opened in <link>Etabat</link>, where mediation happens before any membership decision."
+    },
+    "annualReview": {
+      "subtitle": "Annual review and rewards · {year}",
+      "intro": "<title>What is this and how does it work?</title>Once a year, the network measures satisfaction and distributes participation rewards. This is not a proposal or a vote—it is a survey completed by every organization. Its result determines the <strong>Network Satisfaction Index</strong>, then the rewards pool is distributed according to governance tokens and participation.",
+      "tabs": {
+        "label": "Annual review sections",
+        "survey": "Survey",
+        "rewards": "Rewards"
+      },
+      "index": {
+        "title": "How is the index calculated?",
+        "description": "The Network Satisfaction Index combines three weighted sources so organizations do not override the voices of audiences and teams.",
+        "sources": {
+          "organizations": {
+            "name": "Organizations",
+            "description": "{count} member organizations — this survey",
+            "legend": "Organizations 50%"
+          },
+          "audience": {
+            "name": "Audience",
+            "description": "People who attended activities or exchanged services",
+            "legend": "Audience 30%"
+          },
+          "teams": {
+            "name": "Team members",
+            "description": "People working in member organizations",
+            "legend": "Team members 20%"
+          }
+        }
+      },
+      "survey": {
+        "open": "The {year} survey is open",
+        "closes": "Closes November {day} · Completion earns your organization {reward} {currency}.",
+        "title": "Your organization’s survey",
+        "description": "Five questions. Answers are aggregated and anonymous; nobody sees responses attributed to an individual organization.",
+        "questions": {
+          "exchange": "How useful were Namliya exchanges to your organization this year?",
+          "governance": "How well did Hakima decisions represent you?",
+          "discovery": "How easy was it to find what you needed in the network?",
+          "fairness": "How fairly did Etabat handle disputes?",
+          "retention": "How strongly do you want to remain in the network next year?"
+        },
+        "scale": {
+          "1": "Not at all",
+          "2": "A little",
+          "3": "Average",
+          "4": "Good",
+          "5": "Very"
+        },
+        "submit": "Submit survey",
+        "save": "Save and continue later",
+        "required": "Answer this question.",
+        "saved": "Your answers were saved.",
+        "submitted": "The survey was submitted."
+      },
+      "rewards": {
+        "poolLabel": "Annual rewards pool",
+        "poolDescription": "{percent}% of the network’s {year} exchange volume ({volume} {currency})—distributed according to Hakima tokens plus participation rewards.",
+        "shareTitle": "Your organization’s share",
+        "shareDescription": "This estimate updates with every exchange until the year closes on December 31.",
+        "rows": {
+          "share": {
+            "title": "Your share of the pool",
+            "description": "{tokens} of {total} tokens — {percent}% of network tokens"
+          },
+          "cycle": {
+            "title": "Full cycle participation reward",
+            "description": "You participated in {completed} of {cycles} cycles this year",
+            "status": "Cycle 11 incomplete"
+          },
+          "survey": {
+            "title": "Annual survey reward",
+            "description": "Paid when the survey is submitted",
+            "status": "Not submitted yet"
+          }
+        },
+        "total": {
+          "title": "Expected total",
+          "description": "If you submit the survey before November {day}"
+        },
+        "distribution": {
+          "title": "How is the pool distributed?",
+          "item1": "The pool equals <strong>20% of the network’s annual exchange volume</strong>—more exchange means larger rewards.",
+          "item2": "It is divided among organizations <strong>according to their Hakima tokens</strong>, which come from contribution, community reach, and quality.",
+          "item3": "<strong>+{reward} {currency}</strong> for every organization that participated in every governance cycle this year.",
+          "item4": "<strong>+{reward} {currency}</strong> for every organization that submitted the annual survey."
+        }
+      }
+    },
+    "log": {
+      "back": "Back to Hakima",
+      "title": "Governance log",
+      "subtitle": "Every completed cycle—proposals, vote results, and membership decisions",
+      "intro": "Votes remain hidden until voting closes. Afterwards, the full record appears here—<strong>tokens for and against, the required threshold, and your own vote</strong>—and cannot be changed.",
+      "cycles": {
+        "label": "Cycles",
+        "number": "Cycle {number}",
+        "4": "In progress",
+        "3": "May — August 2025",
+        "2": "January — April 2025",
+        "1": "September — December 2024"
+      },
+      "stats": {
+        "of": "of {total}",
+        "submitted": {
+          "label": "Proposals submitted",
+          "note": "5 did not reach qualification and carry into future cycles"
+        },
+        "voting": {
+          "label": "Reached voting",
+          "note": "Passed the 5% support threshold"
+        },
+        "approved": {
+          "label": "Approved",
+          "note": "One protocol amendment and one operational proposal"
+        },
+        "participation": {
+          "label": "Participation rate",
+          "note": "{voted} of {total} tokens voted"
+        }
+      },
+      "tabs": {
+        "label": "Log sections",
+        "proposals": "Proposals",
+        "membership": "Organization membership",
+        "participation": "My voting"
+      },
+      "categories": {
+        "protocol": "Protocol amendment",
+        "other": "Other proposals"
+      },
+      "results": {
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "below-threshold": "Below threshold"
+      },
+      "tally": {
+        "yes": "For",
+        "no": "Against",
+        "absent": "Did not vote",
+        "threshold": "Threshold — {percent}% of all tokens"
+      },
+      "votes": {
+        "yes": "My vote: For",
+        "no": "My vote: Against",
+        "abstain": "My vote: Abstained"
+      },
+      "proposals": {
+        "credit-cap": { "title": "Raise the monthly credit cap from 25 to 35 Shahamham" },
+        "required-offer": { "title": "Require every organization to publish one offer per cycle" },
+        "training-pool": { "title": "Allocate 5% of the rewards pool to training workshops" },
+        "digital-resources": { "title": "Add a digital resources category to Namliya" }
+      },
+      "membership": {
+        "title": "Cycle three list",
+        "description": "The full list is voted on once at a {percent}% threshold. This list was approved with {support} tokens.",
+        "facts": {
+          "candidates": "Candidates",
+          "joined": "Joined",
+          "removed": "Removed before voting",
+          "support": "Support tokens"
+        },
+        "organizations": {
+          "beit-el-hekaya": "Beit El Hekaya",
+          "el-warsha": "El Warsha Studio",
+          "sawt-el-madina": "City Voice Center",
+          "dar-noon": "Dar Noon Publishing",
+          "el-leila-el-kebira": "El Leila El Kebira Troupe",
+          "el-tal": "El Tal Space"
+        },
+        "joined": "Joined",
+        "removed": "Removed by proposal",
+        "note": "<strong>Exclusion</strong> after joining is not handled here—it goes to <link>Etabat</link>."
+      },
+      "participation": {
+        "title": "Mishkah’s participation in cycle three",
+        "description": "Your voting balance is {tokens} tokens ({percent}% of Hakima). This is how it was used in this cycle.",
+        "facts": {
+          "voted": "We voted on",
+          "supported": "Supported during support",
+          "submitted": "Proposals submitted",
+          "reward": "Full-cycle reward"
+        },
+        "note": "Participation in <strong>every phase of the cycle</strong> earns {reward} {currency}, and the annual survey earns another {reward}. Details are in <link>annual review and rewards</link>."
+      }
+    }
+  }
+}

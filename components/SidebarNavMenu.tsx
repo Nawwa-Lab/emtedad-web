@@ -1,5 +1,7 @@
 'use client'
 
+import { type Role, useUser } from '@/contexts/UserContext'
+import { Link, usePathname, useRouter } from '@/i18n/navigation'
 import HakimaIcon from '@/icons/balance.svg'
 import ManagementIcon from '@/icons/building.svg'
 import NamliyaIcon from '@/icons/circles.svg'
@@ -11,11 +13,13 @@ import KhalliKhalesIcon from '@/icons/plant.svg'
 import FahsMahsIcon from '@/icons/star-2.svg'
 import HomeIcon from '@/icons/star.svg'
 import AlaeshIcon from '@/icons/target.svg'
-import { type Role, useUser } from '@/contexts/UserContext'
-import { Link, usePathname } from '@/i18n/navigation'
+import { useLogoutMutation } from '@/services'
 import { cn } from 'cn'
+import { isEmpty } from 'lodash'
+import { LogOutIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { Button } from './ui/button'
 
 type NavLink = {
   href: string
@@ -30,7 +34,7 @@ const navLinks: NavLink[] = [
     href: '/namliya',
     label: 'namliya',
     icon: NamliyaIcon,
-    roles: ['admin', 'team-worker', 'emtedad-team'],
+    roles: ['org_admin', 'team_worker', 'emtedad_admin'],
   },
   { href: '/khalli-khales', label: 'khalis', icon: KhalliKhalesIcon },
   { href: '/alaesh-andak', label: 'have_qalish', icon: AlaeshIcon },
@@ -38,27 +42,27 @@ const navLinks: NavLink[] = [
     href: '/hakima',
     label: 'hakima',
     icon: HakimaIcon,
-    roles: ['admin', 'team-worker', 'emtedad-team'],
+    roles: ['org_admin', 'team_worker', 'emtedad_admin'],
   },
   {
     href: '/genny',
     label: 'genny',
     icon: GennyIcon,
-    roles: ['admin', 'team-worker', 'emtedad-team'],
+    roles: ['org_admin', 'team_worker', 'emtedad_admin'],
   },
   {
     href: '/shbeik-lbeik',
     label: 'shbeik-lbeik',
     icon: ShbeikLbeikIcon,
-    roles: ['community', 'emtedad-team'],
+    roles: ['community_member', 'emtedad_admin'],
   },
-  { href: '/managment', label: 'managment', icon: ManagementIcon, roles: ['emtedad-team'] },
+  { href: '/managment', label: 'managment', icon: ManagementIcon, roles: ['emtedad_admin'] },
   { href: '/etabat', label: 'etabat', icon: EtabatIcon },
   {
     href: '/fahs-mahs',
     label: 'fahs-mahs',
     icon: FahsMahsIcon,
-    roles: ['admin', 'team-worker', 'community'],
+    roles: ['org_admin', 'team_worker', 'community_member'],
   },
 ]
 
@@ -74,6 +78,8 @@ export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean 
   const tSidebar = useTranslations('sidebar')
   const tLanding = useTranslations('landing')
   const { user } = useUser()
+  const router = useRouter()
+  const logout = useLogoutMutation()
 
   if (requireUser && !user) {
     return null
@@ -81,7 +87,7 @@ export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean 
 
   return (
     <nav
-      className="group/sidebar sticky top-0 z-30 flex h-screen w-21 shrink-0 flex-col gap-1.5 overflow-hidden border-e-[3px] border-ink bg-surface px-3 py-4.5 transition-[width] duration-250 hover:w-56 focus-within:w-56 max-[820px]:static max-[820px]:h-auto max-[820px]:w-full max-[820px]:flex-row max-[820px]:gap-2 max-[820px]:overflow-x-auto max-[820px]:border-e-0 max-[820px]:border-b-[3px] max-[820px]:p-3 max-[820px]:transition-none max-[820px]:hover:w-full max-[820px]:focus-within:w-full"
+      className="group/sidebar sticky top-0 z-20 flex h-screen w-21 shrink-0 flex-col gap-1.5 overflow-hidden border-e-[3px] border-ink bg-surface px-3 py-4.5 transition-[width] duration-250 hover:w-56 focus-within:w-56 max-[820px]:static max-[820px]:h-auto max-[820px]:w-full max-[820px]:flex-row max-[820px]:gap-2 max-[820px]:overflow-x-auto max-[820px]:border-e-0 max-[820px]:border-b-[3px] max-[820px]:p-3 max-[820px]:transition-none max-[820px]:hover:w-full max-[820px]:focus-within:w-full"
       aria-label={tSidebar('mainNavAriaLabel')}
     >
       {navLinks.map((link, index) => {
@@ -125,6 +131,17 @@ export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean 
         </span>
         <span className={labelClass}>{tLanding('brand')}</span>
       </Link>
+      {!isEmpty(user) && (
+        <Button
+          className="border-red text-red border-dashed bg-paper max-[820px]:ms-auto max-[820px]:mt-0"
+          shape="square"
+          effect="flat"
+          onClick={() => logout.mutate(undefined, { onSuccess: () => router.replace('/') })}
+        >
+          <LogOutIcon />
+          <span className={labelClass}>{tNav('logout')}</span>
+        </Button>
+      )}
     </nav>
   )
 }

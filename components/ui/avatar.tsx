@@ -21,6 +21,7 @@ const avatarVariants = cva(
         red: 'bg-red text-surface',
         blue: 'bg-blue text-surface',
         tint: 'bg-tint text-ink',
+        paper: 'bg-paper text-ink',
       },
       shape: {
         round: 'rounded-full after:rounded-full',

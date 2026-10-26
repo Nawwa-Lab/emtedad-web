@@ -1,0 +1,137 @@
+{
+  "landing": {
+    "metaTitle": "Shahamham — Mutual exchange network",
+    "metaDescription": "A network of exchange and solidarity for Egyptian cultural organizations.",
+    "brand": "Shahamham",
+    "navToggle": "Menu",
+    "nav": {
+      "about": "About",
+      "how": "How it works",
+      "team": "Team",
+      "papers": "Papers",
+      "faq": "FAQ",
+      "contact": "Contact"
+    },
+    "enter": "Log in",
+    "enterNetwork": "Enter the network",
+    "enterOffice": "Enter Maktab",
+    "heroTag": "When good goes around, it grows",
+    "heroLede": "A network of exchange and solidarity for Egyptian cultural organizations. What one organization has in surplus can meet another's need, using the Shahamham network currency instead of draining cash or waiting for donors.",
+    "about": {
+      "eyebrow": "About Shahamham",
+      "title": "A neighborly economy",
+      "lede": "Egyptian cultural organizations work under the pressure of donor economics: short-term funding, competition for scraps, and idle assets in every office. Shahamham revives an old Egyptian logic — the gam'eya that circulates money among neighbors and the pantry that preserves good for the household.",
+      "features": [
+        {
+          "title": "Mutual credit",
+          "body": "Each organization offers what it has and receives what it needs; accounts are recorded in the network currency rather than cash."
+        },
+        {
+          "title": "Surplus becomes value",
+          "body": "An empty venue, an idle camera, or an extra hour from a designer all become value instead of going unused."
+        },
+        {
+          "title": "Democratic governance",
+          "body": "Major decisions are made by member organizations through voting, not by a central administration."
+        }
+      ]
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "title": "Four steps, a cycle that completes",
+      "steps": [
+        {
+          "title": "Join",
+          "body": "Join by invitation from a member organization or the Shahamham team."
+        },
+        {
+          "title": "Offer",
+          "body": "Publish your services and resources on Namliya in the network currency."
+        },
+        {
+          "title": "Exchange",
+          "body": "Request, agree in writing, and deliver your work."
+        },
+        {
+          "title": "Review",
+          "body": "A shared reputation grows through every completed exchange."
+        }
+      ]
+    },
+    "team": {
+      "eyebrow": "The team",
+      "title": "Who is behind Shahamham",
+      "lede": "A small team from culture, design, and technology building the network with its organizations, not from above.",
+      "members": [
+        {
+          "name": "Sara",
+          "role": "Research & partnerships",
+          "bio": "She listens to organizations and turns their needs into clear network rules."
+        },
+        {
+          "name": "Magdy",
+          "role": "Lead developer",
+          "bio": "He builds the platform from backend to interface."
+        },
+        {
+          "name": "Noura",
+          "role": "Design & experience",
+          "bio": "She designs simple tools that respect people's time and work."
+        }
+      ]
+    },
+    "papers": {
+      "eyebrow": "Papers",
+      "title": "The documents behind the network",
+      "lede": "All the rules of the protocol are published and open for review — limits, decay, governance, and dispute resolution.",
+      "items": [
+        {
+          "kind": "White paper",
+          "title": "Shahamham protocol — mutual credit",
+          "body": "The full rules: limits, credit thresholds, balance decay, and governance tokens.",
+          "link": "https://shahamham.org/shahamham-white-paper.pdf"
+        },
+        {
+          "kind": "Charter",
+          "title": "Network charter and terms",
+          "body": "Membership rights and duties, expected conduct, and the mediation path.",
+          "link": "https://shahamham.org/shahamham-terms.pdf"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Before you join",
+      "lede": "Click on a question to open the answer — so the page stays simple on the eye.",
+      "items": [
+        {
+          "question": "Is Shahamham money?",
+          "answer": "No. Shahamham is a unit of account inside the network that records what you offered and received; it cannot be spent outside the network or converted to cash."
+        },
+        {
+          "question": "Who can join?",
+          "answer": "Active Egyptian cultural organizations may join by invitation from a member organization or nomination by the Shahamham team."
+        },
+        {
+          "question": "What if my balance becomes negative?",
+          "answer": "That is part of mutual credit. A credit limit and support help restore balance, without interest or penalties."
+        },
+        {
+          "question": "What prevents misuse?",
+          "answer": "Monthly service limits, visible satisfaction signals, mediation, and member voting for major decisions."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Talk to us",
+      "lede": "The network is still in its first year, and every note helps guide what comes next. If your organization sees itself here, or you have a question, we are listening.",
+      "email": "ahlan@Shahamham.org",
+      "emailHint": "Membership and partnerships",
+      "support": "Support and help",
+      "supportHint": "Questions about using the network",
+      "suggest": "Suggestion or feedback",
+      "suggestHint": "Tell us what could be better"
+    },
+    "footer": "Shahamham — a network of exchange and solidarity for Egyptian cultural organizations."
+  }
+}

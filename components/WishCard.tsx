@@ -1,128 +1,267 @@
 'use client'
 
+import { Button, buttonVariants } from '@/components/ui/button'
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import { Link } from '@/i18n/navigation'
-import { formatNumber } from '@/lib/utils/index'
+import StarIcon from '@/icons/star.svg'
+import { formatNumber } from '@/lib/utils'
 import { cn } from 'cn'
 import { useLocale, useTranslations } from 'next-intl'
+import Image from 'next/image'
 import { useState } from 'react'
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
-import { Button } from './ui/button'
 
-interface WishCardProps {
-  id: string
-  count: number
-  category: string
-  title: string
-  description: string
-  endorsers: string[]
-  endorsersText: string
-  isEndorsed: boolean
-  mode?: 'browse' | 'mine'
-  ns?: 'genny' | 'shbeik'
+export type WishFamily = 'genny' | 'shbeik'
+
+export type WishSupporter = {
+  key: string
+  type: 'organization' | 'member'
+  badge?: 'amer' | 'kareem'
 }
 
+export interface WishCardData {
+  id: string
+  copyKey: string
+  categoryKey: string
+  count: number
+  isEndorsed: boolean
+  createdRank: number
+  authorKey?: string
+  supporters: WishSupporter[]
+}
+
+export type WishSuggestion = Omit<WishCardData, 'createdRank' | 'supporters'>
+
 export function WishCard({
-  id,
-  count,
-  category,
-  title,
-  description,
-  endorsers,
-  endorsersText,
-  isEndorsed,
+  wish,
+  family,
   mode = 'browse',
-  ns = 'genny',
-}: WishCardProps) {
+}: {
+  wish: WishCardData
+  family: WishFamily
+  mode?: 'browse' | 'mine'
+}) {
   const locale = useLocale()
-  const t = useTranslations(`${ns}.browse.wishCard`)
-  const [isEndorsedState, setIsEndorsedState] = useState(isEndorsed)
-  const [countState, SetCountState] = useState(count)
+  const t = useTranslations(`${family}.browse`)
+  const data = useTranslations(`${family}.data`)
+  const [isEndorsed, setIsEndorsed] = useState(wish.isEndorsed)
+  const [count, setCount] = useState(wish.count)
+  const [removed, setRemoved] = useState(false)
+  const route = family === 'genny' ? 'genny' : 'shbeik-lbeik'
+
+  if (removed) return null
+
+  const toggleEndorsement = () => {
+    setCount((current) => current + (isEndorsed ? -1 : 1))
+    setIsEndorsed((current) => !current)
+  }
 
   return (
-    <div className="font-cairo py-5 px-5.5 mb-3 flex items-start gap-5 flex-wrap bg-surface border border-line rounded-2xl">
-      <div className="font-cairo shrink-0 w-21.5 text-center bg-paper border border-line-soft rounded-2xl py-3.5 px-2">
-        <b className="block font-extrabold text-2xl">{formatNumber(countState, { locale })}</b>
-        <span className="block text-[10px]/[1.6] font-bold text-ink-soft mt-0.5">
-          {countState === 0 ? t('zeroEndorsements') : t('endorsingOrgs')}
-        </span>
-      </div>
-      <div className="flex-1 min-w-65">
-        <span className="inline-block font-cairo font-bold text-xs py-0.75 px-2.5 text-green-deep bg-[rgba(63,107,78,0.12)] rounded-full">
-          {category}
-        </span>
-        <h3 className="font-extrabold text-base/[1.6] ">{title}</h3>
-        <p className="font-semibold text-xs/[1.9] text-ink-soft mt-1.5">{description}</p>
-        <div className="flex items-center gap-2 mt-3 flex-wrap">
-          <div className="flex">
-            {endorsers.map((initial, index) => (
-              <Avatar size="sm" key={index}>
-                <AvatarImage src="https://github.com/shadcn.pngg" />
-                <AvatarFallback>{initial.charAt(0)}</AvatarFallback>
-              </Avatar>
-            ))}
-          </div>
-          <p className="font-semibold text-xs text-ink-soft">{endorsersText}</p>
-        </div>
-      </div>
-      {mode === 'browse' ? (
-        <div className="shrink-0 flex flex-col items-end gap-2 ">
-          <Button
-            className={cn(isEndorsedState && 'cursor-default')}
-            onClick={() => {
-              if (isEndorsedState) return
-              setIsEndorsedState(true)
-              SetCountState((prevCount) => prevCount + 1)
-            }}
-          >
-            {isEndorsedState ? t('endorsed') : t('endorse')}
-          </Button>
-          {isEndorsedState && (
-            <Button
-              variant="link"
-              onClick={() => {
-                setIsEndorsedState(false)
-                SetCountState((prevCount) => prevCount - 1)
-              }}
-            >
-              {t('unendorse')}
-            </Button>
-          )}
+    <article className="flex flex-col rounded-panel border-[3px] border-ink bg-surface px-6.5 py-6 shadow-[6px_6px_0] shadow-ink">
+      <span className="mb-3 w-fit font-body text-lg">{data(`categories.${wish.categoryKey}`)}</span>
+      <h2 className="font-display text-[27px]/[1.3]">{data(`wishes.${wish.copyKey}.title`)}</h2>
+      <p className="mt-2.5 font-body text-base/[1.9] font-medium text-soft">
+        {data(`wishes.${wish.copyKey}.description`)}
+      </p>
+
+      {family === 'genny' ? (
+        <div className="mt-3.5 rounded-card border-[2.5px] border-ink bg-paper px-4 py-3.5">
+          <b className="mb-1 block font-display text-base">{t('whyTitle')}</b>
+          <p className="font-body text-[15px]/[1.85] font-medium text-soft">
+            {data(`wishes.${wish.copyKey}.why`)}
+          </p>
         </div>
       ) : (
-        <div className="w-full flex items-center gap-2.5 flex-wrap mt-3 pt-3 border-t border-line-soft">
-          <span className="flex-1 min-w-45 font-semibold text-xs text-ink-soft">
-            {isEndorsedState ? t('fixedNote') : t('editableNote')}
+        <p className="mt-3 flex items-center gap-2 font-body text-[13.5px] font-semibold text-soft">
+          <span className="grid size-7 place-items-center rounded-full border-2 border-ink bg-gold font-extrabold text-ink">
+            {data(`authors.${wish.authorKey}.initial`)}
           </span>
-          {!isEndorsedState && (
-            <>
-              <Link
-                href={`/genny/wish/${id}`}
-                className="inline-block border border-green-deep text-green-deep bg-transparent rounded-full font-cairo font-bold text-xs py-2 px-4.5"
-              >
-                {t('edit')}
-              </Link>
-              <Button
-                variant="link"
-                type="button"
-                onClick={() => {
-                  console.log('Withdraw Wish ', id)
-                }}
-              >
-                {t('withdraw')}
-              </Button>
-              <Button
-                variant="destructive"
-                type="button"
-                onClick={() => {
-                  console.log('Remove Wish ', id)
-                }}
-              >
-                {t('delete')}
-              </Button>
-            </>
-          )}
-        </div>
+          <Link
+            href={`/member/${wish.authorKey}`}
+            className="font-extrabold text-ink hover:underline"
+          >
+            {data(`authors.${wish.authorKey}.name`)}
+          </Link>
+          · {data(`wishes.${wish.copyKey}.createdAt`)}
+        </p>
       )}
-    </div>
+
+      <div className="mt-auto flex flex-wrap items-center gap-3 border-t-[2.5px] border-dashed border-ink/30 pt-4">
+        <SupportersDialog family={family} wish={wish} count={count} mode={mode}>
+          <button
+            type="button"
+            disabled={count === 0}
+            className="inline-flex items-center gap-2.5 rounded-full border-[2.5px] border-ink bg-gold py-2 pe-2.5 ps-4.5 font-body text-[15px] font-extrabold shadow-[3px_3px_0] shadow-ink transition hover:translate-[1px_1px] hover:shadow-[1px_1px_0] disabled:cursor-default disabled:border-dashed disabled:bg-surface disabled:text-soft disabled:shadow-none"
+          >
+            <b
+              className={cn(
+                'grid h-8 min-w-8 place-items-center rounded-full px-2 font-display text-lg font-normal text-surface',
+                count ? 'bg-ink' : 'bg-soft',
+              )}
+            >
+              {formatNumber(count, { locale })}
+            </b>
+            {count ? t('supportCount') : t('zeroEndorsements')}
+          </button>
+        </SupportersDialog>
+
+        {mode === 'browse' ? (
+          <>
+            <Button
+              type="button"
+              variant="outline"
+              aria-pressed={isEndorsed}
+              className={cn(
+                'ms-auto h-auto px-5.5 py-2.25 text-[15px] shadow-[3px_3px_0]',
+                isEndorsed && 'bg-red text-surface hover:bg-red',
+              )}
+              onClick={toggleEndorsement}
+            >
+              {isEndorsed ? t('removeEndorsement') : t('endorse')}
+            </Button>
+            {family === 'genny' && (
+              <span className="mt-2.5 w-full font-body text-[13.5px] font-semibold text-soft">
+                {data(`wishes.${wish.copyKey}.createdAt`)}
+              </span>
+            )}
+          </>
+        ) : (
+          <>
+            <span className="ms-auto font-body text-[13.5px] font-semibold text-soft">
+              {data(`wishes.${wish.copyKey}.createdAt`)}
+            </span>
+            <div className="mt-3.5 flex w-full flex-wrap items-center gap-2.5">
+              {count > 0 ? (
+                <>
+                  <Button type="button" variant="outline" size="sm" effect="flat" disabled>
+                    {t('edit')}
+                  </Button>
+                  <Button type="button" variant="destructive" size="sm" effect="flat" disabled>
+                    {t('delete')}
+                  </Button>
+                  <p className="mt-2 w-full font-body text-[13.5px]/[1.8] font-semibold text-soft">
+                    {t.rich('lockedNote', { strong: (chunks) => <b>{chunks}</b> })}
+                  </p>
+                  <Button
+                    type="button"
+                    variant="destructive"
+                    size="sm"
+                    effect="flat"
+                    onClick={() => setRemoved(true)}
+                  >
+                    {t('withdraw')}
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href={`/${route}/wish/${wish.id}`}
+                    className={cn(
+                      buttonVariants({ variant: 'outline', size: 'sm', effect: 'flat' }),
+                    )}
+                  >
+                    {t('edit')}
+                  </Link>
+                  <Button
+                    type="button"
+                    variant="destructive"
+                    size="sm"
+                    effect="flat"
+                    onClick={() => setRemoved(true)}
+                  >
+                    {t('delete')}
+                  </Button>
+                  <p className="mt-2 w-full font-body text-[13.5px]/[1.8] font-semibold text-soft">
+                    {t('editableNote')}
+                  </p>
+                </>
+              )}
+            </div>
+          </>
+        )}
+      </div>
+    </article>
+  )
+}
+
+function SupportersDialog({
+  family,
+  wish,
+  count,
+  mode,
+  children,
+}: {
+  family: WishFamily
+  wish: WishCardData
+  count: number
+  mode: 'browse' | 'mine'
+  children: React.ReactElement
+}) {
+  const t = useTranslations(`${family}.browse`)
+  const global = useTranslations('global')
+
+  if (!count) return children
+
+  return (
+    <Dialog>
+      <DialogTrigger render={children} />
+      <DialogContent
+        closeLabel={t('close')}
+        overlayClassName="bg-ink/55"
+        className="top-10 w-[min(520px,calc(100vw-40px))] -translate-y-0 px-7! py-7.5! sm:w-[min(520px,calc(100vw-40px))]!"
+      >
+        <DialogTitle className="text-[26px]/[1.3]">{t('supportersTitle')}</DialogTitle>
+        <DialogDescription className="mt-2 mb-0 text-[15px]/[1.9]">
+          {t(mode === 'mine' ? 'supportersDescriptionMine' : 'supportersDescription')}
+        </DialogDescription>
+        <div className="mt-4">
+          {wish.supporters.map((supporter) => {
+            const name = global(
+              supporter.type === 'organization'
+                ? `organizations.${supporter.key}`
+                : `people.${supporter.key}`,
+            )
+            return (
+              <div
+                key={supporter.key}
+                className="flex items-center gap-3 border-b-[2.5px] border-dashed border-ink/25 py-3.25 last:border-b-0"
+              >
+                <span className="grid size-10.5 shrink-0 place-items-center rounded-full border-[2.5px] border-ink bg-gold font-display text-[19px] shadow-[2px_2px_0] shadow-ink">
+                  {name.charAt(0)}
+                </span>
+                <p className="min-w-0 flex-1">
+                  <Link
+                    href={`/${supporter.type === 'organization' ? 'organization' : 'member'}/${supporter.key}`}
+                    className="block font-display text-[19px]/[1.25] hover:underline"
+                  >
+                    {name}
+                  </Link>
+                  <small className="block text-xs font-semibold text-soft">
+                    {t(supporter.type === 'organization' ? 'organizationRole' : 'memberRole')}
+                  </small>
+                </p>
+                {supporter.badge && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-gold py-0.75 pe-2 ps-3.25 font-display text-[15px]">
+                    <Image src={StarIcon} alt="" className="size-4.75" />
+                    {global(`badges.${supporter.badge}`)}
+                  </span>
+                )}
+              </div>
+            )
+          })}
+        </div>
+        <div className="mt-4.5 flex border-t-[3px] border-dashed border-ink pt-4">
+          <DialogClose render={<Button variant="outline" effect="flat" />}>
+            {t('closeAction')}
+          </DialogClose>
+        </div>
+      </DialogContent>
+    </Dialog>
   )
 }
