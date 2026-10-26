@@ -80,7 +80,7 @@ export function Header() {
         <Link href={`/member/${user?.uuid}`}>
           <Avatar color="red" isAnimated>
             <AvatarImage src="https://github.com/shadcn.pngg" />
-            <AvatarFallback>C</AvatarFallback>
+            <AvatarFallback>{user?.first?.charAt(0)}</AvatarFallback>
           </Avatar>
         </Link>
       </div>

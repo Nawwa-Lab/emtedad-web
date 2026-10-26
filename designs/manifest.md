@@ -4,13 +4,13 @@
 
 ## Migration progress
 
-**Status: In progress** — `█████████░░░░░░░░░░░` **44% (48/108)**
+**Status: In progress** — `██████████░░░░░░░░░░` **49% (53/108)**
 
 | Work status                         | Rows |
 | ----------------------------------- | ---: |
-| Completed (`migrated` + `done`)     |   48 |
-| Awaiting visual review (`existing`) |    8 |
-| Not started (`proposed`)            |   52 |
+| Completed (`migrated` + `done`)     |   53 |
+| Awaiting visual review (`existing`) |    6 |
+| Not started (`proposed`)            |   49 |
 
 | Family          | Progress          | Complete | Review | Proposed | Total |
 | --------------- | ----------------- | -------: | -----: | -------: | ----: |
@@ -30,10 +30,10 @@
 | khalli-khales   | `░░░░░░░░░░` 0%   |        0 |      0 |        9 |     9 |
 | landing         | `██████████` 100% |        4 |      0 |        0 |     4 |
 | management      | `░░░░░░░░░░` 0%   |        0 |      0 |        4 |     4 |
-| member          | `░░░░░░░░░░` 0%   |        0 |      1 |        0 |     1 |
+| member          | `██████████` 100% |        1 |      0 |        0 |     1 |
 | namliya         | `░░░░░░░░░░` 0%   |        0 |      6 |        3 |     9 |
 | office          | `░░░░░░░░░░` 0%   |        0 |      0 |        6 |     6 |
-| organization    | `░░░░░░░░░░` 0%   |        0 |      1 |        3 |     4 |
+| organization    | `██████████` 100% |        4 |      0 |        0 |     4 |
 | ratings         | `░░░░░░░░░░` 0%   |        0 |      0 |        2 |     2 |
 | search          | `██████████` 100% |        1 |      0 |        0 |     1 |
 | shared states   | `██████████` 100% |        1 |      0 |        0 |     1 |
@@ -57,11 +57,11 @@ For one migration batch, read only the selected rows and their source HTML. Conv
 | `designs/panel-05-app-shell.html`                           | dashboard shell | `app/[lang]/(dashboard)/layout.tsx`                                                       | `components/Header.tsx`, `components/SidebarNavMenu.tsx`                                                                                       | done     | Existing shared shell approved as completed.                                                                                                   |
 | `designs/panel-06-quick-action.html`                        | dashboard shell | `components/QuickAction.tsx`                                                              | `components/ui/dialog.tsx`, `app/[lang]/(dashboard)/layout.tsx`                                                                                | migrated | Header-triggered overlay contained inside the dashboard content region; no standalone route.                                                   |
 | `designs/panel-07-search-results.html`                      | search          | `app/[lang]/(dashboard)/search/[term]/[filter]/page.tsx`                                  | `components/ui/dialog.tsx`, `components/ui/empty-state.tsx`, `components/ui/button.tsx`                                                        | migrated | Rebuilt search results, URL-driven header search, filters, offer details, saved state, and empty results.                                      |
-| `designs/panel-08-org-public-profile.html`                  | organization    | `app/[lang]/(dashboard)/organization/[id]/page.tsx`                                       | `components/InfoCard.tsx`, `components/Satisfaction Index.tsx`, `components/StatusBadge.tsx`, `components/ui/*`                                | existing |                                                                                                                                                |
-| `designs/panel-08a-org-human-services.html`                 | organization    | `app/[lang]/(dashboard)/organization/[id]/human-services/page.tsx`                        | `components/InfoCard.tsx`, `components/ServicesCard.tsx`, `components/ui/*`                                                                    | proposed | Target file is not in the current worktree.                                                                                                    |
-| `designs/panel-08b-org-material-resources.html`             | organization    | `app/[lang]/(dashboard)/organization/[id]/material-resources/page.tsx`                    | `components/InfoCard.tsx`, `components/ServicesCard.tsx`, `components/ui/*`                                                                    | proposed | Target file is not in the current worktree.                                                                                                    |
-| `designs/panel-09-satisfaction-breakdown.html`              | organization    | `app/[lang]/(dashboard)/organization/[id]/satisfaction/page.tsx`                          | `components/Satisfaction Index.tsx`, `components/ui/card.tsx`                                                                                  | proposed | Target file is not in the current worktree.                                                                                                    |
-| `designs/panel-10-member-public-profile.html`               | member          | `app/[lang]/(dashboard)/member/[id]/page.tsx`                                             | `components/EntityCard.tsx`, `components/StatusBadge.tsx`, `components/ui/*`                                                                   | existing |                                                                                                                                                |
+| `designs/panel-08-org-public-profile.html`                  | organization    | `app/[lang]/(dashboard)/organization/[id]/page.tsx`                                       | `components/OrganizationProfileHeader.tsx`, `components/OrganizationOfferCarousel.tsx`, `components/OrganizationTeam.tsx`, `components/ui/*`   | migrated | Public organization API drives identity, organization details, links, and team; offer content remains typed mock data.                         |
+| `designs/panel-08a-org-human-services.html`                 | organization    | `app/[lang]/(dashboard)/organization/[id]/human-services/page.tsx`                        | `components/OrganizationProfileHeader.tsx`, `components/OrganizationListings.tsx`, `components/OrganizationOfferCard.tsx`, `components/ui/*`   | migrated | Marketplace sections, source copy, counts, prices, ratings, and actions matched; listings await a backend endpoint.                            |
+| `designs/panel-08b-org-material-resources.html`             | organization    | `app/[lang]/(dashboard)/organization/[id]/material-resources/page.tsx`                    | `components/OrganizationProfileHeader.tsx`, `components/OrganizationListings.tsx`, `components/OrganizationOfferCard.tsx`, `components/ui/*`   | migrated | Marketplace sections, source copy, counts, prices, ratings, and actions matched; listings await a backend endpoint.                            |
+| `designs/panel-09-satisfaction-breakdown.html`              | organization    | `app/[lang]/(dashboard)/organization/[id]/satisfaction/page.tsx`                          | `components/OrganizationSatisfaction.tsx`, `components/StatusBadge.tsx`, `components/ui/card.tsx`                                              | migrated | API-backed organization identity with source-matched tabbed satisfaction fixtures until ratings endpoints exist.                               |
+| `designs/panel-10-member-public-profile.html`               | member          | `app/[lang]/(dashboard)/member/[id]/page.tsx`                                             | `components/OrganizationOfferCarousel.tsx`, `components/StatusBadge.tsx`, `components/ui/*`                                                    | migrated | Public member API drives identity, bio, skills, and organization; service and review content remains typed mock data.                          |
 | `designs/panel-11-maktab-balances.html`                     | balances        | `app/[lang]/(dashboard)/maktab/balances/page.tsx`                                         | `components/InfoCard.tsx`, `components/ui/card.tsx`, `components/ui/badge.tsx`, `components/ui/button.tsx`                                     | proposed |                                                                                                                                                |
 | `designs/panel-12-shahamham-balance-details.html`           | balances        | `app/[lang]/(dashboard)/maktab/balances/shahamham/page.tsx`                               | `components/InfoCard.tsx`, `components/ui/card.tsx`, `components/ui/badge.tsx`, `components/ui/button.tsx`                                     | proposed |                                                                                                                                                |
 | `designs/panel-13-hakima-balance.html`                      | balances        | `app/[lang]/(dashboard)/maktab/balances/hakima/page.tsx`                                  | `components/InfoCard.tsx`, `components/ui/card.tsx`, `components/ui/badge.tsx`, `components/ui/button.tsx`                                     | proposed |                                                                                                                                                |
