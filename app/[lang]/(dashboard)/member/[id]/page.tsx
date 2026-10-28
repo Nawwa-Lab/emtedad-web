@@ -1,143 +1,122 @@
-import { EntityCard } from '@/components/EntityCard'
+import { memberReviews, memberServices } from '@/app/[lang]/(dashboard)/organization/[id]/data'
+import { OrganizationOfferCarousel } from '@/components/OrganizationOfferCarousel'
 import { StatusBadge } from '@/components/StatusBadge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Label } from '@/components/ui/label'
-import { getDictionary } from '@/i18n/dictionary/get-dictionary'
-import Link from 'next/link'
+import { Card, CardDescription } from '@/components/ui/card'
+import { Link } from '@/i18n/navigation'
+import { formatNumber } from '@/lib/utils/formatter'
+import { memberApi } from '@/services/members'
+import { getLocale, getTranslations } from 'next-intl/server'
 
-export default async function MemberProfileClient() {
-  const dict = await getDictionary()
-  const profile = dict['member-profile']
-  const profileOwner = profile.firstCard.name
-  const firstLetter = profileOwner.charAt(0)
-  const reviewerFirstLetters = profile.thirdCard.review.map((item) => item.reviewerName.charAt(0))
+export default async function MemberProfilePage({ params }: PageProps<'/[lang]/member/[id]'>) {
+  const { id } = await params
+  const locale = await getLocale()
+  const t = await getTranslations('memberProfile')
+  const global = await getTranslations('global')
+  const member = await memberApi.getPublicProfile(id)
+  const organization = member.organization ?? member.org
+  const name =
+    [member.firstName ?? member.first, member.lastName ?? member.last].filter(Boolean).join(' ') ||
+    t('fallbackName')
+  const skills = [...(member.skills ?? []), ...(member.areasOfExpertise ?? [])]
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto flex-1 overflow-y-auto m-0">
-      <div className="w-full mx-auto box-border m-0 p-0 ">
-        {/* first card */}
-        <Card className="flex flex-col sm:flex-row items-start sm:items-center  justify-between gap-4 sm:gap-5 px-6.5 sm:px-6.5 py-7 sm:py-7">
-          <div className="flex items-center gap-4 sm:gap-5 min-w-0 w-full sm:w-auto">
-            <Avatar className="text-green-deep  bg-sage w-16 h-16 sm:w-23 sm:h-23   shrink-0">
-              <AvatarImage src="https://github.com/shadcn.pngg" />
-              <AvatarFallback className="font-bold text-[24px] sm:text-[34px]">
-                {firstLetter}
-              </AvatarFallback>
-            </Avatar>
-            <CardContent className="flex-1 min-w-0 box-border p-0 m-0">
-              <span className="font-display font-bold text-[20px] sm:text-[26px] leading-tight block truncate">
-                {profileOwner}
-              </span>
-              <p className="font-semibold font-cairo text-[12px] sm:text-[13.5px] text-ink-soft mt-0.75">
-                {profile.firstCard.role} ·{' '}
-                <Link href="" className="font-extrabold font-cairo hover:underline text-green-deep">
-                  {profile.firstCard.organization}
-                </Link>
-              </p>
-            </CardContent>
+    <div className="w-full pb-10">
+      {organization && (
+        <Link
+          href={`/organization/${organization.organizationId}`}
+          className="mb-4 inline-flex items-center gap-2 font-body text-base font-bold hover:text-red"
+        >
+          <span className="grid size-9 place-items-center rounded-full border-[2.5px] border-ink bg-surface shadow-[3px_3px_0_#1A1714] rtl:rotate-0 ltr:rotate-180">
+            →
+          </span>
+          {t('back', { name: organization.legalName })}
+        </Link>
+      )}
+
+      <section className="flex flex-wrap items-start gap-6 rounded-panel border-3 border-ink bg-surface px-7 py-7 shadow-[7px_7px_0_#1A1714] sm:px-8">
+        <Avatar color="gold" size="xl" effect="3d" className="size-33">
+          <AvatarImage src={member.profilePhotoUrl ?? ''} alt={name} />
+          <AvatarFallback className="font-display text-6xl">{name.charAt(0)}</AvatarFallback>
+        </Avatar>
+        <div className="min-w-62 flex-1">
+          <div className="flex flex-wrap items-center gap-3">
+            <h1 className="font-display text-[clamp(2.25rem,4.6vw,3.125rem)] leading-none">
+              {name}
+            </h1>
+            <StatusBadge label={global('badges.amer')} />
+            {organization && (
+              <Link
+                href={`/organization/${organization.organizationId}`}
+                className="inline-flex items-center gap-2 rounded-full border-[2.5px] border-ink bg-paper py-1.5 ps-2 pe-4 font-body text-sm font-bold hover:bg-gold"
+              >
+                <Avatar color="paper" size="sm" effect="flat">
+                  <AvatarImage src={organization.logoUrl ?? ''} alt={organization.legalName} />
+                  <AvatarFallback>{organization.legalName.charAt(0)}</AvatarFallback>
+                </Avatar>
+                {organization.legalName}
+              </Link>
+            )}
           </div>
-          <Card className="font-bold text-[12px] text-ink-soft bg-paper border border-ink-soft rounded-[999px] py-1.75 px-4 font-cairo self-start sm:self-center shrink-0">
-            {profile.firstCard.completedServices}
-          </Card>
-        </Card>
-
-        {/* second card layout wrapper */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 mt-5 items-start">
-          <div className="box-border m-0 p-0 w-full min-w-0">
-            {/* Bio / Skills Card */}
-            <Card className="text-green-deep text-[18px] mb-3 p-4 sm:p-6">
-              <CardTitle className="text-green-deep text-[18px] mb-3">
-                {profile.secondCard.bioTitle}
-              </CardTitle>
-              <CardDescription className="font-medium text-[14px] leading-relaxed text-ink-soft">
-                {profile.secondCard.bioText}
-              </CardDescription>
-              <CardContent className="p-0 mt-4">
-                <Label className="font-extrabold font-cairo text-[13px] text-ink-soft mb-2.5 block">
-                  {profile.secondCard.skillsTitle}
-                </Label>
-                <div className="flex-wrap flex gap-2 box-border">
-                  {profile.secondCard.skills.map((skill, index) => (
-                    <Badge key={index} color="paper">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Reviews Card */}
-            <Card className="p-4 sm:p-6 mb-5 bg-surface border border-line rounded-panel">
-              <CardTitle className="text-green-deep text-[18px] mb-3">
-                {profile.thirdCard.reviewsTitle}
-              </CardTitle>
-              {profile.thirdCard.review.map((t, index) => (
-                <CardContent
-                  key={index}
-                  className="border-b border-line-soft pt-3.5 pb-3 px-0 last:border-b-0"
+          <p className="mt-4 max-w-162 font-body text-[17px] font-medium leading-8 text-soft">
+            {member.bio || t('fallbackBio')}
+          </p>
+          {skills.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border-[2.5px] border-ink bg-paper px-4 py-2 font-body text-sm font-bold"
                 >
-                  <div>
-                    <div className="flex items-center gap-2.5 mb-1.5 flex-wrap">
-                      <Avatar className="text-ink-soft w-7.5 h-7.5 rounded-full bg-sage shrink-0">
-                        <AvatarImage src="https://github.com/shadcn.pngg" />
-                        <AvatarFallback className="font-semibold text-[11px]">
-                          {reviewerFirstLetters[index]}
-                        </AvatarFallback>
-                      </Avatar>
-                      <span className="font-extrabold text-[12.5px] font-cairo">
-                        {t.reviewerName}
-                      </span>
-                      <span className="font-semibold text-[11px] text-ink-soft font-cairo">
-                        {t.exchangeText}
-                      </span>
-                      <StatusBadge label={t.badge} shape="pill" />
-                    </div>
-                    <CardDescription className="font-medium text-[13px] text-ink-soft leading-relaxed font-cairo">
-                      {t.reviewText}
-                    </CardDescription>
-                  </div>
-                </CardContent>
+                  {skill}
+                </span>
               ))}
-            </Card>
-          </div>
-
-          {/* Sidebar section */}
-          <aside className="box-border m-0 p-0 w-full">
-            {/* Fourth Card */}
-            <Card className="p-4 sm:p-6 mb-5 bg-surface border border-line rounded-panel">
-              <CardHeader className="font-display font-bold text-lg text-green-deep mb-3 p-0">
-                {profile.fourthCard.title}
-              </CardHeader>
-              {profile.fourthCard.overall.map((t, index) => (
-                <CardContent
-                  key={index}
-                  className="flex items-center gap-3.5 border-b border-line-soft py-3.25 px-0 last:border-b-0"
-                >
-                  <StatusBadge label={t.rate} />
-                  <div>
-                    <span className="block font-extrabold text-[13.5px] font-cairo">{t.about}</span>
-                    <span className="font-semibold text-[11.5px] text-ink-soft font-cairo">
-                      {t.totalReviews}
-                    </span>
-                  </div>
-                </CardContent>
-              ))}
-            </Card>
-
-            {/* Fifth Card */}
-            <EntityCard
-              title={profile.fifthCard.title}
-              entity={profile.firstCard.organization}
-              entityFirstLetter={profile.firstCard.organization.charAt(0)}
-              viewProfileHref="#"
-              viewProfileLabel={profile.fifthCard.viewProfile}
-              className="mb-4"
-            />
-          </aside>
+            </div>
+          )}
         </div>
-      </div>
+      </section>
+
+      <OrganizationOfferCarousel
+        title={t('servicesTitle')}
+        countLabel={t('servicesCount')}
+        href={organization ? `/organization/${organization.organizationId}/human-services` : '#'}
+        listings={memberServices}
+        showActions={false}
+      />
+
+      <section className="mt-8">
+        <div className="mb-4 flex items-baseline gap-3">
+          <h2 className="font-display text-3xl">{t('reviews')}</h2>
+          <span className="font-body text-sm font-semibold text-soft">
+            {t('reviewsCount', {
+              shown: formatNumber(memberReviews.length, { locale }),
+              total: formatNumber(19, { locale }),
+            })}
+          </span>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2">
+          {memberReviews.map((review) => (
+            <Card key={`${review.name}-${review.context}`} className="p-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <Avatar className="size-11 bg-gold">
+                  <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <strong className="min-w-30 flex-1 font-display text-xl">{review.name}</strong>
+                <StatusBadge label={review.rating} shape="pill" />
+                <p className="w-full font-body text-[13.5px] font-semibold text-soft">
+                  {review.context}
+                </p>
+              </div>
+              <CardDescription className="mb-0 mt-3 text-[16.5px] leading-8 text-ink">
+                {review.text}
+              </CardDescription>
+              <p className="mt-3 border-t-[2.5px] border-dashed border-ink/30 pt-3 font-body text-sm font-semibold text-soft">
+                {review.source}
+              </p>
+            </Card>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }

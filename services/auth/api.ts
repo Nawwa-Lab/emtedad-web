@@ -1,7 +1,6 @@
 import { request } from '@/services/http'
 import type {
   AuthMessage,
-  AuthProfile,
   ContextSwitchInput,
   ContextSwitchResult,
   CurrentUserProfile,
@@ -14,7 +13,7 @@ const ENDPOINT_PREFIX = '/api/v1/auth'
 
 export const authApi = {
   login: (data: LoginInput) =>
-    request<AuthProfile>(`${ENDPOINT_PREFIX}/login`, { method: 'POST', body: data }),
+    request<AuthMessage>(`${ENDPOINT_PREFIX}/login`, { method: 'POST', body: data }),
   logout: () => request<void>(`${ENDPOINT_PREFIX}/logout`, { method: 'POST' }),
   getCurrentUser: () => request<CurrentUserProfile>('/api/v1/users/me'),
   forgotPassword: (data: ForgotPasswordInput) =>

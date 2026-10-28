@@ -1,4 +1,91 @@
 {
+  "organizationProfile": {
+    "back": "رجوع لملف {name}",
+    "sectionDescription": "{name} — مرتّبة حسب السوق.",
+    "markets": {
+      "all": "الكل",
+      "namliya": "نملية",
+      "khalli": "خلي خالص",
+      "alaesh": "ألقيش عندك؟",
+      "onNamliya": "على نملية",
+      "onKhalli": "على خلي خالص",
+      "onAlaesh": "على ألقيش عندك؟"
+    },
+    "marketCounts": {
+      "human": { "namliya": "٨ خدمات", "khalli": "٤ خدمات", "alaesh": "طلبان" },
+      "material": { "namliya": "٤ موارد", "khalli": "مورد واحد", "alaesh": "طلب واحد" }
+    },
+    "marketNotes": {
+      "human": {
+        "namliya": "خدمات فريق المؤسسة المتاحة لمؤسسات الشبكة.",
+        "khalli": "خدمات وأنشطة موجّهة للجمهور — بتتحجز من مخصص الفرد الشهري.",
+        "alaesh": "خدمات بشرية المؤسسة بتدوّر عليها — مش بتعرضها."
+      },
+      "material": {
+        "namliya": "معدات ومساحات المؤسسة المتاحة لمؤسسات الشبكة.",
+        "khalli": "موارد متاحة للجمهور مباشرة.",
+        "alaesh": "موارد المؤسسة بتدوّر عليها — مش بتعرضها."
+      }
+    },
+    "defaults": {
+      "description": "مؤسسة عاملة في الشبكة.",
+      "mission": "لا توجد نبذة منشورة بعد.",
+      "unpublished": "غير معلن"
+    },
+    "ratingSummary": "قيّمها {count} عضوًا — شوف التفصيل",
+    "facts": {
+      "city": "المدينة",
+      "founded": "سنة التأسيس",
+      "website": "الموقع",
+      "contact": "تواصل"
+    },
+    "mission": "رسالتنا",
+    "publishedOffers": "عروض منشورة",
+    "humanServices": "خدمات بشرية",
+    "humanServicesCount": "١٤ خدمة — اضغط العنوان تشوفها كلها",
+    "materialResources": "موارد مادية",
+    "materialResourcesCount": "٦ موارد — اضغط العنوان تشوفها كلها",
+    "humanServicesTitle": "كل الخدمات البشرية",
+    "humanServicesDescription": "{name} — ١٤ خدمة بشرية، مرتّبة حسب السوق.",
+    "materialResourcesTitle": "كل الموارد المادية",
+    "materialResourcesDescription": "{name} — ٦ موارد مادية، مرتّبة حسب السوق.",
+    "satisfactionTitle": "مؤشر الرضا بالتفصيل",
+    "ratedByNetwork": "قيّمها {count} عضوًا في الشبكة",
+    "team": "الفريق",
+    "membersCount": "{count} أعضاء",
+    "itemsCount": "{count} عناصر",
+    "previous": "السابق",
+    "next": "التالي",
+    "request": "اطلب",
+    "haveIt": "عندي",
+    "vat": "+ ١٤٪ ض.ق.م",
+    "details": {
+      "expand": "افتح التفاصيل الكاملة",
+      "humanService": "خدمة بشرية",
+      "materialResource": "مورد مادي",
+      "value": "القيمة",
+      "provider": "المؤسسة المقدِّمة",
+      "requestService": "اطلب الخدمة",
+      "save": "احفظ في المحفوظات",
+      "close": "اقفل"
+    },
+    "reviews": "الآراء المكتوبة",
+    "ratingSections": "أقسام التقييم",
+    "reviewsCount": "{shown} من {total} رأيًا",
+    "roles": {
+      "org_admin": "إدارة المؤسسة",
+      "team_worker": "عضو فريق"
+    }
+  },
+  "memberProfile": {
+    "back": "رجوع لملف {name}",
+    "fallbackName": "عضو في امتداد",
+    "fallbackBio": "لا توجد نبذة منشورة بعد.",
+    "servicesTitle": "خدمات بينفّذها",
+    "servicesCount": "٤ خدمات على نملية وخلي خالص",
+    "reviews": "الآراء المكتوبة",
+    "reviewsCount": "{shown} من {total} رأيًا"
+  },
   "member-profile": {
     "firstCard": {
       "avatarInitials": "ك",

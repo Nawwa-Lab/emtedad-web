@@ -1,74 +1,159 @@
 {
   "shbeik": {
     "browse": {
-      "title": "Shbek Libik — Community Wishes",
-      "description": "What would you like the community to have? Wish for it here — the most endorsed wishes will be implemented.",
-      "chips": {
-        "browse": "Browse",
-        "addNew": "New wish +",
-        "myWishes": "My wishes"
-      },
-      "filter": {
-        "mostEndorsed": "Most endorsed",
-        "latest": "Latest",
-        "workshopLearning": "Workshop & learning",
-        "events": "Events",
-        "services": "Services",
-        "spaces": "Spaces"
-      },
-      "wishCard": {
-        "endorsingOrgs": "Endorsing members",
-        "zeroEndorsements": "No endorsements yet",
-        "endorse": "Endorse",
-        "endorsed": "Endorsed ✓",
-        "unendorse": "Remove your endorsement",
-        "fixedNote": "After the first endorsement the wish is set — any edit becomes a new wish.",
-        "editableNote": "Before the first endorsement you can edit, withdraw, or delete.",
-        "edit": "Edit",
-        "withdraw": "Withdraw",
-        "delete": "Delete"
-      },
-      "note": "Each person endorses a wish once — and can remove their endorsement at any time. The Shahamham team returns to this list while reviewing new membership applications.",
-      "noteBold": "A membership request for a specific organization belongs in Hakima, not here."
+      "title": "Shbeik Lbeik",
+      "subtitle": "Community wishes — what people hope to find",
+      "sectionNav": "Shbeik Lbeik sections",
+      "browseTab": "Browse",
+      "myWishesTab": "My wishes",
+      "addWish": "Add your wish +",
+      "introTitle": "What is Shbeik Lbeik, and how does it work?",
+      "intro": "Write what you wish you could find but cannot — a workshop, course, event, anything. Anyone can endorse a wish once, and organizations read this board while planning upcoming programs. The most-endorsed wishes reach them first.",
+      "filter": "Filter",
+      "sortLabel": "Sort",
+      "mostEndorsed": "Most endorsed",
+      "latest": "Newest",
+      "resultSingle": "<strong>{count}</strong> wish{category}",
+      "results": "<strong>{count}</strong> wishes{category}",
+      "filterLabel": "Type",
+      "optional": "(optional)",
+      "all": "All",
+      "whyTitle": "Why does this matter?",
+      "supportCount": "people endorsed",
+      "zeroEndorsements": "No endorsements yet",
+      "endorse": "Endorse",
+      "removeEndorsement": "Remove endorsement",
+      "supportersTitle": "People who endorsed this wish",
+      "supportersDescription": "Names are hidden on the card so endorsement stays focused on the idea, not who endorsed it.",
+      "supportersDescriptionMine": "Names are hidden on the card so endorsement stays focused on the idea, not who endorsed it.",
+      "organizationRole": "Member organization",
+      "memberRole": "Community member",
+      "close": "Close",
+      "closeAction": "Close",
+      "emptyTitle": "No wishes in this category",
+      "emptyDescription": "Clear the filter or add a new wish.",
+      "edit": "Edit",
+      "delete": "Delete wish",
+      "withdraw": "Withdraw wish",
+      "lockedNote": "Editing and deletion close after the first endorsement — <strong>endorsement applies to the wording people saw.</strong> You can withdraw it instead.",
+      "editableNote": "Nobody has endorsed it yet — you can edit or delete it.",
+      "newWishTitle": "Have a wish that is not here?",
+      "newWishDescription": "Search first — if a similar wish exists, endorsing it is stronger than adding a duplicate.",
+      "orgViewTitle": "Organizations read this board",
+      "orgViewDescription": "When an organization plans a workshop or new program, it checks here first to see what people want. Your endorsement is not just a number — it helps decide what gets made next season."
     },
     "myWishes": {
-      "title": "Shbek Libik — My Wishes",
-      "description": "Community wishes you've endorsed — and who stood by it.",
-      "chips": {
-        "browse": "Browse",
-        "addNew": "New wish +",
-        "myWishes": "My wishes ٢"
-      }
+      "title": "Shbeik Lbeik",
+      "subtitle": "My wishes · what you proposed or endorsed",
+      "proposed": "Wishes you proposed",
+      "endorsements": "Total endorsements",
+      "fulfilled": "Fulfilled wishes"
     },
     "addWish": {
-      "backToShbeik": "← Back to Shbek Libik",
-      "title": "New wish",
-      "editTitle": "Edit wish",
-      "subtitle": "Wish for types of organizations, services, or activities you'd love the community to have.",
-      "dupeLabel": "Check first — does the wish already exist?",
-      "dupeSearchAria": "Search wishes",
-      "endorsedCount": "endorsing members — close to yours?",
-      "endorseInstead": "Endorse this instead of duplicating",
-      "titleLabel": "Wish title",
-      "titlePlaceholder": "e.g. Shared woodworking workshop for set designs",
-      "descriptionLabel": "Description",
-      "descriptionPlaceholder": "What exactly is the need? Who benefits?",
-      "categoryLabel": "Category",
-      "otherCategory": "Other",
-      "impactLabel": "Why will this strengthen the community?",
-      "impactPlaceholder": "Link it to a recurring need — unfulfilled Got Qalish requests are good evidence.",
-      "submitAdd": "Publish wish",
+      "back": "Back to Shbeik Lbeik",
+      "familyTitle": "Shbeik Lbeik",
+      "pageSubtitle": "Add your wish · Nadia Kamal",
+      "editSubtitle": "Edit your wish · Nadia Kamal",
+      "searchTitle": "Search first",
+      "searchDescription": "If a similar wish already exists, endorsing it is stronger than adding a duplicate because organizations see one large number rather than two small ones.",
+      "searchAria": "Search wishes",
+      "searchPlaceholder": "Type what you want to find — e.g. photography workshop",
+      "defaultQuery": "photography",
+      "supportCount": "people endorsed",
+      "endorseInstead": "Endorse this instead",
+      "endorsedInstead": "Endorsed ✓",
+      "noSearchResults": "No similar wish — continue and add it.",
+      "continueToWish": "I cannot find it — add my wish",
+      "cancel": "Back",
+      "detailsTitle": "Your wish",
+      "detailsDescription": "Describe what you wish you could find but cannot. Organizations read this board while planning, so clarity makes it easier for someone to deliver it.",
+      "editTitle": "Edit your wish",
+      "editDescription": "Revise the wording before anyone endorses the wish.",
+      "titleLabel": "The wish in one line",
+      "titlePlaceholder": "e.g. Evening acting workshop after work",
+      "categoryLabel": "Type",
+      "categoryPlaceholder": "Workshops · Music · Theatre · Events",
+      "categoryHint": "One or two words describing the field — shown as a tag on the wish card.",
+      "descriptionLabel": "What exactly do you want?",
+      "descriptionPlaceholder": "Describe it as you imagine it — duration, level, and who it is for.",
+      "impactLabel": "Why can you not find it?",
+      "impactPlaceholder": "What did you find when you searched before, and what was missing?",
+      "impactHint": "Optional — but it helps an organization understand the gap and create something genuinely different.",
+      "submitAdd": "Publish my wish",
       "submitEdit": "Save changes",
-      "tipsTitle": "Before you wish",
-      "tip1": "Shbek Libik is for shared needs — a membership request for a specific org belongs in Hakima during the membership cycle.",
-      "tip2": "If you find a similar wish, endorse it instead — collective endorsements speak louder.",
-      "tip3": "Before the first endorsement you can edit, withdraw, or delete — after that the wish is set.",
-      "titleRequired": "Title is required",
-      "titleMin": "Title must be at least 3 characters",
+      "backToSearch": "Back to search",
+      "publicNameTitle": "Your wish will show your name.",
+      "publicNameDescription": "Anyone can endorse it once, and you can edit or remove it while it has no endorsements.",
+      "successTitle": "Wish published",
+      "successDescription": "It now appears in Shbeik Lbeik and anyone can endorse it. The more support it gets, the higher it appears on the board organizations read.",
+      "editSuccessDescription": "Your changes were saved and the updated wording now appears in Shbeik Lbeik.",
+      "viewBoard": "View Shbeik Lbeik",
+      "viewMine": "My history",
+      "queryRequired": "Enter a search term first",
+      "titleRequired": "Write the wish in one line",
+      "titleMin": "The wish title must be at least 3 characters",
       "descriptionRequired": "Description is required",
       "descriptionMin": "Description must be at least 10 characters",
-      "categoryRequired": "Please select a category",
-      "queryRequired": "Search keyword is required"
+      "categoryRequired": "Enter a wish type",
+      "categoryMax": "Type cannot exceed 14 characters",
+      "impactRequired": "Explain why it is missing",
+      "impactMin": "The explanation must be at least 10 characters"
+    },
+    "data": {
+      "categories": {
+        "workshops": "Workshops",
+        "music": "Music",
+        "archives": "Archives",
+        "writing": "Writing",
+        "theatre": "Theatre",
+        "events": "Events"
+      },
+      "authors": {
+        "nadia": { "name": "Nadia Kamal", "initial": "N" },
+        "tarekSelim": { "name": "Tarek Selim", "initial": "T" },
+        "kamal": { "name": "Kamal Darwish", "initial": "K" },
+        "dina": { "name": "Dina Fouad", "initial": "D" },
+        "sanaa": { "name": "Sanaa Ezz", "initial": "S" },
+        "youssef": { "name": "Youssef Helmy", "initial": "Y" },
+        "marwan": { "name": "Marwan Sobhy", "initial": "M" }
+      },
+      "wishes": {
+        "mobilePhotography": {
+          "title": "Mobile photography workshop for beginners",
+          "description": "I want a workshop that teaches me to take good photos with my phone — no cameras or equipment, just the phone.",
+          "createdAt": "one month ago"
+        },
+        "oudCourse": {
+          "title": "Oud from scratch",
+          "description": "Nobody teaches oud to adult beginners. Courses are either for children or people who already know the basics.",
+          "createdAt": "six weeks ago"
+        },
+        "personalArchives": {
+          "title": "Workshops on archiving personal collections",
+          "description": "I have family photos, tapes, and papers and do not know how to preserve them. I need someone to teach me the basics.",
+          "createdAt": "two weeks ago"
+        },
+        "readingGroup": {
+          "title": "Reading and literary criticism group",
+          "description": "A group that meets every two weeks to read and discuss a book — not a lecture, but people talking together.",
+          "createdAt": "three weeks ago"
+        },
+        "eveningActing": {
+          "title": "Evening acting workshop",
+          "description": "An acting workshop after work on weekdays, for people who work mornings and want to try acting.",
+          "createdAt": "ten days ago"
+        },
+        "outdoorMusic": {
+          "title": "Outdoor music nights",
+          "description": "Music nights in gardens or on rooftops — not closed halls with expensive tickets.",
+          "createdAt": "yesterday"
+        },
+        "documentaryPhotography": {
+          "title": "Documentary photography course for beginners",
+          "description": "A course on documentary photography basics — story, light, and editing, without expensive equipment.",
+          "createdAt": "two weeks ago"
+        }
+      }
     }
   }
 }
