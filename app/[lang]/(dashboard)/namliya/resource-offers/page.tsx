@@ -37,8 +37,6 @@ export default function NamliyaServiceOffersPage() {
               providerName={card.providerName}
               providerRate={card.providerRate}
               price={card.price}
-              currency={card.currency}
-              request={card.request}
               detail={card.detail}
               showStatusBadge={true}
               showSaveButton

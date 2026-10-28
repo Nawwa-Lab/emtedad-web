@@ -28,7 +28,7 @@ export type ServiceDetail = {
   providerName: string
   providerRate: string
   request: string
-  save: string
+  save?: string
   close: string
 }
 
@@ -83,46 +83,56 @@ export function CardDetails({ detail, badgeVariant }: CardDetailsProps) {
         ))}
       </CardContent>
 
-      <div className="mt-6">
-        <h3 className="font-display text-[22px] text-red mb-2">{detail.info}</h3>
-        <ul className="space-y-1.5">
-          {detail.data.map((item) => (
-            <li
-              key={item}
-              className="flex items-center gap-2.5 font-medium font-cairo text-[16px] text-soft leading-[1.95]"
-            >
-              <span className="size-2.5 shrink-0 rounded-full border-2 border-ink bg-gold" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {detail.data && detail.data.length > 0 && (
+        <div className="mt-6">
+          <h3 className="font-display text-[22px] text-red mb-2">{detail.info}</h3>
+          <ul className="space-y-1.5">
+            {detail.data.map((item) => (
+              <li
+                key={item}
+                className="flex items-center gap-2.5 font-medium font-cairo text-[16px] text-soft leading-[1.95]"
+              >
+                <span className="size-2.5 shrink-0 rounded-full border-2 border-ink bg-gold" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <div className="mt-6">
-        <h3 className="font-display text-[22px] text-red mb-2">المؤسسة المقدِّمة</h3>
-        <Card className="flex flex-wrap bg-paper items-center gap-3.5 p-4" effect="flat">
-          <Avatar>
-            <AvatarImage src="#" />
-            <AvatarFallback>{providerInitial}</AvatarFallback>
-          </Avatar>
-          <span className="font-display text-[22px] leading-none flex-1">
-            {detail.providerName}
-          </span>
-          <StatusBadge
-            className="text-ink!"
-            shape="pill"
-            label={detail.providerRate}
-            size="default"
-          />
-        </Card>
+        {detail.providerName && (
+          <>
+            <h3 className="font-display text-[22px] text-red mb-2">المؤسسة المقدِّمة</h3>
+            <Card className="flex flex-wrap bg-paper items-center gap-3.5 p-4" effect="flat">
+              <Avatar>
+                <AvatarImage src="#" />
+                <AvatarFallback>{providerInitial}</AvatarFallback>
+              </Avatar>
+              <span className="font-display text-[22px] leading-none flex-1">
+                {detail.providerName}
+              </span>
+              {detail.providerRate && (
+                <StatusBadge
+                  className="text-ink!"
+                  shape="pill"
+                  label={detail.providerRate}
+                  size="default"
+                />
+              )}
+            </Card>
+          </>
+        )}
 
         <div className="flex flex-wrap gap-3 mt-6.5 pt-5 border-t-[3px] border-dashed border-ink">
           <Button variant="primary" size="sm">
             {detail.request}
           </Button>
-          <Button variant="outline" size="sm" effect="flat">
-            {detail.save}
-          </Button>
+          {detail.save ? (
+            <Button variant="outline" size="sm" effect="flat">
+              {detail.save}
+            </Button>
+          ) : null}
           <DialogClose render={<Button variant="outline" size="sm" effect="flat" />}>
             {detail.close}
           </DialogClose>

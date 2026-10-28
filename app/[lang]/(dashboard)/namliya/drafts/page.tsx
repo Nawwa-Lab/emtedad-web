@@ -26,7 +26,7 @@ export default function DraftsPage() {
         separatorAfter={0}
         links={[
           { href: '/namliya/service-offers', label: t('link1') },
-          { href: '/namliya/my-requests', label: t('link2') },
+          { href: '/namliya/my-offers', label: t('link2') },
           { href: '/namliya/my-asks', label: t('link3') },
           { href: '/namliya/drafts', label: t('link4') },
         ]}

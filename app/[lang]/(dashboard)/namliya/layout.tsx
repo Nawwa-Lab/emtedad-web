@@ -14,7 +14,7 @@ export default async function NamliyaLayout({ children }: { children: React.Reac
       <RouteHeader
         routes={[
           {
-            pattern: '/namliya/.*-offers$',
+            pattern: '/namliya/(service|resource)-offers$',
             description: namliya.description,
           },
         ]}
@@ -25,7 +25,7 @@ export default async function NamliyaLayout({ children }: { children: React.Reac
           separatorAfter={0}
           links={[
             { href: '/namliya/service-offers', label: namliya.link1 },
-            { href: '/namliya/my-requests', label: namliya.link2 },
+            { href: '/namliya/my-offers', label: namliya.link2 },
             { href: '/namliya/my-asks', label: namliya.link3 },
             { href: '/namliya/drafts', label: namliya.link4 },
           ]}
