@@ -4,13 +4,13 @@
 
 ## Migration progress
 
-**Status: In progress** — `██████████░░░░░░░░░░` **49% (53/108)**
+**Status: In progress** — `██████████░░░░░░░░░░` **50% (54/108)**
 
 | Work status                         | Rows |
 | ----------------------------------- | ---: |
-| Completed (`migrated` + `done`)     |   53 |
+| Completed (`migrated` + `done`)     |   54 |
 | Awaiting visual review (`existing`) |    6 |
-| Not started (`proposed`)            |   49 |
+| Not started (`proposed`)            |   48 |
 
 | Family          | Progress          | Complete | Review | Proposed | Total |
 | --------------- | ----------------- | -------: | -----: | -------: | ----: |
@@ -31,7 +31,7 @@
 | landing         | `██████████` 100% |        4 |      0 |        0 |     4 |
 | management      | `░░░░░░░░░░` 0%   |        0 |      0 |        4 |     4 |
 | member          | `██████████` 100% |        1 |      0 |        0 |     1 |
-| namliya         | `░░░░░░░░░░` 0%   |        0 |      6 |        3 |     9 |
+| namliya         | `█░░░░░░░░░` 11%  |        1 |      6 |        2 |     9 |
 | office          | `░░░░░░░░░░` 0%   |        0 |      0 |        6 |     6 |
 | organization    | `██████████` 100% |        4 |      0 |        0 |     4 |
 | ratings         | `░░░░░░░░░░` 0%   |        0 |      0 |        2 |     2 |
@@ -83,7 +83,7 @@ For one migration batch, read only the selected rows and their source HTML. Conv
 | `designs/panel-27-post-service.html`                        | namliya         | `app/[lang]/(dashboard)/namliya/service-offers/create/page.tsx`                           | `components/Form.tsx`, `components/ImageDropzone.tsx`, `components/ui/*`                                                                       | existing |                                                                                                                                                |
 | `designs/panel-28-post-resource.html`                       | namliya         | `app/[lang]/(dashboard)/namliya/resource-offers/create/page.tsx`                          | `components/Form.tsx`, `components/ImageDropzone.tsx`, `components/ui/*`                                                                       | existing |                                                                                                                                                |
 | `designs/panel-29-my-offers-namliya.html`                   | namliya         | `app/[lang]/(dashboard)/namliya/my-offers/page.tsx`                                       | `components/ServicesCard.tsx`, `components/ui/toggle-group.tsx`                                                                                | proposed |                                                                                                                                                |
-| `designs/panel-30-my-asks-namliya.html`                     | namliya         | `app/[lang]/(dashboard)/namliya/my-asks/page.tsx`                                         | `components/AlaeshRequestCard.tsx`, `components/ui/toggle-group.tsx`                                                                           | proposed |                                                                                                                                                |
+| `designs/panel-30-my-asks-namliya.html`                     | namliya         | `app/[lang]/(dashboard)/namliya/my-asks/page.tsx`                                         | `components/DataCard.tsx`, `components/SubLinks.tsx`, `components/ui/button.tsx`, `components/ui/card.tsx`                                     | migrated | My-asks board with type/status filters, result line, ask cards with details dialog, and typed fixtures.                                        |
 | `designs/panel-31-drafts.html`                              | namliya         | `app/[lang]/(dashboard)/namliya/drafts/page.tsx`                                          | `components/SubLinks.tsx`, `components/ui/card.tsx`, `components/ui/badge.tsx`, `components/ui/button.tsx`                                     | existing |                                                                                                                                                |
 | `designs/panel-32-khalli-khales-browse.html`                | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/browse/page.tsx`                                    | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | proposed |                                                                                                                                                |
 | `designs/panel-32a-from-public-to-orgs.html`                | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/public-to-organizations/page.tsx`                   | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | proposed |                                                                                                                                                |
