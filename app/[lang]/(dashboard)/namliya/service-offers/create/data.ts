@@ -1,34 +1,3 @@
-export const items = [
-  {
-    value: 'تصميم',
-    label: 'تصميم',
-  },
-  {
-    value: 'ترجمة',
-    label: 'ترجمة',
-  },
-  {
-    value: 'قانوني',
-    label: 'قانوني',
-  },
-  {
-    value: 'إنتاج',
-    label: 'إنتاج',
-  },
-  {
-    value: 'تدريب',
-    label: 'تدريب',
-  },
-  {
-    value: 'إدارة مالية',
-    label: 'إدارة مالية',
-  },
-  {
-    value: 'أخرى',
-    label: 'أخرى',
-  },
-]
-
 export const memberResponsible = [
   {
     value: 'سارة عبد الله — عامر',
@@ -51,3 +20,10 @@ export const memberResponsible = [
     label: 'ليلى صابر',
   },
 ]
+
+export type Locale = 'ar' | 'en'
+
+export const limitInfo: Record<Locale, string> = {
+  ar: 'فاضل ١٤٠ شهمهم الشهر ده. السقف بيتجدد أول كل شهر، و٨٠ شهمهم بيتضافوا مع كل عضو فريق جديد.',
+  en: 'You have 140 Shahmahm left this month. The limit resets on the first of every month, and 80 Shahmahm are added with each new team member.',
+}

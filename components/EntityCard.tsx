@@ -1,4 +1,4 @@
-import { StatusBadge, getVariantFromLabel } from '@/components/StatusBadge'
+import { StatusBadge } from '@/components/StatusBadge'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
@@ -23,7 +23,7 @@ export function EntityCard({
   className,
 }: EntityCardProps) {
   return (
-    <Card className={cn('p-4 sm:p-6 bg-surface border border-line rounded-[22px]', className)}>
+    <Card className={cn('p-4 sm:p-6 bg-surface border border-line rounded-panel', className)}>
       <CardHeader className="font-display font-bold text-[16px] text-green-deep mb-0 p-0">
         {title}
       </CardHeader>
@@ -41,12 +41,7 @@ export function EntityCard({
           </Link>
         </div>
         {viewProfileBadge && (
-          <StatusBadge
-            variant={getVariantFromLabel(viewProfileBadge)}
-            label={viewProfileBadge}
-            shape="pill"
-            className="text-ink! ms-auto"
-          />
+          <StatusBadge label={viewProfileBadge} shape="pill" className="text-ink! ms-auto" />
         )}
       </CardContent>
     </Card>
