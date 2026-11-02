@@ -4,7 +4,10 @@ import { type CurrentUserProfile, useCurrentUserQuery } from '@/services/auth'
 import { type ReactNode, createContext, useContext, useMemo } from 'react'
 
 export type Role = CurrentUserProfile['account']['role']
+export type ActiveContext = CurrentUserProfile['account']['activeContext']
 export type User = CurrentUserProfile['account']
+
+export const canSwitchContext = (role: Role) => role === 'org_admin' || role === 'team_worker'
 
 interface UserContextValue {
   user: User | null

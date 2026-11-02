@@ -1,8 +1,5 @@
 'use client'
 
-import CommunityIcon from '@/icons/circles.svg'
-import OrgIcon from '@/icons/gate.svg'
-import TargetIcon from '@/icons/target.svg'
 import { Form } from '@/components/Form'
 import { Button } from '@/components/ui/button'
 import {
@@ -12,13 +9,19 @@ import {
   RadioGroupItemIcon,
   RadioGroupItemTitle,
 } from '@/components/ui/radio-group'
-import { useRouter } from '@/i18n/navigation'
-import { useContextSwitchMutation } from '@/services/auth'
 import { toast } from '@/components/ui/toast'
+import { canSwitchContext, useUser } from '@/contexts/UserContext'
+import { useRouter } from '@/i18n/navigation'
+import CommunityIcon from '@/icons/circles.svg'
+import OrgIcon from '@/icons/gate.svg'
+import TargetIcon from '@/icons/target.svg'
+import { isPathAllowedInContext } from '@/lib/utils/context'
+import { useContextSwitchMutation } from '@/services/auth'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
-import { useTranslations } from 'next-intl'
+import { useEffect } from 'react'
 import { Controller } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -30,12 +33,12 @@ type ContextSelectionFormValues = z.infer<typeof contextSelectionSchema>
 
 function getReturnTo(redirect: string | null) {
   if (!redirect || !redirect.startsWith('/') || redirect.startsWith('//')) {
-    return '/'
+    return null
   }
 
   const url = new URL(redirect, window.location.origin)
   if (url.origin !== window.location.origin || url.pathname === '/context-selection') {
-    return '/'
+    return null
   }
 
   return `${url.pathname}${url.search}${url.hash}`
@@ -47,16 +50,31 @@ export default function ContextSelectionPage() {
   const searchParams = useSearchParams()
   const returnTo = getReturnTo(searchParams.get('redirect'))
   const contextSwitch = useContextSwitchMutation()
+  const { user, isLoading } = useUser()
+  const canSwitch = Boolean(user && canSwitchContext(user.role))
+
+  useEffect(() => {
+    if (!isLoading && !canSwitch) {
+      router.replace(user ? '/maktab' : '/login')
+    }
+  }, [canSwitch, isLoading, router, user])
 
   const onSubmit = ({ context }: ContextSelectionFormValues) => {
     contextSwitch.mutate(
       { context },
       {
-        onSuccess: () => router.replace(returnTo),
+        onSuccess: ({ context }) => {
+          const nextContext = context ?? user?.activeContext ?? 'community'
+          router.replace(
+            returnTo && isPathAllowedInContext(returnTo, nextContext) ? returnTo : '/maktab',
+          )
+        },
         onError: () => toast.add({ title: t('switchFailed'), type: 'error', priority: 'high' }),
       },
     )
   }
+
+  if (isLoading || !canSwitch) return null
 
   return (
     <div className="relative w-[min(760px,100%)] text-center">
@@ -65,7 +83,7 @@ export default function ContextSelectionPage() {
 
       <Form<ContextSelectionFormValues>
         resolver={zodResolver(contextSelectionSchema)}
-        defaultValues={{ context: undefined }}
+        defaultValues={{ context: user?.activeContext }}
         onSubmit={onSubmit}
       >
         <Controller

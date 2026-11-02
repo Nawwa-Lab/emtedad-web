@@ -7,6 +7,7 @@ export type CurrentUserProfile = {
     first: string | null
     last: string | null
     role: 'org_admin' | 'team_worker' | 'emtedad_admin' | 'community_member'
+    activeContext: 'org' | 'community'
     profilePhotoUrl: string | null
     org: {
       organizationId: string

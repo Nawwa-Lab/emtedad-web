@@ -1,6 +1,8 @@
 import { WishBoard } from '@/components/WishBoard'
-import { gennyMyWishes } from '../data'
+import { wishServerApi } from '@/services/wishes/server'
+import { toWishCardData } from '@/services/wishes/types'
 
-export default function MyWishesPage() {
-  return <WishBoard family="genny" wishes={gennyMyWishes} mode="mine" />
+export default async function MyWishesPage() {
+  const wishes = await wishServerApi.mine('network')
+  return <WishBoard family="genny" wishes={wishes.map(toWishCardData)} mode="mine" />
 }

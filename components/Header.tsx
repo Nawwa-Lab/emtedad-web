@@ -9,7 +9,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { NotificationBell } from './NotificationBell'
 import { Button } from './ui/button'
-import { useUser } from '@/contexts/UserContext'
+import { canSwitchContext, useUser } from '@/contexts/UserContext'
 
 export function Header() {
   const t = useTranslations('header')
@@ -20,6 +20,7 @@ export function Header() {
   const searchParams = useSearchParams()
   const query = searchParams.toString()
   const returnTo = query ? `${pathname}?${query}` : pathname
+  const showContextSwitch = user && canSwitchContext(user.role)
   let currentTerm = ''
 
   if (typeof params.term === 'string') {
@@ -63,20 +64,24 @@ export function Header() {
       <QuickAction />
       <NotificationBell />
       <div className="flex items-center h-full gap-2.5">
-        <span className="hidden sm:flex items-center gap-2 border-[2.5px] border-ink text-sm font-body font-bold text-line-soft bg-gold rounded-full p-2">
-          <span className="whitespace-nowrap text-ink">{t('contextLabel')}</span>
-          <Link href={`/context-selection?redirect=${encodeURIComponent(returnTo)}`}>
-            <Button
-              variant="outline"
-              effect="flat"
-              size="sm"
-              shape="round"
-              className="bg-surface hover:bg-red hover:text-surface"
-            >
-              {t('switchContext')}
-            </Button>
-          </Link>
-        </span>
+        {showContextSwitch && (
+          <span className="flex items-center gap-2 border-[2.5px] border-ink text-sm font-body font-bold text-line-soft bg-gold rounded-full p-2">
+            <span className="whitespace-nowrap text-ink">
+              {user.activeContext === 'org' ? t('contextLabel') : t('communityContextLabel')}
+            </span>
+            <Link href={`/context-selection?redirect=${encodeURIComponent(returnTo)}`}>
+              <Button
+                variant="outline"
+                effect="flat"
+                size="sm"
+                shape="round"
+                className="bg-surface hover:bg-red hover:text-surface"
+              >
+                {t('switchContext')}
+              </Button>
+            </Link>
+          </span>
+        )}
         <Link href={`/member/${user?.uuid}`}>
           <Avatar color="red" isAnimated>
             <AvatarImage src="https://github.com/shadcn.pngg" />

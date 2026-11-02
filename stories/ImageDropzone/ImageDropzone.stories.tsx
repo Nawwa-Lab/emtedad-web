@@ -27,7 +27,7 @@ function ImageDropzoneDemo({
 }
 
 const meta = {
-  title: 'Forms/ImageDropzone',
+  title: 'Components/ImageDropzone',
   component: ImageDropzone,
   parameters: {
     layout: 'padded',
