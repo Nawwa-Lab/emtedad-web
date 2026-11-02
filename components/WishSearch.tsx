@@ -6,9 +6,10 @@ import { Input } from '@/components/ui/input'
 import { formatNumber } from '@/lib/utils'
 import { cn } from 'cn'
 import { useLocale, useTranslations } from 'next-intl'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useFormContext, useWatch } from 'react-hook-form'
 import type { WishFamily, WishSuggestion } from './WishCard'
+import { wishApi } from '@/services/wishes'
 
 export function WishSearch({
   family,
@@ -22,20 +23,46 @@ export function WishSearch({
   const data = useTranslations(`${family}.data`)
   const { control } = useFormContext()
   const query = useWatch({ control, name: 'query' }) as string
+  const [available, setAvailable] = useState(suggestions)
   const [endorsed, setEndorsed] = useState<Record<string, boolean>>(() =>
-    Object.fromEntries(suggestions.map((suggestion) => [suggestion.id, suggestion.isEndorsed])),
+    Object.fromEntries(available.map((suggestion) => [suggestion.id, suggestion.isEndorsed])),
   )
   const [counts, setCounts] = useState<Record<string, number>>(() =>
-    Object.fromEntries(suggestions.map((suggestion) => [suggestion.id, suggestion.count])),
+    Object.fromEntries(available.map((suggestion) => [suggestion.id, suggestion.count])),
   )
 
+  useEffect(() => {
+    if (!query.trim()) return
+    const timer = window.setTimeout(async () => {
+      const result = await wishApi.list(family === 'genny' ? 'network' : 'community', {
+        q: query.trim(),
+        sort: 'most_endorsed',
+      })
+      setAvailable(
+        result.items.map((wish) => ({
+          id: wish.id,
+          title: wish.title,
+          category: wish.category,
+          description: wish.description,
+          impact: wish.impact,
+          count: wish.endorsementCount,
+          isEndorsed: wish.endorsedByMe,
+          ownerId: wish.ownerUserId ?? wish.ownerOrgId ?? undefined,
+        })),
+      )
+      setEndorsed(Object.fromEntries(result.items.map((wish) => [wish.id, wish.endorsedByMe])))
+      setCounts(Object.fromEntries(result.items.map((wish) => [wish.id, wish.endorsementCount])))
+    }, 300)
+    return () => window.clearTimeout(timer)
+  }, [family, query])
+
   const normalizedQuery = query.trim().toLocaleLowerCase(locale)
-  const results = suggestions.filter((suggestion) => {
+  const results = available.filter((suggestion) => {
     if (!normalizedQuery) return true
     const copy = [
-      data(`wishes.${suggestion.copyKey}.title`),
-      data(`wishes.${suggestion.copyKey}.description`),
-      data(`categories.${suggestion.categoryKey}`),
+      suggestion.title ?? data(`wishes.${suggestion.copyKey}.title`),
+      suggestion.description ?? data(`wishes.${suggestion.copyKey}.description`),
+      ...(suggestion.category ?? [data(`categories.${suggestion.categoryKey}`)]),
     ].join(' ')
     return copy.toLocaleLowerCase(locale).includes(normalizedQuery)
   })
@@ -72,14 +99,16 @@ export function WishSearch({
               >
                 <div className="flex flex-wrap items-start gap-3">
                   <h3 className="min-w-47.5 flex-1 font-display text-[21px]/[1.3]">
-                    {data(`wishes.${suggestion.copyKey}.title`)}
+                    {suggestion.title ?? data(`wishes.${suggestion.copyKey}.title`)}
                   </h3>
                   <span className="font-body text-lg">
-                    {data(`categories.${suggestion.categoryKey}`)}
+                    {(suggestion.category ?? [data(`categories.${suggestion.categoryKey}`)]).join(
+                      ' · ',
+                    )}
                   </span>
                 </div>
                 <p className="mt-2 font-body text-[15px]/[1.85] font-medium text-soft">
-                  {data(`wishes.${suggestion.copyKey}.description`)}
+                  {suggestion.description ?? data(`wishes.${suggestion.copyKey}.description`)}
                 </p>
                 {suggestion.authorKey && (
                   <p className="mt-2.5 flex items-center gap-2.25 font-body text-[13.5px] font-semibold text-soft">
@@ -105,7 +134,7 @@ export function WishSearch({
                       'ms-auto h-auto px-5 py-2 text-[14.5px] shadow-[3px_3px_0]',
                       isEndorsed && 'bg-red text-surface hover:bg-red',
                     )}
-                    onClick={() => {
+                    onClick={async () => {
                       setCounts((current) => ({
                         ...current,
                         [suggestion.id]: current[suggestion.id] + (isEndorsed ? -1 : 1),
@@ -114,6 +143,10 @@ export function WishSearch({
                         ...current,
                         [suggestion.id]: !current[suggestion.id],
                       }))
+                      await (isEndorsed ? wishApi.unendorse : wishApi.endorse)(
+                        family === 'genny' ? 'network' : 'community',
+                        suggestion.id,
+                      )
                     }}
                   >
                     {isEndorsed ? t('endorsedInstead') : t('endorseInstead')}

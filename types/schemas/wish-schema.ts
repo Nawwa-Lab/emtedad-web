@@ -1,5 +1,10 @@
 import { z } from 'zod'
 
+const tagPattern =
+  /^[\p{L}\p{M}\p{N}]+(?:[-'’][\p{L}\p{M}\p{N}]+)*(?: [\p{L}\p{M}\p{N}]+(?:[-'’][\p{L}\p{M}\p{N}]+)*)?$/u
+
+const normalizeTag = (value: string) => value.trim().replace(/\s+/g, ' ')
+
 export function createWishSchema(err: {
   queryRequired: string
   titleRequired: string
@@ -8,6 +13,7 @@ export function createWishSchema(err: {
   descriptionMin: string
   categoryRequired: string
   categoryMax: string
+  categoryWords: string
   impactRequired: string
   impactMin: string
   requireImpact: boolean
@@ -16,7 +22,15 @@ export function createWishSchema(err: {
     query: z.string().min(1, err.queryRequired),
     title: z.string().min(1, err.titleRequired).min(3, err.titleMin),
     description: z.string().min(1, err.descriptionRequired).min(10, err.descriptionMin),
-    category: z.string().min(1, err.categoryRequired).max(14, err.categoryMax),
+    category: z
+      .array(
+        z
+          .string()
+          .transform(normalizeTag)
+          .pipe(z.string().max(50, err.categoryMax).regex(tagPattern, err.categoryWords)),
+      )
+      .min(1, err.categoryRequired)
+      .max(2, err.categoryMax),
     impact: err.requireImpact
       ? z.string().min(1, err.impactRequired).min(10, err.impactMin)
       : z.string(),

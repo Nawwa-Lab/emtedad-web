@@ -2,6 +2,18 @@
 
 import { Form, type FormStepConfig } from '@/components/Form'
 import { buttonVariants } from '@/components/ui/button'
+import {
+  Combobox,
+  ComboboxChip,
+  ComboboxChips,
+  ComboboxChipsInput,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxItem,
+  ComboboxList,
+  ComboboxValue,
+  useComboboxAnchor,
+} from '@/components/ui/combobox'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { WishSearch } from '@/components/WishSearch'
@@ -14,24 +26,49 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { WishFamily, WishSuggestion } from './WishCard'
+import { wishApi } from '@/services/wishes'
 
 export function WishForm({
   family,
   mode,
   suggestions,
   initialWish,
+  wishId,
 }: {
   family: WishFamily
   mode: 'create' | 'edit'
   suggestions: WishSuggestion[]
   initialWish?: Partial<WishFormValues>
+  wishId?: string
 }) {
   const t = useTranslations(`${family}.addWish`)
   const [submitted, setSubmitted] = useState(false)
+  const [categoryOptions, setCategoryOptions] = useState<string[]>(initialWish?.category ?? [])
+  const [categoryQuery, setCategoryQuery] = useState('')
+  const categoryAnchor = useComboboxAnchor()
   const route = family === 'genny' ? 'genny' : 'shbeik-lbeik'
+  const apiFamily = family === 'genny' ? 'network' : 'community'
   const isCreate = mode === 'create'
+  const newCategory = categoryQuery.trim().replace(/\s+/g, ' ')
+  const availableCategoryOptions = Array.from(
+    new Set([...categoryOptions, ...(newCategory ? [newCategory] : [])]),
+  )
+
+  useEffect(() => {
+    let active = true
+    wishApi
+      .categories(apiFamily)
+      .then((categories) => {
+        if (active)
+          setCategoryOptions((current) => Array.from(new Set([...current, ...categories])))
+      })
+      .catch(() => undefined)
+    return () => {
+      active = false
+    }
+  }, [apiFamily])
 
   const schema = useMemo(
     () =>
@@ -43,6 +80,7 @@ export function WishForm({
         descriptionMin: t('descriptionMin'),
         categoryRequired: t('categoryRequired'),
         categoryMax: t('categoryMax'),
+        categoryWords: t('categoryWords'),
         impactRequired: t('impactRequired'),
         impactMin: t('impactMin'),
         requireImpact: family === 'genny',
@@ -115,13 +153,23 @@ export function WishForm({
           defaultValues={{
             query: initialWish?.query ?? t('defaultQuery'),
             title: initialWish?.title ?? '',
-            category: initialWish?.category ?? '',
+            category: initialWish?.category ?? [],
             description: initialWish?.description ?? '',
             impact: initialWish?.impact ?? '',
           }}
           variant="multi-step"
           steps={steps}
-          onSubmit={() => setSubmitted(true)}
+          onSubmit={async (values) => {
+            const input = {
+              title: values.title,
+              category: values.category,
+              description: values.description,
+              impact: values.impact || undefined,
+            }
+            if (mode === 'edit' && wishId) await wishApi.update(apiFamily, wishId, input)
+            else await wishApi.create(apiFamily, input)
+            setSubmitted(true)
+          }}
         >
           <Form.Progress className="mb-5.5 [&_li_span]:w-13" />
 
@@ -175,13 +223,54 @@ export function WishForm({
               >
                 {(field, fieldState) => (
                   <>
-                    <Input
-                      {...field}
-                      id="wish-category"
-                      maxLength={14}
-                      aria-invalid={fieldState.invalid}
-                      placeholder={t('categoryPlaceholder')}
-                    />
+                    <Combobox
+                      multiple
+                      autoHighlight
+                      items={availableCategoryOptions}
+                      value={field.value}
+                      inputValue={categoryQuery}
+                      onInputValueChange={setCategoryQuery}
+                      onValueChange={(value) => {
+                        field.onChange(value)
+                        setCategoryOptions((current) => Array.from(new Set([...current, ...value])))
+                        setCategoryQuery('')
+                      }}
+                    >
+                      <ComboboxChips ref={categoryAnchor}>
+                        <ComboboxValue>
+                          {(values) => (
+                            <>
+                              {(values as string[]).map((value) => (
+                                <ComboboxChip key={value}>{value}</ComboboxChip>
+                              ))}
+                              <ComboboxChipsInput
+                                ref={field.ref}
+                                id="wish-category"
+                                aria-invalid={fieldState.invalid}
+                                placeholder={t('categoryPlaceholder')}
+                                onBlur={field.onBlur}
+                              />
+                            </>
+                          )}
+                        </ComboboxValue>
+                      </ComboboxChips>
+                      <ComboboxContent anchor={categoryAnchor}>
+                        <ComboboxEmpty>{t('categoryEmpty')}</ComboboxEmpty>
+                        <ComboboxList>
+                          {(item) => (
+                            <ComboboxItem
+                              key={item}
+                              value={item}
+                              disabled={field.value.length >= 2 && !field.value.includes(item)}
+                            >
+                              {categoryOptions.includes(item)
+                                ? item
+                                : t('categoryAdd', { tag: item })}
+                            </ComboboxItem>
+                          )}
+                        </ComboboxList>
+                      </ComboboxContent>
+                    </Combobox>
                     <p className="mt-1.5 font-body text-[13px]/[1.7] font-semibold text-soft">
                       {t('categoryHint')}
                     </p>

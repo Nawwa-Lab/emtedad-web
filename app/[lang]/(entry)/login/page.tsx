@@ -37,7 +37,7 @@ export default function LoginPage() {
   const onSubmit = (data: LoginFormValues) => {
     login.mutate(data, {
       onSuccess: () => {
-        router.replace('/')
+        router.replace('/context-selection')
       },
       onError: () => toast.add({ title: t('loginFailed'), type: 'error', priority: 'high' }),
     })

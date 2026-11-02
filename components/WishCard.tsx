@@ -11,32 +11,46 @@ import {
 } from '@/components/ui/dialog'
 import { Link } from '@/i18n/navigation'
 import StarIcon from '@/icons/star.svg'
-import { formatNumber } from '@/lib/utils'
+import { formatNumber, formatRelativeDate } from '@/lib/utils'
+import { request } from '@/services/http'
+import type { MemberPublicProfile } from '@/services/members/types'
+import { wishApi } from '@/services/wishes'
 import { cn } from 'cn'
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale, useNow, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useState } from 'react'
+import { cloneElement, useState } from 'react'
+import { Badge } from './ui/badge'
+import { Toggle } from './ui/toggle'
 
 export type WishFamily = 'genny' | 'shbeik'
 
 export type WishSupporter = {
   key: string
   type: 'organization' | 'member'
+  name?: string
   badge?: 'amer' | 'kareem'
 }
 
 export interface WishCardData {
   id: string
-  copyKey: string
-  categoryKey: string
+  title?: string
+  category?: string[]
+  description?: string
+  impact?: string | null
+  copyKey?: string
+  categoryKey?: string
   count: number
   isEndorsed: boolean
-  createdRank: number
+  isOwner?: boolean
+  createdRank?: number
   authorKey?: string
+  ownerId?: string
+  ownerName?: string
+  createdAt?: string
   supporters: WishSupporter[]
 }
 
-export type WishSuggestion = Omit<WishCardData, 'createdRank' | 'supporters'>
+export type WishSuggestion = Omit<WishCardData, 'createdRank' | 'supporters' | 'createdAt'>
 
 export function WishCard({
   wish,
@@ -48,47 +62,86 @@ export function WishCard({
   mode?: 'browse' | 'mine'
 }) {
   const locale = useLocale()
+  const now = useNow()
   const t = useTranslations(`${family}.browse`)
   const data = useTranslations(`${family}.data`)
   const [isEndorsed, setIsEndorsed] = useState(wish.isEndorsed)
   const [count, setCount] = useState(wish.count)
   const [removed, setRemoved] = useState(false)
   const route = family === 'genny' ? 'genny' : 'shbeik-lbeik'
+  const relativeCreatedAt = wish.createdAt
+    ? formatRelativeDate(wish.createdAt, { locale, now })
+    : ''
+  const createdAtLabel = relativeCreatedAt
+    ? family === 'genny'
+      ? t('addedAt', { date: relativeCreatedAt })
+      : relativeCreatedAt
+    : wish.copyKey
+      ? data(`wishes.${wish.copyKey}.createdAt`)
+      : ''
+  const ownerName =
+    family === 'shbeik'
+      ? (wish.ownerName ??
+        (wish.authorKey ? data(`authors.${wish.authorKey}.name`) : t('memberFallback')))
+      : ''
 
   if (removed) return null
 
-  const toggleEndorsement = () => {
+  const toggleEndorsement = async () => {
+    const previous = { count, isEndorsed }
     setCount((current) => current + (isEndorsed ? -1 : 1))
     setIsEndorsed((current) => !current)
+    try {
+      await (isEndorsed ? wishApi.unendorse : wishApi.endorse)(
+        family === 'genny' ? 'network' : 'community',
+        wish.id,
+      )
+    } catch {
+      setCount(previous.count)
+      setIsEndorsed(previous.isEndorsed)
+    }
+  }
+
+  const removeWish = async () => {
+    await wishApi.remove(family === 'genny' ? 'network' : 'community', wish.id)
+    setRemoved(true)
   }
 
   return (
     <article className="flex flex-col rounded-panel border-[3px] border-ink bg-surface px-6.5 py-6 shadow-[6px_6px_0] shadow-ink">
-      <span className="mb-3 w-fit font-body text-lg">{data(`categories.${wish.categoryKey}`)}</span>
-      <h2 className="font-display text-[27px]/[1.3]">{data(`wishes.${wish.copyKey}.title`)}</h2>
+      <div className="mb-3 flex flex-wrap gap-2">
+        {(wish.category ?? [data(`categories.${wish.categoryKey}`)]).map((category) => (
+          <Badge key={category} effect="flat" color="paper" className="w-fit font-body text-lg">
+            {category}
+          </Badge>
+        ))}
+      </div>
+      <h2 className="font-display text-[27px]/[1.3]">
+        {wish.title ?? data(`wishes.${wish.copyKey}.title`)}
+      </h2>
       <p className="mt-2.5 font-body text-base/[1.9] font-medium text-soft">
-        {data(`wishes.${wish.copyKey}.description`)}
+        {wish.description ?? data(`wishes.${wish.copyKey}.description`)}
       </p>
 
       {family === 'genny' ? (
         <div className="mt-3.5 rounded-card border-[2.5px] border-ink bg-paper px-4 py-3.5">
           <b className="mb-1 block font-display text-base">{t('whyTitle')}</b>
           <p className="font-body text-[15px]/[1.85] font-medium text-soft">
-            {data(`wishes.${wish.copyKey}.why`)}
+            {wish.impact ?? data(`wishes.${wish.copyKey}.why`)}
           </p>
         </div>
       ) : (
         <p className="mt-3 flex items-center gap-2 font-body text-[13.5px] font-semibold text-soft">
           <span className="grid size-7 place-items-center rounded-full border-2 border-ink bg-gold font-extrabold text-ink">
-            {data(`authors.${wish.authorKey}.initial`)}
+            {ownerName.charAt(0)}
           </span>
           <Link
-            href={`/member/${wish.authorKey}`}
+            href={`/member/${wish.ownerId ?? wish.authorKey}`}
             className="font-extrabold text-ink hover:underline"
           >
-            {data(`authors.${wish.authorKey}.name`)}
+            {ownerName}
           </Link>
-          · {data(`wishes.${wish.copyKey}.createdAt`)}
+          · {createdAtLabel}
         </p>
       )}
 
@@ -113,28 +166,30 @@ export function WishCard({
 
         {mode === 'browse' ? (
           <>
-            <Button
-              type="button"
-              variant="outline"
-              aria-pressed={isEndorsed}
-              className={cn(
-                'ms-auto h-auto px-5.5 py-2.25 text-[15px] shadow-[3px_3px_0]',
-                isEndorsed && 'bg-red text-surface hover:bg-red',
-              )}
-              onClick={toggleEndorsement}
-            >
-              {isEndorsed ? t('removeEndorsement') : t('endorse')}
-            </Button>
+            {!wish.isOwner && (
+              <Toggle
+                type="button"
+                variant="outline"
+                aria-pressed={isEndorsed}
+                className={cn(
+                  'ms-auto h-auto px-5.5 py-2.25 text-[15px] shadow-[3px_3px_0]',
+                  isEndorsed && 'bg-red text-surface hover:bg-red',
+                )}
+                onClick={toggleEndorsement}
+              >
+                {isEndorsed ? t('removeEndorsement') : t('endorse')}
+              </Toggle>
+            )}
             {family === 'genny' && (
               <span className="mt-2.5 w-full font-body text-[13.5px] font-semibold text-soft">
-                {data(`wishes.${wish.copyKey}.createdAt`)}
+                {createdAtLabel}
               </span>
             )}
           </>
         ) : (
           <>
             <span className="ms-auto font-body text-[13.5px] font-semibold text-soft">
-              {data(`wishes.${wish.copyKey}.createdAt`)}
+              {createdAtLabel}
             </span>
             <div className="mt-3.5 flex w-full flex-wrap items-center gap-2.5">
               {count > 0 ? (
@@ -153,7 +208,7 @@ export function WishCard({
                     variant="destructive"
                     size="sm"
                     effect="flat"
-                    onClick={() => setRemoved(true)}
+                    onClick={removeWish}
                   >
                     {t('withdraw')}
                   </Button>
@@ -173,7 +228,7 @@ export function WishCard({
                     variant="destructive"
                     size="sm"
                     effect="flat"
-                    onClick={() => setRemoved(true)}
+                    onClick={removeWish}
                   >
                     {t('delete')}
                   </Button>
@@ -201,16 +256,50 @@ function SupportersDialog({
   wish: WishCardData
   count: number
   mode: 'browse' | 'mine'
-  children: React.ReactElement
+  children: React.ReactElement<{ onClick?: React.MouseEventHandler }>
 }) {
   const t = useTranslations(`${family}.browse`)
   const global = useTranslations('global')
+  const [supporters, setSupporters] = useState(wish.supporters)
+
+  const loadSupporters = async () => {
+    if (supporters.length) return
+    const apiFamily = family === 'genny' ? 'network' : 'community'
+    const endorsers = await wishApi.endorsers(apiFamily, wish.id)
+    const profiles = await Promise.all(
+      endorsers.map(async (endorser) => {
+        if (endorser.actorType === 'organization') {
+          const profile = await request<{ legalName?: string }>(
+            `/api/v1/organizations/${encodeURIComponent(endorser.actorId)}/public`,
+          )
+          return { key: endorser.actorId, type: 'organization' as const, name: profile.legalName }
+        }
+        const profile = await request<MemberPublicProfile>(
+          `/api/v1/users/${encodeURIComponent(endorser.actorId)}`,
+        )
+        const name =
+          profile.name?.trim() ||
+          [profile.firstName ?? profile.first, profile.lastName ?? profile.last]
+            .filter(Boolean)
+            .join(' ')
+        return { key: endorser.actorId, type: 'member' as const, name }
+      }),
+    )
+    setSupporters(profiles)
+  }
 
   if (!count) return children
 
   return (
     <Dialog>
-      <DialogTrigger render={children} />
+      <DialogTrigger
+        render={cloneElement(children, {
+          onClick: (event) => {
+            children.props.onClick?.(event)
+            void loadSupporters()
+          },
+        })}
+      />
       <DialogContent
         closeLabel={t('close')}
         overlayClassName="bg-ink/55"
@@ -221,12 +310,14 @@ function SupportersDialog({
           {t(mode === 'mine' ? 'supportersDescriptionMine' : 'supportersDescription')}
         </DialogDescription>
         <div className="mt-4">
-          {wish.supporters.map((supporter) => {
-            const name = global(
-              supporter.type === 'organization'
-                ? `organizations.${supporter.key}`
-                : `people.${supporter.key}`,
-            )
+          {supporters.map((supporter) => {
+            const name =
+              supporter.name ||
+              global(
+                supporter.type === 'organization'
+                  ? `organizations.${supporter.key}`
+                  : `people.${supporter.key}`,
+              )
             return (
               <div
                 key={supporter.key}

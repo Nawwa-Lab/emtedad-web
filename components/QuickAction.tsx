@@ -16,6 +16,7 @@ import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { buttonVariants } from './ui/button'
+import { useUser } from '@/contexts/UserContext'
 
 const destinations = [
   {
@@ -46,7 +47,12 @@ export function QuickAction() {
   const t = useTranslations('quickAction')
   const header = useTranslations('header')
   const dialog = useTranslations('dialog')
+  const { user } = useUser()
   const portalContainer = typeof document === 'undefined' ? null : document.body
+  const availableDestinations =
+    user?.activeContext === 'community' && user.role !== 'emtedad_admin'
+      ? destinations.filter(({ id }) => id === 'khalliKhales')
+      : destinations
 
   return (
     <Dialog>
@@ -65,7 +71,7 @@ export function QuickAction() {
         </DialogHeader>
 
         <div className="grid gap-4.5 min-[821px]:grid-cols-3">
-          {destinations.map((destination) => (
+          {availableDestinations.map((destination) => (
             <section
               key={destination.id}
               className="flex flex-col rounded-panel border-[3px] border-ink bg-paper px-5.5 py-6 shadow-[6px_6px_0] shadow-ink transition-[transform,box-shadow] hover:-translate-x-0.5 hover:-translate-y-1 hover:-rotate-[0.3deg] hover:shadow-[9px_11px_0]"
