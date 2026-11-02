@@ -1,6 +1,6 @@
 import { memberReviews, memberServices } from '@/app/[lang]/(dashboard)/organization/[id]/data'
 import { OrganizationOfferCarousel } from '@/components/OrganizationOfferCarousel'
-import { StatusBadge, getVariantFromLabel } from '@/components/StatusBadge'
+import { StatusBadge } from '@/components/StatusBadge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card, CardDescription } from '@/components/ui/card'
 import { Link } from '@/i18n/navigation'
@@ -44,7 +44,7 @@ export default async function MemberProfilePage({ params }: PageProps<'/[lang]/m
             <h1 className="font-display text-[clamp(2.25rem,4.6vw,3.125rem)] leading-none">
               {name}
             </h1>
-            <StatusBadge variant="veryGood" label={global('badges.amer')} />
+            <StatusBadge label={global('badges.amer')} />
             {organization && (
               <Link
                 href={`/organization/${organization.organizationId}`}
@@ -102,11 +102,7 @@ export default async function MemberProfilePage({ params }: PageProps<'/[lang]/m
                   <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <strong className="min-w-30 flex-1 font-display text-xl">{review.name}</strong>
-                <StatusBadge
-                  variant={getVariantFromLabel(review.rating)}
-                  label={review.rating}
-                  shape="pill"
-                />
+                <StatusBadge label={review.rating} shape="pill" />
                 <p className="w-full font-body text-[13.5px] font-semibold text-soft">
                   {review.context}
                 </p>
