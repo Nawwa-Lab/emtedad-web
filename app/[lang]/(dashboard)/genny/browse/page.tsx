@@ -1,6 +1,9 @@
 import { WishBoard } from '@/components/WishBoard'
-import { gennyWishes } from '../data'
+import { wishServerApi } from '@/services/wishes/server'
+import { toWishCardData } from '@/services/wishes/types'
 
-export default function GennyBrowsePage() {
-  return <WishBoard family="genny" wishes={gennyWishes} />
+export default async function GennyBrowsePage() {
+  const wishes = await wishServerApi.list('network')
+
+  return <WishBoard family="genny" wishes={wishes.items.map(toWishCardData)} />
 }

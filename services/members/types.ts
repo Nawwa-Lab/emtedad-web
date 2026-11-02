@@ -3,6 +3,7 @@
 export type MemberPublicProfile = {
   accountId?: string
   uuid?: string
+  name?: string | null
   firstName?: string | null
   lastName?: string | null
   first?: string | null

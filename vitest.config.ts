@@ -19,7 +19,7 @@ export default defineConfig({
         test: {
           name: 'i18n',
           environment: 'node',
-          include: ['i18n/**/*.test.ts'],
+          include: ['**/*.test.ts'],
         },
       },
       {

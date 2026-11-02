@@ -12,6 +12,7 @@ import Image from 'next/image'
 import { useMemo, useState } from 'react'
 import { Button, buttonVariants } from './ui/button'
 import { EmptyState } from './ui/empty-state'
+import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group'
 import { WishCard, type WishCardData, type WishFamily } from './WishCard'
 
 export function WishBoard({
@@ -26,27 +27,40 @@ export function WishBoard({
   const locale = useLocale()
   const t = useTranslations(`${family}.browse`)
   const my = useTranslations(`${family}.myWishes`)
-  const data = useTranslations(`${family}.data`)
   const [filterOpen, setFilterOpen] = useState(false)
   const [category, setCategory] = useState('all')
   const [sort, setSort] = useState<'top' | 'latest'>('top')
 
   const categories = useMemo(
-    () => Array.from(new Set(wishes.map((wish) => wish.categoryKey))),
+    () =>
+      Array.from(
+        new Set(wishes.flatMap((wish) => wish.category ?? [wish.categoryKey ?? ''])),
+      ).filter(Boolean),
     [wishes],
   )
   const visibleWishes = useMemo(
     () =>
       wishes
-        .filter((wish) => category === 'all' || wish.categoryKey === category)
-        .toSorted((a, b) => (sort === 'top' ? b.count - a.count : b.createdRank - a.createdRank)),
+        .filter(
+          (wish) =>
+            category === 'all' ||
+            wish.category?.includes(category) ||
+            wish.categoryKey === category,
+        )
+        .toSorted((a, b) =>
+          sort === 'top'
+            ? b.count - a.count
+            : b.createdAt && a.createdAt
+              ? Date.parse(b.createdAt) - Date.parse(a.createdAt)
+              : (b.createdRank ?? 0) - (a.createdRank ?? 0),
+        ),
     [category, sort, wishes],
   )
 
   return (
     <div>
       <header className={cn(family === 'genny' ? 'mb-5.5' : 'mb-6.5')}>
-        <div className="flex flex-wrap items-end gap-3.5">
+        <div className="flex flex-wrap items-end gap-3.5 mb-6.5">
           <h1 className="font-display text-[clamp(44px,5.4vw,70px)]/[1]">
             {mode === 'mine' ? my('title') : t('title')}
           </h1>
@@ -59,7 +73,7 @@ export function WishBoard({
             <WishNavLink href="/genny/browse" active={mode === 'browse'}>
               {t('browseTab')}
             </WishNavLink>
-            <span className="mx-1 h-7.5 w-[3px] rounded-sm bg-ink/20" aria-hidden />
+            <span className="mx-1 h-7.5 w-0.75 rounded-sm bg-ink/20" aria-hidden />
             <WishNavLink href="/genny/my-wishes" active={mode === 'mine'}>
               {t('myWishesTab')}
             </WishNavLink>
@@ -110,20 +124,18 @@ export function WishBoard({
               <Image src={TargetIcon} alt="" className="size-5" />
               {t('filter')}
             </Button>
-            <select
-              value={sort}
-              onChange={(event) => setSort(event.target.value as 'top' | 'latest')}
+            <ToggleGroup
+              value={[sort]}
+              onValueChange={(value) => value[0] && setSort(value[0] as 'top' | 'latest')}
               aria-label={t('sortLabel')}
-              className="h-12 cursor-pointer rounded-full border-[2.5px] border-ink bg-paper px-5 font-body text-[15px] font-extrabold text-ink outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
             >
-              <option value="top">{t('mostEndorsed')}</option>
-              <option value="latest">{t('latest')}</option>
-            </select>
+              <ToggleGroupItem value="top">{t('mostEndorsed')}</ToggleGroupItem>
+              <ToggleGroupItem value="latest">{t('latest')}</ToggleGroupItem>
+            </ToggleGroup>
             <span className="font-body text-base font-semibold text-soft">
               {visibleWishes.length
                 ? t.rich(visibleWishes.length === 1 ? 'resultSingle' : 'results', {
                     count: formatNumber(visibleWishes.length, { locale }),
-                    category: category === 'all' ? '' : ` — ${data(`categories.${category}`)}`,
                     strong: (chunks) => (
                       <b className="font-display text-[22px] font-normal text-ink">{chunks}</b>
                     ),
@@ -147,7 +159,7 @@ export function WishBoard({
                     onClick={() => setCategory(key)}
                     className="rounded-full border-[2.5px] border-ink bg-paper px-4.5 py-2 font-body text-[14.5px] font-extrabold aria-pressed:bg-ink aria-pressed:text-surface"
                   >
-                    {key === 'all' ? t('all') : data(`categories.${key}`)}
+                    {key === 'all' ? t('all') : key}
                   </button>
                 ))}
               </div>
@@ -162,7 +174,7 @@ export function WishBoard({
             value={wishes.reduce((total, wish) => total + wish.count, 0)}
             locale={locale}
           />
-          <Stat label={my('fulfilled')} value={1} locale={locale} />
+          <Stat label={my('fulfilled')} value={0} locale={locale} />
         </div>
       )}
 

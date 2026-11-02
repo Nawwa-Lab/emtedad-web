@@ -3,6 +3,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { authApi } from './api'
 import { authKeys } from './keys'
+import type { CurrentUserProfile } from './types'
 
 export function useCurrentUserQuery() {
   return useQuery({ queryKey: authKeys.currentUser(), queryFn: authApi.getCurrentUser })
@@ -13,7 +14,11 @@ export function useLoginMutation() {
 
   return useMutation({
     mutationFn: authApi.login,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: authKeys.currentUser() }),
+    onSuccess: () =>
+      queryClient.fetchQuery({
+        queryKey: authKeys.currentUser(),
+        queryFn: authApi.getCurrentUser,
+      }),
   })
 }
 
@@ -35,5 +40,22 @@ export function useResetPasswordMutation() {
 }
 
 export function useContextSwitchMutation() {
-  return useMutation({ mutationFn: authApi.switchContext })
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: authApi.switchContext,
+    onSuccess: (result) => {
+      const context = result.context
+      if (!context) return
+
+      queryClient.setQueryData<CurrentUserProfile>(authKeys.currentUser(), (profile) =>
+        profile
+          ? {
+              ...profile,
+              account: { ...profile.account, activeContext: context },
+            }
+          : profile,
+      )
+    },
+  })
 }

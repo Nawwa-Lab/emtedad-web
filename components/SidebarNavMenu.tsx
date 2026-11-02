@@ -1,6 +1,6 @@
 'use client'
 
-import { type Role, useUser } from '@/contexts/UserContext'
+import { type ActiveContext, type Role, useUser } from '@/contexts/UserContext'
 import { Link, usePathname, useRouter } from '@/i18n/navigation'
 import HakimaIcon from '@/icons/balance.svg'
 import ManagementIcon from '@/icons/building.svg'
@@ -8,7 +8,6 @@ import NamliyaIcon from '@/icons/circles.svg'
 import MaktabIcon from '@/icons/gate.svg'
 import GennyIcon from '@/icons/genny.svg'
 import EtabatIcon from '@/icons/hand.svg'
-import ShbeikLbeikIcon from '@/icons/message.svg'
 import KhalliKhalesIcon from '@/icons/plant.svg'
 import FahsMahsIcon from '@/icons/star-2.svg'
 import HomeIcon from '@/icons/star.svg'
@@ -26,43 +25,76 @@ type NavLink = {
   label: string
   icon: typeof MaktabIcon
   roles?: Role[]
+  contexts?: ActiveContext[]
 }
 
 const navLinks: NavLink[] = [
-  { href: '/maktab', label: 'maktab', icon: MaktabIcon },
+  {
+    href: '/maktab',
+    label: 'maktab',
+    icon: MaktabIcon,
+    roles: ['org_admin', 'team_worker', 'community_member', 'emtedad_admin'],
+  },
+  {
+    href: '/managment',
+    label: 'managment',
+    icon: ManagementIcon,
+    roles: ['emtedad_admin'],
+    contexts: ['org'],
+  },
   {
     href: '/namliya',
     label: 'namliya',
     icon: NamliyaIcon,
     roles: ['org_admin', 'team_worker', 'emtedad_admin'],
+    contexts: ['org'],
   },
-  { href: '/khalli-khales', label: 'khalis', icon: KhalliKhalesIcon },
-  { href: '/alaesh-andak', label: 'have_qalish', icon: AlaeshIcon },
+  {
+    href: '/khalli-khales',
+    label: 'khalis',
+    icon: KhalliKhalesIcon,
+    roles: ['org_admin', 'team_worker', 'community_member', 'emtedad_admin'],
+  },
+  {
+    href: '/alaesh-andak',
+    label: 'have_qalish',
+    icon: AlaeshIcon,
+    roles: ['org_admin', 'team_worker', 'community_member', 'emtedad_admin'],
+  },
   {
     href: '/hakima',
     label: 'hakima',
     icon: HakimaIcon,
     roles: ['org_admin', 'team_worker', 'emtedad_admin'],
+    contexts: ['org'],
   },
   {
     href: '/genny',
     label: 'genny',
     icon: GennyIcon,
-    roles: ['org_admin', 'team_worker', 'emtedad_admin'],
+    roles: ['org_admin', 'team_worker'],
+    contexts: ['org'],
   },
   {
     href: '/shbeik-lbeik',
     label: 'shbeik-lbeik',
-    icon: ShbeikLbeikIcon,
-    roles: ['community_member', 'emtedad_admin'],
+    icon: GennyIcon,
+    roles: ['org_admin', 'team_worker', 'community_member'],
+    contexts: ['community'],
   },
-  { href: '/managment', label: 'managment', icon: ManagementIcon, roles: ['emtedad_admin'] },
-  { href: '/etabat', label: 'etabat', icon: EtabatIcon },
+
+  {
+    href: '/etabat',
+    label: 'etabat',
+    icon: EtabatIcon,
+    roles: ['org_admin', 'team_worker', 'community_member', 'emtedad_admin'],
+  },
   {
     href: '/fahs-mahs',
     label: 'fahs-mahs',
     icon: FahsMahsIcon,
     roles: ['org_admin', 'team_worker', 'community_member'],
+    contexts: ['community'],
   },
 ]
 
@@ -92,6 +124,9 @@ export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean 
     >
       {navLinks.map((link, index) => {
         if (link.roles && (!user || !link.roles.includes(user.role))) {
+          return null
+        }
+        if (link.contexts && user && !link.contexts.includes(user.activeContext)) {
           return null
         }
 

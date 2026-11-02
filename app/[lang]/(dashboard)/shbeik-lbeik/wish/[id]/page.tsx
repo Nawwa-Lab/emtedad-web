@@ -1,30 +1,22 @@
-'use client'
-
-import { shbeikMyWishes, shbeikSuggestions } from '@/app/[lang]/(dashboard)/shbeik-lbeik/data'
 import { WishForm } from '@/components/WishForm'
-import { useTranslations } from 'next-intl'
-import { use } from 'react'
+import { wishServerApi } from '@/services/wishes/server'
 
-export default function EditWishPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params)
-  const data = useTranslations('shbeik.data')
-  const wish = shbeikMyWishes.find((item) => item.id === id)
+export default async function EditWishPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const wish = await wishServerApi.get('community', id)
 
   return (
     <WishForm
       family="shbeik"
       mode="edit"
-      suggestions={shbeikSuggestions}
-      initialWish={
-        wish
-          ? {
-              title: data(`wishes.${wish.copyKey}.title`),
-              category: data(`categories.${wish.categoryKey}`),
-              description: data(`wishes.${wish.copyKey}.description`),
-              impact: '',
-            }
-          : undefined
-      }
+      wishId={id}
+      suggestions={[]}
+      initialWish={{
+        title: wish.title,
+        category: wish.category,
+        description: wish.description,
+        impact: wish.impact ?? '',
+      }}
     />
   )
 }

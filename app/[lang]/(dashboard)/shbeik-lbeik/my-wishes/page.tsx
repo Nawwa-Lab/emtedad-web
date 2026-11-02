@@ -1,6 +1,7 @@
 import { WishBoard } from '@/components/WishBoard'
-import { shbeikMyWishes } from '../data'
+import { toCommunityWishCards, wishServerApi } from '@/services/wishes/server'
 
-export default function ShbeikMyWishesPage() {
-  return <WishBoard family="shbeik" wishes={shbeikMyWishes} mode="mine" />
+export default async function ShbeikMyWishesPage() {
+  const wishes = await wishServerApi.mine('community')
+  return <WishBoard family="shbeik" wishes={await toCommunityWishCards(wishes)} mode="mine" />
 }
