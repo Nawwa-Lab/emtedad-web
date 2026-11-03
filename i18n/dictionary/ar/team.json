@@ -1,0 +1,55 @@
+{
+  "teamInvite": {
+    "title": "دعوة عضو فريق",
+    "description": "{organization} · {count} أعضاء حاليًّا",
+    "officeNavLabel": "أقسام المكتب",
+    "officeNav": {
+      "balances": "الأرصدة",
+      "favorites": "المحفوظات",
+      "team": "إدارة الفريق",
+      "notifications": "الإشعارات",
+      "messages": "الرسائل"
+    },
+    "teamNavLabel": "أقسام إدارة الفريق",
+    "teamNav": {
+      "members": "الأعضاء",
+      "invite": "دعوة عضو +",
+      "admins": "المديرون",
+      "assignments": "التكليفات"
+    },
+    "formTitle": "ابعت دعوة",
+    "formDescription": "اكتب اسم العضو وبريده — هيوصله رابط يكمّل بيه حسابه وينضم لـ {organization}.",
+    "nameLabel": "اسم العضو",
+    "namePlaceholder": "الاسم زي ما هيظهر على الشبكة",
+    "emailLabel": "البريد الإلكتروني",
+    "emailHint": "البريد ده بيتقفل على الدعوة ومش هيتغيّر بعد كده.",
+    "submit": "ابعت الدعوة",
+    "successTitle": "الدعوة اتبعتت",
+    "successDescription": "بعتنا الرابط على {email} — صالح لحد {expiry}.",
+    "successDescriptionDesign": "بعتنا الرابط على {email} — صالح لسبع أيام. هيفضل في الدعوات المعلّقة لحد ما يكمّل حسابه.",
+    "again": "ابعت دعوة تانية",
+    "back": "رجوع للفريق",
+    "nextTitle": "إيه اللي بيحصل بعد كده",
+    "steps": [
+      {
+        "title": "بيوصله رابط الدعوة",
+        "description": "صالح سبع أيام، وبيقفل بريده على الدعوة."
+      },
+      {
+        "title": "بيكمّل حسابه",
+        "description": "اسم وكلمة سر وموافقة على الشروط والأحكام."
+      },
+      {
+        "title": "بيظهر في فريقكم",
+        "description": "وبيزوّد سقف مؤسستكم الشهري ٨٠ شهمهم من أول شهر كامل."
+      }
+    ],
+    "pendingTitle": "دعوات معلّقة",
+    "pendingDescription": "اتبعتت وما اتقبلتش لسه.",
+    "daysLeft": "باقي {count} أيام",
+    "expired": "انتهت",
+    "withdraw": "اسحب",
+    "resend": "ابعت تاني",
+    "mockFeedback": "التغيير ظاهر في المعاينة دي بس."
+  }
+}

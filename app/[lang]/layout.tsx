@@ -32,7 +32,11 @@ export default async function RootLayout({
 }) {
   const { lang } = await params
   const dir = (lang as Locale) === 'ar' ? 'rtl' : 'ltr'
-  const t = await getTranslations({ locale: lang, namespace: 'systemStates.toast' })
+  const [toastT, loaderT] = await Promise.all([
+    getTranslations({ locale: lang, namespace: 'systemStates.toast' }),
+    getTranslations({ locale: lang, namespace: 'global.loading' }),
+  ])
+  const sessionWsUrl = process.env.SESSION_WS_URL ?? ''
   return (
     <html lang={lang} dir={dir}>
       <body
@@ -40,10 +44,16 @@ export default async function RootLayout({
       >
         <QueryProvider>
           <DirectionProvider direction={dir}>
-            <UserProvider>{children}</UserProvider>
+            <UserProvider
+              loaderDescription={loaderT('description')}
+              locale={lang}
+              sessionWsUrl={sessionWsUrl}
+            >
+              {children}
+            </UserProvider>
           </DirectionProvider>
         </QueryProvider>
-        <Toaster dismissLabel={t('dismiss')} />
+        <Toaster dismissLabel={toastT('dismiss')} />
       </body>
     </html>
   )

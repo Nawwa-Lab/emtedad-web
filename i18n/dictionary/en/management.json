@@ -1,0 +1,136 @@
+{
+  "management": {
+    "organizations": {
+      "title": "Organization management",
+      "description": "Invitations, active accounts, and suspended accounts",
+      "flowTitle": "Approval happens outside the platform",
+      "flowDescription": "The network approves the organization list in a meeting, while the team reviews documents by email — formal registration is not required. The platform has <strong>no membership application or application review</strong>. Once approved, an invitation lets the organization create its own account.",
+      "steps": [
+        {
+          "title": "Approve the list",
+          "description": "A Hakima membership vote or team decision outside the platform"
+        },
+        {
+          "title": "Review documents",
+          "description": "By email; a commercial registry or formal registration is not required"
+        },
+        {
+          "title": "Send the invitation",
+          "description": "A one-time link opens organization account creation"
+        },
+        {
+          "title": "The organization creates its account",
+          "description": "It completes its profile and invites its own team"
+        }
+      ],
+      "searchPlaceholder": "Search by organization name or email",
+      "searchLabel": "Search organizations",
+      "inviteCta": "Invite an organization +",
+      "filters": {
+        "all": "All",
+        "invited": "Invited",
+        "active": "Active",
+        "suspended": "Suspended"
+      },
+      "status": {
+        "invited": "Invited — account not created yet",
+        "active": "Active",
+        "suspended": "Suspended"
+      },
+      "invitedMeta": "Invitation sent {date} · expires {expiry}",
+      "activeMeta": "Joined {date} · {members} team members · {tokens} Hakima tokens",
+      "suspendedMeta": "Suspended {date} · reason: {reason}",
+      "invitationSent": "Invitation sent {date}",
+      "invitationExpires": "The link expires after 14 days",
+      "joined": "Joined {date}",
+      "teamMembers": "{count} team members",
+      "hakimaTokens": "{count} Hakima tokens",
+      "openCase": "Has an open case",
+      "suspendedAt": "Suspended {date}",
+      "reason": "Reason: {reason}",
+      "reasons": { "arbitration": "arbitration decision — category 3" },
+      "actions": {
+        "resend": "Send again",
+        "withdraw": "Withdraw invitation",
+        "profile": "Organization profile",
+        "suspend": "Suspend account",
+        "activate": "Activate account",
+        "decision": "Arbitration decision"
+      },
+      "empty": "No organizations match this view.",
+      "note": "Suspending an account stops publishing and voting, but <strong>does not cancel existing obligations</strong> — ongoing exchanges continue and open cases remain open.",
+      "mockFeedback": "Updated for this preview. Reloading restores the fixture data."
+    },
+    "members": {
+      "title": "Member management",
+      "description": "Individual accounts — organization teams and community members",
+      "searchPlaceholder": "Search by name or username — example: rana.f",
+      "searchLabel": "Search members",
+      "searchHint": "Usernames are permanent, so they are more precise when names are repeated.",
+      "filters": {
+        "all": "All",
+        "team": "Team members",
+        "community": "Community",
+        "suspended": "Suspended"
+      },
+      "status": {
+        "team": "Team member",
+        "community": "Community",
+        "suspended": "Suspended"
+      },
+      "teamPrefix": "Team",
+      "joinedFemale": "Joined {date}",
+      "joinedMale": "Joined {date}",
+      "balance": "Balance {balance}",
+      "communityFemale": "Community member",
+      "communityMale": "Community member",
+      "suspendedPrevious": "Previously {previous}",
+      "suspendedAt": "Suspended {date}",
+      "reason": "Reason: {reason}",
+      "teamMeta": "Team {organization} · joined {date} · balance {balance}",
+      "communityMeta": "Community member · joined {date} · balance {balance}",
+      "suspendedMeta": "Previously {previous} · suspended {date} · reason: {reason}",
+      "reasons": { "arbitration": "arbitration decision — category 2" },
+      "actions": {
+        "profile": "Profile",
+        "suspend": "Suspend account",
+        "activate": "Activate account",
+        "decision": "Arbitration decision"
+      },
+      "empty": "No members match this view.",
+      "note": "Suspending an individual stops requests, offers, mediation invitations, and arbitration invitations under their name — <strong>without affecting their organization account</strong>. Suspend the organization itself from <organizations>organization management</organizations>.",
+      "supportNote": "Technical support reports and feedback are <strong>not managed here</strong> — find them in the <office>team office</office> inbox, assigned to their responsible person.",
+      "mockFeedback": "Updated for this preview. Reloading restores the fixture data."
+    },
+    "organizationInvite": {
+      "title": "Invite an organization",
+      "description": "Send a one-time registration link to the organization administrator",
+      "formTitle": "Send invitation",
+      "formDescription": "Enter the administrator’s name and email. They will complete the organization details when accepting the invitation.",
+      "nameLabel": "Administrator full name",
+      "namePlaceholder": "Name as it should appear on the network",
+      "emailLabel": "Administrator email",
+      "emailHint": "This email is locked to the invitation and cannot be changed during registration.",
+      "submit": "Send invitation",
+      "successTitle": "Invitation sent",
+      "successDescription": "We sent the link to {email}. It expires on {expiry}.",
+      "again": "Invite another organization",
+      "back": "Back to organization management",
+      "nextTitle": "What happens next",
+      "steps": [
+        "The administrator receives a one-time registration link.",
+        "They create their account and enter the organization details.",
+        "The Emtedad team activates the account after review."
+      ]
+    },
+    "inviteErrors": {
+      "nameRequired": "Enter the invitee’s name.",
+      "nameMax": "The name must be 255 characters or fewer.",
+      "emailRequired": "Enter an email address.",
+      "emailInvalid": "Enter a valid email address.",
+      "conflict": "This email already has an account or a pending invitation.",
+      "forbidden": "You do not have permission to send this invitation.",
+      "generic": "The invitation could not be sent. Try again."
+    }
+  }
+}

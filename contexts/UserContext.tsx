@@ -1,7 +1,9 @@
 'use client'
 
 import { type CurrentUserProfile, useCurrentUserQuery } from '@/services/auth'
-import { type ReactNode, createContext, useContext, useMemo } from 'react'
+import { useSessionStream } from '@/services/auth/session-stream'
+import { Loader } from '@/components/ui/loader'
+import { type ReactNode, createContext, useCallback, useContext, useMemo } from 'react'
 
 export type Role = CurrentUserProfile['account']['role']
 export type ActiveContext = CurrentUserProfile['account']['activeContext']
@@ -24,9 +26,32 @@ export function useUser(): UserContextValue {
   return context
 }
 
-export function UserProvider({ children }: { children: ReactNode }) {
-  const { data, isLoading } = useCurrentUserQuery()
+export function UserProvider({
+  children,
+  loaderDescription,
+  locale,
+  sessionWsUrl,
+}: {
+  children: ReactNode
+  loaderDescription: string
+  locale: string
+  sessionWsUrl: string
+}) {
+  const { data } = useCurrentUserQuery()
+  const handleSessionEnded = useCallback(
+    () => window.location.replace(`/${locale}/login`),
+    [locale],
+  )
+  const { isLoading } = useSessionStream(sessionWsUrl, handleSessionEnded)
   const user = useMemo(() => toUser(data), [data])
+
+  if (isLoading) {
+    return (
+      <UserContext.Provider value={{ user, isLoading }}>
+        <Loader description={loaderDescription} />
+      </UserContext.Provider>
+    )
+  }
 
   return <UserContext.Provider value={{ user, isLoading }}>{children}</UserContext.Provider>
 }

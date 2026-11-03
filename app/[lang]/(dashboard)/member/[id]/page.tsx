@@ -44,7 +44,7 @@ export default async function MemberProfilePage({ params }: PageProps<'/[lang]/m
             <h1 className="font-display text-[clamp(2.25rem,4.6vw,3.125rem)] leading-none">
               {name}
             </h1>
-            <StatusBadge label={global('badges.amer')} />
+            <StatusBadge label={global('badges.amer')} shape="pill" size="lg" />
             {organization && (
               <Link
                 href={`/organization/${organization.organizationId}`}

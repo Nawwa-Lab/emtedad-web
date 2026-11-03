@@ -1,0 +1,27 @@
+{
+  "khalliKhalesBrowse": {
+    "title": "Khalli Khales",
+    "description": "The market linking the public with organizations — in both directions.",
+    "link1": "Browse",
+    "link2": "My offers",
+    "link3": "My requests",
+    "section1Title": "From the public to organizations",
+    "section1Note": "Individuals from the public offer their skills to network organizations — <b>what your organization can request.</b>",
+    "section2Title": "From the public to team members",
+    "section2ViewOnly": "For individuals — booked from the member's personal account",
+    "section2Note": "Personal offers for members of organization teams (health, legal, education, home help). The organization does not book on behalf of its members — but can share them.",
+    "section3Title": "From organizations to the public — the gift shop",
+    "section3ViewOnly": "View only — registration from public accounts",
+    "section3Note": "What organizations offer the public: workshops, courses, programs, events, and resources. <b>Your organization sees these offers without registering</b> — so you know what's happening in the market, compete gently, and find opportunities to collaborate on public projects.",
+    "offersCount": "{count} offers",
+    "actionRequest": "Request",
+    "actionShare": "Share with team",
+    "actionDetails": "View details",
+    "actionSave": "Save",
+    "capTitle": "Public spending cap: 25 Shahamham monthly",
+    "capBody": " and an individual can spend from future months if they want to book something more expensive — this cap applies to public individuals, not your organization.",
+    "previous": "Previous",
+    "next": "Next",
+    "expandAria": "Open full details"
+  }
+}

@@ -4,21 +4,20 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { authApi } from './api'
 import { authKeys } from './keys'
 import type { CurrentUserProfile } from './types'
+import { notifyAuthSession } from './session-events'
 
 export function useCurrentUserQuery() {
-  return useQuery({ queryKey: authKeys.currentUser(), queryFn: authApi.getCurrentUser })
+  return useQuery<CurrentUserProfile>({
+    queryKey: authKeys.currentUser(),
+    queryFn: authApi.getCurrentUser,
+    enabled: false,
+  })
 }
 
 export function useLoginMutation() {
-  const queryClient = useQueryClient()
-
   return useMutation({
     mutationFn: authApi.login,
-    onSuccess: () =>
-      queryClient.fetchQuery({
-        queryKey: authKeys.currentUser(),
-        queryFn: authApi.getCurrentUser,
-      }),
+    onSuccess: () => notifyAuthSession('reconnect'),
   })
 }
 
@@ -27,7 +26,10 @@ export function useLogoutMutation() {
 
   return useMutation({
     mutationFn: authApi.logout,
-    onSuccess: () => queryClient.removeQueries({ queryKey: authKeys.all }),
+    onSuccess: () => {
+      queryClient.removeQueries({ queryKey: authKeys.all })
+      notifyAuthSession('disconnect')
+    },
   })
 }
 
@@ -37,6 +39,14 @@ export function useForgotPasswordMutation() {
 
 export function useResetPasswordMutation() {
   return useMutation({ mutationFn: authApi.resetPassword })
+}
+
+export function useInviteTeamWorkerMutation() {
+  return useMutation({ mutationFn: authApi.inviteTeamWorker })
+}
+
+export function useInviteOrganizationMutation() {
+  return useMutation({ mutationFn: authApi.inviteOrganization })
 }
 
 export function useContextSwitchMutation() {
@@ -56,6 +66,7 @@ export function useContextSwitchMutation() {
             }
           : profile,
       )
+      notifyAuthSession('reconnect')
     },
   })
 }
