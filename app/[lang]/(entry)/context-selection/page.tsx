@@ -55,7 +55,7 @@ export default function ContextSelectionPage() {
 
   useEffect(() => {
     if (!isLoading && !canSwitch) {
-      router.replace(user ? '/maktab' : '/login')
+      router.replace(user ? '/' : '/login')
     }
   }, [canSwitch, isLoading, router, user])
 
@@ -65,9 +65,7 @@ export default function ContextSelectionPage() {
       {
         onSuccess: ({ context }) => {
           const nextContext = context ?? user?.activeContext ?? 'community'
-          router.replace(
-            returnTo && isPathAllowedInContext(returnTo, nextContext) ? returnTo : '/maktab',
-          )
+          router.replace(returnTo && isPathAllowedInContext(returnTo, nextContext) ? returnTo : '/')
         },
         onError: () => toast.add({ title: t('switchFailed'), type: 'error', priority: 'high' }),
       },

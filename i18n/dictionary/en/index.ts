@@ -6,13 +6,16 @@ import genny from './genny.json'
 import global from './global.json'
 import hakima from './hakima.json'
 import landing from './landing.json'
+import management from './management.json'
 import namliya from './namliya.json'
 import profiles from './profiles.json'
 import shbeik from './shbeik.json'
 import shared from './shared.json'
+import team from './team.json'
 
 const messages = {
   ...landing,
+  ...management,
   ...auth,
   ...etabat,
   ...fahsMahs,
@@ -24,6 +27,7 @@ const messages = {
   ...genny,
   ...shbeik,
   ...alaesh,
+  ...team,
 }
 
 export default messages

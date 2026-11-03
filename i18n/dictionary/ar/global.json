@@ -2,6 +2,9 @@
   "global": {
     "currency": "شهمهم",
     "team": "فريق امتداد",
+    "loading": {
+      "description": "بنجهّز لك الصفحة، لحظات ونكون جاهزين."
+    },
     "organizations": {
       "sawt": "صوت وصورة",
       "halaqa": "حلقة",

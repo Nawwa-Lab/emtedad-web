@@ -73,7 +73,7 @@ export function LandingNav({ copy }: { copy: LandingCopy }) {
           ))}
         </div>
         {signedIn && user ? (
-          <Link href={user.org ? `/organization/${user.org.organizationId}` : '/maktab'}>
+          <Link href={user.org ? `/organization/${user.org.organizationId}` : '/'}>
             <Button
               variant="outline"
               effect="3d"
@@ -139,7 +139,7 @@ function SectionHeading({
 export function LandingPage({ copy }: { copy: LandingCopy }) {
   const { user } = useUser()
   const signedIn = Boolean(user)
-  const heroHref = signedIn ? '/maktab' : '/login'
+  const heroHref = signedIn ? '/' : '/login'
   const heroLabel = signedIn ? copy.enterOffice : copy.enterNetwork
 
   return (

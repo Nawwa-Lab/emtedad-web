@@ -7,6 +7,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return {
     title: dict.resetPassword.metaTitle,
     description: dict.resetPassword.metaDescription,
+    referrer: 'no-referrer',
   }
 }
 

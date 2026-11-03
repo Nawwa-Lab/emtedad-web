@@ -108,22 +108,24 @@
 //   )
 // }
 
+import StarIcon from '@/icons/star.svg'
 import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from 'cn'
 import Image from 'next/image'
 import type { HTMLAttributes } from 'react'
-import StarIcon from '@/icons/star.svg'
 
 const statusBadgeVariants = cva(
-  'rounded-full inline-flex items-center justify-center font-display shrink-0 whitespace-nowrap bg-gold border-2 border-ink',
+  'rounded-full inline-flex items-center justify-center font-display shrink-0 whitespace-nowrap bg-gold border-2 border-ink text-ink',
   {
     variants: {
       shape: {
-        circle: 'text-ink',
-        pill: 'text-soft',
+        circle: 'text-ink ratio-1',
+        pill: 'ratio-1.5',
       },
       size: {
-        default: '',
-        small: '',
+        default: 'text-[14px] w-13',
+        small: 'text-[9px] w-5',
+        lg: 'text-[26px] w-26',
       },
     },
     compoundVariants: [
@@ -160,7 +162,7 @@ export function StatusBadge({
   const displayLabel = shape === 'circle' ? Array.from(fullLabel).slice(0, 1).join('') : fullLabel
 
   return (
-    <div className={statusBadgeVariants({ shape, size, className })} {...props}>
+    <div className={cn('flex gap-2', statusBadgeVariants({ shape, size, className }))} {...props}>
       {shape === 'pill' && (
         <Image src={StarIcon} alt="" width={19} height={19} className="w-4.75 h-4.75 shrink-0" />
       )}

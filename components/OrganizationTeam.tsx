@@ -1,5 +1,5 @@
 import { teamRatings } from '@/app/[lang]/(dashboard)/organization/[id]/data'
-import { StatusBadge, getVariantFromLabel } from '@/components/StatusBadge'
+import { StatusBadge } from '@/components/StatusBadge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Carousel } from '@/components/ui/carousel'
 import { Link } from '@/i18n/navigation'
@@ -48,7 +48,7 @@ export async function OrganizationTeam({ members }: Pick<OrganizationPublicProfi
               <p className="my-1 font-body text-sm font-semibold text-soft">
                 {t(`roles.${member.role}`)}
               </p>
-              {rating && <StatusBadge variant={getVariantFromLabel(rating)} label={rating} />}
+              {rating && <StatusBadge label={rating} />}
             </Link>
           )
         })}

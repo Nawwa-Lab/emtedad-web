@@ -3,10 +3,10 @@ import OrgCover from '@/icons/org-cover.svg'
 import { formatNumber } from '@/lib/utils/formatter'
 import type { OrganizationPublicProfile } from '@/services/organizations'
 import { cn } from 'cn'
-import Image from 'next/image'
 import { getLocale, getTranslations } from 'next-intl/server'
+import Image from 'next/image'
+import { StatusBadge } from './StatusBadge'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
-import { Badge } from './ui/badge'
 
 type Props = {
   organization: OrganizationPublicProfile
@@ -103,13 +103,11 @@ export async function OrganizationProfileHeader({
           <h1 className="font-display text-[clamp(2.25rem,4.6vw,3.25rem)] leading-[1.15]">
             {organization.legalName}
           </h1>
-          <p className="mt-2 max-w-160 font-body text-soft text-[17.5px] font-medium leading-8 text-soft">
+          <p className="mt-2 max-w-160 font-body text-soft text-[17.5px] font-medium leading-8">
             {organization.description || t('defaults.description')}
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-3">
-            <Badge size="lg" className="font-display">
-              {global('badges.amer')}
-            </Badge>
+            <StatusBadge label={global('badges.amer')} shape="pill" size="lg" />
             <Link
               href={`${baseHref}/satisfaction`}
               className="border-b-[2.5px] border-red font-body text-[15px] font-bold hover:text-red"
