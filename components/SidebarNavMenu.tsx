@@ -36,7 +36,7 @@ const navLinks: NavLink[] = [
     roles: ['org_admin', 'team_worker', 'community_member', 'emtedad_admin'],
   },
   {
-    href: '/managment',
+    href: '/management',
     label: 'managment',
     icon: ManagementIcon,
     roles: ['emtedad_admin'],
@@ -171,7 +171,7 @@ export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean 
           className="border-red text-red border-dashed bg-paper max-[820px]:ms-auto max-[820px]:mt-0"
           shape="square"
           effect="flat"
-          onClick={() => logout.mutate(undefined, { onSuccess: () => router.replace('/') })}
+          onClick={() => logout.mutate(undefined, { onSuccess: () => window.reload('/') })}
         >
           <LogOutIcon />
           <span className={labelClass}>{tNav('logout')}</span>

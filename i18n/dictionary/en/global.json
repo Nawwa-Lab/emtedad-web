@@ -2,6 +2,9 @@
   "global": {
     "currency": "Shahamham",
     "team": "Emtedad team",
+    "loading": {
+      "description": "We're getting everything ready for you. This won't take long."
+    },
     "organizations": {
       "sawt": "Sawt w Soura",
       "halaqa": "Halaqa",

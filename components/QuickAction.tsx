@@ -8,7 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { Link } from '@/i18n/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
 import CirclesIcon from '@/icons/circles.svg'
 import PlantIcon from '@/icons/plant.svg'
 import TargetIcon from '@/icons/target.svg'
@@ -48,6 +48,7 @@ export function QuickAction() {
   const header = useTranslations('header')
   const dialog = useTranslations('dialog')
   const { user } = useUser()
+  const pathname = usePathname()
   const portalContainer = typeof document === 'undefined' ? null : document.body
   const availableDestinations =
     user?.activeContext === 'community' && user.role !== 'emtedad_admin'
@@ -56,7 +57,9 @@ export function QuickAction() {
 
   return (
     <Dialog>
-      <DialogTrigger className={cn(buttonVariants(), 'hidden sm:block')}>
+      <DialogTrigger
+        className={cn(buttonVariants(), pathname.startsWith('/team') ? 'block' : 'hidden sm:block')}
+      >
         {header('quickAction')}
       </DialogTrigger>
       <DialogContent
