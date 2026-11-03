@@ -1,0 +1,55 @@
+{
+  "teamInvite": {
+    "title": "Invite a team member",
+    "description": "{organization} · {count} current members",
+    "officeNavLabel": "Office sections",
+    "officeNav": {
+      "balances": "Balances",
+      "favorites": "Saved",
+      "team": "Team management",
+      "notifications": "Notifications",
+      "messages": "Messages"
+    },
+    "teamNavLabel": "Team management sections",
+    "teamNav": {
+      "members": "Members",
+      "invite": "Invite member +",
+      "admins": "Administrators",
+      "assignments": "Assignments"
+    },
+    "formTitle": "Send invitation",
+    "formDescription": "Enter the member’s name and email. They will receive a link to complete their account and join {organization}.",
+    "nameLabel": "Member name",
+    "namePlaceholder": "Name as it should appear on the network",
+    "emailLabel": "Email address",
+    "emailHint": "This email is locked to the invitation and cannot be changed later.",
+    "submit": "Send invitation",
+    "successTitle": "Invitation sent",
+    "successDescription": "We sent the link to {email}. It expires on {expiry}.",
+    "successDescriptionDesign": "We sent the link to {email}. It is valid for seven days and remains pending until the member completes their account.",
+    "again": "Send another invitation",
+    "back": "Back to the team",
+    "nextTitle": "What happens next",
+    "steps": [
+      {
+        "title": "They receive the invitation link",
+        "description": "It is valid for seven days and locks their email to the invitation."
+      },
+      {
+        "title": "They complete their account",
+        "description": "Name, password, and acceptance of the terms and conditions."
+      },
+      {
+        "title": "They appear in your team",
+        "description": "They add 80 Shahmham to your monthly organization limit from the first full month."
+      }
+    ],
+    "pendingTitle": "Pending invitations",
+    "pendingDescription": "Sent but not accepted yet.",
+    "daysLeft": "{count} days left",
+    "expired": "Expired",
+    "withdraw": "Withdraw",
+    "resend": "Send again",
+    "mockFeedback": "Updated for this preview only."
+  }
+}
