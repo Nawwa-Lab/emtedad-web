@@ -77,7 +77,7 @@ export function Carousel({
   return (
     <div className={cn('relative', className)}>
       {showControls && (
-        <div className="absolute -top-15 end-0 z-10 hidden gap-2 sm:flex">
+        <div className="absolute -top-15 inset-e-0 z-10 hidden gap-2 sm:flex">
           <button
             type="button"
             aria-label={previousLabel}
@@ -110,12 +110,12 @@ export function Carousel({
         ref={rail}
         aria-label={ariaLabel}
         onScroll={updateScrollState}
-        className="-mx-1 flex snap-x items-stretch gap-5 overflow-x-auto px-1 pb-4 pt-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="-mx-1 flex snap-x items-stretch gap-5 overflow-x-auto px-1 pb-4 pt-1 [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden"
       >
         {Children.toArray(children).map((child, index) => (
           <div
             key={index}
-            className={cn('flex shrink-0 snap-start [&>*]:h-full [&>*]:w-full', itemClassName)}
+            className={cn('flex shrink-0 snap-start `*:h-full `*:w-full', itemClassName)}
           >
             {child}
           </div>

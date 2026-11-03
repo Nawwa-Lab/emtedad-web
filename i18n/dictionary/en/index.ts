@@ -5,6 +5,7 @@ import fahsMahs from './fahs-mahs.json'
 import genny from './genny.json'
 import global from './global.json'
 import hakima from './hakima.json'
+import khalliKhales from './khalli-khales.json'
 import landing from './landing.json'
 import management from './management.json'
 import namliya from './namliya.json'
@@ -21,6 +22,7 @@ const messages = {
   ...fahsMahs,
   ...global,
   ...hakima,
+  ...khalliKhales,
   ...shared,
   ...profiles,
   ...namliya,
