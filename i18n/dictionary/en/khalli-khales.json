@@ -53,5 +53,21 @@
     "expandAria": "Open full details",
     "capTitle": "Public spending cap: 25 Shahamham monthly",
     "capBody": " and an individual can spend from future months if they want to book something more expensive — this cap applies to public individuals, not your organization."
+  },
+  "khalliKhalesGiftShop": {
+    "title": "Khalli Khales",
+    "subtitle": "The gift shop · all organization offers for the public",
+    "sectionTitle": "From organizations to the public — the gift shop",
+    "viewOnly": "View only — registration from public accounts",
+    "note": "What organizations offer the public: workshops, courses, programs, events, services, and resources. <b>Your organization sees these offers without registering</b> — so you know what's happening in the market, compete gently, and find opportunities to collaborate on public projects.",
+    "offersCount": "{count} offers",
+    "searchPlaceholder": "Search the gift shop…",
+    "searchAria": "Search",
+    "noResults": "No results",
+    "back": "Back to Khalli Khales",
+    "actionDetails": "View details",
+    "expandAria": "Open full details",
+    "capTitle": "Public spending cap: 25 Shahamham monthly",
+    "capBody": " and an individual can spend from future months if they want to book something more expensive — this cap applies to public individuals, not your organization."
   }
 }
