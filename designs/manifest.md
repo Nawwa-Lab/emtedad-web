@@ -4,14 +4,13 @@
 
 ## Migration progress
 
-
-**Status: In progress** — `████████████░░░░░░░░` **59% (64/108)**
+**Status: In progress** — `████████████░░░░░░░░` **60% (65/108)**
 
 | Work status                         | Rows |
 | ----------------------------------- | ---: |
-| Completed (`migrated` + `done`)     |   64 |
+| Completed (`migrated` + `done`)     |   65 |
 | Awaiting visual review (`existing`) |    0 |
-| Not started (`proposed`)            |   44 |
+| Not started (`proposed`)            |   43 |
 
 | Family          | Progress          | Complete | Review | Proposed | Total |
 | --------------- | ----------------- | -------: | -----: | -------: | ----: |
@@ -28,7 +27,7 @@
 | fahs-mahs       | `██████████` 100% |       10 |      0 |        0 |    10 |
 | genny           | `██████████` 100% |        3 |      0 |        0 |     3 |
 | hakima          | `██████████` 100% |        9 |      0 |        0 |     9 |
-| khalli-khales   | `█░░░░░░░░░` 11%  |        1 |      0 |        8 |     9 |
+| khalli-khales   | `██░░░░░░░░` 22%  |        2 |      0 |        7 |     9 |
 | landing         | `██████████` 100% |        4 |      0 |        0 |     4 |
 | management      | `█████░░░░░` 50%  |        2 |      0 |        2 |     4 |
 | member          | `██████████` 100% |        1 |      0 |        0 |     1 |
@@ -87,7 +86,7 @@ For one migration batch, read only the selected rows and their source HTML. Conv
 | `designs/panel-30-my-asks-namliya.html`                     | namliya         | `app/[lang]/(dashboard)/namliya/my-asks/page.tsx`                                         | `components/DataCard.tsx`, `components/SubLinks.tsx`, `components/ui/button.tsx`, `components/ui/card.tsx`                                     | migrated | My-asks board with type/status filters, result line, ask cards with details dialog, and typed fixtures.                                        |
 | `designs/panel-31-drafts.html`                              | namliya         | `app/[lang]/(dashboard)/namliya/drafts/page.tsx`                                          | `components/SubLinks.tsx`, `components/ui/card.tsx`, `components/ui/badge.tsx`, `components/ui/button.tsx`                                     | migrated |                                                                                                                                                |
 | `designs/panel-32-khalli-khales-browse.html`                | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/browse/page.tsx`                                    | `components/ServicesCard.tsx`, `components/ui/carousel.tsx`, `components/SubLinks.tsx`, `components/ui/*`                                      | migrated | Three carousel rails of service cards, section heads, view-only notices, and spending-cap banner.                                              |
-| `designs/panel-32a-from-public-to-orgs.html`                | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/public-to-organizations/page.tsx`                   | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | proposed |                                                                                                                                                |
+| `designs/panel-32a-from-public-to-orgs.html`                | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/public-to-organizations/page.tsx`                   | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | migrated | Two-column service grid, search, back link, section head, rich note, and card detail dialogs from typed fixtures.                              |
 | `designs/panel-32b-from-public-to-members.html`             | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/public-to-members/page.tsx`                         | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | proposed |                                                                                                                                                |
 | `designs/panel-32c-gift-shop.html`                          | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/gift-shop/page.tsx`                                 | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | proposed |                                                                                                                                                |
 | `designs/panel-33-activity-detail.html`                     | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/activities/[id]/page.tsx`                           | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | proposed |                                                                                                                                                |

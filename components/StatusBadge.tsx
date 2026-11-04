@@ -130,7 +130,11 @@ const statusBadgeVariants = cva(
     },
     compoundVariants: [
       { shape: 'circle', size: 'default', class: 'w-13 h-13 font-bold text-[14px]' },
-      { shape: 'pill', size: 'default', class: 'gap-1.5 py-1 px-3 font-semibold text-[13px]' },
+      {
+        shape: 'pill',
+        size: 'default',
+        class: 'w-auto h-auto gap-1.5 py-[3px] ps-[13px] pe-2 font-normal text-[15px]',
+      },
       { shape: 'circle', size: 'small', class: 'w-5 h-5 font-bold text-[9px]' },
       { shape: 'pill', size: 'small', class: 'gap-1 py-0.5 px-2 font-semibold text-[9px]' },
     ],

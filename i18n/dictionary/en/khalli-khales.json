@@ -23,5 +23,19 @@
     "previous": "Previous",
     "next": "Next",
     "expandAria": "Open full details"
+  },
+  "khalliKhalesPublicToOrganizations": {
+    "title": "Khalli Khales",
+    "subtitle": "From the public to organizations · All offers",
+    "sectionTitle": "From the public to organizations",
+    "note": "Individuals from the public offer their skills to network organizations — <b>what your organization can request.</b> Value is calculated like any human service: number of hours × hourly rate.",
+    "offersCount": "{count} offers",
+    "searchPlaceholder": "Search the public-to-organizations offers…",
+    "searchAria": "Search",
+    "noResults": "No results",
+    "back": "Back to Khalli Khales",
+    "actionRequest": "Request",
+    "actionSave": "Save",
+    "expandAria": "Open full details"
   }
 }

@@ -99,6 +99,8 @@ export function ServiceCard({
   const resolvedBadgeVariant =
     badgeVariant ?? (pathname.startsWith('/namliya/service-offers') ? 'blue' : 'gold')
 
+  const providerBadgeClassName = pathname.startsWith('/khalli-khales') ? 'text-soft' : undefined
+
   const handleSaveClick = () => {
     const next = !isSaved
     if (!isControlled) setInternalSaved(next)
@@ -202,7 +204,12 @@ export function ServiceCard({
               <span aria-hidden="true" className="text-soft">
                 ·
               </span>
-              <StatusBadge shape="pill" label={providerRate} size="default" />
+              <StatusBadge
+                shape="pill"
+                label={providerRate}
+                size="default"
+                className={providerBadgeClassName}
+              />
             </>
           )}
         </div>
@@ -215,7 +222,12 @@ export function ServiceCard({
             </Avatar>
           )}
           <span className="font-body font-bold text-[13px] text-soft">{providerName}</span>
-          <StatusBadge shape="pill" label={providerRate} size="default" />
+          <StatusBadge
+            shape="pill"
+            label={providerRate}
+            size="default"
+            className={providerBadgeClassName}
+          />
         </div>
       )}
       <div
