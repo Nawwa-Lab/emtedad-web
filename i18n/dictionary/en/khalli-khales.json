@@ -37,5 +37,21 @@
     "actionRequest": "Request",
     "actionSave": "Save",
     "expandAria": "Open full details"
+  },
+  "khalliKhalesPublicToMembers": {
+    "title": "Khalli Khales",
+    "subtitle": "From the public to team members · All offers",
+    "sectionTitle": "From the public to team members",
+    "viewOnly": "For individuals — booked from the member's personal account",
+    "note": "Personal offers for members of organization teams (health, legal, education, home help). <b>The organization does not book on behalf of its members</b> — but can share the offer with them so they book from their own accounts.",
+    "offersCount": "{count} offers",
+    "searchPlaceholder": "Search the public-to-team-members offers…",
+    "searchAria": "Search",
+    "noResults": "No results",
+    "back": "Back to Khalli Khales",
+    "actionShare": "Share with team",
+    "expandAria": "Open full details",
+    "capTitle": "Public spending cap: 25 Shahamham monthly",
+    "capBody": " and an individual can spend from future months if they want to book something more expensive — this cap applies to public individuals, not your organization."
   }
 }
