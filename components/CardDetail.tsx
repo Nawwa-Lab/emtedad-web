@@ -25,6 +25,10 @@ export type ServiceDetail = {
   cards: ServiceDetailCards
   info: string
   data: string[]
+  extra?: {
+    info: string
+    data: string[]
+  }
   providerName: string
   providerRate: string
   request: string
@@ -88,6 +92,23 @@ export function CardDetails({ detail, badgeVariant }: CardDetailsProps) {
           <h3 className="font-display text-[22px] text-red mb-2">{detail.info}</h3>
           <ul className="space-y-1.5">
             {detail.data.map((item) => (
+              <li
+                key={item}
+                className="flex items-center gap-2.5 font-medium font-cairo text-[16px] text-soft leading-[1.95]"
+              >
+                <span className="size-2.5 shrink-0 rounded-full border-2 border-ink bg-gold" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {detail.extra && detail.extra.data.length > 0 && (
+        <div className="mt-6">
+          <h3 className="font-display text-[22px] text-red mb-2">{detail.extra.info}</h3>
+          <ul className="space-y-1.5">
+            {detail.extra.data.map((item) => (
               <li
                 key={item}
                 className="flex items-center gap-2.5 font-medium font-cairo text-[16px] text-soft leading-[1.95]"
