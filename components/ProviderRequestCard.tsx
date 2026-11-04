@@ -25,6 +25,7 @@ type SatisfactionInfo = {
   href?: string
   /** Dialog opened by the badge. Defaults to <SatisfactionIndex />. Pass null for a plain badge. */
   dialog?: ReactNode
+  badgeClassName?: string
 }
 
 type MemberInfo = {
@@ -43,7 +44,10 @@ type RequestAction = {
 
 type SaveAction = {
   label: string
+  savedLabel?: string
+  showIcon?: boolean
   defaultSaved?: boolean
+  className?: string
 }
 
 interface ProviderRequestCardProps {
@@ -52,6 +56,7 @@ interface ProviderRequestCardProps {
   member?: MemberInfo
   request?: RequestAction
   save?: SaveAction
+  actionsClassName?: string
   className?: string
 }
 
@@ -70,6 +75,7 @@ export function ProviderRequestCard({
   member,
   request,
   save,
+  actionsClassName,
   className,
 }: ProviderRequestCardProps) {
   const [saved, setSaved] = useState(save?.defaultSaved ?? false)
@@ -125,12 +131,28 @@ export function ProviderRequestCard({
             )}
           </div>
 
-          {satisfaction.dialog === null ? (
-            <StatusBadge label={satisfaction.badge} shape="pill" className="text-blue! shrink-0" />
+          {satisfaction.href ? (
+            <Link href={satisfaction.href} className="shrink-0">
+              <StatusBadge
+                label={satisfaction.badge}
+                shape="pill"
+                className={cn('text-blue!', satisfaction.badgeClassName)}
+              />
+            </Link>
+          ) : satisfaction.dialog === null ? (
+            <StatusBadge
+              label={satisfaction.badge}
+              shape="pill"
+              className={cn('text-blue! shrink-0', satisfaction.badgeClassName)}
+            />
           ) : (
             <Dialog>
               <DialogTrigger className="shrink-0 cursor-pointer">
-                <StatusBadge label={satisfaction.badge} shape="pill" className="text-blue!" />
+                <StatusBadge
+                  label={satisfaction.badge}
+                  shape="pill"
+                  className={cn('text-blue!', satisfaction.badgeClassName)}
+                />
               </DialogTrigger>
               {satisfaction.dialog ?? <SatisfactionIndex />}
             </Dialog>
@@ -168,7 +190,12 @@ export function ProviderRequestCard({
 
       {/* Actions: flex-wrap so the buttons stack when there isn't room for both */}
       {hasActions && (
-        <div className="flex flex-wrap font-body gap-3 mt-5 pt-5 border-t-[2.5px] border-dashed border-soft first:mt-0 first:border-t-0 first:pt-0">
+        <div
+          className={cn(
+            'flex flex-wrap font-body gap-3 mt-5 pt-5 border-t-[2.5px] border-dashed border-soft first:mt-0 first:border-t-0 first:pt-0',
+            actionsClassName,
+          )}
+        >
           {request && (
             <Link href={request.href ?? '#'} className={requestStyles}>
               {request.label}
@@ -183,10 +210,13 @@ export function ProviderRequestCard({
               className={cn(
                 'flex-1 min-w-32 sm:min-w-37.5 h-auto py-3.25 px-4 sm:px-6 text-[16px] sm:text-[17px] font-extrabold font-body',
                 saved ? 'bg-red text-white hover:bg-red hover:text-white' : 'hover:bg-gold',
+                save.className,
               )}
             >
-              {save.label}
-              <Heart className={cn('size-5', saved && 'fill-current')} />
+              {saved && save.savedLabel ? save.savedLabel : save.label}
+              {save.showIcon !== false && (
+                <Heart className={cn('size-5', saved && 'fill-current')} />
+              )}
             </Toggle>
           )}
         </div>
