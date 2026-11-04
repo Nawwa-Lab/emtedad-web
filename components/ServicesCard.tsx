@@ -58,6 +58,7 @@ type ServiceCardProps = VariantProps<typeof cardStyles> & {
   actionLabel?: string
   hideCurrency?: boolean
   hidePriceNote?: boolean
+  note?: string
   /** Panel-32 browse layout: price foot + separate acts row under the card. */
   actions?: ServiceCardAction[]
   expandAriaLabel?: string
@@ -85,6 +86,7 @@ export function ServiceCard({
   actionLabel,
   hideCurrency = false,
   hidePriceNote = false,
+  note,
   actions,
   expandAriaLabel = 'Expand',
 }: ServiceCardProps) {
@@ -98,6 +100,8 @@ export function ServiceCard({
 
   const resolvedBadgeVariant =
     badgeVariant ?? (pathname.startsWith('/namliya/service-offers') ? 'blue' : 'gold')
+
+  const providerBadgeClassName = pathname.startsWith('/khalli-khales') ? 'text-soft' : undefined
 
   const handleSaveClick = () => {
     const next = !isSaved
@@ -202,7 +206,12 @@ export function ServiceCard({
               <span aria-hidden="true" className="text-soft">
                 ·
               </span>
-              <StatusBadge shape="pill" label={providerRate} size="default" />
+              <StatusBadge
+                shape="pill"
+                label={providerRate}
+                size="default"
+                className={providerBadgeClassName}
+              />
             </>
           )}
         </div>
@@ -215,8 +224,18 @@ export function ServiceCard({
             </Avatar>
           )}
           <span className="font-body font-bold text-[13px] text-soft">{providerName}</span>
-          <StatusBadge shape="pill" label={providerRate} size="default" />
+          <StatusBadge
+            shape="pill"
+            label={providerRate}
+            size="default"
+            className={providerBadgeClassName}
+          />
         </div>
+      )}
+      {browse && note && (
+        <span className="mt-2 inline-block self-start whitespace-nowrap rounded-full border-[2.5px] border-dashed border-ink bg-surface px-3.5 py-1.25 font-body text-[13.5px] font-extrabold text-soft">
+          {note}
+        </span>
       )}
       <div
         className={cn(

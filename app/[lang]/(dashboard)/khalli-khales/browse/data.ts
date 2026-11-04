@@ -10,6 +10,7 @@ export type KhalliKhalesOffer = {
   price: string
   free?: boolean
   badgeVariant?: 'blue' | 'gold'
+  note?: string
   detail: ServiceDetail
 }
 
@@ -140,16 +141,16 @@ export const publicToMembers: KhalliKhalesOffer[] = [
     detail: {
       type: 'صحة · من الجمهور لأعضاء الفرق',
       title: 'استشارة تغذية للعاملين',
-      desc: 'جلسة أونلاين لمراجعة النظام الغذائي ووضع خطة بسيطة قابلة للتطبيق.',
+      desc: 'جلسة أونلاين لمراجعة النظام الغذائي ووضع خطة بسيطة قابلة للتطبيق — العرض ده شخصي، بيتحجز من حساب العضو نفسه.',
       cards: {
         firstCard: { title: 'القيمة', price: '١٥', currency: 'شهمهم' },
         restCards: [
-          { header: 'المدة', description: 'جلسة واحدة' },
-          { header: 'الإتاحة', description: 'متاحة' },
+          { header: 'المدة', description: 'ساعة' },
+          { header: 'الحجز', description: 'من حساب العضو' },
         ],
       },
-      info: 'إيه اللي هتستلمه',
-      data: ['مراجعة النظام الغذائي الحالي', 'خطة بسيطة قابلة للتطبيق', 'متابعة مختصرة بعد الجلسة'],
+      info: 'مهم تعرفه',
+      data: ['المؤسسة ما بتحجزش نيابةً عن أعضائها', 'القيمة بتتخصم من مخصص العضو الشهري'],
       providerName: 'دعاء فهمي',
       providerRate: 'عامر',
       request: 'شارك مع الفريق',
@@ -167,16 +168,16 @@ export const publicToMembers: KhalliKhalesOffer[] = [
     detail: {
       type: 'قانوني · من الجمهور لأعضاء الفرق',
       title: 'استشارة قانونية شخصية',
-      desc: 'استشارة في عقود العمل والحقوق، للأفراد مش للمؤسسات.',
+      desc: 'استشارة في عقود العمل والحقوق، للأفراد مش للمؤسسات — العرض ده شخصي، بيتحجز من حساب العضو نفسه.',
       cards: {
         firstCard: { title: 'القيمة', price: '٢٠', currency: 'شهمهم' },
         restCards: [
           { header: 'المدة', description: 'جلسة واحدة' },
-          { header: 'الإتاحة', description: 'متاح' },
+          { header: 'الحجز', description: 'من حساب العضو' },
         ],
       },
-      info: 'إيه اللي هتستلمه',
-      data: ['مراجعة عقد العمل', 'توضيح الحقوق والالتزامات', 'توصيات مكتوبة'],
+      info: 'مهم تعرفه',
+      data: ['المؤسسة ما بتحجزش نيابةً عن أعضائها', 'القيمة بتتخصم من مخصص العضو الشهري'],
       providerName: 'مصطفى لبيب',
       providerRate: 'عامر',
       request: 'شارك مع الفريق',
@@ -194,16 +195,16 @@ export const publicToMembers: KhalliKhalesOffer[] = [
     detail: {
       type: 'تعليم · من الجمهور لأعضاء الفرق',
       title: 'دروس لغة إنجليزية للمبتدئين',
-      desc: 'أربع جلسات أسبوعية أونلاين، بمجموعات صغيرة أو فردي.',
+      desc: 'أربع جلسات أسبوعية أونلاين، بمجموعات صغيرة أو فردي — العرض ده شخصي، بيتحجز من حساب العضو نفسه.',
       cards: {
         firstCard: { title: 'القيمة', price: '١٨', currency: 'شهمهم' },
         restCards: [
           { header: 'المدة', description: '٤ جلسات' },
-          { header: 'الإتاحة', description: 'متاحة' },
+          { header: 'الحجز', description: 'من حساب العضو' },
         ],
       },
-      info: 'إيه اللي هتستلمه',
-      data: ['٤ جلسات أسبوعية أونلاين', 'مواد تدريبية', 'تقييم ختامي'],
+      info: 'مهم تعرفه',
+      data: ['المؤسسة ما بتحجزش نيابةً عن أعضائها', 'القيمة بتتخصم من مخصص العضو الشهري'],
       providerName: 'سناء عز',
       providerRate: 'كريم',
       request: 'شارك مع الفريق',
@@ -221,6 +222,7 @@ export const giftShop: KhalliKhalesOffer[] = [
     providerName: 'صوت وصورة',
     providerRate: 'عامر',
     price: '٤٥',
+    note: '١٢ مقعدًا · فاضل ٦ · ١٢ سبتمبر',
     detail: {
       type: 'ورشة · الجيفت شوب',
       title: 'ورشة بودكاست للمبتدئين',
@@ -234,6 +236,10 @@ export const giftShop: KhalliKhalesOffer[] = [
       },
       info: 'البرنامج',
       data: ['اليوم الأول: الفكرة والسكريبت والصوت', 'اليوم التاني: التسجيل والمونتاج والنشر'],
+      extra: {
+        info: 'إزاي اتحسب السعر',
+        data: ['ساعات المقدِّمين × سعر الساعة ÷ عدد المقاعد'],
+      },
       providerName: 'صوت وصورة',
       providerRate: 'عامر',
       request: 'شوف صفحة العرض',
@@ -248,6 +254,7 @@ export const giftShop: KhalliKhalesOffer[] = [
     providerName: 'حلقة',
     providerRate: 'عامر',
     price: '٦٠',
+    note: '١٥ مقعدًا · فاضل ٢ · يبدأ ١ أكتوبر',
     detail: {
       type: 'برنامج · الجيفت شوب',
       title: 'برنامج الأرشفة الصوتية — ٦ أسابيع',
@@ -255,8 +262,8 @@ export const giftShop: KhalliKhalesOffer[] = [
       cards: {
         firstCard: { title: 'القيمة', price: '٦٠', currency: 'شهمهم' },
         restCards: [
-          { header: 'المدة', description: '٦ أسابيع' },
-          { header: 'المقاعد', description: '١٥ — فاضل ٤' },
+          { header: 'المقاعد', description: '١٥ — فاضل ٢' },
+          { header: 'التاريخ', description: 'يبدأ ١ أكتوبر' },
         ],
       },
       info: 'إيه اللي هتستلمه',
@@ -276,6 +283,7 @@ export const giftShop: KhalliKhalesOffer[] = [
     providerRate: 'عامر',
     price: 'مجانًا',
     free: true,
+    note: '٦٠ مقعدًا · فاضل ٢٣ · ٢٨ سبتمبر',
     detail: {
       type: 'فعالية · الجيفت شوب',
       title: 'ليلة عروض أفلام قصيرة',
@@ -283,8 +291,8 @@ export const giftShop: KhalliKhalesOffer[] = [
       cards: {
         firstCard: { title: 'القيمة', price: 'مجانًا', currency: '' },
         restCards: [
-          { header: 'المقاعد', description: '٨٠ — فاضل ٣٢' },
-          { header: 'التاريخ', description: '٢٠ سبتمبر' },
+          { header: 'المقاعد', description: '٦٠ — فاضل ٢٣' },
+          { header: 'التاريخ', description: '٢٨ سبتمبر' },
         ],
       },
       info: 'البرنامج',
@@ -319,6 +327,61 @@ export const giftShop: KhalliKhalesOffer[] = [
       data: ['قاعة هادئة', 'واي فاي', 'إضاءة طبيعية'],
       providerName: 'حلقة',
       providerRate: 'كريم',
+      request: 'شوف صفحة العرض',
+      close: 'اقفل',
+    },
+  },
+  {
+    id: 'g5',
+    category: 'كورس',
+    title: 'كورس التصوير الوثائقي',
+    desc: 'ستة أسابيع في بناء القصة البصرية والتصوير في المواقع الحقيقية.',
+    providerName: 'صوت وصورة',
+    providerRate: 'عامر',
+    price: '٥٥',
+    note: '١٠ مقاعد · مكتمل · يبدأ ٥ أكتوبر',
+    detail: {
+      type: 'كورس · الجيفت شوب',
+      title: 'كورس التصوير الوثائقي',
+      desc: 'ستة أسابيع في بناء القصة البصرية والتصوير في المواقع الحقيقية.',
+      cards: {
+        firstCard: { title: 'القيمة', price: '٥٥', currency: 'شهمهم' },
+        restCards: [
+          { header: 'المقاعد', description: '١٠ — مكتمل' },
+          { header: 'التاريخ', description: 'يبدأ ٥ أكتوبر' },
+        ],
+      },
+      info: 'إيه اللي هتستلمه',
+      data: ['بناء القصة البصرية', 'تصوير في مواقع حقيقية', 'مراجعة أعمال نهائية'],
+      providerName: 'صوت وصورة',
+      providerRate: 'عامر',
+      request: 'شوف صفحة العرض',
+      close: 'اقفل',
+    },
+  },
+  {
+    id: 'g6',
+    category: 'خدمة',
+    title: 'جلسة تصوير شخصية للمبدعين',
+    desc: 'ساعة ونصف في الاستوديو أو في مكانكم، والتسليم ١٥ صورة معدَّلة.',
+    providerName: 'صوت وصورة',
+    providerRate: 'عامر',
+    price: '٢٥',
+    detail: {
+      type: 'خدمة · الجيفت شوب',
+      title: 'جلسة تصوير شخصية للمبدعين',
+      desc: 'ساعة ونصف في الاستوديو أو في مكانكم، والتسليم ١٥ صورة معدَّلة.',
+      cards: {
+        firstCard: { title: 'القيمة', price: '٢٥', currency: 'شهمهم' },
+        restCards: [
+          { header: 'المدة', description: 'ساعة ونصف' },
+          { header: 'التسليم', description: '١٥ صورة معدَّلة' },
+        ],
+      },
+      info: 'إيه اللي هتستلمه',
+      data: ['جلسة في الاستوديو أو مكانكم', '١٥ صورة معدَّلة', 'ملفات عالية الدقة'],
+      providerName: 'صوت وصورة',
+      providerRate: 'عامر',
       request: 'شوف صفحة العرض',
       close: 'اقفل',
     },
