@@ -95,5 +95,29 @@
     "saved": "محفوظ ♥",
     "allowanceTitle": "مخصصك الشهري",
     "allowanceBody": "فاضلك <b>{remaining} {currency}</b> من {total} الشهر ده. سعر المقعد {price} — يعني هتصرف <b>{over}</b> من مخصص الشهور الجاية، وهنوريك التفصيل قبل التأكيد."
+  },
+  "khalliKhalesOffer": {
+    "back": "رجوع لخلي خالص",
+    "sourceTag": "من الجمهور للمؤسسات",
+    "facts": {
+      "value": "القيمة",
+      "hours": "عدد الساعات",
+      "hourlyRate": "سعر الساعة",
+      "availability": "الإتاحة",
+      "delivery": "التسليم",
+      "category": "الفئة"
+    },
+    "deliverablesTitle": "إيه اللي هتستلمه",
+    "formulaTitle": "إزاي اتحسبت القيمة؟",
+    "priceLabel": "قيمة الخدمة",
+    "vatNote": "+ ١٤٪ ض.ق.م على قيمة المقايضة",
+    "profileLink": "افتح الملف الشخصي",
+    "ratingTitle": "مؤشر الرضا",
+    "ratingSubtitle": "قيّمها {count} عضوًا",
+    "sourceTitle": "من الجمهور",
+    "sourceSubtitle": "فرد — مش تابعة لمؤسسة",
+    "request": "اطلب",
+    "save": "احفظ ♡",
+    "saved": "محفوظ ♥"
   }
 }

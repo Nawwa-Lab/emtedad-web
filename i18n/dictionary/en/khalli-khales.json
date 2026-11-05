@@ -95,5 +95,29 @@
     "saved": "Saved ♥",
     "allowanceTitle": "Your monthly allowance",
     "allowanceBody": "You have <b>{remaining} {currency}</b> left of {total} this month. The seat price is {price} — so you'll spend <b>{over}</b> from next months' allowance, and we'll show you the details before confirming."
+  },
+  "khalliKhalesOffer": {
+    "back": "Back to Khalli Khales",
+    "sourceTag": "From the public to organizations",
+    "facts": {
+      "value": "Value",
+      "hours": "Hours",
+      "hourlyRate": "Hourly rate",
+      "availability": "Availability",
+      "delivery": "Delivery",
+      "category": "Category"
+    },
+    "deliverablesTitle": "What you'll receive",
+    "formulaTitle": "How was the value calculated?",
+    "priceLabel": "Service value",
+    "vatNote": "+ 14% VAT on the barter value",
+    "profileLink": "Open profile",
+    "ratingTitle": "Satisfaction index",
+    "ratingSubtitle": "Rated by {count} members",
+    "sourceTitle": "From the public",
+    "sourceSubtitle": "Individual — not affiliated with an organization",
+    "request": "Request",
+    "save": "Save ♡",
+    "saved": "Saved ♥"
   }
 }

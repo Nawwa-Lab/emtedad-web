@@ -37,6 +37,11 @@ type MemberInfo = {
   badge?: string
 }
 
+type NoteInfo = {
+  title: string
+  subtitle?: string
+}
+
 type RequestAction = {
   label: string
   href?: string
@@ -53,6 +58,7 @@ type SaveAction = {
 interface ProviderRequestCardProps {
   provider?: ProviderInfo
   satisfaction?: SatisfactionInfo
+  note?: NoteInfo
   member?: MemberInfo
   request?: RequestAction
   save?: SaveAction
@@ -72,6 +78,7 @@ const rowStyles =
 export function ProviderRequestCard({
   provider,
   satisfaction,
+  note,
   member,
   request,
   save,
@@ -157,6 +164,22 @@ export function ProviderRequestCard({
               {satisfaction.dialog ?? <SatisfactionIndex />}
             </Dialog>
           )}
+        </div>
+      )}
+
+      {/* Note row */}
+      {note && (
+        <div className={rowStyles}>
+          <div className="min-w-0 flex-1">
+            <div className="font-display text-[18px] sm:text-[20px] leading-tight wrap-break-word">
+              {note.title}
+            </div>
+            {note.subtitle && (
+              <p className="font-semibold font-body text-[13px] sm:text-[14px] text-soft wrap-break-word">
+                {note.subtitle}
+              </p>
+            )}
+          </div>
         </div>
       )}
 
