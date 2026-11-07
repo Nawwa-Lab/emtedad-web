@@ -96,6 +96,30 @@
     "allowanceTitle": "مخصصك الشهري",
     "allowanceBody": "فاضلك <b>{remaining} {currency}</b> من {total} الشهر ده. سعر المقعد {price} — يعني هتصرف <b>{over}</b> من مخصص الشهور الجاية، وهنوريك التفصيل قبل التأكيد."
   },
+  "khalliKhalesRegistration": {
+    "back": "رجوع للنشاط",
+    "title": "تأكيد التسجيل",
+    "alertTitle": "هتصرف من مخصص الشهور الجاية — موافق؟",
+    "alertBody": "سعر المقعد {price} {currency}، ومخصصك الشهري {total} وفاضلك منه {remaining} بس. الباقي ({over} {currency}) هيتخصم مقدَّمًا من مخصص أكتوبر ونوفمبر.",
+    "breakdownTitle": "الصرف المقدَّم بالتفصيل",
+    "breakdownSubtitle": "{price} {currency} = مخصص ٣ شهور — الشهور اللي هتتخصم مش هيبقى فيها رصيد للحجز.",
+    "months": {
+      "september": "سبتمبر (الحالي)",
+      "october": "أكتوبر",
+      "november": "نوفمبر"
+    },
+    "monthValue": "من {total}",
+    "monthValueRemaining": "من {total} الفاضلين",
+    "totalLabel": "الإجمالي",
+    "breakdownFooter": "هيفضلك <b>{remaining} {currency}</b> في نوفمبر، ومخصص ديسمبر كامل زي ما هو.",
+    "confirm": "أيوه، سجّلني",
+    "cancel": "رجوع",
+    "doneTitle": "اتسجّلت في الورشة",
+    "doneBody": "مقعدك اتحجز في <b>{title}</b> — {schedule}، {place}. اتخصم {price} {currency} من مخصص سبتمبر وأكتوبر ونوفمبر.",
+    "doneReminder": "هيوصلك تذكير قبل الورشة بيوم، وصوت وصورة هتقدر تكلّمك من المحادثة لو فيه أي تفاصيل.",
+    "openConversation": "افتح المحادثة",
+    "backToGiftShop": "رجوع للجيفت شوب"
+  },
   "khalliKhalesOffer": {
     "back": "رجوع لخلي خالص",
     "sourceTag": "من الجمهور للمؤسسات",
