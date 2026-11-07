@@ -314,5 +314,42 @@
     "postButton": "اعتمد وانشر",
     "deleteButton": "احذف",
     "note": "<b>الاعتماد للمديرين بس</b>. أعضاء الفريق يقدروا يعدّلوا مسوداتهم لحد ما تتعتمد أو تترفض — وبعد النشر التعديل بيرجعلكم."
+  },
+  "createRequestNamliya": {
+    "backToService": "رجوع للخدمة",
+    "formTitle": "قدِّم طلبك",
+    "formDesc": "قدّم طلبك وكمِّلوا الاتفاق في المحادثة — الطلب بيفتح محادثة خاصة بينكم وبين صوت وصورة.",
+    "durationLabel": "المدة المطلوبة",
+    "durationUnitAria": "وحدة المدة",
+    "hours": "بالساعات",
+    "days": "بالأيام",
+    "durationPlaceholder": "مثال: ٦ ساعات — يوم الفعالية كامل",
+    "preferredDate": "التاريخ المفضّل",
+    "preferredDatePlaceholder": "١٢ سبتمبر",
+    "alternativeDate": "تاريخ بديل",
+    "alternativeDatePlaceholder": "١٩ سبتمبر",
+    "notes": "ملاحظات",
+    "optional": "(اختياري)",
+    "notesPlaceholder": "أي تفاصيل تساعد الطرف التاني يفهم احتياجكم — المكان، عدد الحضور، حاجة خاصة…",
+    "submit": "ابعت الطلب",
+    "sentTitle": "اتبعت!",
+    "sentDesc": "وصل طلبكم لصوت وصورة، واتفتحت محادثة خاصة بالتبادل ده. كمِّلوا الاتفاق هناك — والشهمهم ما بيتحوّلش غير بعد اعتماد التسليم.",
+    "openConversation": "افتح المحادثة",
+    "myRequests": "شوف طلباتي",
+    "serviceTitle": "الخدمة المطلوبة",
+    "organizationRole": "مؤسسة عضو",
+    "value": "القيمة",
+    "availability": "الإتاحة",
+    "executingMember": "العضو المنفِّذ",
+    "balanceTitle": "رصيدكم بعد الطلب",
+    "balance": "رصيد الشهمهم",
+    "requestValue": "قيمة الطلب",
+    "vatLabel": "ض.ق.م ١٤٪",
+    "onExchangeValue": "على قيمة المقايضة",
+    "afterApproval": "بعد الاعتماد",
+    "balanceNote": "الشهمهم ما بيتخصمش دلوقتي — بيتخصم بعد ما تعتمدوا التسليم.",
+    "validation": {
+      "durationRequired": "الرجاء تحديد المدة المطلوبة"
+    }
   }
 }
