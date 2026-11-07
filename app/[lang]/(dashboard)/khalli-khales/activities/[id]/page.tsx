@@ -20,7 +20,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ id: s
   const t = useTranslations('khalliKhalesActivity')
   const global = useTranslations('global')
   const activity = findActivity(id)
-  const providerName = global('organizations.sawt')
+  const providerName = global(`organizations.${activity.provider.nameKey}`)
 
   const factValues: Record<(typeof factLabels)[number], string> = {
     price: `${activity.price} ${global('currency')}`,
