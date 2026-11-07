@@ -4,13 +4,13 @@
 
 ## Migration progress
 
-**Status: In progress** — `█████████████░░░░░░░` **64% (69/108)**
+**Status: In progress** — `█████████████░░░░░░░` **67% (72/108)**
 
 | Work status                         | Rows |
 | ----------------------------------- | ---: |
-| Completed (`migrated` + `done`)     |   69 |
+| Completed (`migrated` + `done`)     |   72 |
 | Awaiting visual review (`existing`) |    0 |
-| Not started (`proposed`)            |   39 |
+| Not started (`proposed`)            |   36 |
 
 | Family          | Progress          | Complete | Review | Proposed | Total |
 | --------------- | ----------------- | -------: | -----: | -------: | ----: |
@@ -27,7 +27,7 @@
 | fahs-mahs       | `██████████` 100% |       10 |      0 |        0 |    10 |
 | genny           | `██████████` 100% |        3 |      0 |        0 |     3 |
 | hakima          | `██████████` 100% |        9 |      0 |        0 |     9 |
-| khalli-khales   | `███████░░░` 67%  |        6 |      0 |        3 |     9 |
+| khalli-khales   | `██████████` 100% |        9 |      0 |        0 |     9 |
 | landing         | `██████████` 100% |        4 |      0 |        0 |     4 |
 | management      | `█████░░░░░` 50%  |        2 |      0 |        2 |     4 |
 | member          | `██████████` 100% |        1 |      0 |        0 |     1 |
@@ -91,9 +91,9 @@ For one migration batch, read only the selected rows and their source HTML. Conv
 | `designs/panel-32c-gift-shop.html`                          | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/gift-shop/page.tsx`                                 | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | migrated | Gift-shop grid with view-only pill, rich note, search, seat/date note pills, detail dialogs, and spending-cap banner from typed fixtures.      |
 | `designs/panel-33-activity-detail.html`                     | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/activities/[id]/page.tsx`                           | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | migrated | Activity detail with program, facts, pricing formula, provider satisfaction, save toggle, and monthly allowance from typed fixtures.           |
 | `designs/panel-34-khalli-khales-offer-detail.html`          | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/offers/[id]/page.tsx`                               | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | migrated | Offer detail with source tag, facts, deliverables, pricing formula, provider, satisfaction, and source note from typed fixtures.               |
-| `designs/panel-35-registration-confirm.html`                | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/activities/[id]/registration-confirmation/page.tsx` | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | proposed |                                                                                                                                                |
-| `designs/panel-35a-registration-confirm-within-budget.html` | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/activities/[id]/registration-confirmation/page.tsx` | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | proposed | Variant of panel 35.                                                                                                                           |
-| `designs/panel-36-post-khalli-khales-org.html`              | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/offers/create/page.tsx`                             | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | proposed |                                                                                                                                                |
+| `designs/panel-35-registration-confirm.html`                | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/activities/[id]/registration-confirmation/page.tsx` | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | migrated | Advance-spending confirmation with month breakdown, budget alert, and in-page registered state from typed fixtures.                            |
+| `designs/panel-35a-registration-confirm-within-budget.html` | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/activities/[id]/registration-confirmation/page.tsx` | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | migrated | Same route as panel 35; within-budget activity shows the calm allowance bar and September ledger instead of the advance breakdown.             |
+| `designs/panel-36-post-khalli-khales-org.html`              | khalli-khales   | `app/[lang]/(dashboard)/khalli-khales/offers/create/page.tsx`                             | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | migrated |                                                                                                                                                |
 | `designs/panel-37-post-community.html`                      | community       | `app/[lang]/(dashboard)/community/posts/create/page.tsx`                                  | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | proposed |                                                                                                                                                |
 | `designs/panel-38-my-offers-org-community.html`             | community       | `app/[lang]/(dashboard)/community/my-offers/organizations/page.tsx`                       | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | proposed |                                                                                                                                                |
 | `designs/panel-39-participants-attendance.html`             | community       | `app/[lang]/(dashboard)/community/activities/[id]/participants/page.tsx`                  | `components/ServicesCard.tsx`, `components/EntityCard.tsx`, `components/ui/*`                                                                  | proposed |                                                                                                                                                |

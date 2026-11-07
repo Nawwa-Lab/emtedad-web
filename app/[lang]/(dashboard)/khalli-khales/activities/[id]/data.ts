@@ -17,6 +17,7 @@ export type ActivityDetail = {
   price: string
   provider: {
     profileHref: string
+    nameKey: 'sawt' | 'halaqa'
   }
   ratingCount: string
   allowance: {
@@ -57,6 +58,7 @@ const activities: ActivityDetail[] = [
     price: '٤٥',
     provider: {
       profileHref: '/organization/123',
+      nameKey: 'sawt',
     },
     ratingCount: '٤٨',
     allowance: {
@@ -65,6 +67,42 @@ const activities: ActivityDetail[] = [
       price: '٤٥',
       over: '٣٥',
       usedPercent: 40,
+    },
+  },
+  {
+    id: 'g7',
+    category: 'ورشة',
+    seatsLeft: '٤',
+    title: 'ورشة تصوير بالموبايل — يوم واحد',
+    description:
+      'يوم واحد بنتعلم فيه أساسيات التصوير بالموبايل: الإضاءة والتكوين وتحرير الصور. هتخرج بصور جاهزة للنشر ومجموعة صور شخصية.',
+    facts: {
+      seats: '١٦ — فاضل ٤',
+      date: '٢٠ سبتمبر',
+      time: '١١ ص — ٤ م',
+      place: 'عند حلقة',
+      deadline: '١٧ سبتمبر',
+    },
+    program: [
+      'الصبح: أساسيات الإضاءة والتكوين',
+      'بعد الضهر: تطبيق عملي وتحرير الصور',
+      'التسليم: مجموعة صور جاهزة للنشر',
+    ],
+    audience: ['مبتدئين في التصوير', 'أي حد عايز يطلع صور أحسن من موبايله'],
+    formula:
+      '(ساعات المقدِّمين × سعر الساعة) ÷ عدد المقاعد = (٥ ساعات × ٤٨ شهمهم) ÷ ١٦ مقعدًا = ١٥ شهمهم للمقعد.',
+    price: '١٥',
+    provider: {
+      profileHref: '/organization/456',
+      nameKey: 'halaqa',
+    },
+    ratingCount: '٣٢',
+    allowance: {
+      remaining: '٢٥',
+      total: '٢٥',
+      price: '١٥',
+      over: '٠',
+      usedPercent: 0,
     },
   },
 ]
