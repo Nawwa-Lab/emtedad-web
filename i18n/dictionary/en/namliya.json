@@ -315,5 +315,42 @@
     "postButton": "Approve and Publish",
     "deleteButton": "Delete",
     "note": "<b>Approval is for managers only</b>. Team members can edit their drafts until they're approved or rejected, and after publishing, edits come back to you."
+  },
+  "createRequestNamliya": {
+    "backToService": "Back to service",
+    "formTitle": "Submit your request",
+    "formDesc": "Submit your request and complete the agreement in chat — the request opens a private conversation between you and Sawt w Soura.",
+    "durationLabel": "Required duration",
+    "durationUnitAria": "Duration unit",
+    "hours": "In hours",
+    "days": "In days",
+    "durationPlaceholder": "Example: 6 hours — the full event day",
+    "preferredDate": "Preferred date",
+    "preferredDatePlaceholder": "12 September",
+    "alternativeDate": "Alternative date",
+    "alternativeDatePlaceholder": "19 September",
+    "notes": "Notes",
+    "optional": "(optional)",
+    "notesPlaceholder": "Any details that help the other party understand your needs — location, number of attendees, something special…",
+    "submit": "Send request",
+    "sentTitle": "Sent!",
+    "sentDesc": "Your request reached Sawt w Soura and a private conversation was opened for this exchange. Complete the agreement there — Shahamham is only transferred after delivery is approved.",
+    "openConversation": "Open conversation",
+    "myRequests": "View my requests",
+    "serviceTitle": "Requested service",
+    "organizationRole": "Member organization",
+    "value": "Value",
+    "availability": "Availability",
+    "executingMember": "Executing member",
+    "balanceTitle": "Your balance after the request",
+    "balance": "Shahamham balance",
+    "requestValue": "Request value",
+    "vatLabel": "VAT 14%",
+    "onExchangeValue": "On the exchange value",
+    "afterApproval": "After approval",
+    "balanceNote": "Shahamham is not deducted now — it is deducted after you approve the delivery.",
+    "validation": {
+      "durationRequired": "Please specify the required duration"
+    }
   }
 }

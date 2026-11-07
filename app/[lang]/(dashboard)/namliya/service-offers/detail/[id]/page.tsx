@@ -129,7 +129,7 @@ export default async function ServiceOfferPage() {
               role: 'العضو المنفِّذ · مصوّر ومدير إنتاج',
               badge: 'عامر',
             }}
-            request={{ label: service.requestLink, href: '/request' }}
+            request={{ label: service.requestLink, href: '/namliya/requests/create' }}
             save={{ label: service.saveToFavorites }}
           />
         </aside>
