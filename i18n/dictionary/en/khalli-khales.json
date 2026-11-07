@@ -152,5 +152,83 @@
     "request": "Request",
     "save": "Save ♡",
     "saved": "Saved ♥"
+  },
+  "khalliKhalesOfferCreate": {
+    "back": "Back to Khalli Khales",
+    "pageTitle": "Khalli Khales",
+    "pageDesc": "Publish to the public · from {org}",
+    "typeTitle": "What are you publishing?",
+    "typeSub": "Pick the type first — each type opens different fields, and pricing changes with it.",
+    "types": {
+      "workshop": { "title": "Workshop", "desc": "Limited days with seats" },
+      "course": { "title": "Course", "desc": "Several weeks with seats" },
+      "program": { "title": "Program", "desc": "A long program with seats" },
+      "event": { "title": "Event", "desc": "An event with seats or open" },
+      "service": { "title": "Service", "desc": "A human service for the public" },
+      "resource": { "title": "Resource", "desc": "Equipment or a space" }
+    },
+    "detailsTitle": "Details",
+    "titleLabel": "Title",
+    "titlePlaceholder": "A clear sentence — e.g. Podcast workshop for beginners",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "What will happen? For whom? Does it need prior experience?",
+    "descriptionHint": "The first two lines appear on the card in the gift shop.",
+    "categoryLabel": "Category",
+    "categoryPlaceholder": "Audio · Photography · Archiving",
+    "categoryHint": "One word describing the type — it shows as a tag on the card.",
+    "availabilityLabel": "Availability",
+    "availabilityFixed": "Fixed dates",
+    "availabilityOpen": "Open",
+    "from": "From",
+    "fromPlaceholder": "September 12",
+    "to": "Until",
+    "toPlaceholder": "September 13",
+    "hours": "Times",
+    "hoursPlaceholder": "5 — 9 pm",
+    "deadline": "Registration deadline",
+    "deadlinePlaceholder": "September 9",
+    "pricingTitle": "Pricing",
+    "paid": "Paid",
+    "free": "Free",
+    "activityHours": "Providers' hours",
+    "activityHoursHint": "Total hours the providers will deliver the activity.",
+    "activityHoursPlaceholder": "4",
+    "hourlyRate": "Hourly rate (1–5 Shahamham)",
+    "seats": "Number of seats",
+    "seatsPlaceholder": "20",
+    "seatFormula": "({hours} hours × {rate}) ÷ {seats} seats",
+    "serviceHours": "Service hours",
+    "serviceHoursPlaceholder": "3",
+    "serviceValue": "Service value",
+    "serviceFormula": "{hours} hours × {rate} Shahamham",
+    "resourceValue": "Loan value in Shahamham",
+    "resourcePlaceholder": "5",
+    "resourceHint": "— and the cash deposit, if any, is not subject to tax.",
+    "vatNote": "+ 14% VAT on the barter value",
+    "guideTitle": "Simple pricing guide",
+    "guideItems": [
+      "<b>Human service</b> = service hours × hourly rate (from 1 to 5 Shahamham).",
+      "<b>Organization services to the public</b> (workshops, courses, programs) = (providers' hours × hourly rate) ÷ number of seats.",
+      "The provider sets the hourly rate between 1 and 5 — these bounds protect the network from exaggeration in both directions.",
+      "You can publish <b>for free</b> — it's recorded at zero value and isn't deducted from your cap."
+    ],
+    "publish": "Publish on Khalli Khales",
+    "summary": {
+      "title": "Offer summary",
+      "type": "Type",
+      "seats": "Seats",
+      "seatPrice": "Seat price",
+      "value": "Value",
+      "note": "The public spends from their 25 Shahamham monthly allowance — and can spend from future months."
+    },
+    "cap": {
+      "title": "Your monthly cap",
+      "used": "Used",
+      "note": "Gift shop offers aren't deducted from the organization's cap — the cap is for exchanges with organizations on Namliya."
+    },
+    "note": {
+      "title": "Publishing to the public is for managers only.",
+      "body": "Team members can prepare a draft, and the manager reviews and publishes it."
+    }
   }
 }
