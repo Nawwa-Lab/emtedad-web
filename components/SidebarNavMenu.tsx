@@ -1,7 +1,7 @@
 'use client'
 
 import { type ActiveContext, type Role, useUser } from '@/contexts/UserContext'
-import { Link, usePathname, useRouter } from '@/i18n/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
 import HakimaIcon from '@/icons/balance.svg'
 import ManagementIcon from '@/icons/building.svg'
 import NamliyaIcon from '@/icons/circles.svg'
@@ -110,7 +110,6 @@ export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean 
   const tSidebar = useTranslations('sidebar')
   const tLanding = useTranslations('landing')
   const { user } = useUser()
-  const router = useRouter()
   const logout = useLogoutMutation()
 
   if (requireUser && !user) {
@@ -171,7 +170,7 @@ export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean 
           className="border-red text-red border-dashed bg-paper max-[820px]:ms-auto max-[820px]:mt-0"
           shape="square"
           effect="flat"
-          onClick={() => logout.mutate(undefined, { onSuccess: () => window.reload('/') })}
+          onClick={() => logout.mutate(undefined, { onSuccess: () => window.location.reload() })}
         >
           <LogOutIcon />
           <span className={labelClass}>{tNav('logout')}</span>

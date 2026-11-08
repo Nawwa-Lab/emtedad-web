@@ -13,6 +13,7 @@ import profiles from './profiles.json'
 import shbeik from './shbeik.json'
 import shared from './shared.json'
 import team from './team.json'
+import communication from './communication.json'
 
 const messages = {
   ...landing,
@@ -30,6 +31,7 @@ const messages = {
   ...shbeik,
   ...alaesh,
   ...team,
+  ...communication,
 }
 
 export default messages

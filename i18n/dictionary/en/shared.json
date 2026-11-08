@@ -8,6 +8,7 @@
     "genny": "Jni",
     "shbeik-lbeik": "Shbeik Lbeik",
     "managment": "Management",
+    "announcements": "Announcements",
     "etabat": "Reproaches",
     "fahs-mahs": "Exam",
     "logout": "Log out"
@@ -16,6 +17,7 @@
     "searchPlaceholder": "Search the network…",
     "searchAriaLabel": "Search",
     "quickAction": "Do a good deed +",
+    "newAnnouncement": "New announcement +",
     "logo": "Shahamham",
     "contextLabel": "I'm an organization",
     "communityContextLabel": "I'm a community member",
