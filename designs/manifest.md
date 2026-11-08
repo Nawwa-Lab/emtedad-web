@@ -4,13 +4,13 @@
 
 ## Migration progress
 
-**Status: In progress** — `█████████████░░░░░░░` **67% (72/108)**
+**Status: In progress** — `██████████████░░░░░░` **68% (73/108)**
 
 | Work status                         | Rows |
 | ----------------------------------- | ---: |
-| Completed (`migrated` + `done`)     |   72 |
+| Completed (`migrated` + `done`)     |   73 |
 | Awaiting visual review (`existing`) |    0 |
-| Not started (`proposed`)            |   36 |
+| Not started (`proposed`)            |   35 |
 
 | Family          | Progress          | Complete | Review | Proposed | Total |
 | --------------- | ----------------- | -------: | -----: | -------: | ----: |
@@ -31,7 +31,7 @@
 | landing         | `██████████` 100% |        4 |      0 |        0 |     4 |
 | management      | `█████░░░░░` 50%  |        2 |      0 |        2 |     4 |
 | member          | `██████████` 100% |        1 |      0 |        0 |     1 |
-| namliya         | `█████████░` 89%  |        8 |      0 |        1 |     9 |
+| namliya         | `██████████` 100% |        9 |      0 |        0 |     9 |
 | office          | `░░░░░░░░░░` 0%   |        0 |      0 |        6 |     6 |
 | organization    | `██████████` 100% |        4 |      0 |        0 |     4 |
 | ratings         | `░░░░░░░░░░` 0%   |        0 |      0 |        2 |     2 |
@@ -79,7 +79,7 @@ For one migration batch, read only the selected rows and their source HTML. Conv
 | `designs/panel-23-namliya-browse.html`                      | namliya         | `app/[lang]/(dashboard)/namliya/service-offers/page.tsx`                                  | `components/ServicesCard.tsx`, `components/ui/toggle-group.tsx`                                                                                | migrated | Resource offers have a separate existing route.                                                                                                |
 | `designs/panel-24-service-offer-detail.html`                | namliya         | `app/[lang]/(dashboard)/namliya/service-offers/detail/[id]/page.tsx`                      | `components/EntityCard.tsx`, `components/RequestActionCard.tsx`, `components/ui/*`                                                             | migrated |                                                                                                                                                |
 | `designs/panel-25-resource-offer-detail.html`               | namliya         | `app/[lang]/(dashboard)/namliya/resource-offers/detail/[id]/page.tsx`                     | `components/EntityCard.tsx`, `components/RequestActionCard.tsx`, `components/ui/*`                                                             | migrated |                                                                                                                                                |
-| `designs/panel-26-request-form.html`                        | namliya         | `app/[lang]/(dashboard)/namliya/requests/create/page.tsx`                                 | `components/Form.tsx`, `components/ImageDropzone.tsx`, `components/ui/*`                                                                       | proposed | Distinct from current Alaesh request form.                                                                                                     |
+| `designs/panel-26-request-form.html`                        | namliya         | `app/[lang]/(dashboard)/namliya/requests/create/page.tsx`                                 | `components/Form.tsx`, `components/ImageDropzone.tsx`, `components/ui/*`                                                                       | migrated | Request form with unit pills, dates, notes, success state, service summary, and balance breakdown from typed fixtures.                         |
 | `designs/panel-27-post-service.html`                        | namliya         | `app/[lang]/(dashboard)/namliya/service-offers/create/page.tsx`                           | `components/Form.tsx`, `components/ImageDropzone.tsx`, `components/ui/*`                                                                       | migrated |                                                                                                                                                |
 | `designs/panel-28-post-resource.html`                       | namliya         | `app/[lang]/(dashboard)/namliya/resource-offers/create/page.tsx`                          | `components/Form.tsx`, `components/ImageDropzone.tsx`, `components/ui/*`                                                                       | migrated |                                                                                                                                                |
 | `designs/panel-29-my-offers-namliya.html`                   | namliya         | `app/[lang]/(dashboard)/namliya/my-offers/page.tsx`                                       | `components/ServicesCard.tsx`, `components/ui/toggle-group.tsx`                                                                                | migrated |                                                                                                                                                |
