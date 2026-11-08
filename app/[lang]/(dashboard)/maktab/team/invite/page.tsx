@@ -20,7 +20,7 @@ const officeLinks = [
   { key: 'balances', href: '/maktab/balances' },
   { key: 'favorites', href: '/maktab/favourites' },
   { key: 'team' },
-  { key: 'notifications', href: '/maktab/notifications' },
+  { key: 'notifications', href: '/notifications' },
   { key: 'messages', href: '/maktab/messages' },
 ] as const
 

@@ -2,10 +2,13 @@
 import { Link } from '@/i18n/navigation'
 import { formatNumber } from '@/lib/utils/index'
 import { useLocale, useTranslations } from 'next-intl'
+import { useUser } from '@/contexts/UserContext'
 
-export function NotificationText({ notificationsCount = 3 }: { notificationsCount?: number }) {
+export function NotificationText({ notificationsCount }: { notificationsCount?: number }) {
   const tSidebar = useTranslations('sidebar')
   const locale = useLocale()
+  const { unreadNotificationsCount } = useUser()
+  const count = notificationsCount ?? unreadNotificationsCount
 
   return (
     <Link
@@ -16,11 +19,11 @@ export function NotificationText({ notificationsCount = 3 }: { notificationsCoun
       <span className="font-cairo flex items-center gap-2.5 font-bold text-sm rounded-xl py-2.5 px-3.5 decoration-0">
         {tSidebar('notifications')}
       </span>
-      <span className="relative font-cairo w-4.5 h-4.5 rounded-full bg-gold text-ink text-xs grid place-items-center">
-        {formatNumber(notificationsCount, {
-          locale,
-        })}
-      </span>
+      {count > 0 && (
+        <span className="relative font-cairo w-4.5 h-4.5 rounded-full bg-gold text-ink text-xs grid place-items-center">
+          {formatNumber(count, { locale })}
+        </span>
+      )}
     </Link>
   )
 }

@@ -1,0 +1,99 @@
+{
+  "notifications": {
+    "title": "Notifications",
+    "description": "{name} · {count} unread",
+    "officeNavLabel": "Office sections",
+    "officeNav": {
+      "balances": "Balances",
+      "favorites": "Saved",
+      "team": "Team management",
+      "notifications": "Notifications",
+      "messages": "Messages"
+    },
+    "groups": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "week": "This week",
+      "older": "Earlier"
+    },
+    "types": {
+      "requestTitle": "A new request arrived for your offer",
+      "requestBody": "A new request is waiting for your organization’s response.",
+      "completedTitle": "An exchange was marked complete",
+      "completedBody": "Review the exchange and any remaining steps for your organization."
+    },
+    "emptyTitle": "No notifications yet",
+    "emptyDescription": "Updates concerning your account or organization will appear here.",
+    "loading": "Loading notifications…",
+    "error": "Notifications could not be loaded. Try again."
+  },
+  "announcements": {
+    "title": "Announcements",
+    "description": "Updates the team sends to the network and the meeting host rotation",
+    "tabsLabel": "Announcement sections",
+    "newTab": "New announcement",
+    "historyTab": "Previous announcements",
+    "meetingsTab": "Network meetings",
+    "formTitle": "Write the announcement",
+    "titleLabel": "Title",
+    "titlePlaceholder": "A clear, concise title",
+    "bodyLabel": "Message",
+    "bodyPlaceholder": "Write the announcement details…",
+    "audienceLabel": "Who can see it",
+    "audienceHint": "The announcement is sent in the app and by email. Choose only the relevant audiences.",
+    "audiences": {
+      "organizations": "Organizations",
+      "team_members": "Team members",
+      "public": "Public members"
+    },
+    "previewLabel": "Member preview",
+    "previewTitle": "Announcement title",
+    "previewBody": "Announcement text…",
+    "publish": "Send announcement",
+    "saveDraft": "Save draft",
+    "published": "Sent",
+    "draft": "Draft",
+    "editDraft": "Resume draft",
+    "newAfterEdit": "New announcement",
+    "savedTitle": "Draft saved",
+    "publishedTitle": "Announcement sent",
+    "errorTitle": "Announcement could not be saved",
+    "emptyHistory": "No announcements or drafts yet.",
+    "loading": "Loading announcements…",
+    "detailTitle": "Announcement",
+    "detailDescription": "A message published to the network",
+    "detailLoading": "Loading announcement…",
+    "detailError": "This announcement could not be loaded.",
+    "detailBack": "Back to notifications",
+    "meetingsNoticeTitle": "The team does not publish meeting announcements",
+    "meetingsNoticeBody": "The system randomly orders organizations at the start of the year and invites one each month. An organization may accept or defer; if it defers, the next organization is invited immediately. The accepting organization publishes the announcement to the network from its own account.",
+    "meetingsOrderTitle": "2025 hosting order",
+    "meetingsOrderDescription": "The order was randomly drawn on January 1 and does not change. The team can only view it.",
+    "meetingHosts": {
+      "storyHouse": {
+        "name": "Story House",
+        "detail": "Hosted the August meeting · 34 attended"
+      },
+      "cityVoice": {
+        "name": "City Voice Center",
+        "detail": "Deferred its turn — moved to the end of the order"
+      },
+      "noonHouse": {
+        "name": "Noon Publishing House",
+        "detail": "Hosted the September meeting · 28 attended"
+      },
+      "mishkah": {
+        "name": "Mishkah Culture",
+        "detail": "Invited to host October — awaiting a response (3 days left)"
+      },
+      "workshopStudio": {
+        "name": "Workshop Studio",
+        "detail": "Scheduled for November — or October if Mishkah defers"
+      },
+      "bigNight": {
+        "name": "The Big Night Troupe",
+        "detail": "Scheduled for December"
+      }
+    }
+  }
+}

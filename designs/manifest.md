@@ -4,13 +4,13 @@
 
 ## Migration progress
 
-**Status: In progress** — `██████████████░░░░░░` **68% (73/108)**
+**Status: In progress** — `██████████████░░░░░░` **69% (74/108)**
 
 | Work status                         | Rows |
 | ----------------------------------- | ---: |
-| Completed (`migrated` + `done`)     |   73 |
+| Completed (`migrated` + `done`)     |   74 |
 | Awaiting visual review (`existing`) |    0 |
-| Not started (`proposed`)            |   35 |
+| Not started (`proposed`)            |   34 |
 
 | Family          | Progress          | Complete | Review | Proposed | Total |
 | --------------- | ----------------- | -------: | -----: | -------: | ----: |

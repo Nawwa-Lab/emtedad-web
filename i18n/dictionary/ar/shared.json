@@ -8,6 +8,7 @@
     "genny": "جني",
     "shbeik-lbeik": "شبّيك لبيك",
     "managment": "إدارة",
+    "announcements": "الإعلانات",
     "etabat": "عتابات",
     "fahs-mahs": "فحص محص",
     "logout": "تسجيل الخروج"
@@ -16,6 +17,7 @@
     "searchPlaceholder": "ابحث في الشبكة…",
     "searchAriaLabel": "بحث",
     "quickAction": "اعمل معروف +",
+    "newAnnouncement": "إعلان جديد +",
     "logo": "شهمهم",
     "contextLabel": "أنا مؤسسة",
     "communityContextLabel": "أنا جمهور",
