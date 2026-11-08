@@ -5,16 +5,19 @@ import { cn } from 'cn'
 import { BellIcon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { Button } from './ui/button'
+import { useUser } from '@/contexts/UserContext'
 
-export function NotificationBell({ notificationsCount = 3 }: { notificationsCount?: number }) {
+export function NotificationBell({ notificationsCount }: { notificationsCount?: number }) {
   const tSidebar = useTranslations('sidebar')
   const locale = useLocale()
+  const { unreadNotificationsCount } = useUser()
+  const count = notificationsCount ?? unreadNotificationsCount
 
   return (
     <Link
       href="/notifications"
       aria-label={tSidebar('notifications')}
-      className={cn(notificationsCount && 'origin-top animate-ring')}
+      className={cn(count > 0 && 'origin-top animate-ring')}
     >
       <Button
         size="icon"
@@ -23,9 +26,7 @@ export function NotificationBell({ notificationsCount = 3 }: { notificationsCoun
         effect="flat"
         className="bg-paper size-11.5"
         aria-label={tSidebar('notifications')}
-        count={formatNumber(notificationsCount, {
-          locale,
-        })}
+        count={count ? formatNumber(count, { locale }) : undefined}
       >
         <BellIcon className="w-auto stroke-ink size-5 stroke-2" />
       </Button>

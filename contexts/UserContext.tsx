@@ -2,6 +2,7 @@
 
 import { type CurrentUserProfile, useCurrentUserQuery } from '@/services/auth'
 import { useSessionStream } from '@/services/auth/session-stream'
+import { useUnreadCountQuery } from '@/services/notifications'
 import { Loader } from '@/components/ui/loader'
 import { type ReactNode, createContext, useCallback, useContext, useMemo } from 'react'
 
@@ -14,6 +15,7 @@ export const canSwitchContext = (role: Role) => role === 'org_admin' || role ===
 interface UserContextValue {
   user: User | null
   isLoading: boolean
+  unreadNotificationsCount: number
 }
 
 const UserContext = createContext<UserContextValue | null>(null)
@@ -44,16 +46,31 @@ export function UserProvider({
   )
   const { isLoading } = useSessionStream(sessionWsUrl, handleSessionEnded)
   const user = useMemo(() => toUser(data), [data])
+  const notificationScope = user
+    ? [user.uuid, user.role, user.activeContext, user.org?.organizationId ?? 'none'].join(':')
+    : 'anonymous'
+  const { data: unreadNotifications } = useUnreadCountQuery(
+    notificationScope,
+    Boolean(user) && !isLoading,
+  )
+  const value = useMemo(
+    () => ({
+      user,
+      isLoading,
+      unreadNotificationsCount: user ? (unreadNotifications?.count ?? 0) : 0,
+    }),
+    [isLoading, unreadNotifications?.count, user],
+  )
 
   if (isLoading) {
     return (
-      <UserContext.Provider value={{ user, isLoading }}>
+      <UserContext.Provider value={value}>
         <Loader description={loaderDescription} />
       </UserContext.Provider>
     )
   }
 
-  return <UserContext.Provider value={{ user, isLoading }}>{children}</UserContext.Provider>
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 }
 
 function toUser(profile: CurrentUserProfile | undefined): User | null {

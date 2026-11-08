@@ -8,7 +8,7 @@ import { useParams, useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { NotificationBell } from './NotificationBell'
-import { Button } from './ui/button'
+import { Button, buttonVariants } from './ui/button'
 import { canSwitchContext, useUser } from '@/contexts/UserContext'
 
 export function Header() {
@@ -21,6 +21,8 @@ export function Header() {
   const query = searchParams.toString()
   const returnTo = query ? `${pathname}?${query}` : pathname
   const showContextSwitch = user && canSwitchContext(user.role)
+  const showAnnouncementAction =
+    pathname.startsWith('/announcements') && user?.role === 'emtedad_admin'
   let currentTerm = ''
 
   if (typeof params.term === 'string') {
@@ -61,7 +63,16 @@ export function Header() {
         />
       </form>
       <div className="flex-1"></div>
-      <QuickAction />
+      {showAnnouncementAction ? (
+        <Link
+          href="/announcements#new"
+          className={buttonVariants({ className: 'h-auto px-5 py-2.5 text-[15px]' })}
+        >
+          {t('newAnnouncement')}
+        </Link>
+      ) : (
+        <QuickAction />
+      )}
       <NotificationBell />
       <div className="flex items-center h-full gap-2.5">
         {showContextSwitch && (
