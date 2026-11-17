@@ -27,6 +27,215 @@
     "loading": "Loading notifications…",
     "error": "Notifications could not be loaded. Try again."
   },
+  "messages": {
+    "title": "Messages",
+    "description": "{name} · {total} conversations · {unread} unread",
+    "officeNavLabel": "Office sections",
+    "officeNav": {
+      "balances": "Balances",
+      "favorites": "Saved",
+      "team": "Team management",
+      "notifications": "Notifications",
+      "messages": "Messages"
+    },
+    "note": {
+      "title": "Messages are not a public chat.",
+      "body": "Each conversation opens separately when a request is accepted, and is linked to a single exchange — so everything stays in place and can be retrieved from Etabat if needed."
+    },
+    "sections": {
+      "namliya": "On Namliya",
+      "khalliKhales": "On Khalli Khales",
+      "namliyaCount": "3 conversations",
+      "khalliKhalesCount": "2 conversations"
+    },
+    "conversations": {
+      "halqa": {
+        "relation": "About: Educational guides and printed materials · 55 Shahamham",
+        "lastMessage": "Great, can we start next week? We need to finish before September 30.",
+        "lastSender": "Halqa:"
+      },
+      "sawt": {
+        "relation": "About: Promotional video editing · 45 Shahamham",
+        "lastMessage": "We received the final version, thank you — we'll approve the transfer today.",
+        "lastSender": "You:"
+      },
+      "daw": {
+        "relation": "About: Photography workshop materials · 40 Shahamham",
+        "lastMessage": "Our designer is sick this week, we'll deliver on the 22nd instead of the 16th — sorry for the delay.",
+        "lastSender": "Daw:"
+      },
+      "nadia": {
+        "relation": "About: Beginner podcast workshop · 45 Shahamham",
+        "lastMessage": "Can you confirm my registration? Do I need to bring a laptop?",
+        "lastSender": "Nadia:"
+      },
+      "kamal": {
+        "relation": "About: Personal photography session · 25 Shahamham",
+        "lastMessage": "The photos were sent to your email — let us know if you want any edits.",
+        "lastSender": "You:"
+      }
+    },
+    "time": {
+      "twoHours": "2 hours ago",
+      "yesterday": "Yesterday",
+      "threeDays": "3 days ago",
+      "fiveHours": "5 hours ago",
+      "lastWeek": "Last week"
+    },
+    "backToMessages": "Back to messages",
+    "conversationTitle": "Educational guides and printed materials",
+    "tags": {
+      "maybe": "Maybe",
+      "done": "Done",
+      "inProgress": "In progress",
+      "inProgress2": "In progress",
+      "done2": "Done",
+      "noAgreement": "No agreement yet"
+    },
+    "parties": {
+      "student": "Student",
+      "provider": "Provider",
+      "arrow": "←"
+    },
+    "facts": {
+      "value": "Value",
+      "initialValue": "Initial value",
+      "assignedMember": "Assigned member",
+      "agreement": "Agreement",
+      "agreementVersion": "Version 1",
+      "agreementNotWritten": "Not written yet",
+      "market": "Market",
+      "namliya": "Namliya",
+      "khalliKhales": "Khalli Khales"
+    },
+    "tabs": {
+      "label": "Conversation sections",
+      "conversation": "Conversation",
+      "agreement": "Agreement",
+      "amendments": "Agreement amendments",
+      "files": "Files"
+    },
+    "thread": {
+      "attachmentCaption": "2.4 MB · from Halqa",
+      "system": {
+        "opened": "Halqa requested the service — conversation opened automatically",
+        "agreementEdited": "Mishkah edited the agreement — Version 1"
+      },
+      "daySeparators": {
+        "threeDaysAgo": "3 days ago",
+        "yesterday": "Yesterday",
+        "today": "Today"
+      },
+      "messages": {
+        "halqa1": "Hello! We need a 24-page workshop guide about audio archiving, for trainees aged 16 to 25. Do you have space this month?",
+        "us1": "Hello! Yes, we have space, and Omar will work with you. Could you send us the written content so we can accurately estimate the number of pages?",
+        "halqa2": "Here's the full content, with suggested images at the end of the file.",
+        "us2": "Received, thank you. The content turned out to be 28 pages, not 24 — we've put the details in the agreement, review it and if it's fine, confirm and we'll start.",
+        "us2NoAgreement": "Received, thank you. The content turned out to be 28 pages, not 24 — we'll write the agreement with these details and send it for your review.",
+        "halqa3": "Great, can we start next week? We need to finish before September 30."
+      },
+      "times": {
+        "morning1": "11:05 AM",
+        "morning2": "11:40 AM",
+        "afternoon1": "2:15 PM",
+        "afternoon2": "4:50 PM",
+        "twoHoursAgo": "2 hours ago"
+      },
+      "senders": {
+        "halqa": "Halqa",
+        "us": "Mishkah — You"
+      }
+    },
+    "agreement": {
+      "rows": {
+        "deliverables": "Deliverables",
+        "quantity": "Quantity",
+        "duration": "Duration",
+        "milestones": "Milestones",
+        "value": "Value",
+        "specialTerms": "Special terms",
+        "supplierTerms": "Supplier terms",
+        "cashDeposit": "Cash deposit",
+        "supervision": "Supervision"
+      },
+      "values": {
+        "deliverables": "28-page designed workshop guide, print-ready with a digital version for screen reading.",
+        "quantity": "One file + 6 original icons",
+        "duration": "Three weeks from receipt of final content",
+        "milestones": "Start September 1 · Delivery September 22",
+        "value": "55 Shahamham — transferred after delivery approval",
+        "specialTerms": "Two feedback rounds included. Any additional round is charged 5 Shahamham.",
+        "supplierTermsNone": "— Not applicable (human service)",
+        "cashDepositNone": "— Not required",
+        "supervisionNone": "— Not applicable"
+      },
+      "lockNotice": {
+        "text": "This agreement is the active version — both parties confirmed it.",
+        "bold": "Any amendment is sent to the other party and only takes effect when they accept it.",
+        "editButton": "Edit agreement"
+      }
+    },
+    "amendments": {
+      "title": "Halqa proposed two amendments to the agreement",
+      "subtitle": "Schedules & deliveries · Today 10:40 AM — the active agreement stayed as-is until you respond.",
+      "reviewButton": "Review and accept the amendment"
+    },
+    "files": {
+      "items": {
+        "pdf1": "Audio archive guide content.pdf",
+        "pdf1Size": "2.4 MB · Halqa · Yesterday",
+        "zip1": "Suggested images.zip",
+        "zip1Size": "18 MB · Halqa · Yesterday",
+        "pdf2": "Design proposal — first version.pdf",
+        "pdf2Size": "5.1 MB · Mishkah · Today",
+        "link1": "Reference board on the web",
+        "link1Size": "Link · Mishkah · Today"
+      }
+    },
+    "composer": {
+      "placeholder": "Type your message…",
+      "attach": "Attach file",
+      "send": "Send"
+    },
+    "agreementEmpty": {
+      "title": "No written agreement yet",
+      "description": "The agreement is written from this conversation — either party can write the first version, and the other reviews and confirms it. Once confirmed, it becomes the official reference for the exchange, and you can amend it anytime with both parties' consent.",
+      "button": "Write agreement",
+      "hint": "Shahamham is only transferred after delivery approval — the agreement defines what will be delivered and when."
+    },
+    "contractForm": {
+      "title": "Write agreement",
+      "subtitle": "Fill in the terms you agreed on in the conversation. When you send it, Halqa will review and confirm — then it becomes the official reference for the exchange.",
+      "close": "Close",
+      "fields": {
+        "deliverables": "Deliverables",
+        "quantity": "Quantity",
+        "duration": "Duration",
+        "startDate": "Start date",
+        "endDate": "End date",
+        "value": "Value in Shahamham",
+        "specialTerms": "Special terms",
+        "specialTermsOptional": "(optional)"
+      },
+      "placeholders": {
+        "deliverables": "What exactly will be delivered? Example: 28-page designed workshop guide, print-ready with a digital version.",
+        "quantity": "One file + 6 icons",
+        "duration": "Three weeks from receipt of content",
+        "startDate": "September 1",
+        "endDate": "September 22",
+        "specialTerms": "Example: Two feedback rounds included, any additional round charged 5 Shahamham."
+      },
+      "vat": {
+        "label": "VAT",
+        "text": "+ 14% value-added tax on the exchange value — shown to both parties with the value."
+      },
+      "actions": {
+        "send": "Send agreement to Halqa",
+        "saveDraft": "Save draft",
+        "cancel": "Cancel"
+      }
+    }
+  },
   "announcements": {
     "title": "Announcements",
     "description": "Updates the team sends to the network and the meeting host rotation",

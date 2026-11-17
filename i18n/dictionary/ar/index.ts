@@ -1,3 +1,4 @@
+import agreements from './agreements.json'
 import alaesh from './alaesh.json'
 import auth from './auth.json'
 import etabat from './etabat.json'
@@ -16,6 +17,7 @@ import team from './team.json'
 import communication from './communication.json'
 
 const messages = {
+  ...agreements,
   ...landing,
   ...management,
   ...auth,

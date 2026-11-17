@@ -11,7 +11,7 @@ import { use } from 'react'
 
 export default function AnnouncementDetailPage({
   params,
-}: PageProps<'/[lang]/announcements/[id]'>) {
+}: PageProps<'/[lang]/maktab/announcements/[id]'>) {
   const { id } = use(params)
   const t = useTranslations('announcements')
   const locale = useLocale()
@@ -58,7 +58,7 @@ export default function AnnouncementDetailPage({
 
         <div className="mt-6">
           <Link
-            href="/notifications"
+            href="/maktab/notifications"
             className={buttonVariants({ variant: 'outline', class: 'bg-surface' })}
           >
             {t('detailBack')}

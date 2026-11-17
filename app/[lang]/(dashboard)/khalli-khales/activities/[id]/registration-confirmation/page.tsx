@@ -87,7 +87,7 @@ export default function RegistrationConfirmationPage({
               {t('doneReminder', { provider: providerName })}
             </p>
             <div className="mt-4.5 flex flex-wrap justify-center gap-3">
-              <Link href="/messages/1" className={primaryLinkStyles}>
+              <Link href="/maktab/messages/1" className={primaryLinkStyles}>
                 {t('openConversation')}
               </Link>
               <Link href="/khalli-khales/gift-shop" className={ghostStyles}>

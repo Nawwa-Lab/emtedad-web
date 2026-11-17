@@ -12,7 +12,7 @@ export function NotificationText({ notificationsCount }: { notificationsCount?: 
 
   return (
     <Link
-      href="/notifications"
+      href="/maktab/notifications"
       className="flex sm:hidden relative flex-1 items-center justify-between gap-2 rounded-2xl border border-line-soft bg-paper p-2.5"
       aria-label={tSidebar('notifications')}
     >
