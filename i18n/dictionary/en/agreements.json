@@ -1,0 +1,109 @@
+{
+  "agreements": {
+    "backToConversation": "Back to the conversation",
+    "title": "Official agreement",
+    "tags": {
+      "current": "Version 2 — active",
+      "proposed": "Proposed change"
+    },
+    "rel": {
+      "prefix": "Regarding",
+      "arrow": "→"
+    },
+    "confirm": {
+      "other": "· confirmed version 2",
+      "you": "· you confirmed version 2"
+    },
+    "editbar": {
+      "title": "Active agreement",
+      "subtitle": "Version 2 — confirmed by both parties on August 28"
+    },
+    "diff": {
+      "current": "Currently active",
+      "proposed": "Proposed",
+      "proposedBy": "Proposed by {org}",
+      "before": "Before",
+      "after": "After",
+      "milestonesProposed": "Start September 8 · Delivery September 29",
+      "deliverablesProposed": "30-page designed workshop guide, print-ready with a digital version for screen reading."
+    },
+    "pending": {
+      "title": "Proposed change — waiting for {org} to confirm",
+      "note": "Proposed today at 10:40 AM — reason: the final content arrived a week late.",
+      "editAction": "Edit proposal",
+      "withdrawAction": "Withdraw proposal"
+    },
+    "openbar": {
+      "title": "The amendment door is always open",
+      "body": "Either party can propose a change at any time, and it only takes effect with both parties' approval. The active version is the reference in disputes, and all old versions are kept in the change history and available to mediators and arbitrators."
+    },
+    "history": {
+      "summary": "Previous versions",
+      "versionTitle": "Version {n}",
+      "tags": {
+        "active": "Active",
+        "superseded": "Superseded"
+      },
+      "v2": {
+        "meta": "Proposed by {a} · confirmed by {b} on August 28, 9:15 AM",
+        "changes": {
+          "deliverables": "24-page designed workshop guide, print-ready.",
+          "value": "45 Shahamham"
+        },
+        "events": {
+          "e1": "Proposed the change — August 27, 4:50 PM · reason: the content came out to 28 pages, not 24.",
+          "e2": "Confirmed — August 28, 9:15 AM",
+          "e3": "The version became active and the official reference — August 28, 9:15 AM"
+        }
+      },
+      "v1": {
+        "meta": "First agreement · confirmed by both parties on August 26, 2:30 PM",
+        "events": {
+          "e1": "Wrote the first agreement — August 25, 11:40 AM",
+          "e2": "Confirmed — August 26, 2:30 PM",
+          "e3": "Stayed active for two days until version 2 replaced it."
+        }
+      }
+    },
+    "dialog": {
+      "description": "Edit any item — the change is sent to the other party and only takes effect when they accept it. The active agreement stays as-is until they agree.",
+      "reason": "Reason for the change",
+      "optional": "(optional)",
+      "reasonPlaceholder": "Helps the other party understand quickly",
+      "send": "Send the change to the other party",
+      "cancel": "Cancel",
+      "close": "Close"
+    },
+    "amendments": {
+      "title": "Amendments to the agreement",
+      "tags": {
+        "waiting": "Waiting for your reply"
+      },
+      "who": {
+        "text": "proposed two amendments",
+        "when": "Today 10:40 AM"
+      },
+      "reason": {
+        "title": "Reason for the change",
+        "body": "The final content arrived a week late, and we need to add two pages to the guide."
+      },
+      "status": {
+        "waiting": "Waiting for your reply",
+        "accepted": "Accepted and recorded in the agreement ✓",
+        "rejected": "Rejected — the agreement stays as it was"
+      },
+      "actions": {
+        "accept": "Accept",
+        "reject": "Reject",
+        "acceptAll": "Accept both",
+        "rejectAll": "Reject all",
+        "viewAgreement": "View the active agreement"
+      },
+      "empty": {
+        "title": "No pending amendments",
+        "text": "What you accepted was recorded in the active agreement right away. Any new amendment will appear here and you'll get a notification.",
+        "button": "Open the active agreement"
+      }
+    }
+  }
+}

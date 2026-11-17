@@ -1,15 +1,15 @@
 'use client'
-import LogoIcon from '@/icons/star.svg'
 import { QuickAction } from '@/components/QuickAction'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Input } from '@/components/ui/input'
+import { canSwitchContext, useUser } from '@/contexts/UserContext'
 import { Link, usePathname, useRouter } from '@/i18n/navigation'
-import { useParams, useSearchParams } from 'next/navigation'
+import LogoIcon from '@/icons/star.svg'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { useParams, useSearchParams } from 'next/navigation'
 import { NotificationBell } from './NotificationBell'
 import { Button, buttonVariants } from './ui/button'
-import { canSwitchContext, useUser } from '@/contexts/UserContext'
 
 export function Header() {
   const t = useTranslations('header')
@@ -21,8 +21,6 @@ export function Header() {
   const query = searchParams.toString()
   const returnTo = query ? `${pathname}?${query}` : pathname
   const showContextSwitch = user && canSwitchContext(user.role)
-  const showAnnouncementAction =
-    pathname.startsWith('/announcements') && user?.role === 'emtedad_admin'
   let currentTerm = ''
 
   if (typeof params.term === 'string') {
@@ -63,12 +61,16 @@ export function Header() {
         />
       </form>
       <div className="flex-1"></div>
-      {showAnnouncementAction ? (
+      {user?.role === 'emtedad_admin' ? (
         <Link
-          href="/announcements#new"
+          href="/maktab/announcements#new"
           className={buttonVariants({ className: 'h-auto px-5 py-2.5 text-[15px]' })}
         >
           {t('newAnnouncement')}
+        </Link>
+      ) : user?.role === 'community_member' ? (
+        <Link href="#" className={buttonVariants({ className: 'h-auto px-5 py-2.5 text-[15px]' })}>
+          {'null'}
         </Link>
       ) : (
         <QuickAction />

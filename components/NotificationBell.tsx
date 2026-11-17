@@ -15,7 +15,7 @@ export function NotificationBell({ notificationsCount }: { notificationsCount?: 
 
   return (
     <Link
-      href="/notifications"
+      href="/maktab/notifications"
       aria-label={tSidebar('notifications')}
       className={cn(count > 0 && 'origin-top animate-ring')}
     >

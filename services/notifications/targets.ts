@@ -11,10 +11,10 @@ export function notificationTarget(item: NotificationItem, role?: Role): string 
 
   switch (item.type) {
     case 'announcement': {
-      if (role === 'emtedad_admin') return '/announcements'
+      if (role === 'emtedad_admin') return '/maktab/announcements'
       const announcementId = item.data?.announcementId
       return typeof announcementId === 'string' && announcementId
-        ? `/announcements/${announcementId}`
+        ? `/maktab/announcements/${announcementId}`
         : null
     }
     case 'exchange.request.created':

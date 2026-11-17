@@ -65,7 +65,10 @@ export default function CreateNamliyaRequestPage() {
                   {t('sentDesc')}
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">
-                  <Link href="/messages/1" className={cn(buttonVariants({ variant: 'primary' }))}>
+                  <Link
+                    href="/maktab/messages/1"
+                    className={cn(buttonVariants({ variant: 'primary' }))}
+                  >
                     {t('openConversation')}
                   </Link>
                   <Link
