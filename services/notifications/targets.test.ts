@@ -35,7 +35,7 @@ describe('notificationTarget', () => {
 
   it('sends platform admins to the announcements workspace', () => {
     expect(notificationTarget(item({ type: 'announcement' }), 'emtedad_admin')).toBe(
-      '/announcements',
+      '/maktab/announcements',
     )
   })
 
@@ -44,7 +44,9 @@ describe('notificationTarget', () => {
       type: 'announcement',
       data: { announcementId: 'announcement-id' },
     })
-    expect(notificationTarget(announcement, 'org_admin')).toBe('/announcements/announcement-id')
+    expect(notificationTarget(announcement, 'org_admin')).toBe(
+      '/maktab/announcements/announcement-id',
+    )
   })
 
   it('opens nothing for a non-admin announcement without an id', () => {
