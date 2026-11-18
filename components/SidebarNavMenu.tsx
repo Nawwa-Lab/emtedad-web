@@ -3,11 +3,11 @@
 import { type ActiveContext, type Role, useUser } from '@/contexts/UserContext'
 import { Link, usePathname } from '@/i18n/navigation'
 import HakimaIcon from '@/icons/balance.svg'
-import ManagementIcon from '@/icons/building.svg'
 import NamliyaIcon from '@/icons/circles.svg'
 import MaktabIcon from '@/icons/gate.svg'
 import GennyIcon from '@/icons/genny.svg'
 import EtabatIcon from '@/icons/hand.svg'
+import ManagementIcon from '@/icons/key.svg'
 import KhalliKhalesIcon from '@/icons/plant.svg'
 import FahsMahsIcon from '@/icons/star-2.svg'
 import HomeIcon from '@/icons/star.svg'
@@ -106,11 +106,11 @@ const labelClass =
 
 export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean }) {
   const pathname = usePathname()
+  const { user } = useUser()
+  const logout = useLogoutMutation()
   const tNav = useTranslations('navigation')
   const tSidebar = useTranslations('sidebar')
   const tLanding = useTranslations('landing')
-  const { user } = useUser()
-  const logout = useLogoutMutation()
 
   if (requireUser && !user) {
     return null
@@ -129,11 +129,15 @@ export function SidebarNavMenu({ requireUser = false }: { requireUser?: boolean 
           return null
         }
 
+        const href =
+          user?.role === 'emtedad_admin' && link.label === 'hakima'
+            ? '/hakima/governance'
+            : link.href
         const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`)
         return (
           <Link
             key={link.href}
-            href={link.href}
+            href={href}
             aria-current={isActive ? 'page' : undefined}
             className={cn(
               itemClass,

@@ -6,8 +6,18 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/:lang/maktab',
+        destination: '/:lang/maktab/balances',
+        permanent: false,
+      },
+      {
         source: '/:lang/namliya',
         destination: '/:lang/namliya/service-offers',
+        permanent: false,
+      },
+      {
+        source: '/:lang/khalli-khales',
+        destination: '/:lang/khalli-khales/browse',
         permanent: false,
       },
       {
@@ -28,6 +38,11 @@ const nextConfig: NextConfig = {
       {
         source: '/:lang/hakima',
         destination: '/:lang/hakima/browse',
+        permanent: false,
+      },
+      {
+        source: '/:lang/management',
+        destination: '/:lang/management/organizations',
         permanent: false,
       },
     ]

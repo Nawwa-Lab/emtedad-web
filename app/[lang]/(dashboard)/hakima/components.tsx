@@ -6,7 +6,7 @@ import BalanceIcon from '@/icons/balance.svg'
 import { formatNumber } from '@/lib/utils'
 import { cn } from 'cn'
 import { useLocale, useTranslations } from 'next-intl'
-import Image from 'next/image'
+import Image, { type ImageProps } from 'next/image'
 import { useState, type ReactNode } from 'react'
 import { networkTokens, organizationTokens, type Proposal } from './data'
 
@@ -504,5 +504,29 @@ export function ProposalCard({
         </div>
       </div>
     </article>
+  )
+}
+
+export function Note({
+  icon,
+  className,
+  children,
+}: {
+  icon: ImageProps['src']
+  className?: string
+  children: ReactNode
+}) {
+  return (
+    <div
+      className={cn(
+        'mt-4 flex items-start gap-[13px] rounded-card border-[2.5px] border-dashed border-ink bg-paper px-[18px] py-[15px]',
+        className,
+      )}
+    >
+      <span className="grid h-[30px] w-7 shrink-0 place-items-center overflow-hidden">
+        <Image src={icon} alt="" className="max-h-full max-w-full object-contain" />
+      </span>
+      <p className="font-body text-[14.5px]/[1.85] font-semibold text-soft">{children}</p>
+    </div>
   )
 }
