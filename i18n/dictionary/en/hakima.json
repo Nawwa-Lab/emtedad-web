@@ -558,6 +558,148 @@
         },
         "note": "Participation in <strong>every phase of the cycle</strong> earns {reward} {currency}, and the annual survey earns another {reward}. Details are in <link>annual review and rewards</link>."
       }
+    },
+    "governance": {
+      "title": "Governance management",
+      "subtitle": "The Emtedad team’s role in Hakima — deliberately limited",
+      "tabsLabel": "Governance sections",
+      "tabs": {
+        "cyc": "Current cycle",
+        "vote": "Team vote",
+        "srv": "Annual survey",
+        "res": "Results"
+      },
+      "autobox": {
+        "title": "The cycle opens on its own",
+        "text": "The calendar is what opens the voting phases for every member automatically — <b>there is no “prepare the cycle” button or prior approval from the team</b>. What the team does here: follows the cycle, votes with its tokens like any member, and publishes the annual survey."
+      },
+      "cycle": {
+        "title": "Cycle four",
+        "dates": "September — December 2025",
+        "tokensLabel": "Emtedad team tokens in this cycle",
+        "tokensSuffix": "tokens · 10%"
+      },
+      "phases": {
+        "submission": {
+          "name": "Proposal submission",
+          "meta": "September 1 – 20 · closed"
+        },
+        "support": {
+          "name": "Support phase",
+          "meta": "4 days · 2 days left"
+        },
+        "voting": {
+          "name": "Voting",
+          "meta": "3 days · opens October 9"
+        },
+        "decision": {
+          "name": "Decision and execution",
+          "meta": "October 13"
+        }
+      },
+      "pauseNote": "If the team needs to pause or postpone a cycle, that is <b>done through a Hakima proposal</b> like any other change — not from here.",
+      "voteNote": "The team votes with <b>{amount}</b> — like any member, with the same thresholds, and its vote stays hidden until voting closes.",
+      "tags": {
+        "supportPhase": "Support phase",
+        "qualified": "Qualified for voting",
+        "draft": "Draft",
+        "closed": "Closed",
+        "closedCycle": "Closed",
+        "noQuestions": "Its questions are not built yet"
+      },
+      "approvalThreshold": "Approval threshold {percent}%",
+      "teamNotSupported": "The team has not supported yet",
+      "teamSupported": "The team supported with {amount}",
+      "needsTokens": "Needs {amount} tokens to qualify",
+      "supportAction": "Support with the team’s tokens",
+      "survey": {
+        "title": "Annual satisfaction survey 2025",
+        "meta": "Should go out with the close of cycle four — October 13",
+        "daysLeft": "{days} days left",
+        "build": "Build the survey"
+      },
+      "indexNote": "The satisfaction index is calculated as <b>organizations 50% + audience 30% + team 20%</b>, and answering the survey earns 30 {currency} per member. The result appears in <nlink>annual review and rewards</nlink>.",
+      "previousTitle": "Previous surveys",
+      "previous": {
+        "title": "Annual satisfaction survey 2024",
+        "answered": "Answered by {answered} of {members} members",
+        "index": "Satisfaction index {percent}%"
+      },
+      "voteRows": {
+        "creditCap": {
+          "title": "Raise the monthly credit cap from 25 to 35 Shahamham"
+        },
+        "digitalResources": {
+          "title": "Add a “digital resources” category to the Namliya market"
+        }
+      },
+      "results": {
+        "cycle3": {
+          "title": "Cycle three",
+          "meta": "{submitted} proposals · {voting} reached voting · {approved} approved",
+          "participation": "Participation {percent}%"
+        },
+        "cycle2": {
+          "title": "Cycle two",
+          "meta": "{submitted} proposals · {voting} reached voting · {approved} approved",
+          "participation": "Participation {percent}%"
+        },
+        "openLog": "Open the full log"
+      }
+    },
+    "surveyCreate": {
+      "back": "Back to governance management",
+      "title": "Build the annual survey",
+      "subtitle": "Satisfaction survey 2025 · Draft",
+      "weights": {
+        "title": "Who answers and with what weight",
+        "sub": "These weights are fixed in the protocol — changing them needs a Hakima proposal, not an edit here.",
+        "rows": {
+          "organizations": {
+            "name": "Organizations",
+            "count": "12 member organizations"
+          },
+          "audience": {
+            "name": "Audience",
+            "count": "31 audience members"
+          },
+          "team": {
+            "name": "Emtedad team",
+            "count": "5 members"
+          }
+        }
+      },
+      "questions": {
+        "title": "Questions",
+        "sub": "Each question is scored with the three stamps — Amer / Karim / Ahsan — so the member never sees numbers. Drag from the handle to reorder.",
+        "items": {
+          "q1": "Did the network help you reach things you could not reach on your own?",
+          "q2": "Is your monthly balance enough for your needs?",
+          "q3": "Was dealing with other members respectful and clear?",
+          "q4": "Did you feel your voice was heard in Hakima?",
+          "q5": "Did Etabat resolve the dispute you entered fairly?"
+        },
+        "audiences": {
+          "all": "For all audiences",
+          "orgsTeam": "For organizations and the Emtedad team only",
+          "disputed": "For those who entered a dispute this year only"
+        },
+        "removeLabel": "Remove the question",
+        "addLabel": "Add a question",
+        "addPlaceholder": "Type the question as the member will read it",
+        "addHint": "Keep the question about an experience that actually happened, not a general opinion — that is what makes answers comparable across years.",
+        "addButton": "Add a question"
+      },
+      "publish": {
+        "title": "Publish",
+        "opensLabel": "Opens on",
+        "opensValue": "October 13, 2025 — with the close of cycle four",
+        "closesLabel": "Closes on",
+        "closesValue": "October 27, 2025 — two weeks",
+        "note": "Answering the survey earns <b>30 {currency}</b> per member, and the result drops automatically into <nlink>annual review and rewards</nlink>.",
+        "publishButton": "Publish survey",
+        "draftButton": "Save draft"
+      }
     }
   }
 }
