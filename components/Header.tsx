@@ -61,16 +61,21 @@ export function Header() {
         />
       </form>
       <div className="flex-1"></div>
-      {user?.role === 'emtedad_admin' ? (
+      {user?.role === 'community_member' ||
+      ((user?.role === 'org_admin' || user?.role === 'team_worker') &&
+        user.activeContext === 'community') ? (
+        <Link
+          href="/khalli-khales/posts/create"
+          className={buttonVariants({ className: 'h-auto px-5 py-2.5 text-[15px]' })}
+        >
+          {t('addFavour')}
+        </Link>
+      ) : user?.role === 'emtedad_admin' ? (
         <Link
           href="/maktab/announcements#new"
           className={buttonVariants({ className: 'h-auto px-5 py-2.5 text-[15px]' })}
         >
           {t('newAnnouncement')}
-        </Link>
-      ) : user?.role === 'community_member' ? (
-        <Link href="#" className={buttonVariants({ className: 'h-auto px-5 py-2.5 text-[15px]' })}>
-          {'null'}
         </Link>
       ) : (
         <QuickAction />

@@ -73,7 +73,9 @@ export function LandingNav({ copy }: { copy: LandingCopy }) {
           ))}
         </div>
         {signedIn && user ? (
-          <Link href={user.org ? `/organization/${user.org.organizationId}` : '/'}>
+          <Link
+            href={user.org ? `/organization/${user.org.organizationId}` : `/member/${user.uuid}`}
+          >
             <Button
               variant="outline"
               effect="3d"
