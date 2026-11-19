@@ -33,7 +33,8 @@ const navLinks: NavLink[] = [
     href: '/maktab',
     label: 'maktab',
     icon: MaktabIcon,
-    roles: ['org_admin', 'team_worker', 'community_member', 'emtedad_admin'],
+    roles: ['org_admin', 'team_worker', 'emtedad_admin'],
+    contexts: ['org'],
   },
   {
     href: '/management',
@@ -59,7 +60,8 @@ const navLinks: NavLink[] = [
     href: '/alaesh-andak',
     label: 'have_qalish',
     icon: AlaeshIcon,
-    roles: ['org_admin', 'team_worker', 'community_member', 'emtedad_admin'],
+    roles: ['org_admin', 'team_worker', 'emtedad_admin'],
+    contexts: ['org'],
   },
   {
     href: '/hakima',
@@ -93,8 +95,8 @@ const navLinks: NavLink[] = [
     href: '/fahs-mahs',
     label: 'fahs-mahs',
     icon: FahsMahsIcon,
-    roles: ['org_admin', 'team_worker', 'community_member'],
-    contexts: ['community'],
+    roles: ['org_admin', 'team_worker', 'emtedad_admin'],
+    contexts: ['org'],
   },
 ]
 

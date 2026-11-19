@@ -16,11 +16,12 @@
   "header": {
     "searchPlaceholder": "Search the network…",
     "searchAriaLabel": "Search",
-    "quickAction": "Do a good deed +",
+    "quickAction": "Ask a favour +",
+    "addFavour": "Add favour +",
     "newAnnouncement": "New announcement +",
     "logo": "Shahamham",
-    "contextLabel": "I'm an organization",
-    "communityContextLabel": "I'm a community member",
+    "contextLabel": "Organization",
+    "communityContextLabel": "Community",
     "switchContext": "Switch",
     "notificationsAriaLabel": "Notifications — 3 unread"
   },

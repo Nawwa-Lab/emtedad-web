@@ -41,7 +41,7 @@ export function RouteHeader({
 
   return (
     <>
-      <div className={cn('flex flex-row flex-wrap items-end gap-5 sm:gap-3.5 mb-2', className)}>
+      <div className={cn('flex flex-row flex-wrap items-end gap-5 sm:gap-3.5 mb-6.5', className)}>
         <h1 className={cn('font-display font-normal text-[clamp(44px,5.4vw,70px)]/[1]')}>
           {title}
         </h1>
