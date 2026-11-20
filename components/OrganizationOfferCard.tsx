@@ -22,9 +22,13 @@ import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 export function OrganizationOfferCard({
   listing,
   showAction = true,
+  showExpand = true,
+  inlineVat = false,
 }: {
   listing: OrganizationListing
   showAction?: boolean
+  showExpand?: boolean
+  inlineVat?: boolean
 }) {
   const locale = useLocale()
   const t = useTranslations('organizationProfile')
@@ -35,17 +39,19 @@ export function OrganizationOfferCard({
   return (
     <Dialog>
       <Card className="relative flex min-h-75 flex-col rounded-panel border-3 border-ink p-6 shadow-[6px_6px_0_#1A1714] transition hover:-translate-x-0.5 hover:-translate-y-1 hover:rotate-[-0.3deg] hover:shadow-[9px_11px_0_#1A1714]">
-        <DialogTrigger
-          render={
-            <button
-              type="button"
-              aria-label={t('details.expand')}
-              className="absolute end-3.5 top-3.5 z-10 grid size-10.5 place-items-center rounded-[12px] border-[2.5px] border-ink bg-paper shadow-[3px_3px_0_#1A1714] transition hover:translate-x-px hover:translate-y-px hover:bg-gold hover:shadow-[1px_1px_0_#1A1714] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-blue"
-            >
-              <Image src={ExpandIcon} alt="" className="size-5" />
-            </button>
-          }
-        />
+        {showExpand && (
+          <DialogTrigger
+            render={
+              <button
+                type="button"
+                aria-label={t('details.expand')}
+                className="absolute end-3.5 top-3.5 z-10 grid size-10.5 place-items-center rounded-[12px] border-[2.5px] border-ink bg-paper shadow-[3px_3px_0_#1A1714] transition hover:translate-x-px hover:translate-y-px hover:bg-gold hover:shadow-[1px_1px_0_#1A1714] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-blue"
+              >
+                <Image src={ExpandIcon} alt="" className="size-5" />
+              </button>
+            }
+          />
+        )}
         <span
           className={`w-fit rounded-full border-[2.5px] border-ink px-4 py-1 font-body text-[13px] font-bold ${resource ? 'bg-gold text-ink' : 'bg-blue text-surface'}`}
         >
@@ -65,14 +71,24 @@ export function OrganizationOfferCard({
           {listing.rating && <OfferRatingBadge label={listing.rating} />}
         </div>
         <CardContent className="mt-3 flex items-end justify-between gap-3 border-t-[2.5px] border-dashed border-ink px-0 pt-4">
-          <div className="flex flex-col gap-1.25">
+          <div
+            className={
+              inlineVat ? 'flex flex-wrap items-baseline gap-1.25' : 'flex flex-col gap-1.25'
+            }
+          >
             <span className="flex flex-row items-end gap-1">
               <span className="font-display text-[34px] leading-none">
                 {formatNumber(listing.price, { locale })}
               </span>
               <small className="font-display text-[16px] text-red">{global('currency')}</small>
             </span>
-            <span className="font-body text-soft text-[12.5px]/[1.6] font-semibold">
+            <span
+              className={
+                inlineVat
+                  ? 'font-body text-[18px] leading-[1.75] text-ink'
+                  : 'font-body text-soft text-[12.5px]/[1.6] font-semibold'
+              }
+            >
               {t('vat')}
             </span>
           </div>

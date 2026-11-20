@@ -1,118 +1,19 @@
-// import { cva, type VariantProps } from 'class-variance-authority'
-// import type { HTMLAttributes } from 'react'
-
-// const statusBadgeVariants = cva(
-//   'rounded-full border inline-flex items-center justify-center font-display shrink-0',
-//   {
-//     variants: {
-//       variant: {
-//         veryGood: 'bg-gold text-soft border-[2px] border-ink',
-//         good: 'bg-gold border-transparent',
-//         acceptable: 'bg-transparent border-dashed border-line',
-//         empty: 'bg-transparent border-dashed border-line',
-//       },
-//       shape: {
-//         circle: '',
-//         pill: '',
-//       },
-//       size: {
-//         default: '',
-//         small: '',
-//       },
-//     },
-//     compoundVariants: [
-//       { shape: 'circle', variant: ['veryGood', 'good', 'acceptable', 'empty'], class: 'text-ink' },
-//       { shape: 'pill', class: 'text-ink-soft' },
-//       { shape: 'circle', size: 'default', class: 'w-13 h-13 font-bold text-[14px]' },
-//       { shape: 'pill', size: 'default', class: 'gap-1.5 py-1 px-3 font-semibold text-[11px]' },
-//       { shape: 'circle', size: 'small', class: 'w-5 h-5 font-bold text-[9px]' },
-//       { shape: 'pill', size: 'small', class: 'gap-1 py-0.5 px-2 font-semibold text-[9px]' },
-//     ],
-//     defaultVariants: {
-//       variant: 'empty',
-//       shape: 'circle',
-//       size: 'default',
-//     },
-//   },
-// )
-
-// type StatusVariant = NonNullable<VariantProps<typeof statusBadgeVariants>['variant']>
-// type StatusShape = NonNullable<VariantProps<typeof statusBadgeVariants>['shape']>
-// type StatusSize = NonNullable<VariantProps<typeof statusBadgeVariants>['size']>
-
-// const labels: Record<StatusVariant, string> = {
-//   veryGood: 'عامر',
-//   good: 'كريم',
-//   acceptable: 'أحسن عندك',
-//   empty: '-',
-// }
-
-// const variantFromLabel: Record<string, StatusVariant> = {
-//   كريم: 'good',
-//   عامر: 'veryGood',
-//   'أحسن عندك': 'acceptable',
-//   Epic: 'veryGood',
-//   Good: 'good',
-//   Fair: 'acceptable',
-//   Kareem: 'good',
-//   Amer: 'veryGood',
-//   veryGood: 'veryGood',
-//   good: 'good',
-//   acceptable: 'acceptable',
-//   empty: 'empty',
-// }
-
-// export function getVariantFromLabel(label?: string | null): StatusVariant {
-//   if (!label) return 'empty'
-//   return variantFromLabel[label] ?? variantFromLabel[label.trim()] ?? 'empty'
-// }
-
-// interface StatusBadgeProps
-//   extends
-//     Omit<HTMLAttributes<HTMLDivElement>, 'children'>,
-//     VariantProps<typeof statusBadgeVariants> {
-//   variant?: StatusVariant
-//   shape?: StatusShape
-//   size?: StatusSize
-//   /** Override the default label for this variant */
-//   label?: string
-//   /** Pass localized labels from the dictionary */
-//   labels?: Record<StatusVariant, string>
-// }
-
-// export function StatusBadge({
-//   variant = 'empty',
-//   shape = 'circle',
-//   size = 'default',
-//   label,
-//   labels: labelsProp,
-//   className,
-//   ...props
-// }: StatusBadgeProps) {
-//   const badgeLabels = labelsProp ?? labels
-//   const fullLabel = label ?? badgeLabels[variant]
-
-//   // "small" is too tight for the full label — show just the first
-//   // character (Array.from so Arabic/multi-byte chars aren't cut mid-glyph).
-//   const displayLabel =
-//     size === 'small'
-//       ? Array.from(fullLabel ?? '')
-//           .slice(0, 1)
-//           .join('')
-//       : fullLabel
-
-//   return (
-//     <div className={statusBadgeVariants({ variant, shape, size, className })} {...props}>
-//       {displayLabel}
-//     </div>
-//   )
-// }
-
 import StarIcon from '@/icons/star.svg'
+import type { Badge } from '@/services/members/types'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from 'cn'
 import Image from 'next/image'
 import type { HTMLAttributes } from 'react'
+
+// ---------------------------------------------------------------------------
+// Badge API value → display label (AR fallback; callers may pass a translated
+// label via the `label` prop if they have an i18n handle available).
+// ---------------------------------------------------------------------------
+const BADGE_LABELS: Record<Badge, string> = {
+  basic: 'عامر',
+  pro: 'كريم',
+  elite: 'أحسن عندك',
+}
 
 const statusBadgeVariants = cva(
   'rounded-full inline-flex items-center justify-center font-display shrink-0 whitespace-nowrap bg-gold border-2 border-ink text-ink',
@@ -149,17 +50,29 @@ interface StatusBadgeProps
   extends
     Omit<HTMLAttributes<HTMLDivElement>, 'children'>,
     VariantProps<typeof statusBadgeVariants> {
+  /**
+   * Raw API badge value (`'basic' | 'pro' | 'elite'`).
+   * When provided, the built-in label is used automatically.
+   * Pass `label` as well to override with a translated string.
+   */
+  badge?: Badge
+  /**
+   * Explicit display label. Takes priority over `badge` when both are set,
+   * so you can pass a translated string from `useTranslations`/`getTranslations`.
+   */
   label?: string | null
 }
 
 export function StatusBadge({
   shape = 'circle',
   size = 'default',
+  badge,
   label,
   className,
   ...props
 }: StatusBadgeProps) {
-  const fullLabel = label?.trim() || '-'
+  const resolvedLabel = label?.trim() || (badge ? BADGE_LABELS[badge] : '-')
+  const fullLabel = resolvedLabel || '-'
 
   // Circles are too tight for a full label, so show only the first character
   // (Array.from keeps Arabic/multi-byte characters from being cut mid-glyph).
