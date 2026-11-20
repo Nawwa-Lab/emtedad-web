@@ -10,15 +10,14 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Link } from '@/i18n/navigation'
-import StarIcon from '@/icons/star.svg'
 import { formatNumber, formatRelativeDate } from '@/lib/utils'
 import { request } from '@/services/http'
 import type { MemberPublicProfile } from '@/services/members/types'
 import { wishApi } from '@/services/wishes'
 import { cn } from 'cn'
 import { useLocale, useNow, useTranslations } from 'next-intl'
-import Image from 'next/image'
 import { cloneElement, useState } from 'react'
+import { StatusBadge } from './StatusBadge'
 import { Badge } from './ui/badge'
 import { Toggle } from './ui/toggle'
 
@@ -28,7 +27,7 @@ export type WishSupporter = {
   key: string
   type: 'organization' | 'member'
   name?: string
-  badge?: 'amer' | 'kareem'
+  badge?: 'amer' | 'kareem' | 'elite'
 }
 
 export interface WishCardData {
@@ -338,10 +337,7 @@ function SupportersDialog({
                   </small>
                 </p>
                 {supporter.badge && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-gold py-0.75 pe-2 ps-3.25 font-display text-[15px]">
-                    <Image src={StarIcon} alt="" className="size-4.75" />
-                    {global(`badges.${supporter.badge}`)}
-                  </span>
+                  <StatusBadge label={global(`badges.${supporter.badge}`)} shape="pill" />
                 )}
               </div>
             )
