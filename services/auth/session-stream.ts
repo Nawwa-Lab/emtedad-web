@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
+import { useEffect, useState } from 'react'
 import { authKeys } from './keys'
 import { AUTH_SESSION_EVENT, type AuthSessionAction } from './session-events'
 import type { CurrentUserProfile } from './types'
@@ -31,6 +31,8 @@ export function useSessionStream(configuredUrl: string, onSessionEnded: () => vo
     let retries = 0
     let stopped = false
     let disposed = false
+    let refreshing = false
+    let recoveryAttempted = false
 
     const clearSocket = () => {
       if (retryTimer) clearTimeout(retryTimer)
@@ -61,24 +63,45 @@ export function useSessionStream(configuredUrl: string, onSessionEnded: () => vo
       }, delay)
     }
 
+    // The access session can lapse while the refresh cookie is still valid, so try the refresh
+    // endpoint before ending the session. Only one recovery is allowed per established
+    // connection to avoid a reconnect loop when the refresh does not restore access.
     const renew = async () => {
+      if (disposed || stopped || refreshing) return
+      if (recoveryAttempted) {
+        endSession(true)
+        return
+      }
+
+      recoveryAttempted = true
+      refreshing = true
+      let outcome: 'renewed' | 'rejected' | 'failed' = 'failed'
       try {
         const response = await fetch('/api/v1/auth/session/refresh', {
           method: 'POST',
           credentials: 'include',
         })
-        if (response.ok) {
-          reconnect()
-          return
-        }
-        if (response.status === 401 || response.status === 403) {
-          endSession(true)
-          return
-        }
+        if (response.ok) outcome = 'renewed'
+        else if (response.status === 401 || response.status === 403) outcome = 'rejected'
       } catch {
         // The normal reconnect path handles temporary network failures.
+      } finally {
+        refreshing = false
       }
-      socket?.close(1012, 'Refresh unavailable')
+
+      if (disposed || stopped) return
+      if (outcome === 'renewed') {
+        reconnect()
+        return
+      }
+      if (outcome === 'rejected') {
+        endSession(true)
+        return
+      }
+
+      recoveryAttempted = false
+      if (socket) socket.close(1012, 'Refresh unavailable')
+      else scheduleReconnect()
     }
 
     const handleMessage = (event: MessageEvent<string>) => {
@@ -91,12 +114,13 @@ export function useSessionStream(configuredUrl: string, onSessionEnded: () => vo
 
       if (message.type === 'session.snapshot') {
         retries = 0
+        recoveryAttempted = false
         queryClient.setQueryData(authKeys.currentUser(), message.profile)
         setIsLoading(false)
       } else if (message.type === 'session.renew_required') {
         void renew()
       } else if (message.type === 'session.expired') {
-        endSession(true)
+        void renew()
       } else if (message.type === 'session.revoked') {
         endSession(true)
       }
@@ -110,7 +134,8 @@ export function useSessionStream(configuredUrl: string, onSessionEnded: () => vo
       nextSocket.onclose = (event) => {
         if (socket !== nextSocket || disposed || stopped) return
         socket = undefined
-        if (event.code === 4401 || event.code === 4403) endSession(true)
+        if (event.code === 4401) void renew()
+        else if (event.code === 4403) endSession(true)
         else scheduleReconnect()
       }
       nextSocket.onerror = () => nextSocket.close()
