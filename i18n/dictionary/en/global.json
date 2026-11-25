@@ -30,8 +30,9 @@
       "doaa": "Doaa Fahmy"
     },
     "badges": {
-      "amer": "Amer",
-      "kareem": "Kareem"
+      "basic": "basic",
+      "pro": "pro",
+      "elite": "elite"
     }
   }
 }

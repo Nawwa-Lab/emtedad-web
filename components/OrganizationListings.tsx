@@ -36,7 +36,7 @@ export async function OrganizationListings({
                 {t(`markets.${market.labelKey}`)}
               </h2>
               <span className="ms-auto font-body text-sm font-semibold text-soft">
-                {t(`marketCounts.${variant}.${market.key}`)}
+                {items.length}
               </span>
             </div>
             <p className="-mt-2 mb-4 max-w-195 font-body text-base font-medium leading-8 text-soft">
