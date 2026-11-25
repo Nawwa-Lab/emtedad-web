@@ -16,7 +16,7 @@ import { Check, ChevronLeft } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image, { type StaticImageData } from 'next/image'
 import { type ReactNode, useState } from 'react'
-import { monthlyCap, offerTypes, rateOptions, type OfferTypeId } from './data'
+import { monthlyCap, offerTypes, rateOptions, type OfferTypeId } from '../../data'
 
 const toEnglishDigits = (s: string) => s.replace(/[٠-٩]/g, (d) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)))
 
@@ -140,7 +140,7 @@ export default function CreateOfferPage() {
   return (
     <>
       <Link
-        href="/khalli-khales/gift-shop"
+        href="/khalli-khales/browse"
         className="mb-4 inline-flex items-center gap-2.5 font-body text-[15.5px] font-bold text-ink"
       >
         <span className="grid size-9.5 shrink-0 place-items-center rounded-full border-[2.5px] border-ink bg-surface p-2.25 text-ink shadow-[3px_3px_0] shadow-ink">

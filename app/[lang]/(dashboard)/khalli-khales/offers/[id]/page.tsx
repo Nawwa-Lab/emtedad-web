@@ -8,7 +8,7 @@ import { cn } from 'cn'
 import { ChevronLeft } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { use } from 'react'
-import { findOffer } from './data'
+import { findOffer } from '../../data'
 
 const factKeys = ['value', 'hours', 'hourlyRate', 'availability', 'delivery', 'category'] as const
 

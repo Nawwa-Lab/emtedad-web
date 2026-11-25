@@ -22,7 +22,9 @@
     "capBody": " and an individual can spend from future months if they want to book something more expensive — this cap applies to public individuals, not your organization.",
     "previous": "Previous",
     "next": "Next",
-    "expandAria": "Open full details"
+    "expandAria": "Open full details",
+    "link4": "My registrations",
+    "link5": "My history"
   },
   "khalliKhalesPublicToOrganizations": {
     "title": "Khalli Khales",
@@ -160,12 +162,30 @@
     "typeTitle": "What are you publishing?",
     "typeSub": "Pick the type first — each type opens different fields, and pricing changes with it.",
     "types": {
-      "workshop": { "title": "Workshop", "desc": "Limited days with seats" },
-      "course": { "title": "Course", "desc": "Several weeks with seats" },
-      "program": { "title": "Program", "desc": "A long program with seats" },
-      "event": { "title": "Event", "desc": "An event with seats or open" },
-      "service": { "title": "Service", "desc": "A human service for the public" },
-      "resource": { "title": "Resource", "desc": "Equipment or a space" }
+      "workshop": {
+        "title": "Workshop",
+        "desc": "Limited days with seats"
+      },
+      "course": {
+        "title": "Course",
+        "desc": "Several weeks with seats"
+      },
+      "program": {
+        "title": "Program",
+        "desc": "A long program with seats"
+      },
+      "event": {
+        "title": "Event",
+        "desc": "An event with seats or open"
+      },
+      "service": {
+        "title": "Service",
+        "desc": "A human service for the public"
+      },
+      "resource": {
+        "title": "Resource",
+        "desc": "Equipment or a space"
+      }
     },
     "detailsTitle": "Details",
     "titleLabel": "Title",
@@ -230,5 +250,199 @@
       "title": "Publishing to the public is for managers only.",
       "body": "Team members can prepare a draft, and the manager reviews and publishes it."
     }
+  },
+  "khalliKhalesShared": {
+    "expandAria": "Open full details",
+    "filterType": "Type",
+    "filterStatus": "Status",
+    "statusNone": "No requests",
+    "statusAsk": "Will it happen?",
+    "statusDoing": "Happening",
+    "statusDone": "Done",
+    "reslineCount": "<b>{count}</b> in «{label}»",
+    "reslineCountType": "<b>{count}</b> in «{label}» — {type}",
+    "reslineNone": "Nothing in «{label}»",
+    "reslineNoneType": "Nothing in «{label}» — {type}",
+    "emptyHint": "Try another status above.",
+    "actionEdit": "Edit",
+    "actionUnpublish": "Unpublish",
+    "actionDelete": "Delete",
+    "actionAccept": "Accept",
+    "actionReject": "Reject",
+    "actionConversation": "Open conversation",
+    "actionMarkDone": "Done — mark received",
+    "actionReproach": "Reproach",
+    "actionRate": "Rate the experience",
+    "actionAgreement": "See agreement",
+    "actionSeeRating": "See rating",
+    "actionCloseRegistration": "Close registration"
+  },
+  "khalliKhalesPostCreate": {
+    "back": "Back to Khalli Khales",
+    "pageTitle": "Khalli Khales",
+    "pageDesc": "Offer a service · Nadia Kamal",
+    "audienceTitle": "Who do you offer it to?",
+    "audienceSub": "The type decides who sees your offer and who can request it.",
+    "audienceAria": "Service type",
+    "audOrgTitle": "Services for organizations",
+    "audOrgDesc": "Translation, design, photo, tech support, consulting — the organization requests.",
+    "audMemTitle": "Services for team members",
+    "audMemDesc": "Health, legal, education, home help — the individual books for themselves.",
+    "detailsTitle": "Service details",
+    "titleLabel": "Service title",
+    "titlePlaceholder": "A clear sentence — e.g. Arabic ⇄ English translation for cultural materials",
+    "descLabel": "Description",
+    "descPlaceholder": "What exactly do you offer? What does the other side receive?",
+    "descHint": "The first two lines appear on the card while browsing.",
+    "categoryLabel": "Category",
+    "categoryPlaceholder": "Translation · Design · Education",
+    "categoryHint": "One word describing the service type — it shows as a tag on the card.",
+    "availLabel": "Availability",
+    "availAnytime": "Available anytime",
+    "availFixed": "Fixed duration",
+    "amountLabel": "How much?",
+    "amountPlaceholder": "4",
+    "unitAria": "Duration unit",
+    "unitHours": "hours",
+    "unitDays": "days",
+    "unitSessions": "sessions",
+    "fromLabel": "Available from",
+    "fromPlaceholder": "September 1",
+    "toLabel": "until",
+    "toPlaceholder": "September 30",
+    "pricingTitle": "Pricing",
+    "paid": "Paid",
+    "free": "Free",
+    "hoursLabel": "Service hours",
+    "rateLabel": "Hourly rate (1–5 shahmam)",
+    "rateAria": "Hourly rate",
+    "calcLabel": "Service value",
+    "calcFormula": "{count} hours × {rate} shahmam",
+    "vatNote": "+ 14% VAT on exchange value",
+    "guideTitle": "Simplified pricing guide",
+    "guideItems": [
+      "<b>Human service</b> = number of service hours × hourly rate (1 to 5 shahmam).",
+      "<b>Organization services to the public</b> (workshops, courses, programs) = (provider hours × hourly rate) ÷ number of seats.",
+      "The hourly rate is set by the provider between 1 and 5 — these bounds protect the network from overpricing in both directions.",
+      "You can publish <b>for free</b> — it registers at zero value and does not count against your cap."
+    ],
+    "publish": "Publish service",
+    "summary": {
+      "title": "Offer summary",
+      "audienceLabel": "Shown to",
+      "audienceOrg": "Organizations",
+      "audienceMem": "Team members",
+      "requestLabel": "Who can request it",
+      "requestOrg": "Network organizations",
+      "requestMem": "Individuals from their accounts",
+      "valueLabel": "Value"
+    },
+    "note": {
+      "title": "What you earn is spent in Khalli Khales.",
+      "body": "The shahmam you earn from your services can be spent on organization workshops, events and public services."
+    }
+  },
+  "khalliKhalesMyOffersOrg": {
+    "subtitle": "My offers · What your organization offers the public",
+    "typeActivities": "Activities",
+    "typeServices": "Services",
+    "typeResources": "Resources",
+    "statusOpen": "Open for registration",
+    "statusClosed": "Registration closed",
+    "statusFinished": "Finished",
+    "emptyTitle": "No {type} in «{label}»",
+    "actionParticipants": "Participants & attendance",
+    "actionAttendance": "See attendance",
+    "actionAddSeats": "Add seats",
+    "actionReopen": "Reopen registration",
+    "actionSeeRatings": "See ratings",
+    "actionChangeMember": "Change member",
+    "actionMarkDonePlain": "Mark received"
+  },
+  "khalliKhalesParticipants": {
+    "title": "Participants & attendance",
+    "back": "Back to my offers",
+    "activityName": "Podcast workshop for beginners",
+    "activityWhen": "September 12 & 13 · 5–9 PM · Mishkat studio",
+    "activityTag": "Open for registration",
+    "whenRegisteredFourDaysF": "Registered 4 days ago",
+    "whenRegisteredThreeDaysM": "Registered 3 days ago",
+    "whenRegisteredTwoDaysM": "Registered 2 days ago",
+    "whenRegisteredYesterdayF": "Registered yesterday",
+    "whenRegisteredTodayM": "Registered today",
+    "whenRegisteredTodayF": "Registered today",
+    "whenCancelledThreeDaysAgo": "Cancelled 3 days ago",
+    "statRegistered": "Registered",
+    "statOf": "of {count}",
+    "statLeft": "Left",
+    "statSeats": "seats",
+    "statWaitlist": "Waitlist",
+    "statDeadline": "Last day to register",
+    "statDeadlineDate": "September 9",
+    "rosterTitle": "Participants list",
+    "rosterSub": "Mark attendance on the activity day — anyone marked present can rate the experience afterwards, and anyone who misses it gets their allowance back.",
+    "registeredTagF": "Registered",
+    "registeredTagM": "Registered",
+    "waitTagShort": "Waitlist",
+    "waitTagLong": "On the waitlist",
+    "cancelledTag": "Cancelled",
+    "attended": "Attended",
+    "closeTitle": "Registration is still open.",
+    "closeBody": "If you close it now, the waitlist will not get in and the free seats will stay empty.",
+    "closeRegistration": "Close registration"
+  },
+  "khalliKhalesMyAsksOrg": {
+    "subtitle": "My requests · What you asked of the public",
+    "emptyTitle": "No requests in «{label}»",
+    "actionWithdraw": "Withdraw request",
+    "actionChooseProvider": "Choose service provider",
+    "actionSeeReplies": "See replies",
+    "actionChangeWatcher": "Change watcher",
+    "actionMarkDoneGot": "Received — mark done"
+  },
+  "khalliKhalesMyOffers": {
+    "subtitle": "My offers · The services you provide",
+    "filterAudience": "Shown to",
+    "typeOrgs": "Organizations",
+    "typeMembers": "Team members",
+    "emptyTitle": "There is nothing in «{label}»",
+    "actionMarkDoneDelivered": "Delivered — mark received"
+  },
+  "khalliKhalesMyAsks": {
+    "subtitle": "My requests · What you asked of organizations",
+    "typeServices": "Services",
+    "typeResources": "Resources",
+    "allowTitle": "Your monthly allowance",
+    "allowBody": "{count} of {total} left — resets on October 1",
+    "actionCancelRequest": "Cancel request",
+    "actionMarkDoneReceived": "Received — mark done"
+  },
+  "khalliKhalesMyRegistrations": {
+    "subtitle": "My registrations · Workshops, courses, programs and events",
+    "statusRegistered": "Registered",
+    "statusWaitlist": "On the waitlist",
+    "statusAttended": "Attended",
+    "statusCancelled": "Cancelled",
+    "emptyTitle": "No registrations in «{label}»",
+    "actionCancelRegistration": "Cancel registration",
+    "actionLeaveWaitlist": "Leave waitlist",
+    "actionViewActivity": "See activity"
+  },
+  "khalliKhalesHistory": {
+    "subtitle": "My history · Exchanges and activities that finished",
+    "statDone": "Exchanges & activities finished",
+    "statEarned": "Shahmam earned",
+    "statSpent": "Shahmam spent",
+    "statRating": "Your satisfaction index",
+    "ratingMine": "Your rating of them",
+    "ratingTheirs": "Their rating of you",
+    "notRatedMine": "Not rated",
+    "notRatedTheirs": "Not rated",
+    "noComment": "No written comment.",
+    "kindServed": "Service you delivered",
+    "kindRequested": "Service you requested",
+    "kindAttended": "Activity you attended",
+    "kindBorrowed": "Resource you borrowed",
+    "withLabel": "with"
   }
 }

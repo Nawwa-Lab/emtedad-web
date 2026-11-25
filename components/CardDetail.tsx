@@ -28,6 +28,10 @@ export type ServiceDetail = {
   extra?: {
     info: string
     data: string[]
+    cancelRequest?: string
+    markDoneReceived?: string
+    chooseProvider?: string
+    statePill?: string
   }
   providerName: string
   providerRate: string
