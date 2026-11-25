@@ -11,10 +11,6 @@
       "onKhalli": "On Khalli Khales",
       "onAlaesh": "On Alaesh Andak?"
     },
-    "marketCounts": {
-      "human": { "namliya": "8 services", "khalli": "4 services", "alaesh": "2 requests" },
-      "material": { "namliya": "4 resources", "khalli": "1 resource", "alaesh": "1 request" }
-    },
     "marketNotes": {
       "human": {
         "namliya": "Team services available to network organizations.",
@@ -42,13 +38,13 @@
     "mission": "Our mission",
     "publishedOffers": "Published offers",
     "humanServices": "Human services",
-    "humanServicesCount": "14 services — select the title to see all",
+    "humanServicesCount": "{count} services — select the title to see all",
     "materialResources": "Material resources",
-    "materialResourcesCount": "6 resources — select the title to see all",
+    "materialResourcesCount": "{count} resources — select the title to see all",
     "humanServicesTitle": "All human services",
-    "humanServicesDescription": "{name} — 14 human services, sorted by marketplace.",
+    "humanServicesDescription": "{name} — {count} human services, sorted by marketplace.",
     "materialResourcesTitle": "All material resources",
-    "materialResourcesDescription": "{name} — 6 material resources, sorted by marketplace.",
+    "materialResourcesDescription": "{name} — {count} material resources, sorted by marketplace.",
     "satisfactionTitle": "Satisfaction index details",
     "ratedByNetwork": "Rated by {count} network members",
     "team": "Team",
@@ -82,129 +78,26 @@
     "fallbackName": "Emtedad member",
     "fallbackBio": "No bio has been published yet.",
     "servicesTitle": "Services they deliver",
-    "servicesCount": "4 services on Namliya and Khalli Khales",
+    "servicesCount": "{count} services",
     "reviews": "Written reviews",
-    "reviewsCount": "{shown} of {total} reviews"
-  },
-  "member-profile": {
-    "firstCard": {
-      "avatarInitials": "K",
-      "name": "karim Fawzy",
-      "role": "Photographer & Production Manager",
-      "organization": "Sout wa Soura",
-      "completedServices": "20 completed services via the network"
-    },
-    "secondCard": {
-      "bioTitle": "Bio",
-      "bioText": "A storyteller with a camera — I document cultural events from the inside, not from afar. I've worked with theater troupes and art centers for eight years, and I love to deliver the image while it's still hot.",
-      "skillsTitle": "Skills and areas of expertise",
-      "skills": [
-        "Videography",
-        "Lighting",
-        "Production Management",
-        "Photography",
-        "Rough Cut Editing"
-      ]
-    },
-    "thirdCard": {
-      "reviewsTitle": "Written reviews",
-      "review": [
-        {
-          "reviewerInitials": "M",
-          "reviewerName": "Mishkah",
-          "exchangeText": "After exchanging \"Photography & Event Documentation\" ·",
-          "badge": "Amer",
-          "reviewText": "Karim arrived ahead of time and set up the lighting on his own — the material was delivered in two days instead of a week, and with quality exceeding what was agreed upon."
-        },
-        {
-          "reviewerInitials": "H",
-          "reviewerName": "Halaqa",
-          "exchangeText": "After exchanging \"Seminar Coverage\" ·",
-          "badge": "Kareem",
-          "reviewText": "Clean work and complete commitment to the agreement. Communication could have been a bit faster at the beginning, but the delivery made up for everything."
-        },
-        {
-          "reviewerInitials": "S",
-          "reviewerName": "Sarah Hassan",
-          "exchangeText": "After sponsoring the service \"Personal Photoshoot Session\" ·",
-          "badge": "Amer",
-          "reviewText": "He made the session easy and light, and the photos came out natural — first time I feel the camera isn't frowning at me."
-        }
-      ]
-    },
-    "fourthCard": {
-      "title": "Satisfaction Index",
-      "overall": [
-        {
-          "rate": "Amer",
-          "about": "As a service provider",
-          "totalReviews": "Rated by 20 members"
-        },
-        {
-          "rate": "Kareem",
-          "about": "As a service recipient",
-          "totalReviews": "Rated by 7 members"
-        }
-      ]
-    },
-    "fifthCard": {
-      "title": "Organization",
-      "viewProfile": "Organization's public profile"
-    }
-  },
-  "org-profile": {
-    "firstCard": {
-      "avatarInitials": "S",
-      "name": "Sout wa Soura",
-      "role": "Community Studio for Visual and Audio Documentation",
-      "rate": "Satisfaction Index",
-      "rateDes": "Rated by 48 members through completed exchanges"
-    },
-    "secondCard": {
-      "bioTitle": "Mission",
-      "bioText": "Documenting Egyptian cultural practices and providing visual and audio production tools for small organizations and their communities, and training a new generation of storytellers in image and sound.",
-      "skillsTitle": "Areas of Expertise",
-      "skills": ["Photography", "Editing", "Podcast", "Archiving", "Training"]
-    },
-    "thirdCard": {
-      "title": "Published Offers",
-      "link1": "Namliya",
-      "link2": "Khalis",
-      "firstHeader": "Human Services",
-      "secondHeader": "Material Resources"
-    },
-    "fourthCard": {
-      "title": "Information"
-    },
-    "fifthCard": {
-      "title": "Organization",
-      "overall": [
-        {
-          "name": "karim Fawzy",
-          "rate": "Epic",
-          "about": "Videographer & Production Manager"
-        },
-        {
-          "name": "Nour Ali",
-          "rate": "Good",
-          "about": "Editor"
-        },
-        {
-          "name": "Hoda Samir",
-          "rate": "Good",
-          "about": "Podcast Producer"
-        },
-        {
-          "name": "Youssef Adel",
-          "rate": "Acceptable",
-          "about": "Training Coordinator"
-        }
-      ]
-    }
+    "reviewsCount": "{shown} of {total} reviews",
+    "reviewAfter": "After «{title}» · {date}",
+    "noReviews": "No written reviews yet.",
+    "noServices": "No published services yet.",
+    "satisfactionTitle": "Satisfaction index details",
+    "satisfactionSummary": "The overall index is calculated as <b>{providerWeight}</b> of their rating as a service provider and <b>{recipientWeight}</b> as a recipient — rated by {count} network members.",
+    "providerWeight": "90%",
+    "recipientWeight": "10%",
+    "weightsNoteTitle": "Why isn't the weight equal?",
+    "weightsNoteBody": "Because what matters most to the network is the quality of what you deliver over how you act as a requester — but requesting still counts, since both sides are responsible for the exchange.",
+    "viewWrittenReviews": "View written reviews",
+    "asProvider": "As a service provider",
+    "asRecipient": "As a service recipient",
+    "providerEvaluators": "{count} members rated their work",
+    "recipientEvaluators": "{count} members rated their experience as a service recipient",
+    "close": "Close"
   },
   "satisfactionIndex": {
-    "title": "Satisfaction Index — Voice & Vision",
-    "rate": "Rated by 48 members through completed exchanges",
     "dialog": [
       {
         "header": "Human Services",
@@ -221,26 +114,6 @@
         "activities": "Activities & events"
       }
     ],
-    "reviewHeader": "Written reviews",
-    "reviewContent": [
-      {
-        "reviewerName": "Mishkaa",
-        "exchangeText": "After exchanging «Event Coverage» ·",
-        "badge": "Amer",
-        "reviewText": "Punctual and delivered higher quality than expected — they documented three nights of performances as if they were part of the team."
-      },
-      {
-        "reviewerName": "Halaqa",
-        "exchangeText": "After using «Sound Studio» ·",
-        "badge": "Kareem",
-        "reviewText": "The studio is well-equipped and the delivery was on time. We recommend booking early because demand is high."
-      },
-      {
-        "reviewerName": "Sarah Hassan",
-        "exchangeText": "After «Podcast Workshop» ·",
-        "badge": "Amer",
-        "reviewText": "A workshop that changed how I speak — the training was hands-on from day one and the follow-up continued after the workshop."
-      }
-    ]
+    "reviewHeader": "Written reviews"
   }
 }

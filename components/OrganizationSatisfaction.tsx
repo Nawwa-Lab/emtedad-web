@@ -1,7 +1,7 @@
 'use client'
 
 import { satisfactionSections } from '@/app/[lang]/(dashboard)/organization/[id]/data'
-import { StatusBadge, getVariantFromLabel } from '@/components/StatusBadge'
+import { StatusBadge } from '@/components/StatusBadge'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Card, CardContent, CardDescription, CardHeader } from '@/components/ui/card'
 import { formatNumber } from '@/lib/utils/formatter'
@@ -45,7 +45,7 @@ export function OrganizationSatisfaction() {
                 key={label}
                 className="flex items-center border-b-[2.5px] border-dashed border-ink/30 py-3.5 last:border-0"
               >
-                <StatusBadge variant={getVariantFromLabel(label)} label={label} shape="pill" />
+                <StatusBadge label={label} shape="pill" />
                 <span className="mx-4 mb-2 min-w-8 flex-1 border-b-4 border-dotted border-ink/35" />
                 <strong className="min-w-15 text-end font-display text-[42px] leading-none">
                   {formatNumber(count, { locale })}
@@ -72,11 +72,7 @@ export function OrganizationSatisfaction() {
                   <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <strong className="min-w-30 flex-1 font-display text-xl">{review.name}</strong>
-                <StatusBadge
-                  variant={getVariantFromLabel(review.rating)}
-                  label={review.rating}
-                  shape="pill"
-                />
+                <StatusBadge label={review.rating} shape="pill" />
                 <p className="w-full font-body text-[13.5px] font-semibold text-soft">
                   {review.context}
                 </p>

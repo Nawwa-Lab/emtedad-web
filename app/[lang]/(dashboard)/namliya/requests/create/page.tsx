@@ -219,7 +219,7 @@ export default function CreateNamliyaRequestPage() {
                   {t('organizationRole')}
                 </span>
               </div>
-              <StatusBadge label={global('badges.amer')} shape="pill" className="ms-auto" />
+              <StatusBadge label={global('badges.elite')} shape="pill" className="ms-auto" />
             </div>
 
             <div className="font-display text-[22px] leading-[1.35] mt-3.5 mb-4">

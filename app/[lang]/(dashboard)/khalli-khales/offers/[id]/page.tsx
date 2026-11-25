@@ -126,7 +126,7 @@ export default function OfferDetailPage({ params }: { params: Promise<{ id: stri
             satisfaction={{
               title: t('ratingTitle'),
               subtitle: t('ratingSubtitle', { count: offer.ratingCount }),
-              badge: global('badges.amer'),
+              badge: global('badges.elite'),
               dialog: null,
               badgeClassName: 'text-ink!',
             }}

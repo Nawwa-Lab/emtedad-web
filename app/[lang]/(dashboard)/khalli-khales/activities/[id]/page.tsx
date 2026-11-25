@@ -161,7 +161,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ id: s
             satisfaction={{
               title: t('ratingTitle'),
               subtitle: t('ratingSubtitle', { count: activity.ratingCount }),
-              badge: global('badges.amer'),
+              badge: global('badges.elite'),
               href: `${activity.provider.profileHref}/satisfaction`,
               badgeClassName: 'text-ink!',
             }}

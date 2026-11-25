@@ -41,7 +41,7 @@ export default async function SatisfactionPage({
             {t('ratedByNetwork', { count: formatNumber(48, { locale }) })}
           </p>
         </div>
-        <StatusBadge variant="veryGood" label={global('badges.amer')} />
+        <StatusBadge label={global('badges.elite')} />
       </div>
       <section>
         <OrganizationSatisfaction />

@@ -11,6 +11,7 @@ import {
 import { Link } from '@/i18n/navigation'
 import StarIcon from '@/icons/star.svg'
 import { formatNumber } from '@/lib/utils'
+import type { Badge } from '@/services/members/types'
 import { cn } from 'cn'
 import { Maximize2 } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
@@ -24,7 +25,7 @@ export type AlaeshRequestCardData = {
   market: AlaeshMarket
   provider: string
   providerKind: 'organization' | 'member'
-  badge?: 'amer' | 'kareem'
+  badge?: Badge
   replies: number
   value: number
   taxPercent: number
@@ -73,7 +74,7 @@ export function AlaeshRequestCard({
         <Maximize2 className="size-5" strokeWidth={2.6} />
       </button>
 
-      <span className="mb-3.5 w-fit rounded-full border-[2.5px] border-ink bg-blue px-[15px] py-1.25 font-body text-[13px] font-bold text-surface">
+      <span className="mb-3.5 w-fit rounded-full border-[2.5px] border-ink bg-blue px-3.75 py-1.25 font-body text-[13px] font-bold text-surface">
         {t(`requests.${request.id}.category`)}
       </span>
       <h2 className="pe-11 font-display text-[28px]/[1.3] max-[520px]:text-2xl">
