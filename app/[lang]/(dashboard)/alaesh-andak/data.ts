@@ -1,3 +1,5 @@
+import type { Badge } from '@/services/members/types'
+
 export type AlaeshMarket = 'namliya' | 'khalis' | 'public'
 export type AlaeshRequestState = 'open' | 'converted' | 'withdrawn'
 
@@ -6,7 +8,7 @@ export type AlaeshRequest = {
   market: AlaeshMarket
   provider: 'sawt' | 'halaqa' | 'melha' | 'daw' | 'mishkaa' | 'tarek' | 'salma'
   providerKind: 'organization' | 'member'
-  badge?: 'amer' | 'kareem'
+  badge?: Badge
   replies: number
   value: number
   taxPercent: number
@@ -19,7 +21,7 @@ export const browseRequests: AlaeshRequest[] = [
     market: 'namliya',
     provider: 'sawt',
     providerKind: 'organization',
-    badge: 'amer',
+    badge: 'elite',
     replies: 3,
     value: 40,
     taxPercent: 14,
@@ -30,7 +32,7 @@ export const browseRequests: AlaeshRequest[] = [
     market: 'namliya',
     provider: 'halaqa',
     providerKind: 'organization',
-    badge: 'amer',
+    badge: 'elite',
     replies: 1,
     value: 35,
     taxPercent: 14,
@@ -41,7 +43,7 @@ export const browseRequests: AlaeshRequest[] = [
     market: 'namliya',
     provider: 'melha',
     providerKind: 'organization',
-    badge: 'amer',
+    badge: 'elite',
     replies: 0,
     value: 20,
     taxPercent: 14,
@@ -52,7 +54,7 @@ export const browseRequests: AlaeshRequest[] = [
     market: 'namliya',
     provider: 'daw',
     providerKind: 'organization',
-    badge: 'kareem',
+    badge: 'pro',
     replies: 2,
     value: 25,
     taxPercent: 14,
@@ -63,7 +65,7 @@ export const browseRequests: AlaeshRequest[] = [
     market: 'khalis',
     provider: 'mishkaa',
     providerKind: 'organization',
-    badge: 'amer',
+    badge: 'elite',
     replies: 5,
     value: 22,
     taxPercent: 14,
@@ -74,7 +76,7 @@ export const browseRequests: AlaeshRequest[] = [
     market: 'khalis',
     provider: 'sawt',
     providerKind: 'organization',
-    badge: 'amer',
+    badge: 'elite',
     replies: 4,
     value: 18,
     taxPercent: 14,
@@ -85,7 +87,7 @@ export const browseRequests: AlaeshRequest[] = [
     market: 'khalis',
     provider: 'halaqa',
     providerKind: 'organization',
-    badge: 'amer',
+    badge: 'elite',
     replies: 1,
     value: 15,
     taxPercent: 14,

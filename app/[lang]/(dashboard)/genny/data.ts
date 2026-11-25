@@ -1,16 +1,16 @@
 import type { WishCardData, WishSuggestion, WishSupporter } from '@/components/WishCard'
 
 const organizations = [
-  { key: 'sawt', type: 'organization', badge: 'amer' },
-  { key: 'halaqa', type: 'organization', badge: 'amer' },
-  { key: 'melha', type: 'organization', badge: 'amer' },
-  { key: 'daw', type: 'organization', badge: 'kareem' },
-  { key: 'mishkaa', type: 'organization', badge: 'amer' },
+  { key: 'sawt', type: 'organization', badge: 'elite' },
+  { key: 'halaqa', type: 'organization', badge: 'elite' },
+  { key: 'melha', type: 'organization', badge: 'elite' },
+  { key: 'daw', type: 'organization', badge: 'pro' },
+  { key: 'mishkaa', type: 'organization', badge: 'elite' },
 ] as const
 
 const myOrganizations: WishSupporter[] = [
   ...organizations.slice(0, 4),
-  { key: 'taif', type: 'organization', badge: 'amer' },
+  { key: 'taif', type: 'organization', badge: 'elite' },
 ]
 
 export const gennyWishes: WishCardData[] = [

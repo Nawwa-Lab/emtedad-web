@@ -122,8 +122,8 @@
       "karim": "Karim Fawzy"
     },
     "ratings": {
-      "amer": "Amer",
-      "kareem": "Kareem"
+      "elite": "Amer",
+      "pro": "Kareem"
     },
     "tax": "+ {percent}% VAT",
     "price": "{value} {currency}",

@@ -25,7 +25,7 @@ export type SearchOffer = SearchResultBase & {
   type: 'offers'
   kind: 'service' | 'resource'
   provider: Provider
-  rating: 'amer' | 'kareem'
+  rating: 'elite' | 'pro'
   price: number
   taxPercent: number
   href: string
@@ -44,7 +44,7 @@ export type SearchRequest = SearchResultBase & {
 export type SearchOrganization = SearchResultBase & {
   type: 'organizations'
   provider: Provider
-  rating: 'amer' | 'kareem'
+  rating: 'elite' | 'pro'
   href: string
 }
 
@@ -52,7 +52,7 @@ export type SearchMember = SearchResultBase & {
   type: 'members'
   member: 'omar' | 'sara' | 'karim'
   provider: Provider
-  rating: 'amer' | 'kareem'
+  rating: 'elite' | 'pro'
   href: string
 }
 
@@ -73,7 +73,7 @@ export const searchResults: SearchResult[] = [
     keywords: ['تصميم تصوير فيديو فعاليات', 'design video production events'],
     kind: 'service',
     provider: 'sawt-w-soura',
-    rating: 'amer',
+    rating: 'elite',
     price: 35,
     taxPercent: 14,
     factKeys: ['value', 'availability', 'delivery'],
@@ -90,7 +90,7 @@ export const searchResults: SearchResult[] = [
     keywords: ['تصميم هوية مطبوعات فعاليات', 'design identity print events'],
     kind: 'service',
     provider: 'mishkaa',
-    rating: 'amer',
+    rating: 'elite',
     price: 40,
     taxPercent: 14,
     factKeys: ['value', 'duration', 'reviews'],
@@ -104,7 +104,7 @@ export const searchResults: SearchResult[] = [
     keywords: ['تصميم أدلة مطبوعات تعليمية', 'design educational guides print'],
     kind: 'service',
     provider: 'halaqa',
-    rating: 'kareem',
+    rating: 'pro',
     price: 55,
     taxPercent: 14,
     factKeys: ['value', 'availability', 'duration'],
@@ -118,7 +118,7 @@ export const searchResults: SearchResult[] = [
     keywords: ['تصميم تصوير كاميرا معدات', 'design filming cinema camera equipment'],
     kind: 'resource',
     provider: 'sawt-w-soura',
-    rating: 'amer',
+    rating: 'elite',
     price: 30,
     taxPercent: 14,
     factKeys: ['value', 'availability', 'deposit'],
@@ -132,7 +132,7 @@ export const searchResults: SearchResult[] = [
     keywords: ['تصميم سوشيال حملة توعية', 'design social campaign'],
     kind: 'service',
     provider: 'mishkaa',
-    rating: 'amer',
+    rating: 'elite',
     price: 28,
     taxPercent: 14,
     href: '/namliya/service-offers/detail/social-campaign',
@@ -144,7 +144,7 @@ export const searchResults: SearchResult[] = [
     keywords: ['تصميم تقرير سنوي بيانات', 'design annual report data'],
     kind: 'service',
     provider: 'dar-noon',
-    rating: 'kareem',
+    rating: 'pro',
     price: 65,
     taxPercent: 14,
     href: '/namliya/service-offers/detail/annual-report',
@@ -156,7 +156,7 @@ export const searchResults: SearchResult[] = [
     keywords: ['تصميم غلاف بودكاست صوت', 'design podcast cover audio'],
     kind: 'service',
     provider: 'beit-el-hekaya',
-    rating: 'kareem',
+    rating: 'pro',
     price: 22,
     taxPercent: 14,
     href: '/namliya/service-offers/detail/podcast-cover',
@@ -168,7 +168,7 @@ export const searchResults: SearchResult[] = [
     keywords: ['تصميم معرض ستاندات معدات', 'design exhibition display equipment'],
     kind: 'resource',
     provider: 'halaqa',
-    rating: 'amer',
+    rating: 'elite',
     price: 45,
     taxPercent: 14,
     href: '/namliya/resource-offers/detail/exhibition-kit',
@@ -209,7 +209,7 @@ export const searchResults: SearchResult[] = [
     category: 'organization',
     keywords: ['تصميم تعليم مطبوعات حلقة', 'design education print halaqa'],
     provider: 'halaqa',
-    rating: 'amer',
+    rating: 'elite',
     href: '/organization/halaqa',
   },
   {
@@ -218,7 +218,7 @@ export const searchResults: SearchResult[] = [
     category: 'organization',
     keywords: ['تصميم تصوير إنتاج صوت وصورة', 'design filming production sawt soura'],
     provider: 'sawt-w-soura',
-    rating: 'amer',
+    rating: 'elite',
     href: '/organization/sawt-w-soura',
   },
   {
@@ -228,7 +228,7 @@ export const searchResults: SearchResult[] = [
     keywords: ['تصميم بصري عمر السيد', 'visual design omar elsayed'],
     member: 'omar',
     provider: 'mishkaa',
-    rating: 'kareem',
+    rating: 'pro',
     href: '/member/omar-elsayed',
   },
   {
@@ -238,7 +238,7 @@ export const searchResults: SearchResult[] = [
     keywords: ['تصميم سوشيال سارة حسن', 'social design sara hassan'],
     member: 'sara',
     provider: 'halaqa',
-    rating: 'amer',
+    rating: 'elite',
     href: '/member/sara-hassan',
   },
   {
@@ -248,7 +248,7 @@ export const searchResults: SearchResult[] = [
     keywords: ['تصميم موشن كريم فوزي', 'motion design karim fawzy'],
     member: 'karim',
     provider: 'sawt-w-soura',
-    rating: 'amer',
+    rating: 'elite',
     href: '/member/karim-fawzy',
   },
   {

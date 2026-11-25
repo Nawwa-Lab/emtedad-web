@@ -107,7 +107,7 @@ export async function OrganizationProfileHeader({
             {organization.description || t('defaults.description')}
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-3">
-            <StatusBadge label={global('badges.amer')} shape="pill" size="lg" />
+            <StatusBadge label={global('badges.elite')} shape="pill" size="lg" />
             <Link
               href={`${baseHref}/satisfaction`}
               className="border-b-[2.5px] border-red font-body text-[15px] font-bold hover:text-red"

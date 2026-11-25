@@ -122,8 +122,8 @@
       "karim": "كريم فوزي"
     },
     "ratings": {
-      "amer": "عامر",
-      "kareem": "كريم"
+      "elite": "عامر",
+      "pro": "كريم"
     },
     "tax": "+ {percent}٪ ض.ق.م",
     "price": "{value} {currency}",
