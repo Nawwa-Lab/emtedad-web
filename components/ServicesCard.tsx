@@ -1,20 +1,32 @@
 'use client'
-import { useRouter, usePathname } from '@/i18n/navigation'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { MoveDiagonal2, Heart } from 'lucide-react'
-import Image from 'next/image'
-import { useState } from 'react'
-import { StatusBadge } from './StatusBadge'
-import { Button } from './ui/button'
-import { Toggle } from './ui/toggle'
-import { Badge } from './ui/badge'
 import { Dialog, DialogTrigger } from '@/components/ui/dialog'
-import { Card } from './ui/card'
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
-import { CardDetails, type ServiceDetail } from './CardDetail'
+import { Link, usePathname, useRouter } from '@/i18n/navigation'
 import ExpandIcon from '@/icons/expand.svg'
+import StarIcon from '@/icons/star.svg'
+import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from 'cn'
+import { Heart, MoveDiagonal2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
+import { Fragment, useState } from 'react'
+import { CardDetails, type ServiceDetail } from './CardDetail'
+import { StatusBadge } from './StatusBadge'
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+import { Badge } from './ui/badge'
+import { Button, buttonVariants } from './ui/button'
+import { Card } from './ui/card'
+import { Toggle } from './ui/toggle'
+
+/** One run of an info row: plain soft text, bold ink text, a 26px initial avatar, or a `.seal` pill. */
+export type ServiceCardInfoSeg = { text?: string; bold?: boolean; avatar?: string; seal?: string }
+
+/**
+ * A row of the design `.info` block (shown instead of the provider row):
+ * a text run (optionally followed by a seat bar), or a standalone pill.
+ */
+export type ServiceCardInfoRow =
+  | { kind: 'text'; segs: ServiceCardInfoSeg[]; seat?: { pct: string; full?: boolean } }
+  | { kind: 'pill'; text: string; soft?: boolean }
 
 const cardStyles = cva('card', {
   variants: {
@@ -29,12 +41,14 @@ const cardStyles = cva('card', {
 })
 
 const browseCardClass =
-  'p-6! gap-0 min-h-75 rounded-panel shadow-[6px_6px_0_#1A1714] mb-0 hover:-translate-x-0.5 hover:-translate-y-1 hover:rotate-[-0.3deg] hover:shadow-[9px_11px_0_#1A1714]'
+  'p-6! gap-0 rounded-panel shadow-[6px_6px_0_#1A1714] mb-0 hover:-translate-x-0.5 hover:-translate-y-1 hover:rotate-[-0.3deg] hover:shadow-[9px_11px_0_#1A1714]'
 
 export type ServiceCardAction = {
   label: string
-  variant?: 'primary' | 'outline'
+  variant?: 'primary' | 'outline' | 'danger'
   onClick?: () => void
+  /** Renders the action as a link instead of a button. */
+  href?: string
 }
 
 type ServiceCardProps = VariantProps<typeof cardStyles> & {
@@ -62,6 +76,10 @@ type ServiceCardProps = VariantProps<typeof cardStyles> & {
   /** Panel-32 browse layout: price foot + separate acts row under the card. */
   actions?: ServiceCardAction[]
   expandAriaLabel?: string
+  /** Design `.info` rows; rendered instead of the provider row in browse layout. */
+  infoRows?: ServiceCardInfoRow[]
+  /** Design `.statepill`: absolute status pill next to the expand button (panel-43). */
+  statePill?: { label: string; variant?: 'ok' | 'off' }
 }
 
 export function ServiceCard({
@@ -89,6 +107,8 @@ export function ServiceCard({
   note,
   actions,
   expandAriaLabel = 'Expand',
+  infoRows,
+  statePill,
 }: ServiceCardProps) {
   const [internalSaved, setInternalSaved] = useState(defaultSaved)
   const isControlled = saved !== undefined
@@ -111,7 +131,14 @@ export function ServiceCard({
   const providerInitial = Array.from(providerName.trim())[0] ?? '-'
 
   return (
-    <Card animated={animated} className={cn(cardStyles({ variant }), browse && browseCardClass)}>
+    <Card
+      animated={animated}
+      className={cn(
+        cardStyles({ variant }),
+        browse && browseCardClass,
+        browse && !infoRows?.length && 'min-h-75',
+      )}
+    >
       {browse ? (
         <div className="absolute top-3.5 inset-e-3.5 z-10">
           <Dialog>
@@ -174,6 +201,16 @@ export function ServiceCard({
           </Dialog>
         </div>
       )}
+      {browse && statePill && (
+        <span
+          className={cn(
+            'absolute top-3.5 inset-s-16.5 z-2 rounded-full border-[2.5px] border-ink px-3.5 py-1.25 font-body text-[13.5px] font-extrabold',
+            statePill.variant === 'off' ? 'border-dashed bg-surface text-soft' : 'bg-gold text-ink',
+          )}
+        >
+          {statePill.label}
+        </span>
+      )}
       <Badge
         color={resolvedBadgeVariant}
         effect="flat"
@@ -189,32 +226,88 @@ export function ServiceCard({
         {desc}
       </p>
       {browse ? (
-        <div className="mt-3 flex flex-wrap items-center gap-2.25 font-body text-[14.5px] font-semibold text-soft">
-          <Avatar
-            size="sm"
-            shape="round"
-            effect="flat"
-            color="paper"
-            className="size-7.5 border-[2.5px]"
-          >
-            <AvatarImage src="#" />
-            <AvatarFallback className="text-[14px]">{providerInitial}</AvatarFallback>
-          </Avatar>
-          <span className="font-extrabold text-ink">{providerName}</span>
-          {providerRate && (
-            <>
-              <span aria-hidden="true" className="text-soft">
-                ·
-              </span>
-              <StatusBadge
-                shape="pill"
-                label={providerRate}
-                size="default"
-                className={providerBadgeClassName}
-              />
-            </>
-          )}
-        </div>
+        infoRows && infoRows.length > 0 ? (
+          <div className="mt-auto flex flex-col gap-2.25 border-t-[2.5px] border-dashed border-[rgba(26,23,20,0.28)] pt-4">
+            {infoRows.map((row, index) =>
+              row.kind === 'pill' ? (
+                <span
+                  key={index}
+                  className={cn(
+                    'inline-flex items-center gap-2 self-start rounded-full border-[2.5px] border-ink px-3.25 py-1 font-body text-[13px] font-extrabold',
+                    row.soft ? 'border-dashed bg-surface text-soft' : 'bg-red text-surface',
+                  )}
+                >
+                  {row.text}
+                </span>
+              ) : (
+                <span
+                  key={index}
+                  className="flex flex-wrap items-center gap-2.5 font-body text-[14.5px] font-semibold text-soft"
+                >
+                  {row.segs.map((seg, segIndex) =>
+                    seg.avatar ? (
+                      <span
+                        key={segIndex}
+                        className="grid size-6.5 shrink-0 place-items-center rounded-full border-[2.5px] border-ink bg-paper font-display text-[13px] leading-none text-ink"
+                      >
+                        {seg.avatar}
+                      </span>
+                    ) : seg.seal ? (
+                      <span
+                        key={segIndex}
+                        className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-gold py-[3px] pl-2 pr-3.25 font-display text-[15px] text-ink"
+                      >
+                        <Image src={StarIcon} alt="" className="size-[19px]" />
+                        {seg.seal}
+                      </span>
+                    ) : seg.bold ? (
+                      <b key={segIndex} className="font-extrabold text-ink">
+                        {seg.text}
+                      </b>
+                    ) : (
+                      <Fragment key={segIndex}>{seg.text}</Fragment>
+                    ),
+                  )}
+                  {row.seat && (
+                    <span className="mt-1 block h-3.5 w-full overflow-hidden rounded-full border-[2.5px] border-ink bg-paper">
+                      <i
+                        className={cn('block h-full', row.seat.full ? 'bg-red' : 'bg-gold')}
+                        style={{ width: row.seat.pct }}
+                      />
+                    </span>
+                  )}
+                </span>
+              ),
+            )}
+          </div>
+        ) : (
+          <div className="mt-3 flex flex-wrap items-center gap-2.25 font-body text-[14.5px] font-semibold text-soft">
+            <Avatar
+              size="sm"
+              shape="round"
+              effect="flat"
+              color="paper"
+              className="size-7.5 border-[2.5px]"
+            >
+              <AvatarImage src="#" />
+              <AvatarFallback className="text-[14px]">{providerInitial}</AvatarFallback>
+            </Avatar>
+            <span className="font-extrabold text-ink">{providerName}</span>
+            {providerRate && (
+              <>
+                <span aria-hidden="true" className="text-soft">
+                  ·
+                </span>
+                <StatusBadge
+                  shape="pill"
+                  label={providerRate}
+                  size="default"
+                  className={providerBadgeClassName}
+                />
+              </>
+            )}
+          </div>
+        )
       ) : (
         <div className="flex items-center gap-1.75 font-semibold text-[11.5px] text-ink-soft leading-[1.8] font-body">
           {showStatusBadge && (
@@ -252,7 +345,7 @@ export function ServiceCard({
           <span
             className={
               browse
-                ? `font-display leading-none font-feature-['tnum'] ${hideCurrency && hidePriceNote ? 'text-[26px]' : 'text-[34px]'}`
+                ? `font-display leading-none font-features-['tnum'] ${hideCurrency && hidePriceNote ? 'text-[26px]' : 'text-[34px]'}`
                 : "font-extrabold text-[34px] font-features-['tnum'] font-body text-ink"
             }
           >
@@ -300,21 +393,44 @@ export function ServiceCard({
       </div>
       {browse && actions && actions.length > 0 && (
         <div className="mt-3.5 flex flex-wrap gap-2.25">
-          {actions.map((action) => (
-            <Button
-              key={action.label}
-              variant={action.variant ?? 'outline'}
-              size="sm"
-              effect={action.variant === 'primary' ? '3d' : 'flat'}
-              className={cn(
-                'h-auto py-2',
-                action.variant === 'primary' ? 'px-4.5 text-[14.5px]' : 'px-4 text-[14px]',
-              )}
-              onClick={action.onClick}
-            >
-              {action.label}
-            </Button>
-          ))}
+          {actions.map((action) => {
+            const variant = action.variant ?? 'outline'
+            const buttonVariant = variant === 'danger' ? 'destructive' : variant
+            const className = cn(
+              'h-auto py-2',
+              variant === 'primary' ? 'px-4.5 text-[14.5px]' : 'px-4 text-[14px]',
+              // design `.acts .danger:hover` swaps the red border for the ink one
+              variant === 'danger' && 'hover:border-ink',
+            )
+
+            return action.href ? (
+              <Link
+                key={action.label}
+                href={action.href}
+                className={cn(
+                  buttonVariants({
+                    variant: buttonVariant,
+                    size: 'sm',
+                    effect: variant === 'primary' ? '3d' : 'flat',
+                  }),
+                  className,
+                )}
+              >
+                {action.label}
+              </Link>
+            ) : (
+              <Button
+                key={action.label}
+                variant={buttonVariant}
+                size="sm"
+                effect={variant === 'primary' ? '3d' : 'flat'}
+                className={className}
+                onClick={action.onClick}
+              >
+                {action.label}
+              </Button>
+            )
+          })}
         </div>
       )}
     </Card>

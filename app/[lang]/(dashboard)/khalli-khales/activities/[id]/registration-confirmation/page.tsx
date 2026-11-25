@@ -13,8 +13,7 @@ import { ChevronLeft } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { use, useState } from 'react'
-import { findActivity } from '../data'
-import { findRegistration } from './data'
+import { findActivity, findRegistration } from '../../../data'
 
 const ghostStyles =
   'inline-flex items-center justify-center rounded-full border-[2.5px] border-ink bg-surface px-6 py-3.5 font-body text-[16px] font-bold text-ink hover:bg-gold'

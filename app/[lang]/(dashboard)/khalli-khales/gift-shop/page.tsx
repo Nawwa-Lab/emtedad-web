@@ -10,7 +10,7 @@ import { formatNumber } from '@/lib/utils'
 import { ChevronLeft } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { giftShopOffers, totalOffers } from './data'
+import { giftShopOffers, giftShopTotalOffers } from '../data'
 
 export default function GiftShopPage() {
   const t = useTranslations('khalliKhalesGiftShop')
@@ -50,7 +50,7 @@ export default function GiftShopPage() {
           {t('sectionTitle')}
         </h2>
         <span className="ms-auto font-body text-[15px] font-bold text-soft">
-          {t('offersCount', { count: formatNumber(totalOffers, { locale }) })}
+          {t('offersCount', { count: formatNumber(giftShopTotalOffers, { locale }) })}
         </span>
       </div>
 

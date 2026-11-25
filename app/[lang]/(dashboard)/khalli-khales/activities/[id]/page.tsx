@@ -11,7 +11,7 @@ import { ChevronLeft } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { use } from 'react'
-import { findActivity } from './data'
+import { findActivity } from '../../data'
 
 const factLabels = ['price', 'seats', 'date', 'time', 'place', 'deadline'] as const
 

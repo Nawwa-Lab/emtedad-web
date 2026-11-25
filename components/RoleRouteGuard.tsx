@@ -10,7 +10,7 @@ export function RoleRouteGuard({ roles, children }: { roles: Role[]; children: R
   const allowed = Boolean(user && roles.includes(user.role))
 
   useEffect(() => {
-    if (!isLoading && !allowed) router.replace(user ? '/maktab' : '/login')
+    if (!isLoading && !allowed) router.replace(user ? '/unauthorized' : '/login')
   }, [allowed, isLoading, router, user])
 
   return isLoading || !allowed ? null : children

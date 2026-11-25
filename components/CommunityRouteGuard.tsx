@@ -19,7 +19,7 @@ export function CommunityRouteGuard({ children }: { children: React.ReactNode })
   )
 
   useEffect(() => {
-    if (!isLoading && !allowed) router.replace(user ? '/maktab' : '/login')
+    if (!isLoading && !allowed) router.replace(user ? '/unauthorized' : '/login')
   }, [allowed, isLoading, router, user])
 
   return isLoading || !allowed ? null : children
