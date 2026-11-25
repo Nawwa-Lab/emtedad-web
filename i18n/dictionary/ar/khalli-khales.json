@@ -22,7 +22,9 @@
     "capBody": " وينفع الفرد يصرف من شهور جاية لو حابب يحجز حاجة أغلى — الحد ده بيخص أفراد الجمهور، مش مؤسستكم.",
     "previous": "السابق",
     "next": "التالي",
-    "expandAria": "افتح التفاصيل الكاملة"
+    "expandAria": "افتح التفاصيل الكاملة",
+    "link4": "تسجيلاتي",
+    "link5": "تاريخي"
   },
   "khalliKhalesPublicToOrganizations": {
     "title": "خلي خالص",
@@ -160,12 +162,30 @@
     "typeTitle": "بتنشر إيه؟",
     "typeSub": "اختار النوع الأول — كل نوع بيفتح حقول مختلفة، والتسعير بيتغيّر معاه.",
     "types": {
-      "workshop": { "title": "ورشة", "desc": "أيام محدودة بمقاعد" },
-      "course": { "title": "كورس", "desc": "عدة أسابيع بمقاعد" },
-      "program": { "title": "برنامج", "desc": "برنامج طويل بمقاعد" },
-      "event": { "title": "فعالية", "desc": "حدث بمقاعد أو مفتوح" },
-      "service": { "title": "خدمة", "desc": "خدمة بشرية للجمهور" },
-      "resource": { "title": "مورد", "desc": "معدة أو مساحة" }
+      "workshop": {
+        "title": "ورشة",
+        "desc": "أيام محدودة بمقاعد"
+      },
+      "course": {
+        "title": "كورس",
+        "desc": "عدة أسابيع بمقاعد"
+      },
+      "program": {
+        "title": "برنامج",
+        "desc": "برنامج طويل بمقاعد"
+      },
+      "event": {
+        "title": "فعالية",
+        "desc": "حدث بمقاعد أو مفتوح"
+      },
+      "service": {
+        "title": "خدمة",
+        "desc": "خدمة بشرية للجمهور"
+      },
+      "resource": {
+        "title": "مورد",
+        "desc": "معدة أو مساحة"
+      }
     },
     "detailsTitle": "التفاصيل",
     "titleLabel": "العنوان",
@@ -230,5 +250,199 @@
       "title": "النشر للجمهور للمديرين بس.",
       "body": "أعضاء الفريق يقدروا يجهّزوا مسودة، والمدير بيراجعها وينشرها."
     }
+  },
+  "khalliKhalesShared": {
+    "expandAria": "افتح التفاصيل الكاملة",
+    "filterType": "النوع",
+    "filterStatus": "الحالة",
+    "statusNone": "بلا طلبات",
+    "statusAsk": "هتحصل؟",
+    "statusDoing": "بتحصل",
+    "statusDone": "حصلت",
+    "reslineCount": "<b>{count}</b> في «{label}»",
+    "reslineCountType": "<b>{count}</b> في «{label}» — {type}",
+    "reslineNone": "مفيش حاجة في «{label}»",
+    "reslineNoneType": "مفيش حاجة في «{label}» — {type}",
+    "emptyHint": "جرّب حالة تانية من فوق.",
+    "actionEdit": "عدّل",
+    "actionUnpublish": "أوقف النشر",
+    "actionDelete": "احذف",
+    "actionAccept": "اقبل",
+    "actionReject": "ارفض",
+    "actionConversation": "افتح المحادثة",
+    "actionMarkDone": "خلصت — علِّم حصلت",
+    "actionReproach": "عاتب",
+    "actionRate": "قيّم التجربة",
+    "actionAgreement": "شوف الاتفاق",
+    "actionSeeRating": "شوف التقييم",
+    "actionCloseRegistration": "اقفل التسجيل"
+  },
+  "khalliKhalesPostCreate": {
+    "back": "رجوع لخلي خالص",
+    "pageTitle": "خلي خالص",
+    "pageDesc": "اعرض خدمة · نادية كمال",
+    "audienceTitle": "بتعرض الخدمة لمين؟",
+    "audienceSub": "النوع بيحدد مين هيشوف عرضك ومين يقدر يطلبه.",
+    "audienceAria": "نوع الخدمة",
+    "audOrgTitle": "خدمات للمؤسسات",
+    "audOrgDesc": "ترجمة، تصميم، تصوير، دعم تقني، استشارات — المؤسسة هي اللي بتطلب.",
+    "audMemTitle": "خدمات لأعضاء الفرق",
+    "audMemDesc": "صحة، قانون، تعليم، مساعدة منزلية — الفرد هو اللي بيحجز لنفسه.",
+    "detailsTitle": "تفاصيل الخدمة",
+    "titleLabel": "عنوان الخدمة",
+    "titlePlaceholder": "جملة واضحة — مثال: ترجمة عربي ⇄ إنجليزي للمواد الثقافية",
+    "descLabel": "الوصف",
+    "descPlaceholder": "بتقدّم إيه بالظبط؟ وإيه اللي هيستلمه الطرف التاني؟",
+    "descHint": "أول سطرين بيظهرون على البطاقة في التصفح.",
+    "categoryLabel": "الفئة",
+    "categoryPlaceholder": "ترجمة · تصميم · تعليم",
+    "categoryHint": "كلمة واحدة بتوصف نوع الخدمة — بتظهر كوسم على البطاقة.",
+    "availLabel": "الإتاحة",
+    "availAnytime": "متاحة أي وقت",
+    "availFixed": "مدة محددة",
+    "amountLabel": "قدّ إيه؟",
+    "amountPlaceholder": "٤",
+    "unitAria": "وحدة المدة",
+    "unitHours": "ساعات",
+    "unitDays": "أيام",
+    "unitSessions": "جلسات",
+    "fromLabel": "متاحة من",
+    "fromPlaceholder": "١ سبتمبر",
+    "toLabel": "لحد",
+    "toPlaceholder": "٣٠ سبتمبر",
+    "pricingTitle": "التسعير",
+    "paid": "بمقابل",
+    "free": "مجانًا",
+    "hoursLabel": "عدد ساعات الخدمة",
+    "rateLabel": "سعر الساعة (١–٥ شهمهم)",
+    "rateAria": "سعر الساعة",
+    "calcLabel": "قيمة الخدمة",
+    "calcFormula": "{count} ساعة × {rate} شهمهم",
+    "vatNote": "+ ١٤٪ ض.ق.م على قيمة المقايضة",
+    "guideTitle": "دليل التسعير المبسّط",
+    "guideItems": [
+      "<b>الخدمة البشرية</b> = عدد ساعات الخدمة × سعر الساعة (من ١ إلى ٥ شهمهم).",
+      "<b>خدمات المؤسسات للجمهور</b> (ورش، كورسات، برامج) = (ساعات المقدِّمين × سعر الساعة) ÷ عدد المقاعد.",
+      "سعر الساعة بيحدده مقدّم الخدمة بين ١ و٥ — الحدود دي بتحمي الشبكة من المبالغة في الاتجاهين.",
+      "تقدر تنشر <b>مجانًا</b> — بتتسجّل بقيمة صفر وما بتتخصمش من سقفكم."
+    ],
+    "publish": "انشر الخدمة",
+    "summary": {
+      "title": "ملخّص العرض",
+      "audienceLabel": "معروضة على",
+      "audienceOrg": "المؤسسات",
+      "audienceMem": "أعضاء الفرق",
+      "requestLabel": "مين يقدر يطلبها",
+      "requestOrg": "مؤسسات الشبكة",
+      "requestMem": "الأفراد من حساباتهم",
+      "valueLabel": "القيمة"
+    },
+    "note": {
+      "title": "اللي تكسبه بتصرفه في خلي خالص.",
+      "body": "الشهمهم اللي بييجيلك من خدماتك تقدر تصرفه على ورش المؤسسات وفعالياتها وخدماتها للجمهور."
+    }
+  },
+  "khalliKhalesMyOffersOrg": {
+    "subtitle": "عروضي · اللي مؤسستكم معروضاه للجمهور",
+    "typeActivities": "أنشطة",
+    "typeServices": "خدمات",
+    "typeResources": "موارد",
+    "statusOpen": "مفتوح التسجيل",
+    "statusClosed": "التسجيل مقفول",
+    "statusFinished": "تمّت",
+    "emptyTitle": "مفيش {type} في «{label}»",
+    "actionParticipants": "المشاركون والحضور",
+    "actionAttendance": "شوف الحضور",
+    "actionAddSeats": "زوّد المقاعد",
+    "actionReopen": "افتح التسجيل تاني",
+    "actionSeeRatings": "شوف التقييمات",
+    "actionChangeMember": "غيّر العضو",
+    "actionMarkDonePlain": "علِّم حصلت"
+  },
+  "khalliKhalesParticipants": {
+    "title": "المشاركون والحضور",
+    "back": "رجوع لعروضي",
+    "activityName": "ورشة بودكاست للمبتدئين",
+    "activityWhen": "١٢ و١٣ سبتمبر · ٥ — ٩ مساءً · استوديو مشكاة",
+    "activityTag": "مفتوح التسجيل",
+    "whenRegisteredFourDaysF": "سجّلت من ٤ أيام",
+    "whenRegisteredThreeDaysM": "سجّل من ٣ أيام",
+    "whenRegisteredTwoDaysM": "سجّل من يومين",
+    "whenRegisteredYesterdayF": "سجّلت إمبارح",
+    "whenRegisteredTodayM": "سجّل النهارده",
+    "whenRegisteredTodayF": "سجّلت النهارده",
+    "whenCancelledThreeDaysAgo": "ألغى من ٣ أيام",
+    "statRegistered": "المسجَّلون",
+    "statOf": "من {count}",
+    "statLeft": "فاضل",
+    "statSeats": "مقاعد",
+    "statWaitlist": "قائمة الانتظار",
+    "statDeadline": "آخر موعد للتسجيل",
+    "statDeadlineDate": "٩ سبتمبر",
+    "rosterTitle": "قائمة المشاركين",
+    "rosterSub": "علّم الحضور يوم النشاط — اللي هيتعلّم إنه حضر هيقدر يقيّم التجربة بعدها، واللي ما حضرش بيرجع مخصصه.",
+    "registeredTagF": "مسجَّلة",
+    "registeredTagM": "مسجَّل",
+    "waitTagShort": "قائمة انتظار",
+    "waitTagLong": "على قائمة الانتظار",
+    "cancelledTag": "ملغي",
+    "attended": "حضر",
+    "closeTitle": "التسجيل لسه مفتوح.",
+    "closeBody": "لو قفلته دلوقتي، اللي على قائمة الانتظار مش هيدخلوا، والمقاعد الفاضية هتفضل فاضية.",
+    "closeRegistration": "اقفل التسجيل"
+  },
+  "khalliKhalesMyAsksOrg": {
+    "subtitle": "طلباتي · اللي طلبتوه من الجمهور",
+    "emptyTitle": "مفيش طلبات في «{label}»",
+    "actionWithdraw": "اسحب الطلب",
+    "actionChooseProvider": "اختر مقدِّم الخدمة",
+    "actionSeeReplies": "شوف الردود",
+    "actionChangeWatcher": "غيّر المتابع",
+    "actionMarkDoneGot": "استلمنا — علِّم حصلت"
+  },
+  "khalliKhalesMyOffers": {
+    "subtitle": "عروضي · الخدمات اللي بتقدّمها",
+    "filterAudience": "معروضة على",
+    "typeOrgs": "المؤسسات",
+    "typeMembers": "أعضاء الفرق",
+    "emptyTitle": "مفيش حاجة في «{label}»",
+    "actionMarkDoneDelivered": "سلّمت — علِّم حصلت"
+  },
+  "khalliKhalesMyAsks": {
+    "subtitle": "طلباتي · اللي طلبته من المؤسسات",
+    "typeServices": "خدمات",
+    "typeResources": "موارد",
+    "allowTitle": "مخصصك الشهري",
+    "allowBody": "فاضلك {count} من {total} — يتجدد أول أكتوبر",
+    "actionCancelRequest": "ألغِ الطلب",
+    "actionMarkDoneReceived": "استلمت — علِّم حصلت"
+  },
+  "khalliKhalesMyRegistrations": {
+    "subtitle": "تسجيلاتي · الورش والكورسات والبرامج والفعاليات",
+    "statusRegistered": "مسجَّلة",
+    "statusWaitlist": "على قائمة الانتظار",
+    "statusAttended": "حضرتِ",
+    "statusCancelled": "ملغي",
+    "emptyTitle": "مفيش تسجيلات في «{label}»",
+    "actionCancelRegistration": "ألغِ التسجيل",
+    "actionLeaveWaitlist": "اخرج من القائمة",
+    "actionViewActivity": "شوف النشاط"
+  },
+  "khalliKhalesHistory": {
+    "subtitle": "تاريخي · التبادلات والأنشطة اللي خلصت",
+    "statDone": "تبادلات وأنشطة خلصت",
+    "statEarned": "شهمهم كسبتيها",
+    "statSpent": "شهمهم صرفتيها",
+    "statRating": "مؤشر رضاكِ",
+    "ratingMine": "تقييمك ليهم",
+    "ratingTheirs": "تقييمهم ليكِ",
+    "notRatedMine": "ما قيّمتيش",
+    "notRatedTheirs": "ما قيّموكيش",
+    "noComment": "من غير رأي مكتوب.",
+    "kindServed": "خدمة قدّمتيها",
+    "kindRequested": "خدمة طلبتيها",
+    "kindAttended": "نشاط حضرتيه",
+    "kindBorrowed": "مورد استعرتيه",
+    "withLabel": "مع"
   }
 }

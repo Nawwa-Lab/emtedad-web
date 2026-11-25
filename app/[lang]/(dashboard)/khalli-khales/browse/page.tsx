@@ -11,7 +11,7 @@ import { formatNumber } from '@/lib/utils'
 import { ChevronLeft } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { giftShop, publicToMembers, publicToOrganizations, type KhalliKhalesOffer } from './data'
+import { giftShop, publicToMembers, publicToOrganizations, type KhalliKhalesOffer } from '../data'
 
 type SectionKey = 'section1' | 'section2' | 'section3'
 

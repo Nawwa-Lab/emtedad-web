@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { ServiceCard } from '@/components/ServicesCard'
 import { Input } from '@/components/ui/input'
 import { Link } from '@/i18n/navigation'
@@ -11,7 +10,8 @@ import { formatNumber } from '@/lib/utils'
 import { ChevronLeft } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { publicToMembersOffers, totalOffers } from './data'
+import { useState } from 'react'
+import { publicToMembersOffers, publicToMembersTotalOffers } from '../data'
 
 export default function PublicToMembersPage() {
   const t = useTranslations('khalliKhalesPublicToMembers')
@@ -51,7 +51,7 @@ export default function PublicToMembersPage() {
           {t('sectionTitle')}
         </h2>
         <span className="ms-auto font-body text-[15px] font-bold text-soft">
-          {t('offersCount', { count: formatNumber(totalOffers, { locale }) })}
+          {t('offersCount', { count: formatNumber(publicToMembersTotalOffers, { locale }) })}
         </span>
       </div>
 

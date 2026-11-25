@@ -140,7 +140,7 @@ export function WishForm({
               {t('viewBoard')}
             </Link>
             <Link
-              href={family === 'genny' ? '/genny/my-wishes' : '/community/history'}
+              href={family === 'genny' ? '/genny/my-wishes' : '/shbeik-lbeik/my-wishes'}
               className={cn(buttonVariants({ variant: 'outline' }))}
             >
               {t('viewMine')}
