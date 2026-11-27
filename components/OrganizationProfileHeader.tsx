@@ -9,16 +9,13 @@ import { StatusBadge } from './StatusBadge'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 
 type Props = {
-  organization: OrganizationPublicProfile
+  profile: OrganizationPublicProfile
   section?: string
   sectionDescription?: string
 }
 
-export async function OrganizationProfileHeader({
-  organization,
-  section,
-  sectionDescription,
-}: Props) {
+export async function OrganizationProfileHeader({ profile, section, sectionDescription }: Props) {
+  const { organization, satisfaction, satisfactionEvaluatorCount } = profile
   const locale = await getLocale()
   const t = await getTranslations('organizationProfile')
   const global = await getTranslations('global')
@@ -107,12 +104,17 @@ export async function OrganizationProfileHeader({
             {organization.description || t('defaults.description')}
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-3">
-            <StatusBadge label={global('badges.elite')} shape="pill" size="lg" />
+            <StatusBadge
+              badge={satisfaction}
+              label={global(`badges.${satisfaction}`)}
+              shape="pill"
+              size="lg"
+            />
             <Link
               href={`${baseHref}/satisfaction`}
               className="border-b-[2.5px] border-red font-body text-[15px] font-bold hover:text-red"
             >
-              {t('ratingSummary', { count: formatNumber(48, { locale }) })}
+              {t('ratingSummary', { count: formatNumber(satisfactionEvaluatorCount, { locale }) })}
             </Link>
           </div>
         </div>

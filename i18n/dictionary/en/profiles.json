@@ -36,7 +36,6 @@
       "contact": "Contact"
     },
     "mission": "Our mission",
-    "publishedOffers": "Published offers",
     "humanServices": "Human services",
     "humanServicesCount": "{count} services — select the title to see all",
     "materialResources": "Material resources",
@@ -49,7 +48,6 @@
     "ratedByNetwork": "Rated by {count} network members",
     "team": "Team",
     "membersCount": "{count} members",
-    "itemsCount": "{count} items",
     "previous": "Previous",
     "next": "Next",
     "request": "Request",
@@ -68,10 +66,12 @@
     "reviews": "Written reviews",
     "ratingSections": "Rating sections",
     "reviewsCount": "{shown} of {total} reviews",
-    "roles": {
-      "org_admin": "Organization admin",
-      "team_worker": "Team member"
-    }
+    "satisfactionOverall": "Overall rating",
+    "satisfactionCommunity": "Audience",
+    "satisfactionOverallSubtitle": "{count} evaluations across all sections",
+    "satisfactionHumanServicesSubtitle": "{count} evaluations on team services",
+    "satisfactionMaterialResourcesSubtitle": "{count} evaluations on equipment and spaces",
+    "satisfactionCommunitySubtitle": "{count} evaluations from audience members"
   },
   "memberProfile": {
     "back": "Back to {name}'s profile",

@@ -14,6 +14,7 @@ import {
 import ExpandIcon from '@/icons/expand.svg'
 import StarIcon from '@/icons/star.svg'
 import { formatNumber } from '@/lib/utils/formatter'
+import type { Badge } from '@/services/members/types'
 import { cn } from 'cn'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
@@ -67,31 +68,32 @@ export function OrganizationOfferCard({
             <AvatarFallback>{listing.owner.charAt(0)}</AvatarFallback>
           </Avatar>
           <span>{listing.owner}</span>
-          {listing.note && <span>· {listing.note}</span>}
-          {listing.rating && <OfferRatingBadge label={listing.rating} />}
+          {listing.badge && <OfferRatingBadge badge={listing.badge} />}
         </div>
         <CardContent className="mt-3 flex items-end justify-between gap-3 border-t-[2.5px] border-dashed border-ink px-0 pt-4">
-          <div
-            className={
-              inlineVat ? 'flex flex-wrap items-baseline gap-1.25' : 'flex flex-col gap-1.25'
-            }
-          >
-            <span className="flex flex-row items-end gap-1">
-              <span className="font-display text-[34px] leading-none">
-                {formatNumber(listing.price, { locale })}
-              </span>
-              <small className="font-display text-[16px] text-red">{global('currency')}</small>
-            </span>
-            <span
+          {listing.price != null && (
+            <div
               className={
-                inlineVat
-                  ? 'font-body text-[18px] leading-[1.75] text-ink'
-                  : 'font-body text-soft text-[12.5px]/[1.6] font-semibold'
+                inlineVat ? 'flex flex-wrap items-baseline gap-1.25' : 'flex flex-col gap-1.25'
               }
             >
-              {t('vat')}
-            </span>
-          </div>
+              <span className="flex flex-row items-end gap-1">
+                <span className="font-display text-[34px] leading-none">
+                  {formatNumber(listing.price, { locale })}
+                </span>
+                <small className="font-display text-[16px] text-red">{global('currency')}</small>
+              </span>
+              <span
+                className={
+                  inlineVat
+                    ? 'font-body text-[18px] leading-[1.75] text-ink'
+                    : 'font-body text-soft text-[12.5px]/[1.6] font-semibold'
+                }
+              >
+                {t('vat')}
+              </span>
+            </div>
+          )}
           {showAction && <DialogTrigger render={<Button size="sm">{actionLabel}</Button>} />}
         </CardContent>
       </Card>
@@ -117,15 +119,19 @@ export function OrganizationOfferCard({
         <DialogDescription className="mb-0 mt-3.5 text-[17px] leading-8">
           {listing.details?.description ?? listing.description}
         </DialogDescription>
-        <div className="mt-5.5 grid gap-3.5 min-[901px]:grid-cols-3">
-          <DetailFact
-            label={t('details.value')}
-            value={`${formatNumber(listing.price, { locale })} ${global('currency')}`}
-          />
-          {listing.details?.facts.map(([label, value]) => (
-            <DetailFact key={label} label={label} value={value} />
-          ))}
-        </div>
+        {(listing.price != null || listing.details) && (
+          <div className="mt-5.5 grid gap-3.5 min-[901px]:grid-cols-3">
+            {listing.price != null && (
+              <DetailFact
+                label={t('details.value')}
+                value={`${formatNumber(listing.price, { locale })} ${global('currency')}`}
+              />
+            )}
+            {listing.details?.facts.map(([label, value]) => (
+              <DetailFact key={label} label={label} value={value} />
+            ))}
+          </div>
+        )}
         {listing.details && (
           <section className="mt-6">
             <h3 className="mb-2 font-display text-[22px] text-red">
@@ -147,14 +153,18 @@ export function OrganizationOfferCard({
           <h3 className="mb-2 font-display text-[22px] text-red">{t('details.provider')}</h3>
           <div className="mt-1 flex items-center gap-3.5 rounded-card border-[2.5px] border-ink bg-paper px-4.5 py-3.5">
             <Avatar color="gold" effect="flat" className="size-12 shadow-[2px_2px_0_#1A1714]">
+              <AvatarImage
+                src={listing.provider?.logoUrl ?? ''}
+                alt={listing.provider?.name ?? global('organizations.sawt')}
+              />
               <AvatarFallback className="text-[21px]">
-                {global('organizations.sawt').charAt(0)}
+                {(listing.provider?.name ?? global('organizations.sawt')).charAt(0)}
               </AvatarFallback>
             </Avatar>
             <strong className="flex-1 font-display text-[22px] leading-none">
-              {global('organizations.sawt')}
+              {listing.provider?.name ?? global('organizations.sawt')}
             </strong>
-            <OfferRatingBadge label={global('badges.elite')} />
+            <OfferRatingBadge badge={listing.provider?.badge ?? 'elite'} />
           </div>
         </section>
         <div className="mt-6.5 flex flex-wrap gap-3 border-t-3 border-dashed border-ink pt-5">
@@ -192,9 +202,11 @@ function DetailFact({ label, value }: { label: string; value: string }) {
   )
 }
 
-function OfferRatingBadge({ label }: { label: string }) {
-  const isTopRating = label === 'عامر' || label === 'Amer'
-  const isLowestRating = label === 'أحسن عندك' || label === 'Fair'
+function OfferRatingBadge({ badge }: { badge: Badge }) {
+  const global = useTranslations('global')
+  const text = global(`badges.${badge}`)
+  const isTopRating = badge === 'elite'
+  const isLowestRating = badge === 'basic'
 
   return (
     <span
@@ -205,7 +217,7 @@ function OfferRatingBadge({ label }: { label: string }) {
       )}
     >
       <Image src={StarIcon} alt="" className="size-4.75" />
-      {label}
+      {text}
     </span>
   )
 }

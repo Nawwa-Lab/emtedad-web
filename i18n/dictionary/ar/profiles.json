@@ -36,7 +36,6 @@
       "contact": "تواصل"
     },
     "mission": "رسالتنا",
-    "publishedOffers": "عروض منشورة",
     "humanServices": "خدمات بشرية",
     "humanServicesCount": "{count} خدمة — اضغط العنوان تشوفها كلها",
     "materialResources": "موارد مادية",
@@ -49,7 +48,6 @@
     "ratedByNetwork": "قيّمها {count} عضوًا في الشبكة",
     "team": "الفريق",
     "membersCount": "{count} أعضاء",
-    "itemsCount": "{count} عناصر",
     "previous": "السابق",
     "next": "التالي",
     "request": "اطلب",
@@ -68,10 +66,12 @@
     "reviews": "الآراء المكتوبة",
     "ratingSections": "أقسام التقييم",
     "reviewsCount": "{shown} من {total} رأيًا",
-    "roles": {
-      "org_admin": "إدارة المؤسسة",
-      "team_worker": "عضو فريق"
-    }
+    "satisfactionOverall": "التقييم العام",
+    "satisfactionCommunity": "الجمهور",
+    "satisfactionOverallSubtitle": "{count} تقييمًا في كل الأقسام",
+    "satisfactionHumanServicesSubtitle": "{count} تقييمًا على خدمات الفريق",
+    "satisfactionMaterialResourcesSubtitle": "{count} تقييمًا على المعدات والمساحات",
+    "satisfactionCommunitySubtitle": "{count} تقييمًا من أفراد الجمهور"
   },
   "memberProfile": {
     "back": "رجوع لملف {name}",

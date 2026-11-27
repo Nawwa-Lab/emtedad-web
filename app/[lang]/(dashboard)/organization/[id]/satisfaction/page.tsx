@@ -13,7 +13,11 @@ export default async function SatisfactionPage({
   const locale = await getLocale()
   const t = await getTranslations('organizationProfile')
   const global = await getTranslations('global')
-  const organization = await organizationApi.getPublicProfile(id)
+  const [{ data }, details] = await Promise.all([
+    organizationApi.getPublicProfile(id),
+    organizationApi.getSatisfaction(id),
+  ])
+  const { organization, satisfaction, satisfactionEvaluatorCount } = data
   return (
     <div className="w-full pb-10">
       <Link
@@ -38,13 +42,15 @@ export default async function SatisfactionPage({
         <div className="min-w-50 flex-1">
           <h2 className="font-display text-[28px] leading-tight">{organization.legalName}</h2>
           <p className="font-body text-sm font-semibold text-soft">
-            {t('ratedByNetwork', { count: formatNumber(48, { locale }) })}
+            {t('ratedByNetwork', {
+              count: formatNumber(satisfactionEvaluatorCount, { locale }),
+            })}
           </p>
         </div>
-        <StatusBadge label={global('badges.elite')} />
+        <StatusBadge badge={satisfaction} label={global(`badges.${satisfaction}`)} />
       </div>
       <section>
-        <OrganizationSatisfaction />
+        <OrganizationSatisfaction satisfaction={details} />
       </section>
     </div>
   )
