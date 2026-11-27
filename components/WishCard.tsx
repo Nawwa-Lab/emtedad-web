@@ -268,10 +268,14 @@ function SupportersDialog({
     const profiles = await Promise.all(
       endorsers.map(async (endorser) => {
         if (endorser.actorType === 'organization') {
-          const profile = await request<{ legalName?: string }>(
-            `/api/v1/organizations/${encodeURIComponent(endorser.actorId)}/public`,
-          )
-          return { key: endorser.actorId, type: 'organization' as const, name: profile.legalName }
+          const { data } = await request<{
+            data: { organization: { legalName?: string } }
+          }>(`/api/v1/organizations/${encodeURIComponent(endorser.actorId)}`)
+          return {
+            key: endorser.actorId,
+            type: 'organization' as const,
+            name: data.organization.legalName,
+          }
         }
         const profile = await request<MemberPublicProfile>(
           `/api/v1/users/${encodeURIComponent(endorser.actorId)}`,

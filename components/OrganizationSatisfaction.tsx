@@ -1,23 +1,74 @@
 'use client'
 
-import { satisfactionSections } from '@/app/[lang]/(dashboard)/organization/[id]/data'
 import { StatusBadge } from '@/components/StatusBadge'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card, CardContent, CardDescription, CardHeader } from '@/components/ui/card'
 import { formatNumber } from '@/lib/utils/formatter'
+import type { BadgeCounts } from '@/services/members/types'
+import type { OrganizationSatisfactionDetails } from '@/services/organizations/types'
 import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
-export function OrganizationSatisfaction() {
+type Section = {
+  title: string
+  subtitle: string
+  counts: BadgeCounts
+}
+
+export function OrganizationSatisfaction({
+  satisfaction,
+}: {
+  satisfaction: OrganizationSatisfactionDetails
+}) {
   const [activeIndex, setActiveIndex] = useState(0)
   const locale = useLocale()
   const t = useTranslations('organizationProfile')
-  const section = satisfactionSections[activeIndex]
+  const global = useTranslations('global')
+  const reviews = satisfaction.reviews.items
+
+  const sections: Section[] = [
+    {
+      title: t('satisfactionOverall'),
+      subtitle: t('satisfactionOverallSubtitle', {
+        count: formatNumber(satisfaction.all.evaluationCount, { locale }),
+      }),
+      counts: satisfaction.all.counts,
+    },
+    {
+      title: t('humanServices'),
+      subtitle: t('satisfactionHumanServicesSubtitle', {
+        count: formatNumber(satisfaction.humanServices.evaluationCount, { locale }),
+      }),
+      counts: satisfaction.humanServices.counts,
+    },
+    {
+      title: t('materialResources'),
+      subtitle: t('satisfactionMaterialResourcesSubtitle', {
+        count: formatNumber(satisfaction.materialResources.evaluationCount, { locale }),
+      }),
+      counts: satisfaction.materialResources.counts,
+    },
+    {
+      title: t('satisfactionCommunity'),
+      subtitle: t('satisfactionCommunitySubtitle', {
+        count: formatNumber(satisfaction.community.evaluationCount, { locale }),
+      }),
+      counts: satisfaction.community.counts,
+    },
+  ]
+  const section = sections[activeIndex]
+
+  const formatReviewDate = (value: string) =>
+    new Intl.DateTimeFormat(locale === 'ar' ? 'ar-EG' : 'en-US', {
+      day: 'numeric',
+      month: 'long',
+      timeZone: 'UTC',
+    }).format(new Date(value))
 
   return (
     <div>
       <div className="mb-6 flex flex-wrap gap-2.5" role="tablist" aria-label={t('ratingSections')}>
-        {satisfactionSections.map((item, index) => (
+        {sections.map((item, index) => (
           <button
             key={item.title}
             type="button"
@@ -40,15 +91,15 @@ export function OrganizationSatisfaction() {
             <p className="font-body text-sm font-semibold text-soft">{section.subtitle}</p>
           </div>
           <div>
-            {section.counts.map(([label, count]) => (
+            {(['basic', 'pro', 'elite'] as const).map((badge) => (
               <div
-                key={label}
+                key={badge}
                 className="flex items-center border-b-[2.5px] border-dashed border-ink/30 py-3.5 last:border-0"
               >
-                <StatusBadge label={label} shape="pill" />
+                <StatusBadge badge={badge} label={global(`badges.${badge}`)} shape="pill" />
                 <span className="mx-4 mb-2 min-w-8 flex-1 border-b-4 border-dotted border-ink/35" />
                 <strong className="min-w-15 text-end font-display text-[42px] leading-none">
-                  {formatNumber(count, { locale })}
+                  {formatNumber(section.counts[badge], { locale })}
                 </strong>
               </div>
             ))}
@@ -59,30 +110,37 @@ export function OrganizationSatisfaction() {
           <h2 className="font-display text-3xl">{t('reviews')}</h2>
           <span className="font-body text-sm font-semibold text-soft">
             {t('reviewsCount', {
-              shown: formatNumber(section.reviews.length, { locale }),
-              total: formatNumber(section.totalReviews, { locale }),
+              shown: formatNumber(reviews.length, { locale }),
+              total: formatNumber(satisfaction.reviews.total, { locale }),
             })}
           </span>
         </div>
         <div className="grid gap-5 md:grid-cols-2">
-          {section.reviews.map((review) => (
-            <Card key={`${review.name}-${review.context}`} className="p-6">
+          {reviews.map((review) => (
+            <Card key={review.reviewId} className="p-6">
               <CardContent className="flex flex-wrap items-center gap-3 px-0">
                 <Avatar className="size-11 bg-gold">
-                  <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
+                  <AvatarImage
+                    src={review.profilePhotoUrl ?? review.logoUrl ?? ''}
+                    alt={review.evaluatorName}
+                  />
+                  <AvatarFallback>{review.evaluatorName.charAt(0)}</AvatarFallback>
                 </Avatar>
-                <strong className="min-w-30 flex-1 font-display text-xl">{review.name}</strong>
-                <StatusBadge label={review.rating} shape="pill" />
+                <strong className="min-w-30 flex-1 font-display text-xl">
+                  {review.evaluatorName}
+                </strong>
+                <StatusBadge
+                  badge={review.badge}
+                  label={global(`badges.${review.badge}`)}
+                  shape="pill"
+                />
                 <p className="w-full font-body text-[13.5px] font-semibold text-soft">
-                  {review.context}
+                  {formatReviewDate(review.createdAt)}
                 </p>
               </CardContent>
               <CardDescription className="mb-0 mt-3 text-[16.5px] leading-8 text-ink">
-                {review.text}
+                {review.content}
               </CardDescription>
-              <p className="mt-3 border-t-[2.5px] border-dashed border-ink/30 pt-3 font-body text-sm font-semibold text-soft">
-                {review.source}
-              </p>
             </Card>
           ))}
         </div>
